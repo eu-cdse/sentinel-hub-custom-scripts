@@ -1,0 +1,186 @@
+ [
+  {
+  "sentinel-2-l1c": [
+    {
+      "Title": "True Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/true_color/script.js"
+    },
+    {
+      "Title": "False color",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/false_color_infrared/script.js"
+    },
+    {
+      "Title": "SWIR",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/swir-rgb/script.js"
+    },
+    {
+      "Title": "False Color Urban",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/false-color-urban-rgb/script.js"
+    },
+    {
+      "Title": "NDVI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/script.js"
+    },
+    {
+      "Title": "NDMI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndmi/script.js"
+    },
+    {
+      "Title": "NDWI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndwi/script.js"
+    },
+    {
+      "Title": "NDSI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndsi-visualized/script.js"
+    }
+  ]
+},
+{
+  "sentinel-2-l2a": [
+    {
+      "Title": "True Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/true_color/script.js"
+    },
+    {
+      "Title": "False color",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/false_color_infrared/script.js"
+    },
+    {
+      "Title": "SWIR",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/swir-rgb/script.js"
+    },
+    {
+      "Title": "False Color Urban",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/false-color-urban-rgb/script.js"
+    },
+    {
+      "Title": "NDVI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/script.js"
+    },
+    {
+      "Title": "NDMI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndmi/script.js"
+    },
+    {
+      "Title": "NDWI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndwi/script.js"
+    },
+    {
+      "Title": "NDSI",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndsi-visualized/script.js"
+    },
+    {
+      "Title": "Scene Classification",
+      "URL": "https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/scene-classification/script.js"
+    }
+  ]
+},
+{
+  "sentinel-1-grd": [
+    {
+      "Title": "SAR urban",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-1/urban_areas/script.js"
+    },
+    {
+      "Title": "Enhanced visualization",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-1/sar_false_color_visualization-2/script.js"
+    }
+  ]
+},
+{
+  "sentinel-3-olci": [
+    {
+      "Title": "True color - enhanced",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-3/enhanced_true_color-2/script.js"
+    },
+    {
+      "Title": "True color - higlight optimized",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-3/true_color_highlight_optimized/script.js"
+    },
+   {
+      "Title": "OTCI",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-3/otci/script.js"
+    },
+    {
+      "Title": "Tristimulus",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel-3/tristimulus/script.js"
+    }
+  ]
+},
+{
+  "sentinel-3-slstr": [
+    {
+      "Title": "False Color based on bands S3, S2, and S1",
+      "URL": "https://custom-scripts.sentinel-hub.com/slstr/false-color-321/script.js"
+    },
+    {
+      "Title": "F1 Brightness Temperature",
+      "URL": "https://custom-scripts.sentinel-hub.com/slstr/f1-brightness-temperature/script.js"
+    }
+  ]
+},
+{
+  "dem": [
+    {
+      "Title": "Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/dem/dem-color/script.js"
+    },
+    {
+      "Title": "Grayscale",
+      "URL": "https://custom-scripts.sentinel-hub.com/dem/dem-grayscale/script.js"
+    },
+    {
+      "Title": "Sepia",
+      "URL": "https://custom-scripts.sentinel-hub.com/dem/dem-sepia/script.js"
+    }
+  ]
+},
+{
+  "global-land-cover": [
+    {
+      "Title": "Discrete Classification Map",
+      "URL": "https://custom-scripts.sentinel-hub.com/copernicus_services/global_land_cover/script.js"
+    }
+  ]
+},
+{
+  "water-bodies": [
+    {
+      "Title": "Water Bodies",
+      "URL": "https://custom-scripts.sentinel-hub.com/copernicus_services/water-bodies/script.js"
+    },
+   {
+      "Title": "Water Bodies Occurrence",
+      "URL": "https://custom-scripts.sentinel-hub.com/copernicus_services/water-bodies-occurence/script.js"
+    }
+  ]
+},
+{
+  "sentinel-2-120m-mosaic": [
+    {
+      "Title": "True Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/true-color/script.js"
+    },
+   {
+      "Title": "False Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/false-color/script.js"
+    },
+    {
+      "Title": "Highlight Optimized Natural Color",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/highlight-optimized/script.js"
+    },
+    {
+      "Title": "NDVI",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/ndvi/script.js"
+    },
+    {
+      "Title": "NDMI",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/ndmi/script.js"
+    },
+    {
+      "Title": "NDWI",
+      "URL": "https://custom-scripts.sentinel-hub.com/sentinel2-120m-mosaic/ndwi/script.js"
+    }
+  ]
+}
+]
