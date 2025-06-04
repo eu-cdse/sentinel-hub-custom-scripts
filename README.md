@@ -10,7 +10,7 @@ See [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalsc
 
 ## Contribute to Custom Scripts
 
-Have a look at the [template](./example) for an example of how a script folder can be structured.
+Have a look at the [template](./contribute/example) for an example of how a script folder can be structured.
 
 You can also have a look at other scripts to see how they are structured.
 
