@@ -2,6 +2,13 @@
 
 [Copernicus Browser link]()
 
+## Scripts
+
+| Script                                                     | Short description |
+| ---------------------------------------------------------- | ----------------- |
+| [Agricultural Growth Stage](./scripts/script.js)           | Describe here     |
+| [Quarterly mosaic version](./scripts/quarterly_mosaics.js) | Describe here     |
+
 ## Author of the script
 
 [@HarelDan](https://github.com/hareldunn/GIS_Repo/blob/master/Multi-Temporal%20NDVI%20for%20Sentinel%20Hub%20Custom%20Scripts)
@@ -17,8 +24,7 @@ A simple stretching is applied to NDVI between 0.1 and 0.7 by default, then the 
 - how dense and/or vigorous the vegetation is, represented by the brightness of the color from black (no vegetation at all) to white (dense green vegetation all year), with various shades of color in between
 - when the vegetation peak happens and how distinct it is. Vegetation with a single very distict peak will be one of the primary colors (Red, Green, Blue) while vegetation with a longer, more even growth season will be yellow (between Red and Green) or cyan (between Green and Blue). Purple color may indicate two vegetation peaks, one in the first month and another in the last, with a dry period or grassland mowing in between.
 
-The adaptation for Sentinel-2 Quarterly Cloudless mosaics also visualizes multi-temporal NDVI trends in Sentinel-2 imagery, but over an even longer timeframe as each mosaic dataset covers 3 months. It uses the NDVI values from three mosaics: the latest mosaic in the provided time interval, the mosaic from the previous quarter and the mosaic two quarters before the last. This means that the script will integrate information over a period of 9 months, typically a full growing season The NDVI values are similarly stretched between 0.1 and 0.7.
-Again, the color shades represent
+The adaptation for Sentinel-2 Quarterly Cloudless mosaics also visualizes multi-temporal NDVI trends in Sentinel-2 imagery, but over an even longer timeframe as each mosaic dataset covers 3 months. It uses the NDVI values from three mosaics: the latest mosaic in the provided time interval, the mosaic from the previous quarter and the mosaic two quarters before the last. This means that the script will integrate information over a period of 9 months, typically a full growing season The NDVI values are similarly stretched between 0.1 and 0.7. Again, the color shades represent:
 
 - how dense or vigorous the vegetation is, represented by the intensity of the color (bright colors or white for dense, healthy vegetation)
 - when the vegetation peak happens and how distinct it is, on a timescale of several months.
@@ -37,7 +43,7 @@ Again, the color shades represent
 
 The Agricultural growth stage script applied to the agricultural fields of Italy (Veneto).
 
-![The Agricultural growth stage script applied to agricultural fields of Italy.](fig/fig1.jpg)
+![The Agricultural growth stage script applied to agricultural fields of Italy.](figs/fig1.jpg)
 
 ## References
 
