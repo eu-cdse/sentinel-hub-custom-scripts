@@ -2,6 +2,14 @@
 
 [Copernicus Browser link]()
 
+## Scripts
+
+| Script                                     | Short description                                                                 |
+| ------------------------------------------ | --------------------------------------------------------------------------------- |
+| [Visualisation](./scripts/script.js)       | Visualisation script for streaming the data in application using a WMS or similar |
+| [Raw](./scripts/raw.js)                    | Classified majority class values                                                  |
+| [Raw Probabilities](./scripts/raw_prob.js) | Probabilities of each class from 0-100                                            |
+
 ## General description of the script
 
 This script provides a LightGBM classification which classifies pixels into different forest disturbance classes.
@@ -69,21 +77,21 @@ For analytic use there are two other scripts available ([Raw](./scripts/raw.js) 
 
 ## Description of representative images
 
-| !['Clear cut'](fig/logging-b.png) | !['Clear cut classified'](fig/logging-a.png) |
-| :-------------------------------: | :------------------------------------------: |
-|     Clear cut area in Sweden      |             [Explore in CDSE]()              |
+| !['Clear cut'](figs/logging-b.png) | !['Clear cut classified'](figs/logging-a.png) |
+| :--------------------------------: | :-------------------------------------------: |
+|      Clear cut area in Sweden      |              [Explore in CDSE]()              |
 
-| !['Bark Beetle'](fig/bark-beetle-b.png) | !['Bark Beetle classified'](fig/bark-beetle-a.png) |
-| :-------------------------------------: | :------------------------------------------------: |
-|       Bark Beetle area in Poland        |                [Explore in CDSE]()                 |
+| !['Bark Beetle'](figs/bark-beetle-b.png) | !['Bark Beetle classified'](figs/bark-beetle-a.png) |
+| :--------------------------------------: | :-------------------------------------------------: |
+|        Bark Beetle area in Poland        |                 [Explore in CDSE]()                 |
 
-|    !['Windthrow'](fig/wind-b.png)    | !['Windthrow classified'](fig/wind-a.png) |
-| :----------------------------------: | :---------------------------------------: |
-| Windthrow area in Italy (Storm Vaia) |            [Explore in CDSE]()            |
+|   !['Windthrow'](figs/wind-b.png)    | !['Windthrow classified'](figs/wind-a.png) |
+| :----------------------------------: | :----------------------------------------: |
+| Windthrow area in Italy (Storm Vaia) |            [Explore in CDSE]()             |
 
-| !['Wildfire'](fig/wildfire-b.png) | !['Wildfire classified'](fig/wildfire-a.png) |
-| :-------------------------------: | :------------------------------------------: |
-|      Wildfire area in Spain       |             [Explore in CDSE]()              |
+| !['Wildfire'](figs/wildfire-b.png) | !['Wildfire classified'](figs/wildfire-a.png) |
+| :--------------------------------: | :-------------------------------------------: |
+|       Wildfire area in Spain       |              [Explore in CDSE]()              |
 
 ## Author of the script
 
