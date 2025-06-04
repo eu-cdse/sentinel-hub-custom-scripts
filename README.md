@@ -1,4 +1,4 @@
-# Copernicus Data Space Ecosystem Sentinel Hub Custom Script Repository
+# Copernicus Data Space Ecosystem Sentinel Hub Custom Scripts Repository
 
 ![Examples of visualizations](./assets/images/custom-scripts-examples.jpg)
 
