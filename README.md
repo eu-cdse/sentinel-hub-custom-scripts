@@ -14,7 +14,7 @@ Have a look at the [template](./contribute/example) for an example of how a scri
 
 You can also have a look at other scripts to see how they are structured.
 
-For instructions on how custom scripts are structured have a look at this [YouTube tutorial](https://www.youtube.com/watch?v=0OySOAL9lY4), or at the [official documenation](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html).
+For instructions on how custom scripts are structured have a look at this [YouTube tutorial](https://www.youtube.com/watch?v=0OySOAL9lY4), or at the [official documentation](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html).
 
 ## How to publish your own product
 
