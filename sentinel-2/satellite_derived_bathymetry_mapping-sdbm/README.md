@@ -2,6 +2,12 @@
 
 [Copernicus Browser link]()
 
+## Scripts
+
+| Script                        | Short description                                            |
+| ----------------------------- | ------------------------------------------------------------ |
+| [Script](./scripts/script.js) | Visualisation script for pseudo Satellite Derived Bathymetry |
+
 ## General description of the script
 
 Bathymetry data is needed for research in global processes in water (heat, salt, nutrients, pollutants transfer), undersea seismic events, navigation, commerce, marine habitats, disasters prevention and management (modelling tsunami, wave height estimation), risk assessment [11]. There are various methods to obtain bathymetry, from high-cost sonar measurements, special LIDAR which penetrates water column, time consuming in-situ measurements, to cost-effective and relatively fast Satellite Derived Bathymetry (SDB). Latter of course might not produce as accurate results as methods with sonar. Nevertheless, it provides effective evaluation of bathymetry in shallow waters. SDB is usually effective up to 20 meters, sometimes even 25 meters. There was already extensive research on topic of Satellite Derived Bathymetry [1,2,6,7,10,11]. Satellite Derived Bathymetry (SDB) method is therefore implemented in this script.
