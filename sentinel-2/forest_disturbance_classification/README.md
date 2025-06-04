@@ -1,3 +1,7 @@
+# Forest Disturbance Classification
+
+[Copernicus Browser link]()
+
 ## General description of the script
 
 This script provides a LightGBM classification which classifies pixels into different forest disturbance classes.
@@ -58,28 +62,28 @@ Although the full model did perform reasonably well in accuracy testing (Macro F
 
 ### Types of scripts
 
-There are three scripts available. [One for visualization](./script.js), this can be used when streaming the data in application using a WMS or similar.
+There are three scripts available. [One for visualization](./scripts/script.js), this can be used when streaming the data in application using a WMS or similar.
 The visualization script has some optimizations for quicker visualization (e.g. early stopping once the majority class is detected). By default the visualization script also only shows disturbed areas and returns transparent pixels for everything it classifies as healthy forest.
 
-For analytic use there are two other scripts available ([Raw](./raw.js) and [Raw Probabilities](./raw_prob.js)). One just returns the classified majority class, the other returns the probabilities of each class from 0-100.
+For analytic use there are two other scripts available ([Raw](./scripts/raw.js) and [Raw Probabilities](./scripts/raw_prob.js)). One just returns the classified majority class, the other returns the probabilities of each class from 0-100.
 
 ## Description of representative images
 
-| !['Clear cut'](fig/logging-b.png) |         !['Clear cut classified'](fig/logging-a.png)         |
-| :-------------------------------: | :----------------------------------------------------------: |
-|     Clear cut area in Sweden      | [Explore in CDSE](https://link.dataspace.copernicus.eu/v5c2) |
+| !['Clear cut'](fig/logging-b.png) | !['Clear cut classified'](fig/logging-a.png) |
+| :-------------------------------: | :------------------------------------------: |
+|     Clear cut area in Sweden      |             [Explore in CDSE]()              |
 
-| !['Bark Beetle'](fig/bark-beetle-b.png) |      !['Bark Beetle classified'](fig/bark-beetle-a.png)      |
-| :-------------------------------------: | :----------------------------------------------------------: |
-|       Bark Beetle area in Poland        | [Explore in CDSE](https://link.dataspace.copernicus.eu/1mb0) |
+| !['Bark Beetle'](fig/bark-beetle-b.png) | !['Bark Beetle classified'](fig/bark-beetle-a.png) |
+| :-------------------------------------: | :------------------------------------------------: |
+|       Bark Beetle area in Poland        |                [Explore in CDSE]()                 |
 
-|    !['Windthrow'](fig/wind-b.png)    |          !['Windthrow classified'](fig/wind-a.png)           |
-| :----------------------------------: | :----------------------------------------------------------: |
-| Windthrow area in Italy (Storm Vaia) | [Explore in CDSE](https://link.dataspace.copernicus.eu/gjpr) |
+|    !['Windthrow'](fig/wind-b.png)    | !['Windthrow classified'](fig/wind-a.png) |
+| :----------------------------------: | :---------------------------------------: |
+| Windthrow area in Italy (Storm Vaia) |            [Explore in CDSE]()            |
 
-| !['Wildfire'](fig/wildfire-b.png) |         !['Wildfire classified'](fig/wildfire-a.png)         |
-| :-------------------------------: | :----------------------------------------------------------: |
-|      Wildfire area in Spain       | [Explore in CDSE](https://link.dataspace.copernicus.eu/f3va) |
+| !['Wildfire'](fig/wildfire-b.png) | !['Wildfire classified'](fig/wildfire-a.png) |
+| :-------------------------------: | :------------------------------------------: |
+|      Wildfire area in Spain       |             [Explore in CDSE]()              |
 
 ## Author of the script
 
