@@ -1,6 +1,6 @@
 # Satellite Derived Bathymetry Mapping - SDBM Script
 
-[Copernicus Browser link]()
+[Copernicus Browser link](https://link.dataspace.copernicus.eu/va33)
 
 ## Scripts
 

@@ -1,13 +1,13 @@
 # Agriculture Growth Stage
 
-[Copernicus Browser link]()
+[Copernicus Browser link](https://link.dataspace.copernicus.eu/kqa8)
 
 ## Scripts
 
-| Script                                                     | Short description |
-| ---------------------------------------------------------- | ----------------- |
-| [Agricultural Growth Stage](./scripts/script.js)           | Describe here     |
-| [Quarterly mosaic version](./scripts/quarterly_mosaics.js) | Describe here     |
+| Script                                                     | Short description                                                                                                       |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [Agricultural Growth Stage](./scripts/script.js)           | A time series analysis script showing when the local NDVI peak occurred within 3 months                                 |
+| [Quarterly mosaic version](./scripts/quarterly_mosaics.js) | A time series analysis script working on Sentinel-2 mosaics, showing the timing of the vegetation peak within 10 months |
 
 ## Author of the script
 

@@ -17,63 +17,72 @@ Script requires multi-temporal processing so parameter TEMPORAL=true should be a
 //  If it is longer, the algorithm will use only the last 9 months
 
 function setup() {
-    return {
-        input: [
-            {
-                bands: ["B04", "B08"],
-            },
-        ],
-        output: { bands: 3 },
-        mosaicking: "ORBIT",
-    };
+  return {
+    input: [
+      {
+        bands: ["B04", "B08"],
+      },
+    ],
+    output: { bands: 3 },
+    mosaicking: "ORBIT",
+  };
 }
 
 function calcNDVI(sample) {
-    var denom = sample.B04 + sample.B08;
-    return denom != 0 ? (sample.B08 - sample.B04) / denom : 0.0;
+  var denom = sample.B04 + sample.B08;
+  return denom != 0 ? (sample.B08 - sample.B04) / denom : 0.0;
 }
 
 function evaluatePixel(samples, scenes) {
-    var ndvi1 = 0; // NDVI for the oldest quarter
-    var ndvi2 = 0; // NDVI for the middle quarter
-    var ndvi3 = 0; // NDVI for the most recent quarter
+  var ndvi1 = 0; // NDVI for the oldest quarter
+  var ndvi2 = 0; // NDVI for the middle quarter
+  var ndvi3 = 0; // NDVI for the most recent quarter
 
-    // Get the quarter of the most recent scene
-    var endQuarter = Math.floor(scenes[0].date.getMonth() / 3);
+  // Get the quarter of the most recent scene
+  var endQuarter = Math.floor(scenes[0].date.getMonth() / 3);
 
-    for (var i = 0; i < samples.length; i++) {
-        var ndvi = calcNDVI(samples[i]);
-        var sceneQuarter = Math.floor(scenes[i].date.getMonth() / 3);
+  for (var i = 0; i < samples.length; i++) {
+    var ndvi = calcNDVI(samples[i]);
+    var sceneQuarter = Math.floor(scenes[i].date.getMonth() / 3);
 
-        if (sceneQuarter == endQuarter) {
-            ndvi3 = ndvi; // Most recent quarter
-        } else if (sceneQuarter == endQuarter - 1 || (endQuarter == 0 && sceneQuarter == 3)) {
-            ndvi2 = ndvi; // Middle quarter
-        } else if (sceneQuarter == endQuarter - 2 || (endQuarter == 0 && sceneQuarter == 2) || (endQuarter == 1 && sceneQuarter == 3)) {
-            ndvi1 = ndvi; // Oldest quarter
-        }
+    if (sceneQuarter == endQuarter) {
+      ndvi3 = ndvi; // Most recent quarter
+    } else if (
+      sceneQuarter == endQuarter - 1 ||
+      (endQuarter == 0 && sceneQuarter == 3)
+    ) {
+      ndvi2 = ndvi; // Middle quarter
+    } else if (
+      sceneQuarter == endQuarter - 2 ||
+      (endQuarter == 0 && sceneQuarter == 2) ||
+      (endQuarter == 1 && sceneQuarter == 3)
+    ) {
+      ndvi1 = ndvi; // Oldest quarter
     }
+  }
 
-    // Stretch NDVI values for visualization
-    ndvi1 = stretch(ndvi1, 0.1, 0.7);
-    ndvi2 = stretch(ndvi2, 0.1, 0.7);
-    ndvi3 = stretch(ndvi3, 0.1, 0.7);
+  // Stretch NDVI values for visualization
+  ndvi1 = stretch(ndvi1, 0.1, 0.7);
+  ndvi2 = stretch(ndvi2, 0.1, 0.7);
+  ndvi3 = stretch(ndvi3, 0.1, 0.7);
 
-    return [ndvi1, ndvi2, ndvi3];
+  return [ndvi1, ndvi2, ndvi3];
 }
 
 function stretch(val, min, max) {
-    return (val - min) / (max - min);
+  return (val - min) / (max - min);
 }
 
 function preProcessScenes(collections) {
-    // Filter scenes to include only the last three quarters
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-        var orbitDateFrom = new Date(orbit.dateFrom);
-        return (
-            orbitDateFrom.getTime() >=
-            collections.to.getTime() - 3 * 3 * 30 * 24 * 3600 * 1000 // Last 9 months
-        );
-    });
-    return collections;
+  // Filter scenes to include only the last three quarters
+  collections.scenes.orbits = collections.scenes.orbits.filter(function (
+    orbit
+  ) {
+    var orbitDateFrom = new Date(orbit.dateFrom);
+    return (
+      orbitDateFrom.getTime() >=
+      collections.to.getTime() - 3 * 3 * 30 * 24 * 3600 * 1000 // Last 9 months
+    );
+  });
+  return collections;
 }

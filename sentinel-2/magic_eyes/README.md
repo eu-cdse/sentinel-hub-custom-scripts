@@ -1,6 +1,6 @@
 # Magic Eyes
 
-[Copernicus Browser link]()
+[Copernicus Browser link](https://link.dataspace.copernicus.eu/mo8h)
 
 ## Scripts
 

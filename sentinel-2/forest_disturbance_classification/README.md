@@ -1,6 +1,6 @@
 # Forest Disturbance Classification
 
-[Copernicus Browser link]()
+[Copernicus Browser link](https://link.dataspace.copernicus.eu/guss)
 
 ## Scripts
 
@@ -77,21 +77,21 @@ For analytic use there are two other scripts available ([Raw](./scripts/raw.js) 
 
 ## Description of representative images
 
-| !['Clear cut'](figs/logging-b.png) | !['Clear cut classified'](figs/logging-a.png) |
-| :--------------------------------: | :-------------------------------------------: |
-|      Clear cut area in Sweden      |              [Explore in CDSE]()              |
+| !['Clear cut'](figs/logging-b.png) |        !['Clear cut classified'](figs/logging-a.png)         |
+| :--------------------------------: | :----------------------------------------------------------: |
+|      Clear cut area in Sweden      | [Explore in CDSE](https://link.dataspace.copernicus.eu/5o2w) |
 
-| !['Bark Beetle'](figs/bark-beetle-b.png) | !['Bark Beetle classified'](figs/bark-beetle-a.png) |
-| :--------------------------------------: | :-------------------------------------------------: |
-|        Bark Beetle area in Poland        |                 [Explore in CDSE]()                 |
+| !['Bark Beetle'](figs/bark-beetle-b.png) |     !['Bark Beetle classified'](figs/bark-beetle-a.png)      |
+| :--------------------------------------: | :----------------------------------------------------------: |
+|        Bark Beetle area in Poland        | [Explore in CDSE](https://link.dataspace.copernicus.eu/zfg1) |
 
-|   !['Windthrow'](figs/wind-b.png)    | !['Windthrow classified'](figs/wind-a.png) |
-| :----------------------------------: | :----------------------------------------: |
-| Windthrow area in Italy (Storm Vaia) |            [Explore in CDSE]()             |
+|   !['Windthrow'](figs/wind-b.png)    |          !['Windthrow classified'](figs/wind-a.png)          |
+| :----------------------------------: | :----------------------------------------------------------: |
+| Windthrow area in Italy (Storm Vaia) | [Explore in CDSE](https://link.dataspace.copernicus.eu/ebv5) |
 
-| !['Wildfire'](figs/wildfire-b.png) | !['Wildfire classified'](figs/wildfire-a.png) |
-| :--------------------------------: | :-------------------------------------------: |
-|       Wildfire area in Spain       |              [Explore in CDSE]()              |
+| !['Wildfire'](figs/wildfire-b.png) |        !['Wildfire classified'](figs/wildfire-a.png)         |
+| :--------------------------------: | :----------------------------------------------------------: |
+|       Wildfire area in Spain       | [Explore in CDSE](https://link.dataspace.copernicus.eu/kc1y) |
 
 ## Author of the script
 

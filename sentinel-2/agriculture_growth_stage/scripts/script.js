@@ -10,66 +10,66 @@ Script requires multi-temporal processing so parameter TEMPORAL=true should be a
 */
 
 function setup() {
-    return {
-        input: [
-            {
-                bands: ["B04", "B08"],
-            },
-        ],
-        output: { bands: 3 },
-        mosaicking: "ORBIT",
-    };
+  return {
+    input: [
+      {
+        bands: ["B04", "B08"],
+      },
+    ],
+    output: { bands: 3 },
+    mosaicking: "ORBIT",
+  };
 }
 
 function calcNDVI(sample) {
-    var denom = sample.B04 + sample.B08;
-    return denom != 0 ? (sample.B08 - sample.B04) / denom : 0.0;
+  var denom = sample.B04 + sample.B08;
+  return denom != 0 ? (sample.B08 - sample.B04) / denom : 0.0;
 }
 function stretch(val, min, max) {
-    return (val - min) / (max - min);
+  return (val - min) / (max - min);
 }
 
 function evaluatePixel(samples, scenes) {
-    var avg1 = 0;
-    var count1 = 0;
-    var avg2 = 0;
-    var count2 = 0;
-    var avg3 = 0;
-    var count3 = 0;
-    var endMonth = scenes[0].date.getMonth();
+  var avg1 = 0;
+  var count1 = 0;
+  var avg2 = 0;
+  var count2 = 0;
+  var avg3 = 0;
+  var count3 = 0;
+  var endMonth = scenes[0].date.getMonth();
 
-    for (var i = 0; i < samples.length; i++) {
-        var ndvi = calcNDVI(samples[i]);
-        if (scenes[i].date.getMonth() == endMonth) {
-            avg3 = avg3 + ndvi;
-            count3++;
-        } else if (scenes[i].date.getMonth() == endMonth - 1) {
-            avg2 = avg2 + ndvi;
-            count2++;
-        } else {
-            avg1 = avg1 + ndvi;
-            count1++;
-        }
+  for (var i = 0; i < samples.length; i++) {
+    var ndvi = calcNDVI(samples[i]);
+    if (scenes[i].date.getMonth() == endMonth) {
+      avg3 = avg3 + ndvi;
+      count3++;
+    } else if (scenes[i].date.getMonth() == endMonth - 1) {
+      avg2 = avg2 + ndvi;
+      count2++;
+    } else {
+      avg1 = avg1 + ndvi;
+      count1++;
     }
-    avg1 = avg1 / count1;
-    avg2 = avg2 / count2;
-    avg3 = avg3 / count3;
-    avg1 = stretch(avg1, 0.1, 0.7);
-    avg2 = stretch(avg2, 0.1, 0.7);
-    avg3 = stretch(avg3, 0.1, 0.7);
+  }
+  avg1 = avg1 / count1;
+  avg2 = avg2 / count2;
+  avg3 = avg3 / count3;
+  avg1 = stretch(avg1, 0.1, 0.7);
+  avg2 = stretch(avg2, 0.1, 0.7);
+  avg3 = stretch(avg3, 0.1, 0.7);
 
-    return [avg1, avg2, avg3];
+  return [avg1, avg2, avg3];
 }
 
 function preProcessScenes(collections) {
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (
-        orbit
-    ) {
-        var orbitDateFrom = new Date(orbit.dateFrom);
-        return (
-            orbitDateFrom.getTime() >=
-            collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
-        );
-    });
-    return collections;
+  collections.scenes.orbits = collections.scenes.orbits.filter(function (
+    orbit
+  ) {
+    var orbitDateFrom = new Date(orbit.dateFrom);
+    return (
+      orbitDateFrom.getTime() >=
+      collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
+    );
+  });
+  return collections;
 }
