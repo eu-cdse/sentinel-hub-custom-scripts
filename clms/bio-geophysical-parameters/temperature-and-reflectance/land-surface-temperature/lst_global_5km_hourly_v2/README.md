@@ -1,0 +1,1 @@
+Provides hourly land surface temperature from geostationary sensors observations.

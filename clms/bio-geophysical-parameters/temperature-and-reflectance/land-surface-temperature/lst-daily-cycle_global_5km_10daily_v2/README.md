@@ -1,0 +1,1 @@
+Provides a statistical overview of the land surface temperature daily cycle for each 10-day compositing period and every geostationary sensor image pixel.

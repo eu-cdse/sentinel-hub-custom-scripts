@@ -1,0 +1,1 @@
+NDVI is an indicator of the greenness of the biomass.

@@ -1,0 +1,1 @@
+Statistical overview of the land surface temperature over each 10-day compositing period
