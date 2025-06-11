@@ -1,0 +1,1 @@
+Provides semi-continuous observations for a large number of medium and large-sized lakes.

@@ -1,0 +1,1 @@
+Provides for the Northern Hemisphere daily updates of the equivalent amount of liquid water stored in the snow pack.

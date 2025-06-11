@@ -1,0 +1,1 @@
+Fraction of snow cover on the ground 
