@@ -1,1 +1,0 @@
-Equivalent to Gross Primary Production (GPP)

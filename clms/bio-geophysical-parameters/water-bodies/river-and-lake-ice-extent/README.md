@@ -1,1 +1,0 @@
-Classifies, in pixels, inland/freshwater bodies
