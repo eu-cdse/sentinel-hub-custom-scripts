@@ -32,7 +32,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// Function to fetch color for a given value
+
 function getColor(value) {
   if (value == 0) {
     return [0.502 * 255, 0.502 * 255, 0.502 * 255];

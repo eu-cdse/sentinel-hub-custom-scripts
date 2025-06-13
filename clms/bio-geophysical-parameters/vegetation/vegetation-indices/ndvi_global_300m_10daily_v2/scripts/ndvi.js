@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1 / 250; // EDIT FACTOR
-const offset = -0.08; // EDIT OFFSET
+const factor = 1 / 250; 
+const offset = -0.08; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["NDVI", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.NDVI;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [0.0, [140, 92, 8]],
   [20.0, [142, 95, 8]],

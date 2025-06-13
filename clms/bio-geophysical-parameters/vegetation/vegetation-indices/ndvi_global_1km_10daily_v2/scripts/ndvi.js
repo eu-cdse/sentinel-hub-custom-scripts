@@ -15,7 +15,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // Set no Data for Oceans
+  
   var noData = 1;
   if (samples.NDVI == 254) {
     noData = 0;

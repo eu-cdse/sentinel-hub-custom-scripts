@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1 / 100; // EDIT FACTOR
-const offset = 273.15; // EDIT OFFSET
+const factor = 1 / 100; 
+const offset = 273.15; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["MEDIAN", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.MEDIAN;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [240.0, [0, 0, 4]],
   [250.0, [27, 12, 65]],

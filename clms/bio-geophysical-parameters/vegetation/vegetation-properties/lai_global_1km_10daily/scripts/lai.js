@@ -4,7 +4,7 @@ const offset = 0;
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["LAI", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -33,7 +33,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [0, [140, 92, 8]],
   [0, [140, 92, 8]],

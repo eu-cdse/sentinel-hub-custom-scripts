@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1; // EDIT FACTOR
-const offset = 0; // EDIT OFFSET
+const factor = 1; 
+const offset = 0; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["SWE", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.SWE;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [-30, [227, 178, 249]],
   [-20, [157, 28, 8]],

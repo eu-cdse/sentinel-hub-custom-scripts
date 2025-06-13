@@ -32,7 +32,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [0, [68, 1, 84]],
   [1, [68, 2, 85]],

@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1; // EDIT FACTOR
-const offset = 0; // EDIT OFFSET
+const factor = 1; 
+const offset = 0; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["WB", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.WB;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// LOOKUP TABLE FOR COLOURS, TO BE ADAPTED
+
 const ColorBar = [
   [0.0, [0, 0, 0]],
   [70.0, [31, 113, 220]],
@@ -42,14 +42,14 @@ const ColorBar = [
   [255.0, [0, 0, 0]],
 ];
 
-// Function to fetch color for a given value
+
 function getColor(value) {
-  // Find the entry with the closest value
+  
   const closestEntry = ColorBar.reduce((prev, curr) => {
     return Math.abs(curr[0] - value) < Math.abs(prev[0] - value) ? curr : prev;
   });
 
-  // Return the color from the closest entry
+  
   const [_, color] = closestEntry;
   return [color[0], color[1], color[2]];
 }

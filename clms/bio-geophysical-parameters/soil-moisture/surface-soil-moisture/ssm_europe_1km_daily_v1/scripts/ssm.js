@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1 / 2; // EDIT FACTOR
-const offset = 0; // EDIT OFFSET
+const factor = 1 / 2; 
+const offset = 0; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["SSM", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.SSM;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [0.0, [148, 80, 23]],
   [10.0, [172, 118, 47]],

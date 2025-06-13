@@ -1,10 +1,10 @@
 //VERSION=3
-const factor = 1 / 30; // EDIT FACTOR
-const offset = 0; // EDIT OFFSET
+const factor = 1 / 30; 
+const offset = 0; 
 
 function setup() {
   return {
-    // EDIT VARIABLE NAME
+    
     input: ["LAI", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  // EDIT VARIABLE NAME
+  
   var originalValue = samples.LAI;
 
   let val = originalValue * factor + offset;
@@ -34,7 +34,7 @@ function evaluatePixel(samples) {
   };
 }
 
-// EDIT COLOR BAR
+
 const ColorBar = [
   [0.0, [140, 92, 8]],
   [0.03333333333333333, [141, 94, 7]],
