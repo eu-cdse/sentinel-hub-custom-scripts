@@ -2,7 +2,7 @@
 
 <!-- Example Copernicus Browser link. Replace the URL inside the parentheses with the actual link when available. -->
 
-[Copernicus Browser link]()
+[Copernicus Browser link](https://link.dataspace.copernicus.eu/uncz)
 
 ## Scripts
 
