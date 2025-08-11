@@ -1,10 +1,11 @@
 //VERSION=3
-const factor = 1;
-const offset = 0;
+const factor = 1; 
+const offset = 0; 
 
 function setup() {
   return {
-    input: ["Change_Confidence", "dataMask"],
+    
+    input: ["LIE", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,7 +16,8 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.Change_Confidence;
+  
+  var originalValue = samples.LIE;
 
   let val = originalValue * factor + offset;
 
@@ -33,20 +35,24 @@ function evaluatePixel(samples) {
 }
 
 
-const exactColorMap = [
-  [0, [222, 222, 222]],
-  [1, [115, 133, 114]],
-  [2, [139, 171, 138]],
-  [3, [159, 255, 156]],
+const ColorBar = [
+  [50.0, [100, 100, 100]],
+  [10.0, [255, 255, 255]],
+  [20.0, [171, 217, 233]],
+  [30.0, [69, 117, 180]],
+  [60.0, [1, 102, 94]],
+  [40.0, [254, 224, 144]],
+  [70.0, [173, 154, 142]],
 ];
 
 
 function getColor(value) {
-  const entry = exactColorMap.find(([v, _]) => v === Math.floor(value));
-  if (entry) {
-    const [_, color] = entry;
-    return [color[0], color[1], color[2]];
-  } else {
-    return [0, 0, 0];
-  }
+  
+  const closestEntry = ColorBar.reduce((prev, curr) => {
+    return Math.abs(curr[0] - value) < Math.abs(prev[0] - value) ? curr : prev;
+  });
+
+  
+  const [_, color] = closestEntry;
+  return [color[0], color[1], color[2]];
 }

@@ -1,10 +1,11 @@
 //VERSION=3
-const factor = 1;
-const offset = 0;
+const factor = 1; 
+const offset = 0; 
 
 function setup() {
   return {
-    input: ["Change_Confidence", "dataMask"],
+    
+    input: ["TSI", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,14 +16,15 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.Change_Confidence;
+  
+  var originalValue = samples.TSI;
 
   let val = originalValue * factor + offset;
 
   let dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = getColor(originalValue);
+  const imgVals = visualizer.process(val);
 
   return {
     default: imgVals.concat(dataMask * 255),
@@ -33,20 +35,17 @@ function evaluatePixel(samples) {
 }
 
 
-const exactColorMap = [
-  [0, [222, 222, 222]],
-  [1, [115, 133, 114]],
-  [2, [139, 171, 138]],
-  [3, [159, 255, 156]],
+const ColorBar = [
+  [0.0, [43, 39, 141]],
+  [10.0, [42, 72, 168]],
+  [20.0, [52, 101, 186]],
+  [30.0, [56, 125, 198]],
+  [40.0, [61, 137, 217]],
+  [50.0, [51, 159, 230]],
+  [60.0, [60, 207, 197]],
+  [70.0, [59, 223, 147]],
+  [80.0, [69, 202, 133]],
+  [90.0, [61, 201, 112]],
+  [100.0, [29, 164, 14]],
 ];
-
-
-function getColor(value) {
-  const entry = exactColorMap.find(([v, _]) => v === Math.floor(value));
-  if (entry) {
-    const [_, color] = entry;
-    return [color[0], color[1], color[2]];
-  } else {
-    return [0, 0, 0];
-  }
-}
+const visualizer = new ColorRampVisualizer(ColorBar);

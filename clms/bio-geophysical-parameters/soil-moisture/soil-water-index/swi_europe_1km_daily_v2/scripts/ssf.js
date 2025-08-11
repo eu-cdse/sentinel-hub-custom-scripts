@@ -1,10 +1,11 @@
 //VERSION=3
-const factor = 1;
-const offset = 0;
+const factor = 1; 
+const offset = 0; 
 
 function setup() {
   return {
-    input: ["Change_Confidence", "dataMask"],
+    
+    input: ["SSF", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,7 +16,8 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.Change_Confidence;
+  
+  var originalValue = samples.SSF;
 
   let val = originalValue * factor + offset;
 
@@ -34,10 +36,10 @@ function evaluatePixel(samples) {
 
 
 const exactColorMap = [
-  [0, [222, 222, 222]],
-  [1, [115, 133, 114]],
-  [2, [139, 171, 138]],
-  [3, [159, 255, 156]],
+  [0, [243, 243, 243]],
+  [1, [246, 182, 86]],
+  [2, [86, 129, 246]],
+  [3, [236, 136, 136]],
 ];
 
 
