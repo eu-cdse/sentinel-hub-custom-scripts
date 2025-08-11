@@ -5,7 +5,7 @@ const offset = 0;
 function setup() {
   return {
     
-    input: ["LIE", "dataMask"],
+    input: ["SSF", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -17,7 +17,7 @@ function setup() {
 
 function evaluatePixel(samples) {
   
-  var originalValue = samples.LIE;
+  var originalValue = samples.SSF;
 
   let val = originalValue * factor + offset;
 
@@ -35,24 +35,20 @@ function evaluatePixel(samples) {
 }
 
 
-const ColorBar = [
-  [50.0, [100, 100, 100]],
-  [10.0, [255, 255, 255]],
-  [20.0, [171, 217, 233]],
-  [30.0, [69, 117, 180]],
-  [60.0, [1, 102, 94]],
-  [40.0, [254, 224, 144]],
-  [70.0, [173, 154, 142]],
+const exactColorMap = [
+  [0, [243, 243, 243]],
+  [1, [246, 182, 86]],
+  [2, [86, 129, 246]],
+  [3, [236, 136, 136]],
 ];
 
 
 function getColor(value) {
-  
-  const closestEntry = ColorBar.reduce((prev, curr) => {
-    return Math.abs(curr[0] - value) < Math.abs(prev[0] - value) ? curr : prev;
-  });
-
-  
-  const [_, color] = closestEntry;
-  return [color[0], color[1], color[2]];
+  const entry = exactColorMap.find(([v, _]) => v === Math.floor(value));
+  if (entry) {
+    const [_, color] = entry;
+    return [color[0], color[1], color[2]];
+  } else {
+    return [0, 0, 0];
+  }
 }
