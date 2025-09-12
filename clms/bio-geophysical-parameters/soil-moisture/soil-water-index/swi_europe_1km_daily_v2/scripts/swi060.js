@@ -1,11 +1,11 @@
 //VERSION=3
-const factor = 1; 
+const factor = 1 / 2; 
 const offset = 0; 
 
 function setup() {
   return {
     
-    input: ["LIE", "dataMask"],
+    input: ["SWI060", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -17,14 +17,14 @@ function setup() {
 
 function evaluatePixel(samples) {
   
-  var originalValue = samples.LIE;
+  var originalValue = samples.SWI060;
 
   let val = originalValue * factor + offset;
 
   let dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = getColor(originalValue);
+  const imgVals = visualizer.process(val);
 
   return {
     default: imgVals.concat(dataMask * 255),
@@ -36,23 +36,16 @@ function evaluatePixel(samples) {
 
 
 const ColorBar = [
-  [50.0, [100, 100, 100]],
-  [10.0, [255, 255, 255]],
-  [20.0, [171, 217, 233]],
-  [30.0, [69, 117, 180]],
-  [60.0, [1, 102, 94]],
-  [40.0, [254, 224, 144]],
-  [70.0, [173, 154, 142]],
+  [0.0, [148, 80, 23]],
+  [10.0, [172, 118, 47]],
+  [20.0, [196, 156, 71]],
+  [30.0, [220, 194, 96]],
+  [40.0, [245, 233, 121]],
+  [50.0, [183, 209, 173]],
+  [60.0, [121, 185, 225]],
+  [70.0, [97, 152, 203]],
+  [80.0, [74, 120, 182]],
+  [90.0, [50, 87, 160]],
+  [100.0, [27, 55, 139]],
 ];
-
-
-function getColor(value) {
-  
-  const closestEntry = ColorBar.reduce((prev, curr) => {
-    return Math.abs(curr[0] - value) < Math.abs(prev[0] - value) ? curr : prev;
-  });
-
-  
-  const [_, color] = closestEntry;
-  return [color[0], color[1], color[2]];
-}
+const visualizer = new ColorRampVisualizer(ColorBar);
