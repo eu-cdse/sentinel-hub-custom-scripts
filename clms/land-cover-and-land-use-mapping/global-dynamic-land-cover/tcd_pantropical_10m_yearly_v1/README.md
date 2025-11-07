@@ -1,3 +1,3 @@
 #  Tree Cover Density at 10m - Annual V1
 
-None
+Provides semi-continuous observations for a large number of medium and large-sized lakes
