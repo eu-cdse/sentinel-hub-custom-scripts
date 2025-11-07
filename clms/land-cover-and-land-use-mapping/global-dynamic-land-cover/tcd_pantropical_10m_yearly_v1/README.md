@@ -1,3 +1,3 @@
 #  Tree Cover Density at 10m - Annual V1
 
-Provides semi-continuous observations for a large number of medium and large-sized lakes
+Provides pantropical tree cover density as projective tree cover in percent per pixel at 10 m resolution for the 2020 base year. The data are updated annually and will be available for the 2020-2026 years. The product belongs to the Copernicus Global Land Cover and Tropical Forest Mapping and Monitoring Service (LCFM) and builds upon initiatives like the REDDCopernicus, EO4SD Forest Monitoring and pan-European Vegetated Land Cover Characteristics. It advances tropical forest monitoring capabilities, ensuring alignment with international sustainability initiatives and providing critical information for analysis and monitoring of deforestation and forest degradation. Please note: this version is still in beta status, as final validation is ongoing.
