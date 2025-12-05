@@ -1,3 +1,3 @@
 #  Evapotranspiration 2025-present (raster 300 m), global, 10-daily – version 1
 
-Provides actual evapotranspiration, soil evaporation and canopy transpiration with some quality indicators. Estimates are provided for two evapotranspiration schemes and an Ensemble of models. Every 10-days estimate are available in near real time at global scale in the spatial resolution of about 300 m from November 2025 onwards in version 1.0.
+The Evapotranspiration product group provides global actual evapotranspiration (ETA) estimates at 300 m spatial resolution with a frequency of 10-daily for ET, E and T and at a daily frequency for H and LE, combining outputs from two modelling frameworks and an Ensemble model.
