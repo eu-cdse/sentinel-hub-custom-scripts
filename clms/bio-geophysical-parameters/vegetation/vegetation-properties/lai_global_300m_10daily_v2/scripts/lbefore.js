@@ -4,7 +4,7 @@ const offset = 0;
 
 function setup() {
   return {
-    input: ["LENGTH_BEFORE", "dataMask"],
+    input: ["LBEFORE", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,7 +15,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.LENGTH_BEFORE;
+  var originalValue = samples.LBEFORE;
   let val = originalValue * factor + offset;
   let dataMask = samples.dataMask;
 
@@ -241,6 +241,6 @@ const ColorBar = [
   [207, [180, 36, 47]],
   [208, [178, 32, 46]],
   [209, [177, 27, 45]],
-  [210, [178, 24, 43]]
+  [210, [178, 24, 43]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
