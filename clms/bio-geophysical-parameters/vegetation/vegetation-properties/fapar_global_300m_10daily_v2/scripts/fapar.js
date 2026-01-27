@@ -43,7 +43,6 @@ const ColorBar = [
   [0.7, [114, 169, 13]],
   [0.8, [76, 146, 8]],
   [0.9, [38, 123, 4]],
-  [0.94, [23, 114, 2]],
-  [1.02, [255, 255, 255]],
+  [0.94, [23, 114, 2]]
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);

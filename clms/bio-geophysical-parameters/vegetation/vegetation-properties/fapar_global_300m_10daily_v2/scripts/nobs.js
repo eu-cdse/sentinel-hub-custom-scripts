@@ -4,33 +4,32 @@ const offset = 0;
 
 function setup() {
   return {
-    input: ["LENGTH_AFTER", "dataMask"],
+    input: ["NOBS", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
+      { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
       { id: "dataMask", bands: 1 },
     ],
   };
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.LENGTH_AFTER;
-  let val = originalValue * factor + offset;
+  let val = samples.NOBS * factor + offset;
   let dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = visualizer.process(val);
+  const imgVals = getColor(val);
 
   return {
     default: imgVals.concat(dataMask * 255),
     index: [indexVal],
-    eobrowserStats: [val],
+    eobrowserStats: [val, dataMask],
     dataMask: [dataMask],
   };
 }
 
-const ColorBar = [
+const exactColorMap = [
   [0, [62, 100, 172]],
   [1, [67, 105, 175]],
   [2, [71, 110, 177]],
@@ -91,9 +90,15 @@ const ColorBar = [
   [57, [230, 131, 94]],
   [58, [226, 124, 90]],
   [59, [222, 117, 86]],
-  [60, [218, 110, 82]],
-  [61, [214, 103, 78]],
-  [62, [210, 95, 74]],
-  [63, [206, 88, 70]]
+  [60, [218, 110, 82]]
 ];
-const visualizer = new ColorRampVisualizer(ColorBar);
+
+function getColor(value) {
+  const entry = exactColorMap.find(([v, _]) => v === Math.floor(value));
+  if (entry) {
+    const [_, color] = entry;
+    return [color[0], color[1], color[2]];
+  } else {
+    return [0, 0, 0];
+  }
+}

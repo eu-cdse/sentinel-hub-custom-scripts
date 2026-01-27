@@ -4,7 +4,7 @@ const offset = 0;
 
 function setup() {
   return {
-    input: ["LAI", "dataMask"],
+    input: ["RMSE", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,7 +15,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.LAI;
+  var originalValue = samples.RMSE;
   let val = originalValue * factor + offset;
   let dataMask = samples.dataMask;
 
@@ -32,12 +32,15 @@ function evaluatePixel(samples) {
 
 const ColorBar = [
   [0, [140, 92, 8]],
-  [30, [197, 173, 4]],
-  [60, [255, 255, 0]],
-  [90, [127, 227, 0]],
-  [120, [0, 200, 0]],
-  [150, [0, 166, 0]],
-  [180, [0, 133, 0]],
-  [210, [0, 100, 0]],
+  [6, [180, 149, 5]],
+  [12, [220, 206, 2]],
+  [18, [242, 252, 0]],
+  [24, [153, 233, 0]],
+  [30, [63, 213, 0]],
+  [36, [0, 193, 0]],
+  [42, [0, 170, 0]],
+  [48, [0, 146, 0]],
+  [54, [0, 123, 0]],
+  [60, [0, 100, 0]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);

@@ -4,7 +4,7 @@ const offset = 0;
 
 function setup() {
   return {
-    input: ["LENGTH_AFTER", "dataMask"],
+    input: ["LAFTER", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
       { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -15,7 +15,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.LENGTH_AFTER;
+  var originalValue = samples.LAFTER;
   let val = originalValue * factor + offset;
   let dataMask = samples.dataMask;
 
@@ -94,6 +94,6 @@ const ColorBar = [
   [60, [218, 110, 82]],
   [61, [214, 103, 78]],
   [62, [210, 95, 74]],
-  [63, [206, 88, 70]]
+  [63, [206, 88, 70]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
