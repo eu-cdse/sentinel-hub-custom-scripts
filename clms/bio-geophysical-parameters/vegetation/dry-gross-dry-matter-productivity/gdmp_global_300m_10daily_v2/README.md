@@ -1,0 +1,3 @@
+#  GDMP 2014-present (raster 300 m), global, 10-daily – version 2
+
+Provides information about the total amount of dry matter produced by land plants per unit time through photosynthesis. It is equivalent to Gross Primary Production (GPP) but expressed in kg of dry matter per hectare and per day. Every 10-days estimates are available at global scale, at a spatial resolution of ~ 300 m, from January 2014 to the present.
