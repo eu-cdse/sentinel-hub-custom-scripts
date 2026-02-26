@@ -15,11 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.Change_Confidence;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.Change_Confidence;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = getColor(originalValue);
@@ -31,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const exactColorMap = [
   [0, [222, 222, 222]],

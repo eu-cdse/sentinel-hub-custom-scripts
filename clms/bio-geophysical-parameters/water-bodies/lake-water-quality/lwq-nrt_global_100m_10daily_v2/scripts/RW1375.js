@@ -15,11 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-    var originalValue = samples.RW1375;
-
-    let val = originalValue * factor + offset;
-
-    let dataMask = samples.dataMask;
+    const originalValue = samples.RW1375;
+    const val = originalValue * factor + offset;
+    const dataMask = samples.dataMask;
 
     const indexVal = dataMask === 1 ? val : NaN;
     const imgVals = visualizer.process(val).map((x) => x * 255);

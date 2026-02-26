@@ -15,11 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.SeasonalWater_Cover_fraction;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.SeasonalWater_Cover_fraction;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = visualizer.process(originalValue);
@@ -31,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const ColorBar = [
   [0, [68, 1, 84]],

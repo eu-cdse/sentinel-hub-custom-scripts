@@ -1,10 +1,9 @@
 //VERSION=3
-const factor = 1 / 250; 
-const offset = 0; 
+const factor = 1 / 250;
+const offset = 0;
 
 function setup() {
   return {
-    
     input: ["FAPAR", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,12 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  
-  var originalValue = samples.FAPAR;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.FAPAR;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = visualizer.process(originalValue);
@@ -33,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const ColorBar = [
   [0, [32, 16, 0]],

@@ -4,7 +4,6 @@ const offset = 0;
 
 function setup() {
   return {
-    
     input: ["QFLAG", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,9 +15,8 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  let val = samples.QFLAG * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const val = samples.QFLAG * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = getColor(val);
@@ -30,7 +28,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const exactColorMap = [
   [0, [14, 55, 36]], 
