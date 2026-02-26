@@ -15,8 +15,8 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  let val = samples.NOBS * factor + offset;
-  let dataMask = samples.dataMask;
+  const val = samples.NOBS * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = getColor(val);

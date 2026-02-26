@@ -15,11 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  var originalValue = samples.day_of_burn;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.day_of_burn;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = getColor(originalValue);

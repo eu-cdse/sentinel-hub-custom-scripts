@@ -1,10 +1,9 @@
 //VERSION=3
-const factor = 1 / 100; 
-const offset = 273.15; 
+const factor = 1 / 100;
+const offset = 273.15;
 
 function setup() {
   return {
-    
     input: ["LSWT", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,12 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  
-  var originalValue = samples.LSWT;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.LSWT;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = visualizer.process(val);
@@ -33,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const ColorBar = [
   [273.4799938891083, [13, 8, 135]],

@@ -16,13 +16,13 @@ function setup() {
 
 function evaluatePixel(samples) {
   
-  var noData = 1;
+  let noData = 1;
   if (samples.NDVI == 254) {
     noData = 0;
   }
-  let dataMask = noData * samples.dataMask;
+  const dataMask = noData * samples.dataMask;
 
-  let val = samples.NDVI * factor + offset;
+  const val = samples.NDVI * factor + offset;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = visualizer.process(val);

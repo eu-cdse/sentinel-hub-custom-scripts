@@ -1,10 +1,9 @@
 //VERSION=3
-const factor = 1; 
-const offset = 0; 
+const factor = 1;
+const offset = 0;
 
 function setup() {
   return {
-    
     input: ["SSF", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,12 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  
-  var originalValue = samples.SSF;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.SSF;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = getColor(originalValue);
@@ -33,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const exactColorMap = [
   [0, [243, 243, 243]],

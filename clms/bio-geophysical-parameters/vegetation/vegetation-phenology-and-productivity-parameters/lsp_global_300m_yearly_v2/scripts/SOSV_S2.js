@@ -1,10 +1,9 @@
 //VERSION=3
-const factor = 0.001; 
-const offset = 0; 
+const factor = 0.001;
+const offset = 0;
 
 function setup() {
   return {
-    
     input: ["SOSV_S2", "dataMask"],
     output: [
       { id: "default", bands: 4, sampleType: "UINT8" },
@@ -16,12 +15,9 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-  
-  var originalValue = samples.SOSV_S2;
-
-  let val = originalValue * factor + offset;
-
-  let dataMask = samples.dataMask;
+  const originalValue = samples.SOSV_S2;
+  const val = originalValue * factor + offset;
+  const dataMask = samples.dataMask;
 
   const indexVal = dataMask === 1 ? val : NaN;
   const imgVals = visualizer.process(val);
@@ -33,7 +29,6 @@ function evaluatePixel(samples) {
     dataMask: [dataMask],
   };
 }
-
 
 const ColorBar = [[0.0, [194, 94, 60]], [0.5, [237, 234, 19]], [1.0, [128, 255, 0]], [1.5, [0, 219, 219]], [2.0, [32, 153, 143]], [3.0, [11, 44, 122]]];
 const visualizer = new ColorRampVisualizer(ColorBar);
