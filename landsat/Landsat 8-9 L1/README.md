@@ -1,0 +1,15 @@
+# Landsat 8-9 L1
+
+The Landsat programme is a joint USGS and NASA-led enterprise for Earth observation that represents the world’s longest running system of satellites for moderate-resolution optical remote sensing for land, coastal areas and shallow waters.
+
+## Landsat 8
+
+Landsat-8 Collection 2 Level-1 data with full worldwide coverage, mirrored from the United States Geological Survey, for the years 2021 to the present are now available in the Copernicus Data Space Ecosystem Catalogue. These datasets are systematically indexed in the OData Catalogue. This Landsat collection will be searchable via the Sentinel Hub API-s and the Copernicus Browser, including visualization. Downloading the full product is not available to general users.
+
+Landsat-8 carries the Operational Land Imager (OLI) and the Thermal Infrared Sensor (TIRS). OLI provides imagery in the VIS, NIR and SWIR spectral ranges. It acquires images with 15 m panchromatic and 30 m multi-spectral spatial resolutions, covering a wide 185 km swath. This allows it to capture extensive areas of the Earth’s landscape while maintaining enough resolution to identify features like urban centers, farms, forests, and other land uses. The entire Earth falls within view once every 16 days due to Landsat-8’s near-polar orbit. The TIRS instrument is a thermal imager operating in a pushbroom mode with two Infra-Red channels: 10.8 µm and 12 µm with 100 m spatial resolution.
+
+## Landsat 9
+
+Landsat-9 Collection 2 Level-1 data with full worldwide coverage, mirrored from the United States Geological Survey, for the years 2021 to the present are now available in the Copernicus Data Space Ecosystem Catalogue. These datasets are systematically indexed in the OData Catalogue. This Landsat collection will be searchable via the Sentinel Hub API-s and the Copernicus Browser, including visualization. Downloading the full product is not available to general users.
+
+Launched in September 2021 satellite continues the legacy of providing critical moderate-resolution satellite imagery for land, coastal, and shallow water analysis. It is equiped in two primary sensors: the Operational Land Imager 2 (OLI-2) and the Thermal Infrared Sensor 2 (TIRS-2). OLI-2 captures multispectral imagery in the visible, near-infrared, and shortwave infrared spectral ranges, with spatial resolutions of 30 meters and a panchromatic band at 15 meters, covering a swath width of 185 km. TIRS-2 provides thermal imaging in two infrared channels 10.8 µm and 12 µm with a spatial resolution of 100 meters. The instruments on Landsat-9, while similar to those on Landsat-8, have been refined to improve data accuracy and reliability. Collecting up to 750 scenes daily, this mission ensures the continuity of Earth’s observational record with a revisit period of 16 days, supporting environmental monitoring, land use planning, and climate research. Landsat 9 expands the archive’s volume by capturing images of all global landmasses and nearshore coastal areas, including islands, at solar elevation angles greater than 5 degrees - areas that were not consistently imaged prior to Landsat 8.
