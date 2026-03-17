@@ -3,36 +3,36 @@ const factor = 1 / 100;
 const offset = 0;
 
 function setup() {
-  return {
-    input: ["FOBS", "dataMask"],
-    output: [
-      { id: "default", bands: 4, sampleType: "UINT8" },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["FOBS", "dataMask"],
+        output: [
+            { id: "default", bands: 4, sampleType: "UINT8" },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 function evaluatePixel(samples) {
-  const originalValue = samples.FOBS;
-  const val = originalValue * factor + offset;
-  const dataMask = samples.dataMask;
+    const originalValue = samples.FOBS;
+    const val = originalValue * factor + offset;
+    const dataMask = samples.dataMask;
 
-  const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = visualizer.process(val);
+    const indexVal = dataMask === 1 ? val : NaN;
+    const imgVals = visualizer.process(val);
 
-  return {
-    default: imgVals.concat(dataMask * 255),
-    index: [indexVal],
-    eobrowserStats: [val, dataMask],
-    dataMask: [dataMask],
-  };
+    return {
+        default: imgVals.concat(dataMask * 255),
+        index: [indexVal],
+        eobrowserStats: [val, dataMask],
+        dataMask: [dataMask],
+    };
 }
 
 const ColorBar = [
-  technical / evalscripts / lst -
-    daily -
-    cycle_global_5km_10daily_v1 / colourmaps / FOBS.json,
+    technical / evalscripts / lst -
+        daily -
+        cycle_global_5km_10daily_v1 / colourmaps / FOBS.json,
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
