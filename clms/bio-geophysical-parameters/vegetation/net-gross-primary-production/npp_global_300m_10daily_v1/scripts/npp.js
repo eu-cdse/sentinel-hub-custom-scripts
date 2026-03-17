@@ -3,42 +3,42 @@ const factor = 1 / 2000;
 const offset = 0;
 
 function setup() {
-  return {
-    input: ["NPP", "dataMask"],
-    output: [
-      { id: "default", bands: 4, sampleType: "UINT8" },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["NPP", "dataMask"],
+        output: [
+            { id: "default", bands: 4, sampleType: "UINT8" },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 function evaluatePixel(samples) {
-  const originalValue = samples.NPP;
-  const val = originalValue * factor + offset;
-  const dataMask = samples.dataMask;
+    const originalValue = samples.NPP;
+    const val = originalValue * factor + offset;
+    const dataMask = samples.dataMask;
 
-  const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = visualizer.process(val);
+    const indexVal = dataMask === 1 ? val : NaN;
+    const imgVals = visualizer.process(val);
 
-  return {
-    default: imgVals.concat(dataMask * 255),
-    index: [indexVal],
-    eobrowserStats: [val, dataMask],
-    dataMask: [dataMask],
-  };
+    return {
+        default: imgVals.concat(dataMask * 255),
+        index: [indexVal],
+        eobrowserStats: [val, dataMask],
+        dataMask: [dataMask],
+    };
 }
 
 const ColorBar = [
-  [0.0, [255, 255, 255]],
-  [0.0005, [255, 0, 0]],
-  [1.5, [255, 165, 0]],
-  [3.0, [255, 215, 0]],
-  [4.5, [255, 255, 0]],
-  [6.0, [173, 255, 47]],
-  [7.5, [20, 255, 20]],
-  [9.0, [10, 200, 10]],
-  [10.5, [0, 136, 0]],
+    [0.0, [255, 255, 255]],
+    [0.0005, [255, 0, 0]],
+    [1.5, [255, 165, 0]],
+    [3.0, [255, 215, 0]],
+    [4.5, [255, 255, 0]],
+    [6.0, [173, 255, 47]],
+    [7.5, [20, 255, 20]],
+    [9.0, [10, 200, 10]],
+    [10.5, [0, 136, 0]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
