@@ -31,16 +31,11 @@ function evaluatePixel(samples) {
 }
 
 const ColorBar = [
-    [0, 0x2b278d],
-    [10, 0x2a48a8],
-    [20, 0x3465ba],
-    [30, 0x387dc6],
-    [40, 0x3d89d9],
-    [50, 0x339fe6],
-    [60, 0x3ccfc5],
-    [70, 0x3bdf93],
-    [80, 0x45ca85],
-    [90, 0x3dc970],
-    [100, 0x1da40e],
+    [0, [43, 39, 141]],
+    [20, [52, 101, 186]],
+    [40, [61, 137, 217]],
+    [60, [60, 207, 197]],
+    [80, [69, 202, 133]],
+    [100, [29, 164, 14]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);

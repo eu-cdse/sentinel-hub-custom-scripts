@@ -3,38 +3,38 @@ const factor = 1;
 const offset = 0;
 
 function setup() {
-  return {
-    input: ["STD", "dataMask"],
-    output: [
-      { id: "default", bands: 4, sampleType: "UINT8" },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["STD", "dataMask"],
+        output: [
+            { id: "default", bands: 4, sampleType: "UINT8" },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 function evaluatePixel(samples) {
-  const originalValue = samples.STD;
-  const val = originalValue * factor + offset;
-  const dataMask = samples.dataMask;
+    const originalValue = samples.STD;
+    const val = originalValue * factor + offset;
+    const dataMask = samples.dataMask;
 
-  const indexVal = dataMask === 1 ? val : NaN;
-  const imgVals = visualizer.process(val);
+    const indexVal = dataMask === 1 ? val : NaN;
+    const imgVals = visualizer.process(val);
 
-  return {
-    default: imgVals.concat(dataMask * 255),
-    index: [indexVal],
-    eobrowserStats: [val, dataMask],
-    dataMask: [dataMask],
-  };
+    return {
+        default: imgVals.concat(dataMask * 255),
+        index: [indexVal],
+        eobrowserStats: [val, dataMask],
+        dataMask: [dataMask],
+    };
 }
 
 const ColorBar = [
-  [0.0, [237, 248, 251]],
-  [0.5, [179, 205, 227]],
-  [1.0, [140, 150, 198]],
-  [1.5, [136, 86, 167]],
-  [2.0, [129, 15, 124]],
+    [0.0, [237, 248, 251]],
+    [0.5, [179, 205, 227]],
+    [1.0, [140, 150, 198]],
+    [1.5, [136, 86, 167]],
+    [2.0, [129, 15, 124]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
