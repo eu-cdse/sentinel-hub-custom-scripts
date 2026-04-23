@@ -1,3 +1,3 @@
-#  LSP 2014-present (raster 300 m), global, yearly – version 2
+#  LSP 300m Yearly V2
 
-Land Surface Phenology (LSP) is the term for land surface vegetation phenology estimated from remotely sensed data. It involves the analysis of time series of vegetation indices, which provide quantitative measures of green biomass and photosynthetic activity. LSP is an invaluable indicator in ecosystem studies and climate research.
+Describes the seasonal growth patterns of vegetated land surface. Provides 13 phenology metrics for up to two growing seasons per year.  Annual estimates are available globally at a spatial resolution of about 300 m, from 2014 to the present. More information here.
