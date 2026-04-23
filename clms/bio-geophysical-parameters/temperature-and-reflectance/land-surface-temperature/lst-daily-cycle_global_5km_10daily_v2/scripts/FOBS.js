@@ -31,8 +31,16 @@ function evaluatePixel(samples) {
 }
 
 const ColorBar = [
-    technical / evalscripts / lst -
-        daily -
-        cycle_global_5km_10daily_v1 / colourmaps / FOBS.json,
+    [0.0, [0, 0, 4]],
+    [0.1, [27, 12, 65]],
+    [0.2, [76, 12, 107]],
+    [0.3, [120, 28, 109]],
+    [0.4, [165, 45, 96]],
+    [0.5, [206, 68, 70]],
+    [0.6, [237, 105, 37]],
+    [0.7, [251, 154, 7]],
+    [0.8, [247, 208, 60]],
+    [0.9, [252, 255, 164]],
+    [1.0, [255, 255, 255]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);
