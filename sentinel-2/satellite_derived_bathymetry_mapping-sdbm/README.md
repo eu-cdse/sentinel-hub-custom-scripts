@@ -89,7 +89,7 @@ Next, if m1 and m0 are known and pre-analysis is not needed, pSDB and SDB values
 
 Mohor Gartner
 
-The script has been adapted to Copernicus Browser multi-temporal scene handling and index, eoBrowserStats and dataMask variables added by András Zlinszky - aided by GitHub Copilot.
+The script has been adapted to Copernicus Browser multi-temporal scene handling and index, browserStats and dataMask variables added by András Zlinszky - aided by GitHub Copilot.
 
 ## Description of representative images
 

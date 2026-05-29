@@ -8,7 +8,7 @@ function setup() {
         output: [
             { id: "default", bands: 4, sampleType: "UINT8" },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
-            { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
             { id: "dataMask", bands: 1 },
         ],
     };
@@ -25,7 +25,7 @@ function evaluatePixel(samples) {
     return {
         default: imgVals.concat(dataMask * 255),
         index: [indexVal],
-        eobrowserStats: [val, dataMask],
+        browserStats: [val, dataMask],
         dataMask: [dataMask],
     };
 }

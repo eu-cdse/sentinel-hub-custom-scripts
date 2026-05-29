@@ -14,7 +14,7 @@ function setup() {
         output: [
             { id: "default", bands: 4 },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
-            { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 2, sampleType: "FLOAT32" },
             { id: "dataMask", bands: 1 },
         ],
     };
@@ -36,7 +36,7 @@ function evaluatePixel(samples) {
     return {
         default: imgVals.concat(samples.dataMask),
         index: [indexVal],
-        eobrowserStats: [val, isCloud(samples) ? 1 : 0],
+        browserStats: [val, isCloud(samples) ? 1 : 0],
         dataMask: [samples.dataMask],
     };
 }
