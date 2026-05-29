@@ -1,5 +1,5 @@
 //VERSION=3
-const factor = 1 / 250;
+const factor = 0.004;
 const offset = -0.08;
 function setup() {
     return {
@@ -7,7 +7,7 @@ function setup() {
         output: [
             { id: "default", bands: 4, sampleType: "UINT8" },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
-            { id: "eobrowserStats", bands: 2, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
             { id: "dataMask", bands: 1 },
         ],
     };
@@ -18,33 +18,39 @@ function evaluatePixel(samples) {
     const val = originalValue * factor + offset;
     const dataMask = samples.dataMask;
 
-    const indexVal = dataMask === 1 ? val : NaN;
-    const imgVals = visualizer.process(originalValue);
+    const EXCLUDED_VALUES = [254, 255];
+    const isExcluded =
+        dataMask === 0 || EXCLUDED_VALUES.includes(originalValue);
 
+    if (isExcluded) {
+        return {
+            default: [0, 0, 0, 0],
+            index: [NaN],
+            browserStats: [val],
+            dataMask: [dataMask],
+        };
+    }
+
+    const imgVals = visualizer.process(val);
     return {
         default: imgVals.concat(dataMask * 255),
-        index: [indexVal],
-        eobrowserStats: [val, dataMask],
+        index: [val],
+        browserStats: [val],
         dataMask: [dataMask],
     };
 }
 
 const ColorBar = [
-    [0.0, [140, 92, 8]],
-    [20.0, [142, 95, 8]],
-    [45.0, [197, 173, 19]],
-    [70.0, [255, 255, 30]],
-    [95.0, [218, 232, 25]],
-    [120.0, [182, 210, 21]],
-    [145.0, [145, 188, 17]],
-    [170.0, [109, 166, 12]],
-    [195.0, [72, 144, 8]],
-    [220.0, [36, 122, 4]],
-    [250.0, [0, 100, 0]],
-    [251.0, [221, 221, 221]],
-    [252.0, [221, 221, 221]],
-    [253.0, [221, 221, 221]],
-    [254.0, [221, 221, 221]],
-    [255.0, [221, 221, 221]],
+    [-0.08, [140, 92, 8]],
+    [0, [142, 95, 8]],
+    [0.1, [197, 173, 19]],
+    [0.2, [255, 255, 30]],
+    [0.3, [218, 232, 25]],
+    [0.4, [182, 210, 21]],
+    [0.5, [145, 188, 17]],
+    [0.6, [109, 166, 12]],
+    [0.7, [72, 144, 8]],
+    [0.8, [36, 122, 4]],
+    [0.92, [0, 100, 0]],
 ];
 const visualizer = new ColorRampVisualizer(ColorBar);

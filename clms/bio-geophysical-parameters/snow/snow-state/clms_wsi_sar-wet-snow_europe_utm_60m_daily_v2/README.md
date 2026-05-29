@@ -1,0 +1,3 @@
+#  SWS Europe (high mountains) 60m Daily V2
+
+The SAR Wet Snow (SWS) product provides the wet snow extent for high mountain areas with a spatial resolution of 60 m x 60 m. It is generated in near real-time for selected high mountain areas at European scale based on C-band Synthetic Aperture Radar satellite data from the Sentinel-1 constellation. It is available for the period from 2016 to the present. More information here.

@@ -22,7 +22,7 @@ function setup() {
         input: ["B03", "B04", "B10", "dataMask"],
         output: [
             { id: "default", bands: 4 },
-            { id: "eobrowserStats", bands: 2 },
+            { id: "browserStats", bands: 2 },
             { id: "dataMask", bands: 1 },
         ],
     };
@@ -32,7 +32,7 @@ function evaluatePixel(samples) {
     let val = samples.B10;
     return {
         default: [...viz.process(val), samples.dataMask],
-        eobrowserStats: [val - 273, isCloud(samples) ? 1 : 0],
+        browserStats: [val - 273, isCloud(samples) ? 1 : 0],
         dataMask: [samples.dataMask],
     };
 }

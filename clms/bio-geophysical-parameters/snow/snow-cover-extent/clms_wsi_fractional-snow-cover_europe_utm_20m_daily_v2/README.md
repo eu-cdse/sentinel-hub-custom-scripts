@@ -1,0 +1,3 @@
+#  FSC Europe 20m Daily V2
+
+The Fractional Snow Cover (FSC) product provides the fraction of the surface covered by snow at the top of canopy (FSC-TOC) and on ground (FSC-OG) per pixel as a percentage (0% – 100%). It is generated in near real-time at European scale based on optical satellite data from the Sentinel-2 constellation, with a spatial resolution of 20 m x 20 m. It is available for the period from 2016 to the present. More information here.

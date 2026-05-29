@@ -1,0 +1,3 @@
+#  Sentinel-2 CC Europe 20m Daily V1
+
+The Cloud Classification (CC) product provides information on the extent of clouds and cloud shadows derived from optical satellite data acquired by the Sentinel-2 constellation. It is generated in near real-time at European scale, with a pixel spacing of 20 m x 20 m. Cloud detection is performed at a 120m spatial resolution. It is available for the period from 2016 to the present and used to produce the CLMS High-Resolution Water, Snow and Ice datasets (HR-WSI), which rely on Sentinel-2 imagery. More information in the products documentation here.

@@ -1,3 +1,3 @@
-#  NDVI (STS) 2015-2019 (raster 1 km), global, 10-daily – version 3
+#  NDVI LTS 1km 10-daily V3
 
-Based upon SPOT/VEGETATION and PROBA-V NDVI 1km version 2, long-term statistics include the minimum, median, maximum, mean, standard deviation and the number of observations over the 19-years period 1999-2017.
+Provides the Long-Term Statistics of the Normalized Difference Vegetation Index. Every 10-days, minimum, median, maximum and mean are available at global scale, at a spatial resolution of ~1km over the 21-years period 1999-2019.
