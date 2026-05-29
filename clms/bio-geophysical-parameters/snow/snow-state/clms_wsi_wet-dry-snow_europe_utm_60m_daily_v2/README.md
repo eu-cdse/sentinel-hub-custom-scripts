@@ -1,0 +1,3 @@
+#  WDS Europe 60m Daily V2
+
+The Wet / Dry Snow (WDS) product provides information on the snow state (wet or dry) by combining Sentinel-1 radar-based wet snow maps within the snow cover extent derived from Sentinel-2 optical data. It is generated in near real-time at European scale, with a spatial resolution of 60 m x 60 m in areas where Sentinel-1 and Sentinel-2 observation tracks overlap. It is available for the period from 2016 to the present. More information here.

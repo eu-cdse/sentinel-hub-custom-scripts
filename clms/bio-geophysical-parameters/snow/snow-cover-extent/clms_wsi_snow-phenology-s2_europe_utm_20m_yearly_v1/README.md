@@ -1,0 +1,3 @@
+#  SP S2 Europe 20m Yearly V1
+
+The Sentinel-2 Snow Phenology (SP S2) product characterizes the timing and duration of the snow season. For each pixel and for a given hydrological year, it provides the number of days with snow cover, as well as the first and last day of the longest continuous snow period. The hydrological year starts on 1 September. The product is generated at the European scale with a spatial resolution of 20 m × 20 m, consistent with the input snow cover maps derived from optical satellite data acquired by the Sentinel-2 constellation (Fractional Snow Cover – FSC). It is available for the period from 2016 to the present and can be downloaded in multiple projections and pixel spacings. More information here.
