@@ -1,0 +1,3 @@
+#  WCD Europe 10m Yearly V1
+
+The Water Cover Duration (WCD) product estimates the number of days land is covered by water. For each pixel and for a given hydrological year,  it indicates how frequently water is present. The hydrological year starts on 1 September. The product is generated at the European scale with a spatial resolution of 10 m × 10 m. It is based on water masks derived from Sentinel-1 radar and Sentinel-2 optical data, combined with Water/Ice Cover data from Sentinel-2 (WIC S2). It is available for the period from 2016 to the present and can be downloaded in multiple projections and pixel spacings. More information here.

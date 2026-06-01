@@ -1,4 +1,4 @@
-#  FTY 100m 3-yearly (2018-2021)
+#  FTY 100m 3-yearly (2018-present)
 
 The High Resolution Layer Forest Type (FTY) dataset provides the Forest Type estimation at 100 meter spatial resolution. The number of broadleaved and coniferous pixels are counted and the percentages stored in the 100m cell. The class 255 = outside area is predefined by the 100m boundary layer and remains unchanged.
 
