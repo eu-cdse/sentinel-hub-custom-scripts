@@ -1,4 +1,4 @@
-#  FTY 10m 3yearly (2018-2021)
+#  FTY 10m 3yearly (2018-present)
 
 The High Resolution Layer Forest Type (FTY) provides a forest classification with 3 thematic classes (all non-forest areas / broadleaved forest / coniferous forest) at 10m spatial resolution and with a Minimum Mapping Unit (MMU) of 0.5 ha. This raster layer is largely following the FAO (Food and Agriculture Organisation of the United Nations) forest definition with tree covered areas in agricultural and urban context excluded using the respective Forest Additional Support Layer (FADSL).
 
