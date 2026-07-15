@@ -1,0 +1,29 @@
+<!doctype html>
+<html
+    lang="{{ site.Language.Locale }}"
+    dir="{{ or site.Language.Direction `ltr` }}"
+>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        <header>{{ partial "header.html" . }}</header>
+        <main>
+        	<div id="side-menu">
+         		<ul>
+		        {{ range where ( where .Site.Pages "Type" "script" ) "IsSection" false }}
+					<li><a href="{{.RelPermalink}}">{{ .LinkTitle }}</a></li>
+				{{ end }}
+				</ul>
+	        </div>
+         	<div id="main-content">
+	            {{ block "main" . }}
+	            	This will be replaced with content from the
+	             	corresponding "define" action found in the template to which this
+	              	base template is applied.
+	            {{ end }}
+            </div>
+        </main>
+        <footer>{{ partial "footer.html" . }}</footer>
+    </body>
+</html>

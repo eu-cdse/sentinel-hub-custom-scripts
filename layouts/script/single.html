@@ -1,0 +1,46 @@
+{{ define "main" }}
+	<h2>{{ .Title }}</h2>
+	<!--<pre> {{  .Page.Params |  debug.Dump }}</pre> -->
+	<div id="taxonomies">
+		{{ range $key, $value := .Site.Taxonomies }}
+			{{ if isset $.Page.Params $key }}
+				<div class="bullet">
+					<span class="taxonomy">{{ $key }}</span>:
+					{{ range index $.Page.Params $key }}
+						<span class="term">{{ . }}</span>
+					{{ end }}
+				</div>
+			{{ end }}
+		{{ end }}
+	</div>
+	<div class="code-section">
+		<div class="tab-buttons">
+			{{ $first := index .Params.evalscripts 0 }}
+			{{ range .Params.evalscripts }}
+				<div class="tab-button{{ if eq $first . }} selected{{ end }}" id="{{ . }}">
+					{{ . }}
+				</div>
+			{{ end }}
+		</div>
+		<div class="tabs">
+			{{ range .Params.evalscripts }}
+				<div class="tab{{ if eq $first . }} selected{{ end }}" id="{{ . }}-content">
+					{{ with $.Resources.Get . }}
+						{{ $input := .Content }}
+						{{ $lang := "js" }}
+						<div id="script">
+							<button id="copy-script" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
+							{{ transform.Highlight $input $lang }}
+						</div>
+						Script url:
+						<div id="script-url">
+							<button id="copy-url" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
+							{{ transform.Highlight .Permalink "http" }}
+						</div>
+					{{ end }}
+				</div>
+			{{ end }}
+		</div>
+	</div>
+	{{ .Content }}
+{{ end }}

@@ -1,0 +1,15 @@
+locale = 'en-us'
+title = 'CDSE custom scripts <3'
+sectionPagesMenu = 'main'
+
+[markup]
+  [markup.highlight]
+    style = 'tokyonight-day'
+
+[taxonomies]
+    type = 'types'
+    verification = 'verifications'
+    default = 'default'
+    domain = 'domains'
+    data-source = 'data-sources'
+    resolution = 'resolutions'
