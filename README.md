@@ -33,3 +33,15 @@ For instructions on how custom scripts are structured have a look at this [YouTu
 - Create a pull request.
 
 Publishing your product should be easy, nevertheless, any feedback and ideas how to improve or make the process simpler is very appreciated.
+
+## Development
+
+First [install hugo](https://gohugo.io/installation/), then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
+
+The development server watches for file changes and triggers building and then reloads the browser.
+
+```hugo server```
+
+To build the page for deployment run:
+
+```hugo build```
