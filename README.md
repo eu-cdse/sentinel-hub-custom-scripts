@@ -41,13 +41,13 @@ Publishing your product should be easy, nevertheless, any feedback and ideas how
 * **Styling:** SCSS (preprocessed using Hugo Pipes).
 * **Interactivity:** Vanilla JavaScript for search, sidebars, and tab selectors.
 
-First [install hugo](https://gohugo.io/installation/), then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
-
 ---
 
 ## 2. Local Development Setup
 
-To run this project locally, you need to install Hugo on your machine.
+To run this project locally, you need to [install](https://gohugo.io/installation/) the latest version of Hugo, then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
+
+***Warning:*** If you are using Ubuntu or Debian, apt version of Hugo is considerably older. Install with snap.
 
 ### Prerequisites
 
@@ -85,7 +85,7 @@ The local server supports hot-reloading: changes to your Markdown content, JS, o
 Here is how the repository is organized:
 
 ```text
-/hugo-test/
+/sentinel-hub-custom-scripts/
 ├── config/                  # Environment-based site configurations
 │   ├── _default/            # Global/default configuration
 │   │   └── hugo.toml        # Defines site title, taxonomies, syntax highlighting
