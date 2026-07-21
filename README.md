@@ -178,8 +178,8 @@ When you add a script, you can specify terms for any of these supported taxonomi
 | **Types** | `type` | `composite`, `index`, `regression`, `classification` |
 | **Verifications** | `verification` | `cites literature`, `cites operational use case` |
 | **Default** | `default` | `default`, `custom` |
-| **Domains** | `domain` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood` |
-| **Data-Sources** | `data-source` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS` |
+| **Domains** | `domain` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
+| **Data-Sources** | `data-source` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM` |
 | **Resolutions** | `resolution` | `10m`, `60m`, `300m` ... |
 
 ### Frontmatter Example with Full Taxonomies:
