@@ -15,80 +15,21 @@ András Zlinszky, Sinergise
 
 ## Color Table
 
-<table>
-  <tr>
-    <th>Value</th>
-    <th>Color Code</th>
-    <th>Color Patch</th>
-  </tr>
-  <tr>
-    <td>3500</td>
-    <td>#f7eafd</td>
-    <td style="background-color: #f7eafd;"></td>
-  </tr>
-  <tr>
-    <td>3000</td>
-    <td>#ebebeb</td>
-    <td style="background-color: #ebebeb;"></td>
-  </tr>
-  <tr>
-    <td>1000</td>
-    <td>#a76b18</td>
-    <td style="background-color: #a76b18;"></td>
-  </tr>
-  <tr>
-    <td>500</td>
-    <td>#dca620</td>
-    <td style="background-color: #dca620;"></td>
-  </tr>
-  <tr>
-    <td>200</td>
-    <td>#A2AE32</td>
-    <td style="background-color: #A2AE32;"></td>
-  </tr>
-  <tr>
-    <td>100</td>
-    <td>#18a722</td>
-    <td style="background-color: #18a722;"></td>
-  </tr>
-  <tr>
-    <td>50</td>
-    <td>#018643</td>
-    <td style="background-color: #018643;"></td>
-  </tr>
-  <tr>
-    <td>30</td>
-    <td>#015965</td>
-    <td style="background-color: #015965;"></td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>#01471c</td>
-    <td style="background-color: #01471c;"></td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>#bbbcbc</td>
-    <td style="background-color: #bbbcbc;"></td>
-  </tr>
-  <tr>
-    <td>-10</td>
-    <td>#2754de</td>
-    <td style="background-color: #2754de;"></td>
-  </tr>
-  <tr>
-    <td>-20</td>
-    <td>#0d027e</td>
-    <td style="background-color: #0d027e;"></td>
-  </tr>
-  <tr>
-    <td>-50</td>
-    <td>#08014c</td>
-    <td style="background-color: #08014c;"></td>
-  </tr>
-  <tr>
-    <td>-200</td>
-    <td>#4a4a4a</td>
-    <td style="background-color: #4a4a4a;"></td>
-  </tr>
-</table>
+
+
+|  Value | Color Code | Color Patch |
+|--------|------------|:------------|
+| 3500 | #f7eafd | !#f7eafd |
+| 3000 | #ebebeb | !#ebebeb |
+| 1000 | #a76b18 | !#a76b18 |
+| 500 | #dca620 | !#dca620 |
+| 200 | #A2AE32 | !#A2AE32 |
+| 100 | #18a722 | !#18a722 |
+| 50 | #018643 | !#018643 |
+| 30 | #015965 | !#015965 |
+| 10 | #01471c | !#01471c |
+| 0 | #bbbcbc | !#bbbcbc |
+| -10 | #2754de | !#2754de |
+| -20 | #0d027e | !#0d027e |
+| -50 | #08014c | !#08014c |
+| -200 | #4a4a4a | !#4a4a4a |
