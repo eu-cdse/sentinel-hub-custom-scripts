@@ -16,6 +16,9 @@ function setup() {
 function evaluatePixel(samples) {
     const originalValue = samples.NOBS;
     const val = originalValue * factor + offset;
+    const min = 0;
+    const max = 366;
+    const stats = val >= min && val <= max ? val : NaN;
     const dataMask = samples.dataMask;
 
     const EXCLUDED_VALUES = [65535];
@@ -25,7 +28,7 @@ function evaluatePixel(samples) {
         return {
             default: [0, 0, 0, 0],
             index: [NaN],
-            browserStats: [val],
+            browserStats: [NaN],
             dataMask: [dataMask],
         };
     }
@@ -34,7 +37,7 @@ function evaluatePixel(samples) {
     return {
         default: imgVals.concat(dataMask * 255),
         index: [val],
-        browserStats: [val],
+        browserStats: [stats],
         dataMask: [dataMask],
     };
 }

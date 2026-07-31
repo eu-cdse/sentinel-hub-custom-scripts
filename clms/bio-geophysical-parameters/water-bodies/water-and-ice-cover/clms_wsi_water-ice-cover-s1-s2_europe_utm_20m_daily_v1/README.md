@@ -1,0 +1,3 @@
+#  WIC S1+S2 Europe 20m Daily V1
+
+The **Water and Ice Cover by Sentinel-1 and Sentinel-2 (WIC S1+S2)** product shows which river and lake areas are covered by ice, with or without snow. It combines data from two types of instruments acquired on the same day to increase coverage and reduce missing information. It uses water/ice cover information derived from **Sentinel-2** optical images (WIC S2), and from **Sentinel-1** radar data (WIC S1).<br><br>The product is generated in near real-time at European scale, with a spatial resolution of **20 m x 20 m**.<br><br>**Data availability**: from 2016 to the present.<br><br>More information [here](https://land.copernicus.eu/en/products/water-bodies/water-and-ice-cover-raster-20-m-60-m-europe-daily).

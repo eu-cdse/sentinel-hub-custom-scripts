@@ -18,7 +18,7 @@ function evaluatePixel(samples) {
     const val = originalValue * factor + offset;
     const dataMask = samples.dataMask;
 
-    const EXCLUDED_VALUES = [];
+    const EXCLUDED_VALUES = [253, 255];
     const isExcluded = dataMask === 0 || EXCLUDED_VALUES.includes(val);
 
     if (isExcluded) {
