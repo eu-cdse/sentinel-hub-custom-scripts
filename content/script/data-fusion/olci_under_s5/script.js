@@ -16,13 +16,7 @@ function setup() {
   };
 }
 
-function evaluatePixel(
-  samples,
-  inputData,
-  inputMetadata,
-  customData,
-  outputMetadata,
-) {
+function evaluatePixel(samples) {
   var S5 = samples.S5PL2[0];
   var S3 = samples.S3OLCI[0];
   var CLOUD_TOP_PRESSURE = S5.CLOUD_TOP_PRESSURE;
