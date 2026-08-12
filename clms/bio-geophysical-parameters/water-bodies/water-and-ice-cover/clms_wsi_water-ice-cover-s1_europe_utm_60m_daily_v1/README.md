@@ -1,0 +1,3 @@
+#  WIC S1 Europe 60m Daily V1
+
+The **Water and Ice Cover by Sentinel-1 (WICS1)** product provides information about river and lake areas covered by snow-covered or snow-free ice. It is based on synthetic aperture radar data from the **Sentinel-1** constellation.<br><br>It is generated in near real-time at European scale, with a spatial resolution of **60 m x 60 m**.<br><br>**Data availability**: from 2016 to the present.<br><br>More information [here](https://land.copernicus.eu/en/products/water-bodies/water-and-ice-cover-raster-20-m-60-m-europe-daily).

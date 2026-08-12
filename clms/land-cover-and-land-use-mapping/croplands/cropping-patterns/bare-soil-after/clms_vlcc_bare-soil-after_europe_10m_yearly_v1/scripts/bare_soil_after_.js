@@ -3,7 +3,7 @@ const factor = 1;
 const offset = 0;
 function setup() {
     return {
-        input: ["bare_soil_after", "dataMask"],
+        input: ["CPBSA", "dataMask"],
         output: [
             { id: "default", bands: 4, sampleType: "UINT8" },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -14,7 +14,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-    const originalValue = samples.bare_soil_after;
+    const originalValue = samples.CPBSA;
     const val = originalValue * factor + offset;
     const dataMask = samples.dataMask;
 

@@ -3,7 +3,7 @@ const factor = 1;
 const offset = 0;
 function setup() {
     return {
-        input: ["confidence", "dataMask"],
+        input: ["CPBSACL", "dataMask"],
         output: [
             { id: "default", bands: 4, sampleType: "UINT8" },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
@@ -14,7 +14,7 @@ function setup() {
 }
 
 function evaluatePixel(samples) {
-    const originalValue = samples.confidence;
+    const originalValue = samples.CPBSACL;
     const val = originalValue * factor + offset;
     const dataMask = samples.dataMask;
 
