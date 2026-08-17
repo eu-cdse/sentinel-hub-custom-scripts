@@ -20,4 +20,4 @@ Sevastopol with cloudy areas in Sentinel-1, and non-cloudy areas in Sentinel-2.
 
 ## License
 
- - [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}
+ - [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0/)
