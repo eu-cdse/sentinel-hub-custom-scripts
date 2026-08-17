@@ -11,14 +11,19 @@ function setup() {
     };
 }
 
-const ramp = [
-    [0, 0x8e0152],
-    [0.25, 0xde77ae],
-    [0.5, 0xf7f7f7],
-    [0.75, 0x7fbc41],
-    [1, 0x276419],
-];
+const rvi_min = 0;  // Lower limit of the color ramp
+const rvi_max = 1;  // Upper limit of the color ramp
 
+// Colors of the ramp, from bare soil to fully developed canopy
+const colors = [0x8e0152, 0xde77ae, 0xf7f7f7, 0x7fbc41, 0x276419];
+
+// Generate the ramp, spreading the colors evenly between rvi_min and rvi_max
+const ramp = [];
+const step_size = (rvi_max - rvi_min) / (colors.length - 1);
+
+for (let i = 0; i < colors.length; i++) {
+    ramp.push([rvi_min + i * step_size, colors[i]]);
+}
 
 const visualizer = new ColorRampVisualizer(ramp);
 

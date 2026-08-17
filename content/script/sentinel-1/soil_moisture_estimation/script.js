@@ -27,7 +27,11 @@ function setup() {
                 bands: ["VV", "VH"],
             },
         ],
-        output: { bands: 3 },
+        output: [
+            { id: "default", bands: 3 },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+        ],
         mosaicking: "ORBIT",
     };
 }
@@ -52,7 +56,7 @@ function evaluatePixel(samples, scenes) {
     var min = 2.0;
     var sum_VV = 0;
 
-    for (var i = 0; i < samples.length - 1; i++) {
+    for (var i = 0; i < samples.length; i++) {
         max = samples[i].VV > max ? samples[i].VV : max; // Calculating all time maximum--Wet index
         min = samples[i].VV < min ? samples[i].VV : min; // Calculating all time minimum--Dry index
         sum_VV += samples[i].VV;
@@ -62,13 +66,16 @@ function evaluatePixel(samples, scenes) {
     var sensitivity = max - min;
     // If overall averge is more than 6dB i.e., High intensity always usually urban areas.
     // Generating urban area mask using -6dB threshold
-    urban_mask = 10 * Math.log10(sum_VV / count) > -6 ? 0 : 1;
+    var urban_mask = 10 * Math.log10(sum_VV / count) > -6 ? 0 : 1;
     // If overall averge is less than 17dB i.e., low intensity always usually water bodies.
     // Generating permanent water body mask using -17dB threshold
-    water_mask = 10 * Math.log10(sum_VV / count) < -17 ? 0 : 1;
+    var water_mask = 10 * Math.log10(sum_VV / count) < -17 ? 0 : 1;
     // Assuming change in bckscatter intensity only because of change in soil moisture.
     Mv = (samples[0].VV - min) / sensitivity;
     Mv = Mv * water_mask * urban_mask; // Applying urban and permanent water body mask
+
+    // Soil moisture as a percentage, before the display range is clipped
+    var ssm = Mv * 100;
 
     /*
 
@@ -122,5 +129,9 @@ function evaluatePixel(samples, scenes) {
     } else {
         b = 1.0 + (Thresh_4 - v) / (vmax - Thresh_4) / 2;
     }
-    return [r, g, b];
+    return {
+        default: [r, g, b],
+        index: [ssm],
+        browserStats: [ssm],
+    };
 }
