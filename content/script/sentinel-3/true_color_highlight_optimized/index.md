@@ -19,9 +19,9 @@ This script uses highlight optimization to avoid burnt out pixels and to even ou
 The script applies the square root of the OLCI true color bands, which have lowered brightness and increased contrast: 
 
 ```javascript
-return [Math.sqrt(0.9*B08 - 0.055),
-           Math.sqrt(0.9*B06 - 0.055),
-           Math.sqrt(0.9*B04 - 0.055)]
+return [Math.sqrt(0.9*samples.B08 - 0.055),
+           Math.sqrt(0.9*samples.B06 - 0.055),
+           Math.sqrt(0.9*samples.B04 - 0.055)]
 ```
 
 It's also possible to use a cubic root (Math.cbrt) instead of a square root. This will decrease the contrast, improve the vibrancy of the ocean and land, but decrease the visual information of the clouds. 
