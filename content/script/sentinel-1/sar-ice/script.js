@@ -1,4 +1,12 @@
+//VERSION=3
 // Copyright (C) 2020 Martin Raspaud
+
+function setup() {
+  return {
+    input: ["HH", "HV"],
+    output: { bands: 3 }
+  };
+}
 
 function overlay(top, bottom) {
   var res = ((1 - 2 * top) * bottom + 2 * top) * bottom;
@@ -15,10 +23,12 @@ function gamma(arr, val) {
   return arr ** (1.0 / val);
 }
 
-var mhv = Math.sqrt(HV + 0.002);
-var mhh = Math.sqrt(HH + 0.002);
-var ov = overlay(mhh, mhv);
-var red = gamma(stretch(mhv, 0.02, 0.1), 1.1);
-var green = gamma(stretch(ov, 0.0, 0.06), 1.1);
-var blue = gamma(stretch(mhh, 0.0, 0.32), 1.1);
-return [red, green, blue];
+function evaluatePixel(samples) {
+  var mhv = Math.sqrt(samples.HV + 0.002);
+  var mhh = Math.sqrt(samples.HH + 0.002);
+  var ov = overlay(mhh, mhv);
+  var red = gamma(stretch(mhv, 0.02, 0.1), 1.1);
+  var green = gamma(stretch(ov, 0.0, 0.06), 1.1);
+  var blue = gamma(stretch(mhh, 0.0, 0.32), 1.1);
+  return [red, green, blue];
+}

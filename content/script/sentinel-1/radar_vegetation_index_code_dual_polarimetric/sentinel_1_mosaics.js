@@ -1,3 +1,4 @@
+//VERSION=3
 /*
 Radar Vegetation index for Sentinel-1
 Subhadip Dey
@@ -14,7 +15,7 @@ function setup() {
         output: [
             { id: "default", bands: 4 },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
-            { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
             { id: "dataMask", bands: 1 }
         ]
     };
@@ -63,7 +64,7 @@ function evaluatePixel(samples) {
         return {
             default: [0.7, 0.8, 0.9, 1.0], // Water color (light greyish blue)
             index: [rvi],
-            eobrowserStats: [rvi],
+            browserStats: [rvi],
             dataMask: [dataMask]
         };
     } else {
@@ -72,7 +73,7 @@ function evaluatePixel(samples) {
         return {
             default: color.concat([dataMask]),
             index: [rvi],
-            eobrowserStats: [rvi],
+            browserStats: [rvi],
             dataMask: [dataMask]
         };
     }

@@ -1,4 +1,4 @@
-//VERSION=3 (auto-converted from 1)
+//VERSION=3
 // Date Definition 
 var beforeflood_date = "2019-03-11"; var duringflood_date = "2019-03-23"; // Flood in Aghghala, Iran     
 //var beforeflood_date = "2019-01-06"; var duringflood_date = "2019-01-14"; // Flood in Uruguaiana, Rio Grande do Sul, Brazil       

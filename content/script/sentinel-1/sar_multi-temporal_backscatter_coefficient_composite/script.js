@@ -1,4 +1,4 @@
-//VERSION=3 (auto-converted from 1)
+//VERSION=3
 // ***
 // Sentinel-1 Multi-temporal Backscatter Coefficient Composite
 // For use in Sinergise EO Browser (https://apps.sentinel-hub.com/eo-browser).

@@ -1,4 +1,4 @@
-//VERSION=3 (auto-converted from 1)
+//VERSION=3
 //
 // SAR for deforestation detection
 // ------------
