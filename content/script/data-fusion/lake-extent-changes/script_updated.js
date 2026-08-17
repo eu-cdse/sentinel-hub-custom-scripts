@@ -40,9 +40,7 @@ function calcMNDWI(green, swir) {
 
 function evaluatePixel(samples) {
   // Safely find the first valid sample for each satellite
-  const landsat = samples.LANDSAT
-    ? samples.LANDSAT.find((s) => s.dataMask === 1)
-    : null;
+  const landsat = samples.LANDSAT ? samples.LANDSAT.find((s) => s.dataMask === 1) : null;
   const s2 = samples.S2L2A ? samples.S2L2A.find((s) => s.dataMask === 1) : null;
 
   // If either dataset lacks pixel coverage, return transparent/no-data
