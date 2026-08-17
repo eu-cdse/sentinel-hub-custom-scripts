@@ -1,9 +1,19 @@
+//VERSION=3
 // Sentinel-3 OTCI - OLCI terrestrial chlorophyll index
-var OTCI = (B12 - B11) / (B11 - B10);
-return colorBlend   
-    (OTCI,	            
-        [ 0, 1, 1.8, 2.5, 4, 4.5, 5], 
-        [     
+
+function setup() {
+  return {
+    input: ["B10", "B11", "B12"],
+    output: { bands: 3 }
+  };
+}
+
+function evaluatePixel(samples) {
+  var OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
+  return colorBlend
+    (OTCI,
+        [ 0, 1, 1.8, 2.5, 4, 4.5, 5],
+        [
             [0, 0, 0.5],
             [0, 0.3, 0.8],
             [1, 0.2, 0.2],
@@ -12,4 +22,4 @@ return colorBlend
             [0, 0.6,0.2],
             [1, 1, 1],
       ]);
-
+}

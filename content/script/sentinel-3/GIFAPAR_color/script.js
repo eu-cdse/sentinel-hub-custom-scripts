@@ -1,4 +1,4 @@
-//Version=3
+//VERSION=3
 // Simple green color ramp for GIFAPAR index
 // By András Zlinszky, Sinergise - with lots of help from GitHub Copilot
 
