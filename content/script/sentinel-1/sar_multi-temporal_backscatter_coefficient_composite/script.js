@@ -8,19 +8,6 @@
 // ***
 
 // ****General definition*************
-//Definition date/images used in the composite
-var earliest_date = "2018-04-11"; var middle_date = "2018-06-10"; var latest_date = "2018-08-21"; // Kilauea volcano evolution during 2018's eruption
-//var earliest_date = "2019-03-13"; var middle_date = "2019-03-19"; var latest_date = "2019-03-25"; // Beira flooding, Mozambique
-//var earliest_date = "2018-05-06"; var middle_date = "2018-06-05"; var latest_date = "2018-07-11"; // Po delta, Italy, soil/crop evolution 
-//var earliest_date = "2017-05-13"; var middle_date = "2017-07-06"; var latest_date = "2017-07-12"; // Vesuvio wildfire, Italy
-//var earliest_date = "2018-12-19"; var middle_date = "2018-12-25"; var latest_date = "2018-12-31"; // Anak Krakatau Volcano evolution during the first three weeks after the eruption 
-//var earliest_date = "2018-12-16"; var middle_date = "2018-12-22"; var latest_date = "2018-12-28"; // Etna Volcano, Christmas' eve eruption     
-//var earliest_date = "2017-04-13"; var middle_date = "2018-04-20"; var latest_date = "2019-04-15"; // Viedma glacier, Argentina, during 2017-2019
-//var earliest_date = "2017-04-13"; var middle_date = "2018-04-20"; var latest_date = "2019-04-15"; // Filadelfia, Paraguay, deforestation 
-//var earliest_date = "2018-03-25"; var middle_date = "2018-08-16"; var latest_date = "2018-12-26"; // Mekong delta, Vietnam, rice growth
-//var earliest_date = "2017-04-16"; var middle_date = "2018-04-11"; var latest_date = "2019-04-06"; // Mississipi delta, USA, during 2017-2019  
-
-
 // Definition stretch value for Composite
 var stretch_min = 0.0; var stretch_max = 1.1; // default value are stretch_min = 0; stretch_max = 1.1.
 // ***********************************
@@ -42,25 +29,14 @@ function setup() {
 // Selection of dates for composite / analysis
 
 function preProcessScenes(collections) {
-  var allowedDates = [latest_date, middle_date, earliest_date];  //(1°date/latest image-> red; 2°date-> green;  3°date/earliest image->blue)
-  collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-    var orbitDateFrom = orbit.dateFrom.split("T")[0];
-    return allowedDates.includes(orbitDateFrom);
-  })
+  // keep three orbits from the selected time range: the two ends and the middle one
+  var orbits = collections.scenes.orbits;
+  if (orbits.length > 3) {
+    var middle = Math.floor((orbits.length - 1) / 2);
+    collections.scenes.orbits = [orbits[0], orbits[middle], orbits[orbits.length - 1]];
+  }
   return collections
 }
-
-// Date conversion  
-function dateformat(d) {
-  var dd = d.getDate();
-  var mm = d.getMonth() + 1;
-  var yyyy = d.getFullYear();
-  if (dd < 10) { dd = '0' + dd }
-  if (mm < 10) { mm = '0' + mm }
-  var isodate = yyyy + '-' + mm + '-' + dd;
-  return isodate;
-}
-
 
 // Backscatter Coefficient
 function calcdB(sample) {
