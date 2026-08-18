@@ -1,6 +1,6 @@
 ---
 title: "Ulyssys Water Quality Viewer (UWQV)"
-evalscripts: ["script.js", "eob.js"]
+evalscripts: ["script.js"]
 type: ["composite"]
 domain: ["water"]
 data-source: ["Sentinel-3"]

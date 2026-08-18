@@ -15,6 +15,8 @@ default: ["default"]
 
 The Sentinel-3 OLCI Normalized Difference Bare ice Index (NDBI) was developed by [Kokhanovsky et al. (2020)](https://www.mdpi.com/2072-4292/11/19/2280) to differentiate snow-covered surfaces from bare ice. NDBI used two bands: one in the Blue (Band 2, 412.5 nm)  and one in the NIR (Band 21, 1020 nm).  
 
+The index is intended for glaciers and ice sheets. Over other surfaces the values fall outside the ranges in the table below and the resulting colours are not meaningful.
+
 Formula:
 _(Band 02 - Band 21) / (Band 02 + Band 21)_
 
