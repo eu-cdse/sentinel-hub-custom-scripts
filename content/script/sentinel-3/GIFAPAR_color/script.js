@@ -15,9 +15,6 @@ function setup() {
   }
   
   const ramp = [
-    [-0.5, 0x0c0c0c],
-    [-0.2, 0xbfbfbf],
-    [-0.1, 0xdbdbdb],
     [0, 0xeaeaea],
     [0.025, 0xfff9cc],
     [0.05, 0xede8b5],
