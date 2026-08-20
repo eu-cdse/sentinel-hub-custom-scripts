@@ -14,6 +14,16 @@ Climate change contributes to more frequent or more severe droughts and floods i
 
 This script is a custom script for the Copernicus Browser. It maps the extent of water bodies in two Landsat images defined by the user and then visualizes the changes between both scenes. The script is able to compare images both from the Landsat 8-9 Level-1 and Sentinel-2 datasets.
 
+You can follow these steps to use the script in the Copernicus Browser:
+1. Find a Landsat image
+2. Paste the script in the script editor of the `Custom` tab
+3. Click `Use additional datasets (advanced)`
+4. Rename `LANDSAT-OT-L1` to `LANDSAT`
+4. Under `Additional datasets`, look for `S-2 L2A` in the dropdown list and click the add button (`+`)
+5. Check `Customize timespan` at the end of the `S2L2A (S-2 L2A)` section
+6. Set a date where there is Sentinel-2 data you want to compare with
+7. Click the `Apply` button at the bottom
+
 ## Author of the script
 - Jan Landwehrs
 
