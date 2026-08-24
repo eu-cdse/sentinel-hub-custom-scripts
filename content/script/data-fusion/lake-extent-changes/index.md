@@ -1,6 +1,6 @@
 ---
 title: Detection of Lake Extent Changes
-evalscripts: ["script.js", "script_updated.js"]
+evalscripts: ["script.js", "script_refactor.js"]
 domain: ["water", "flood"]
 data-source: ["Data fusion", "Sentinel-2"]
 verification: ["cites literature"]
