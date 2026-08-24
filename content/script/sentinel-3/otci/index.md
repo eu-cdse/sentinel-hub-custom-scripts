@@ -1,6 +1,6 @@
 ---
 title: "OTCI - OLCI terrestrial chlorophyll index"
-evalscripts: ["script.js", "eob.js"]
+evalscripts: ["script.js"]
 type: ["index"]
 domain: ["vegetation"]
 data-source: ["Sentinel-3"]
