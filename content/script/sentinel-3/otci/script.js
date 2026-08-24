@@ -1,25 +1,40 @@
 //VERSION=3
-// Sentinel-3 OTCI - OLCI terrestrial chlorophyll index
-
-function setup() {
-  return {
-    input: ["B10", "B11", "B12"],
-    output: { bands: 3 }
-  };
-}
-
-function evaluatePixel(samples) {
-  var OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
-  return colorBlend
-    (OTCI,
-        [ 0, 1, 1.8, 2.5, 4, 4.5, 5],
-        [
-            [0, 0, 0.5],
-            [0, 0.3, 0.8],
-            [1, 0.2, 0.2],
-            [1, 0.9, 0],
-            [0, 0.8, 0.1],
-            [0, 0.6,0.2],
-            [1, 1, 1],
-      ]);
-}
+const map = [
+    [0.0, 0x00007d],
+    [1.0, 0x004ccc],
+    [1.8, 0xff3333],
+    [2.5, 0xffe500],
+    [4.0, 0x00cc19],
+    [4.5, 0x00cc19],
+    [5.0, 0xffffff],
+  ];
+  
+  const visualizer = new ColorRampVisualizer(map);
+  function setup() {
+    return {
+      input: ["B10", "B11", "B12", "dataMask"],
+      output: [
+        { id: "default", bands: 4 },
+        { id: "index", bands: 1, sampleType: "FLOAT32" },
+        { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+        { id: "dataMask", bands: 1 },
+      ],
+    };
+  }
+  
+  function evaluatePixel(samples) {
+    let OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
+    let imgVals = null;
+    // The library for tiffs works well only if there is only one channel returned.
+    // So we encode the "no data" as NaN here and ignore NaNs on frontend.
+    // we restrict the interval to [-10, 10] as it covers most of the value range
+    const indexVal =
+      samples.dataMask === 1 && OTCI >= -10 && OTCI <= 10 ? OTCI : NaN;
+    imgVals = [...visualizer.process(OTCI), samples.dataMask];
+    return {
+      default: imgVals,
+      index: [indexVal],
+      browserStats: [indexVal],
+      dataMask: [samples.dataMask],
+    };
+  }  
