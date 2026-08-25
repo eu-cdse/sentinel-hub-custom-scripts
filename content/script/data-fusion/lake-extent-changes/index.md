@@ -1,6 +1,6 @@
 ---
 title: Detection of Lake Extent Changes
-evalscripts: ["script.js", "script_refactor.js"]
+evalscripts: ["script_landsat.js", "script_landsat_s2.js"]
 domain: ["water", "flood"]
 data-source: ["Data fusion", "Sentinel-2"]
 verification: ["cites literature"]
@@ -12,17 +12,29 @@ default: ["custom"]
 
 Climate change contributes to more frequent or more severe droughts and floods in many regions of the world, among other things. Satellite Earth observation is extremely useful to document these changes, for example by monitoring water bodies. The Landsat program provides particularly useful data for demonstrating variations in the extent of lakes over the last decades, for example, as it provides the longest-running record of satellite observations since the 1970s.
 
-This script is a custom script for the Copernicus Browser. It maps the extent of water bodies in two Landsat images defined by the user and then visualizes the changes between both scenes. The script is able to compare images both from the Landsat 8-9 Level-1 and Sentinel-2 datasets.
+This script is a custom script for the Copernicus Browser. It maps the extent of water bodies in two Landsat images (or a Landsat and Sentinel image) defined by the user and then visualizes the changes between both scenes. The script is able to compare images both from the Landsat 8-9 Level-1 and Sentinel-2 datasets.
 
-You can follow these steps to use the script in the Copernicus Browser:
-1. Find a Landsat image
+You can follow these steps to use `script_landsat.js` in the Copernicus Browser:
+1. Find a Landsat image at the end of the period you want to establish the comparison
 2. Paste the script in the script editor of the `Custom` tab
 3. Click `Use additional datasets (advanced)`
-4. Rename `LANDSAT-OT-L1` to `LANDSAT`
-4. Under `Additional datasets`, look for `S-2 L2A` in the dropdown list and click the add button (`+`)
-5. Check `Customize timespan` at the end of the `S2L2A (S-2 L2A)` section
-6. Set a date where there is Sentinel-2 data you want to compare with
-7. Click the `Apply` button at the bottom
+4. Rename `LANDSAT-OT-L1` to `LANDSAT_NEWER`
+5. Under `Additional datasets`, look for `Landsat-8/9 L1` in the dropdown list and click the add button (`+`)
+6. Rename `LANDSAT-OT-L1-1` to `LANDSAT_OLDER`
+7. Check `Customize timespan` at the end of the new subsection
+8. Set a date with a Landsat image. This date represents the beginning of the comparison period
+9. Click the `Apply` button at the bottom
+
+You can follow these steps to use `script_landsat_s2.js` in the Copernicus Browser:
+1. Find a Landsat image at the end of the period you want to establish the comparison
+2. Paste the script in the script editor of the `Custom` tab
+3. Click `Use additional datasets (advanced)`
+4. Rename `LANDSAT-OT-L1` to `LANDSAT_NEWER`
+5. Under `Additional datasets`, look for `S-2 L2A` in the dropdown list and click the add button (`+`)
+6. Rename `S2L2A` to `S2_OLDER`
+7. Check `Customize timespan` at the end of the new subsection
+8. Set a date with a Sentinel-2 image. This date represents the beginning of the comparison period
+9. Click the `Apply` button at the bottom
 
 ## Author of the script
 - Jan Landwehrs
