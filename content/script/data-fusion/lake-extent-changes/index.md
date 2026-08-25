@@ -1,8 +1,8 @@
 ---
 title: Detection of Lake Extent Changes
-evalscripts: ["script_landsat.js", "script_landsat_s2.js"]
+evalscripts: ["script.js", "script_landsat_s2.js"]
 domain: ["water", "flood"]
-data-source: ["Data fusion", "Sentinel-2"]
+data-source: ["Data fusion", "Sentinel-2", "Landsat"]
 verification: ["cites literature"]
 type: ["classification"]
 default: ["custom"]
@@ -14,7 +14,7 @@ Climate change contributes to more frequent or more severe droughts and floods i
 
 This script is a custom script for the Copernicus Browser. It maps the extent of water bodies in two Landsat images (or a Landsat and Sentinel image) defined by the user and then visualizes the changes between both scenes. The script is able to compare images both from the Landsat 8-9 Level-1 and Sentinel-2 datasets.
 
-You can follow these steps to use `script_landsat.js` in the Copernicus Browser:
+You can follow these steps to use `script.js` in the Copernicus Browser to compare two Landsat 8-9 Level 1 images:
 1. Find a Landsat image at the end of the period you want to establish the comparison
 2. Paste the script in the script editor of the `Custom` tab
 3. Click `Use additional datasets (advanced)`
@@ -25,7 +25,7 @@ You can follow these steps to use `script_landsat.js` in the Copernicus Browser:
 8. Set a date with a Landsat image. This date represents the beginning of the comparison period
 9. Click the `Apply` button at the bottom
 
-You can follow these steps to use `script_landsat_s2.js` in the Copernicus Browser:
+You can follow these steps to use `script_landsat_s2.js` in the Copernicus Browser to compare a Landsat 8-9 Level 1 with a Sentinel-2 L2A image:
 1. Find a Landsat image at the end of the period you want to establish the comparison
 2. Paste the script in the script editor of the `Custom` tab
 3. Click `Use additional datasets (advanced)`
