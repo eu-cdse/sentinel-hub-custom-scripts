@@ -10,8 +10,9 @@ resolution: ["7km"]
 
 ## General description of the script
 
-This script calculates the mean values of NO<sub>2</sub> over the time period you select. It is useful for visualizing large-scale patterns of air pollution. 
-In order to comply with the SI unit definitions, the TROPOMI NO2 data product gives trace gas concentrations in mol/m<sup>2</sup>.
+This script calculates the mean values of NO~2~ over the time period you select. It is useful for visualizing large-scale patterns of air pollution. 
+In order to comply with the SI unit definitions, the TROPOMI NO2 data product gives trace gas concentrations in mol/m^2^.
+
 
 Cloud-affected pixels are masked from Sentinel-5P air pollution imagery, you will see them as empty pixels on the map. Due to the relatively low resolution of Sentinel-5P TROPOMI, these datasets work best at regional to continental scale, however, at such scales it is extremely rare to encounter an image that is not influenced by clouds. Therefore, similar to [Sentinel-2 quarterly mosaics](https://dataspace.copernicus.eu/news/2024-2-27-exploring-new-frontier-sentinel-cloudless-mosaics-copernicus-data-space-ecosystem), creating longer-term mean mosaics of Sentinel-5P data enables exploring pollution patterns across regions.
 

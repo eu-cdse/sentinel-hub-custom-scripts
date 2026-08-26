@@ -3,8 +3,16 @@ title = 'CDSE custom scripts <3'
 sectionPagesMenu = 'main'
 
 [markup]
-  [markup.highlight]
-    style = 'tokyonight-day'
+    [markup.highlight]
+        style = 'tokyonight-day'
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            strikethrough = false
+        [markup.goldmark.extensions.extras]
+            [markup.goldmark.extensions.extras.subscript]
+                enable = true
+            [markup.goldmark.extensions.extras.superscript]
+                enable = true
 
 [taxonomies]
     type = 'types'
