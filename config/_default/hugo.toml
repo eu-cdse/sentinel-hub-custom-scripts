@@ -6,6 +6,11 @@ sectionPagesMenu = 'main'
     [markup.highlight]
         style = 'tokyonight-day'
     [markup.goldmark]
+        [markup.goldmark.parser]
+            wrapStandAloneImageWithinParagraph = false
+            [markup.goldmark.parser.attribute]
+                block = true
+                title = true
         [markup.goldmark.extensions]
             strikethrough = false
         [markup.goldmark.extensions.extras]
@@ -15,9 +20,9 @@ sectionPagesMenu = 'main'
                 enable = true
 
 [taxonomies]
-    type = 'types'
-    verification = 'verifications'
-    default = 'default'
-    domain = 'domains'
-    data-source = 'data-sources'
-    resolution = 'resolutions'
+type = 'types'
+verification = 'verifications'
+default = 'default'
+domain = 'domains'
+data-source = 'data-sources'
+resolution = 'resolutions'
