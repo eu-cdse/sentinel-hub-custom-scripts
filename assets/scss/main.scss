@@ -113,3 +113,8 @@ footer {
     flex-direction: row;
     justify-content: center;
 }
+
+mjx-container.MathJax[display] {
+    margin: 0;
+    padding: 0;
+}
