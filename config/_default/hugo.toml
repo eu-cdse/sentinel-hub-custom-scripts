@@ -2,15 +2,22 @@ locale = 'en-us'
 title = 'CDSE custom scripts <3'
 sectionPagesMenu = 'main'
 
-[markup.highlight]
-style = 'tokyonight-day'
-
-[markup.goldmark.parser]
-wrapStandAloneImageWithinParagraph = false
-
-[markup.goldmark.parser.attribute]
-block = true
-title = true
+[markup]
+    [markup.highlight]
+        style = 'tokyonight-day'
+    [markup.goldmark]
+        [markup.goldmark.parser]
+            wrapStandAloneImageWithinParagraph = false
+            [markup.goldmark.parser.attribute]
+                block = true
+                title = true
+        [markup.goldmark.extensions]
+            strikethrough = false
+        [markup.goldmark.extensions.extras]
+            [markup.goldmark.extensions.extras.subscript]
+                enable = true
+            [markup.goldmark.extensions.extras.superscript]
+                enable = true
 
 [taxonomies]
 type = 'types'
