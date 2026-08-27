@@ -1,0 +1,12 @@
+{
+  "name": "sentinel-hub-custom-scripts",
+  "private": true,
+  "description": "Tooling for the Sentinel Hub custom scripts Hugo site",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

@@ -1,0 +1,5 @@
+# Do not rewrap prose. The markdown pages contain very long single-line
+# Copernicus Browser URLs, and rewrapping would break those links.
+# This is Prettier's default, pinned here so it is not changed by accident.
+proseWrap: preserve
+
