@@ -24,7 +24,7 @@ This image shows the monthly mean NO2 concentration for January 2024 over Centra
 
 View in Copernicus Browser [here](https://tinyurl.com/europesen5p)
 
-!['Sentinel-5 N02 monthly mean over Central Europe, January 2024, ](.\img\sentinel_5p_monthly_NO2_europe_2024_jan.jpg)
+!['Sentinel-5 N02 monthly mean over Central Europe, January 2024, ](img/sentinel_5p_monthly_NO2_europe_2024_jan.jpg)
 
 ## References
 

@@ -14,4 +14,4 @@ Long term satellite observations of tropospheric formaldehyde (HCHO) are essenti
 ## Description of representative images
 
 High formaldehyde concentrations over Ghana, 2020-01-24.
-![NO2 tropospheric column](fig/fig1.png)
+![High formaldehyde concentrations](fig/fig1.png)

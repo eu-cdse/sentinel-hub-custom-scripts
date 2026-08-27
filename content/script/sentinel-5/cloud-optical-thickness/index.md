@@ -14,4 +14,4 @@ This script visualizes Sentinel 5P cloud optical thickness product. The cloud th
 ## Description of representative images
 
 Optical thickness of the Pacific Ocean hurricane, 2020-01-15.
-![NO2 tropospheric column](fig/fig1.png)
+![Optical thickness](fig/fig1.png)

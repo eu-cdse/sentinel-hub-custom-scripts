@@ -15,4 +15,4 @@ Find more information [here](https://sentinels.copernicus.eu/web/sentinel/data-p
 ## Description of representative images
 
 High methane concentrations over Italy, 2019-08-31.
-![NO2 tropospheric column](fig/fig1.png)
+![High methane concentrations](fig/fig1.png)

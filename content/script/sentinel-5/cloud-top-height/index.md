@@ -14,4 +14,4 @@ This script visualizes Sentinel 5P top height product (height of a cloud top in 
 ## Description of representative images
 
 Top height of the Pacific Ocean hurricane, 2020-01-15.
-![NO2 tropospheric column](fig/fig1.png)
+![Top height](fig/fig1.png)

@@ -17,4 +17,4 @@ NO2 tropospheric column values in Europe, on 25.10.2019.
 ![NO2 tropospheric column](fig/fig1.png)
 
 ## Contributors:
-[Annamaria Luongo](https://twitter.com/annamaria_84){:target="_blank"}
+[Annamaria Luongo](https://twitter.com/annamaria_84)

@@ -15,4 +15,4 @@ Find more information [here](https://sentinels.copernicus.eu/web/sentinel/data-p
 ## Description of representative images
 
 High ozone concentrations over Kamchatka, 2020-01-24.
-![NO2 tropospheric column](fig/fig1.png)
+![High ozone concentrations](fig/fig1.png)

@@ -14,4 +14,4 @@ Carbon monoxide (CO) is an important atmospheric trace gas. In certain urban are
 ## Description of representative images
 
 High CO concentrations over Australia, 2020-01-27.
-![NO2 tropospheric column](fig/fig1.png)
+![High CO concentrations](fig/fig1.png)

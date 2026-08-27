@@ -15,4 +15,4 @@ Find more information [here](https://sentinels.copernicus.eu/web/sentinel/data-p
 ## Description of representative images
 
 High methane concentrations over Burkina Faso, 2019-03-14.
-![NO2 tropospheric column](fig/fig1.png)
+![High methane concentrations](fig/fig1.png)

@@ -14,4 +14,4 @@ This script visualizes Sentinel 5P base height product (height of a cloud base i
 ## Description of representative images
 
 Base height of the Pacific Ocean hurricane, 2020-01-15.
-![NO2 tropospheric column](fig/fig1.png)
+![Base height](fig/fig1.png)

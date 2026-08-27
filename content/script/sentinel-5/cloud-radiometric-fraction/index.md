@@ -14,4 +14,4 @@ This script visualizes Sentinel 5P effective radiometric cloud fraction product,
 ## Description of representative images
 
 Effective radiometric cloud fraction of the Pacific Ocean hurricane, 2020-01-15.
-![NO2 tropospheric column](fig/fig1.png)
+![Effective radiometric cloud fraction](fig/fig1.png)

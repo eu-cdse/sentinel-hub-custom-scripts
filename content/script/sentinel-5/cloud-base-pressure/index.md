@@ -14,4 +14,4 @@ This script visualizes Sentinel 5P base pressure product (air pressure measured 
 ## Description of representative images
 
 Cloud top pressure of the Pacific Ocean hurricane, 2020-01-15.
-![NO2 tropospheric column](fig/fig1.png)
+![Cloud top pressure](fig/fig1.png)
