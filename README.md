@@ -175,12 +175,29 @@ When you add a script, you can specify terms for any of these supported taxonomi
 
 | Taxonomy | Frontmatter Key | Common Values / Terms |
 | :--- | :--- | :--- |
-| **Types** | `type` | `composite`, `index`, `regression`, `classification` |
-| **Verifications** | `verification` | `cites literature`, `cites operational use case` |
+| **Types** | `types` | `composite`, `index`, `regression`, `classification` |
+| **Verifications** | `verifications` | `cites literature`, `cites operational use case` |
 | **Default** | `default` | `default`, `custom` |
-| **Domains** | `domain` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
-| **Data-Sources** | `data-source` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM` |
-| **Resolutions** | `resolution` | `10m`, `60m`, `300m` ... |
+| **Domains** | `domains` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
+| **Data-Sources** | `data-sources` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM` |
+| **Resolutions** | `resolutions` | `10m`, `60m`, `300m` ... |
+
+Sentinel 2 Band resolutions:
+| Band                         | Resolution |
+|:-----------------------------|:-----------|
+| Band 1 – Coastal aerosol     | 60         |
+| Band 2 – Blue 	             | 10         |
+| Band 3 – Green 	 	           | 10         |
+| Band 4 – Red           	     | 10         |
+| Band 5 – Vegetation red edge | 20         |
+| Band 6 – Vegetation red edge | 20         |
+| Band 7 – Vegetation red edge | 20         |
+| Band 8 – NIR 	               | 10         |
+| Band 8A – Narrow NIR 	       | 20         |
+| Band 9 – Water vapour 	     | 60         |
+| Band 10 – SWIR – Cirrus 	   | 60         |
+| Band 11 – SWIR 	             | 20         |
+| Band 12 – SWIR 	             | 20         |
 
 ### Frontmatter Example with Full Taxonomies:
 ```yaml
