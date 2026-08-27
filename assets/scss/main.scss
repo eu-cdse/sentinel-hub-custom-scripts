@@ -24,7 +24,7 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 300px minmax(0,1fr) 300px;
 }
 
 img {
@@ -54,9 +54,15 @@ img {
         right: 10px;
         top: 10px;
     }
-    .highlight  pre{
-        padding: 10px;
-        margin: 0;
+    .highlight  {
+        pre {
+            code {
+                display: block;
+                overflow: auto;
+            }
+            padding: 10px;
+            margin: 0;
+        }
     }
 }
 #script-url {
