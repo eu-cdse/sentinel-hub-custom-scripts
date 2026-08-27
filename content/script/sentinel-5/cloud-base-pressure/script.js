@@ -1,8 +1,7 @@
 //VERSION=3
-//// Testing testing
-const band = "AER_AI_340_380";
-var minVal = -1.0;
-var maxVal = 5.0;
+const band = "CLOUD_BASE_PRESSURE";
+var minVal = 10000.0;
+var maxVal = 110000.0;
 
 function setup() {
   return {

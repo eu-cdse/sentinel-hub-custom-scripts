@@ -1,8 +1,11 @@
 ---
 title: Sentinel-5P Aerosol concentrations 340/380 nm
-evalscripts: ["script.js","script_copy.js"]
-citations: ["cites operational use case"]
-fields: ["atmosphere"]
+evalscripts: ["script.js"]
+type: ["index"]
+default: ["default"]
+domains: ["atmosphere"]
+data-sources: ["Sentinel-5P"]
+resolution: ["7km"]
 ---
 
 ## Description
@@ -11,7 +14,7 @@ The Aerosol Index (AI) is a qualitative index indicating the presence of elevate
 ## Description of representative images
 
 High aerosol concentrations over Chad, 2019-07-04.
-![NO2 tropospheric column](fig1.png)
+![High aerosol concentrations](fig/fig1.png)
 
 ## References
 [Sentinel Online - Level-2 Algorithms - Aerosol Index](https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-5p/level-2/aerosol-index)
