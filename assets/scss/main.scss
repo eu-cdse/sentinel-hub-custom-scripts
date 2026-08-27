@@ -32,6 +32,23 @@ img {
     height: auto;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+div.table-container {
+    overflow-x: auto;
+}
+
 #taxonomies {
     display: flex;
     flex-direction: row;
