@@ -29,7 +29,7 @@ function setup() {
 
 function evaluatePixel(sample) {
     for (let i = 0; i < sample.length; i++) {
-        // Only calculate the BRDF for pixels where the 
+        // Only calculate the BRDF for pixels where the
         // view geometry is available (on the edges of tiles
         // reflectance is available but not view geometry)
         if (sample[i].viewAzimuthMean > 1) {
@@ -165,7 +165,7 @@ function calc_c_lambda(kernels, f) {
 
 function calc_nbar(r_s2, f, kernels) {
     //Part 1 of Eq. 5 in Roy et al 2017
-    // r_s2: reflectance in band 
+    // r_s2: reflectance in band
     // f: f values for band
     let c_lambda = calc_c_lambda(kernels, f);
     return c_lambda * r_s2;

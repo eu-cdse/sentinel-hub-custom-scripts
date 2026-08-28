@@ -4,6 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 verifications: ["cites literature"]
 domains: ["agriculture","vegetation"]
+data-sources: ["Sentinel-2"]
 resolutions: ["10m","20m"]
 ---
 

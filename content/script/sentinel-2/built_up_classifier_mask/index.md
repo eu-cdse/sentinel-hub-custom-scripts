@@ -1,26 +1,10 @@
 ---
 title: Built-up binary classifier mask
-parent: Sentinel-2
-grand_parent: Sentinel
-layout: script
-permalink: /sentinel-2/built_up_classifier_mask/
-nav_exclude: true
-examples:
-- zoom: '13'
-  lat: '46.06168'
-  lng: '14.51225'
-  datasetId: S2L1C
-  fromTime: '2020-03-14T00:00:00.000Z'
-  toTime: '2020-09-14T23:59:59.999Z'
-  platform:
-  - CDSE
-  - EOB
-  evalscripturl: https://custom-scripts.sentinel-hub.com/sentinel-2/built_up_classifier_mask/script.js
-  additionalQueryParams:
-  - - mosaickingOrder
-    - mostRecent
-  - - cloudCoverage
-    - '58'
+evalscripts: ["script.js"]
+types: ["classification"]
+domains: ["urban"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m","20m","60m"]
 ---
 
 ## General description of the script

@@ -43,8 +43,11 @@ Two rules worth repeating here:
 Keys used across the catalogue, most to least common: `title`, `evalscripts`, `data-source`,
 `resolution`, `default`, `type`, `domain`, `verification`. Match the neighbouring scripts in
 the same data-source folder rather than inventing keys — note the singular `data-source` and
-`domain`. `evalscripts` lists the script filenames in the folder; `default` names the output
-id(s) the Browser should render.
+`domain`. `evalscripts` lists the script filenames in the folder; `default` marks whether the
+script is a **default Copernicus Browser script** (`["default"]`) or one needing a custom
+configuration (`["custom"]`, used by the data-fusion scripts). Despite the name, `default` has
+nothing to do with the script's contents, outputs or format — don't add or change it when
+writing or converting a script.
 
 ## Conventions
 
