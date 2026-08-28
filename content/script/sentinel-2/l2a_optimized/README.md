@@ -1,0 +1,29 @@
+---
+title: Sentinel-2 L2A True Color Optimized
+parent: Sentinel-2
+grand_parent: Sentinel
+layout: script
+permalink: /sentinel-2/l2a_optimized/
+nav_exclude: true
+examples:
+- zoom: '12'
+  lat: '-2.65054'
+  lng: '-42.67467'
+  datasetId: S2L2A
+  fromTime: '2022-08-07T00:00:00.000Z'
+  toTime: '2022-08-07T23:59:59.999Z'
+  platform:
+  - CDSE
+  - EOB
+  evalscript: Ly9WRVJTSU9OPTMKZnVuY3Rpb24gc2V0dXAoKSB7CiAgcmV0dXJuIHsKICAgIGlucHV0OiBbIkIwNCIsIkIwMyIsIkIwMiIsICJkYXRhTWFzayJdLAogICAgb3V0cHV0OiB7IGJhbmRzOiA0IH0KICB9Owp9CgovLyBDb250cmFzdCBlbmhhbmNlIC8gaGlnaGxpZ2h0IGNvbXByZXNzCgpjb25zdCBtYXhSID0gMy4wOyAvLyBtYXggcmVmbGVjdGFuY2UKY29uc3QgbWlkUiA9IDAuMTM7CmNvbnN0IHNhdCA9IDEuMjsKY29uc3QgZ2FtbWEgPSAxLjg7CgpmdW5jdGlvbiBldmFsdWF0ZVBpeGVsKHNtcCkgewogIGNvbnN0IHJnYkxpbiA9IHNhdEVuaChzQWRqKHNtcC5CMDQpLCBzQWRqKHNtcC5CMDMpLCBzQWRqKHNtcC5CMDIpKTsKICByZXR1cm4gW3NSR0IocmdiTGluWzBdKSwgc1JHQihyZ2JMaW5bMV0pLCBzUkdCKHJnYkxpblsyXSksIHNtcC5kYXRhTWFza107Cn0KCmZ1bmN0aW9uIHNBZGooYSkgewogIHJldHVybiBhZGpHYW1tYShhZGooYSwgbWlkUiwgMSwgbWF4UikpOwp9Cgpjb25zdCBnT2ZmID0gMC4wMTsKY29uc3QgZ09mZlBvdyA9IE1hdGgucG93KGdPZmYsIGdhbW1hKTsKY29uc3QgZ09mZlJhbmdlID0gTWF0aC5wb3coMSArIGdPZmYsIGdhbW1hKSAtIGdPZmZQb3c7CgpmdW5jdGlvbiBhZGpHYW1tYShiKSB7CiAgcmV0dXJuIChNYXRoLnBvdygoYiArIGdPZmYpLCBnYW1tYSkgLSBnT2ZmUG93KS9nT2ZmUmFuZ2U7Cn0KCi8vIFNhdHVyYXRpb24gZW5oYW5jZW1lbnQKZnVuY3Rpb24gc2F0RW5oKHIsIGcsIGIpIHsKICBjb25zdCBhdmdTID0gKHIgKyBnICsgYikgLyAzLjAgKiAoMSAtIHNhdCk7CiAgcmV0dXJuIFtjbGlwKGF2Z1MgKyByICogc2F0KSwgY2xpcChhdmdTICsgZyAqIHNhdCksIGNsaXAoYXZnUyArIGIgKiBzYXQpXTsKfQoKZnVuY3Rpb24gY2xpcChzKSB7CiAgcmV0dXJuIHMgPCAwID8gMCA6IHMgPiAxID8gMSA6IHM7Cn0KCi8vY29udHJhc3QgZW5oYW5jZW1lbnQgd2l0aCBoaWdobGlnaHQgY29tcHJlc3Npb24KZnVuY3Rpb24gYWRqKGEsIHR4LCB0eSwgbWF4QykgewogIHZhciBhciA9IGNsaXAoYSAvIG1heEMsIDAsIDEpOwogIHJldHVybiBhciAqIChhciAqICh0eC9tYXhDICsgdHkgLTEpIC0gdHkpIC8gKGFyICogKDIgKiB0eC9tYXhDIC0gMSkgLSB0eC9tYXhDKTsKfQoKY29uc3Qgc1JHQiA9IChjKSA9PiBjIDw9IDAuMDAzMTMwOCA/ICgxMi45MiAqIGMpIDogKDEuMDU1ICogTWF0aC5wb3coYywgMC40MTY2NjY2NjY2NikgLSAwLjA1NSk7Cg==
+---
+
+## Description
+
+True color composite uses visible light bands red, green and blue in the corresponding red, green and blue color channels, resulting in a natural colored product, that is a good representation of the Earth as humans would see it naturally. This visualization uses highlight compression to ensure no maxing-out of clouds or snow, uses sRGB encoding for no extra darkening of shadows and adds a small amount of saturation boost.
+
+## Description of representative images
+
+Optimized True Color image of Rome. Acquired on 2023-01-30, processed by Sentinel Hub. 
+
+![S2-L2A True Color Optimized](fig/fig1.png)
