@@ -28,7 +28,7 @@ jobs:
       - name: ESLint and markdownlint
         run: npm run lint
 
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.0.1
 
       - name: djlint formatting
         run: npm run format:templates:check
