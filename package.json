@@ -7,7 +7,8 @@
     "format:check": "prettier --check .",
     "lint": "npm run lint:js && npm run lint:md",
     "lint:js": "eslint .",
-    "lint:md": "markdownlint-cli2"
+    "lint:md": "markdownlint-cli2",
+    "lint:templates": "uvx djlint layouts --lint --profile golang"
   },
   "devDependencies": {
     "eslint": "^10.9.1",
