@@ -48,7 +48,7 @@ for (let i = 0; i < num_steps; i++) {
     rvi_ramp.push([value, colors[i]]);
 }
 
-visualizer = new ColorRampVisualizer(rvi_ramp, rvi_min, rvi_max);
+const visualizer = new ColorRampVisualizer(rvi_ramp, rvi_min, rvi_max);
 
 function evaluatePixel(samples) {
     let VV = samples.VV;

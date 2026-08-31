@@ -132,7 +132,7 @@ function evaluatePixel(samples, scenes) {
   var intensities = samples.map((a) => Math.max(a.VV, a.VH));
   var mean_intensity = intensities.reduce((a, b) => a + b) / samples.length;
   var value = (imax + 0.8*mean_intensity)/2;
-  hsv = {h:0.9*Kmax, s:R, v:value}; // Setting the max possible hue value to 0.9
-  rgb = HSVtoRGB(hsv);
+  const hsv = {h:0.9*Kmax, s:R, v:value}; // Setting the max possible hue value to 0.9
+  const rgb = HSVtoRGB(hsv);
   return rgb;
  }
