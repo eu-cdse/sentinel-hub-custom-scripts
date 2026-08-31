@@ -1,9 +1,7 @@
 // markdownlint-cli2 configuration.
 //
 // Scope: breakage only, matching eslint.config.mjs. Prettier already handles
-// markdown layout (trailing whitespace, blank lines, list markers), and this
-// repo takes community contributions: a pull request that goes red over a
-// colon in a heading is a contributor lost for no benefit.
+// markdown layout (trailing whitespace, blank lines, list markers).
 //
 // So every default rule is off, and only rules describing a genuinely broken
 // page are enabled. The repo passes this set cleanly today.
