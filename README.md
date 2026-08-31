@@ -78,6 +78,49 @@ choco install hugo-extended -confirm
 
 The local server supports hot-reloading: changes to your Markdown content, JS, or SCSS files will instantly refresh the page in the browser.
 
+### Formatting and Linting
+
+| Files          | Formatter | Linter       |
+| -------------- | --------- | ------------ |
+| Markdown       | Prettier  | markdownlint |
+| JavaScript     | Prettier  | ESLint       |
+| Hugo templates | djlint    | djlint       |
+
+Prettier also covers SCSS, YAML and JSON.
+
+#### Installing the tools
+
+Everything except djlint is installed with npm, so you need [Node.js](https://nodejs.org/):
+
+```bash
+npm install
+```
+
+djlint is a Python tool. It is run through [uv](https://docs.astral.sh/uv/), which downloads it on first use, so there is nothing else to install:
+
+```bash
+brew install uv                                   # macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh   # Linux
+choco install uv -confirm                         # Windows
+```
+
+#### Running them
+
+```bash
+npm run format                   # Markdown, JS, SCSS, YAML, JSON
+npm run format:check             # report only, does not write
+
+npm run format:templates         # Hugo templates
+npm run format:templates:check   # report only, does not write
+
+npm run lint                     # ESLint and markdownlint
+npm run lint:templates           # djlint
+```
+
+`npm run lint` needs Node only, so you can check a content change without installing the Python tooling. The two `:templates` commands need uv.
+
+`layouts/_markup/` is excluded from template formatting. Those templates are inserted into the middle of page text, so reformatting them would change the rendered page.
+
 ---
 
 ## 3. Project Structure
