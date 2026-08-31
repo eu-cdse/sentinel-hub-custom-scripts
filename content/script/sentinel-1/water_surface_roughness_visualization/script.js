@@ -6,7 +6,7 @@
 function setup() {
   return {
     input: ["VV"],
-    output: { bands: 1 }
+    output: { bands: 1 },
   };
 }
 

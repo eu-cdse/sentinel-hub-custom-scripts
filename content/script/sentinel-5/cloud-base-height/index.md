@@ -9,6 +9,7 @@ resolution: ["7km"]
 ---
 
 ## Description
+
 This script visualizes Sentinel 5P base height product (height of a cloud base in meters).
 
 ## Description of representative images

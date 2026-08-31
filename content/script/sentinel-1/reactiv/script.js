@@ -1,18 +1,19 @@
 //VERSION=3
-var polar=['VV', 'VH'];
-var one_day = 1000 * 60 * 60 * 24 ;
+var polar = ["VV", "VH"];
+var one_day = 1000 * 60 * 60 * 24;
 var reducing_coeff = 0.8;
 
-function hsv2rgb(h,s,v) {
-  h = 360*h;
-  let f = (n,k=(n+h/60)%6) => v - v*s*Math.max( Math.min(k,4-k,1), 0);
-  return [f(5),f(3),f(1)];
+function hsv2rgb(h, s, v) {
+  h = 360 * h;
+  let f = (n, k = (n + h / 60) % 6) =>
+    v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
+  return [f(5), f(3), f(1)];
 }
 
 function HSVtoRGB(h, s, v) {
   var r, g, b, i, f, p, q, t;
   if (arguments.length === 1) {
-    s = h.s, v = h.v, h = h.h;
+    ((s = h.s), (v = h.v), (h = h.h));
   }
   i = Math.floor(h * 6);
   f = h * 6 - i;
@@ -20,49 +21,63 @@ function HSVtoRGB(h, s, v) {
   q = v * (1 - f * s);
   t = v * (1 - (1 - f) * s);
   switch (i % 6) {
-    case 0: r = v, g = t, b = p; break;
-    case 1: r = q, g = v, b = p; break;
-    case 2: r = p, g = v, b = t; break;
-    case 3: r = p, g = q, b = v; break;
-    case 4: r = t, g = p, b = v; break;
-    case 5: r = v, g = p, b = q; break;
+    case 0:
+      ((r = v), (g = t), (b = p));
+      break;
+    case 1:
+      ((r = q), (g = v), (b = p));
+      break;
+    case 2:
+      ((r = p), (g = v), (b = t));
+      break;
+    case 3:
+      ((r = p), (g = q), (b = v));
+      break;
+    case 4:
+      ((r = t), (g = p), (b = v));
+      break;
+    case 5:
+      ((r = v), (g = p), (b = q));
+      break;
   }
   return [r, g, b];
 }
 
 function get_date_difference_in_days(t1, t2) {
-  return Math.floor(Math.abs(
-    Math.round(t1 - t2) / one_day
-  ));
+  return Math.floor(Math.abs(Math.round(t1 - t2) / one_day));
 }
 
 function setup() {
   return {
-    input: [{
-      bands: polar
-    }],
+    input: [
+      {
+        bands: polar,
+      },
+    ],
     output: { bands: 3 },
-    mosaicking: "ORBIT"
-  }
+    mosaicking: "ORBIT",
+  };
 }
 
 // Selection of dates
-function preProcessScenes (collections) {
+function preProcessScenes(collections) {
   collections.scenes.orbits = collections.scenes.orbits.sort(
-    (s1, s2) => new Date(s1.dateFrom) - new Date(s2.dateFrom)
+    (s1, s2) => new Date(s1.dateFrom) - new Date(s2.dateFrom),
   );
-  return collections
+  return collections;
 }
 
 // RGB visualization
 function mean(arr) {
   // Defines the mean computation for the input array arr
-  return arr.reduce((a,b) => a + b) / arr.length;
+  return arr.reduce((a, b) => a + b) / arr.length;
 }
 
 function std(arr, m = mean(arr)) {
   // Defines the standard deviation computation for the input array arr and optional input mean
-  return Math.sqrt(arr.map(x => Math.pow(x - m, 2)).reduce((a, b) => a + b) / arr.length);
+  return Math.sqrt(
+    arr.map((x) => Math.pow(x - m, 2)).reduce((a, b) => a + b) / arr.length,
+  );
 }
 
 function clamp(n, min, max) {
@@ -72,11 +87,12 @@ function clamp(n, min, max) {
 
 function evaluatePixel(samples, scenes) {
   // Compute coefficient of variation
-  var Kmax = 0
-  var Imax = 0  
+  var Kmax = 0;
+  var Imax = 0;
   var delta_date = get_date_difference_in_days(
-    scenes[scenes.length-1].date, scenes[0].date
-  );// Selection of polarization  
+    scenes[scenes.length - 1].date,
+    scenes[0].date,
+  ); // Selection of polarization
 
   ////////////////////////////////
   // Computing saturation value //
@@ -96,15 +112,15 @@ function evaluatePixel(samples, scenes) {
   var mu = 0.2286;
   var alpha = 0.1616;
 
-  var R_vv = (variation_coeff_vv - mu)/(alpha*10.0) + 0.25;
-  R_vv = clamp(R_vv, 0, 1)
+  var R_vv = (variation_coeff_vv - mu) / (alpha * 10.0) + 0.25;
+  R_vv = clamp(R_vv, 0, 1);
 
-  var R_vh = (variation_coeff_vh - mu)/(alpha*10.0) + 0.25;
-  R_vh = clamp(R_vh, 0, 1)
-  
+  var R_vh = (variation_coeff_vh - mu) / (alpha * 10.0) + 0.25;
+  R_vh = clamp(R_vh, 0, 1);
+
   // Retained variation coeff is the maximum between the two polar-wise variation coeff
   var R = Math.max(R_vv, R_vh);
-  
+
   ///////////////////////////
   // Computing Hue & Value //
   ///////////////////////////
@@ -115,15 +131,15 @@ function evaluatePixel(samples, scenes) {
   var imax = Math.max(imax_vv, imax_vh);
   var imax_idx = signal_vv.indexOf(imax);
   if (imax_idx == -1) {
-  	imax_idx = signal_vh.indexOf(imax);
+    imax_idx = signal_vh.indexOf(imax);
   }
   var indexk = get_date_difference_in_days(
     scenes[imax_idx].date.getTime(),
-    scenes[0].date
-  )
+    scenes[0].date,
+  );
   var Kmax = indexk / delta_date;
-  var imax = clamp(0.8*imax, 0, 1);
-  
+  var imax = clamp(0.8 * imax, 0, 1);
+
   ///////////////////////////////////
   // Creating HSV & RGB convertion //
   ///////////////////////////////////
@@ -131,8 +147,8 @@ function evaluatePixel(samples, scenes) {
   // Regulating potential saturation by averaging max signal value with average value of max value at each signal timestep
   var intensities = samples.map((a) => Math.max(a.VV, a.VH));
   var mean_intensity = intensities.reduce((a, b) => a + b) / samples.length;
-  var value = (imax + 0.8*mean_intensity)/2;
-  const hsv = {h:0.9*Kmax, s:R, v:value}; // Setting the max possible hue value to 0.9
+  var value = (imax + 0.8 * mean_intensity) / 2;
+  const hsv = { h: 0.9 * Kmax, s: R, v: value }; // Setting the max possible hue value to 0.9
   const rgb = HSVtoRGB(hsv);
   return rgb;
- }
+}

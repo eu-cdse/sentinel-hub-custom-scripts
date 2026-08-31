@@ -11,9 +11,9 @@ This script uses DEM to calculate and display contour lines. They are calculated
 
 ## Authors of the scripts
 
--   Peter Gabrovšek
--   Marko Repše
--   Monja Šebela
+- Peter Gabrovšek
+- Marko Repše
+- Monja Šebela
 
 ## Description of representative images
 
@@ -79,27 +79,27 @@ We can make multiple contour lines, each in different increments and different c
 ```javascript
 const val = sample.DEM;
 if (val % 35 < 5) {
-    return {
-        default: [0, 0, 0, 1],
-        index: [val],
-        browserStats: [val],
-        dataMask: [sample.dataMask],
-    };
+  return {
+    default: [0, 0, 0, 1],
+    index: [val],
+    browserStats: [val],
+    dataMask: [sample.dataMask],
+  };
 }
 if (val % 50 < 5) {
-    return {
-        default: [1, 0, 0, 1],
-        index: [val],
-        browserStats: [val],
-        dataMask: [sample.dataMask],
-    };
+  return {
+    default: [1, 0, 0, 1],
+    index: [val],
+    browserStats: [val],
+    dataMask: [sample.dataMask],
+  };
 } else {
-    return {
-        default: [0, 0, 0, 0],
-        index: [NaN],
-        browserStats: [val],
-        dataMask: [sample.dataMask],
-    };
+  return {
+    default: [0, 0, 0, 0],
+    index: [NaN],
+    browserStats: [val],
+    dataMask: [sample.dataMask],
+  };
 }
 ```
 

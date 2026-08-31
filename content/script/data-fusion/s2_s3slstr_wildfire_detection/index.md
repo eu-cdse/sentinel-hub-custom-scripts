@@ -6,9 +6,9 @@ data-source: ["Data fusion", "Sentinel-2", "Sentinel-3"]
 type: ["composite"]
 default: ["custom"]
 ---
-  
-## General description of the script  
-  
+
+## General description of the script
+
 This script uses a combination of two different satellites -- S2L2A and S3SLTR -- to better highlight areas burning due to wildfires. The script adjusts the brightness of the S2L2A true color composite by using scaled values of the S3SLSTR F2 band, which increases the brightness of burning areas and decreases the values of areas which are not burning.
 
 **Data collections**
@@ -20,14 +20,15 @@ This script uses a combination of two different satellites -- S2L2A and S3SLTR -
 
 This script has only been tested against a small number of California wildfires, plus wildfires/warfare zones in Ukraine. It's unproven and untested against a larger sample set.
 
-## Author of the script: 
+## Author of the script:
+
 - Benjamin Kuo
 
-## Description of representative images  
-  
+## Description of representative images
+
 **Irpin, Ukraine (March 2022)**
 
-![Irpin](fig/fig1.jpg) 
+![Irpin](fig/fig1.jpg)
 
 **Bobcat Fire, Los Angeles, CA (September 2020)**
 

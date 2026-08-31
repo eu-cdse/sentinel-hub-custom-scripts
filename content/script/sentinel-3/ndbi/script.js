@@ -10,23 +10,22 @@
 function setup() {
   return {
     input: ["B02", "B21"],
-    output: { bands: 3 }
+    output: { bands: 3 },
   };
 }
 
 function evaluatePixel(sample) {
-
   // Calculate NDBI
   var NDBI = index(sample.B02, sample.B21);
 
   // Color depending on class
-  if ((NDBI > 0) & (NDBI < 0.2)){
-    return [179/255, 203/255, 255/255]; // Snow
-  } else if ((NDBI >= 0.2) & (NDBI < 0.5)){
-    return [255/255,204/255,204/255]; // Ice
-  } else if ((NDBI >= 0.5)&(NDBI < 0.8)){
-    return [0/255,0/255,255/255]; // Dark ice
+  if ((NDBI > 0) & (NDBI < 0.2)) {
+    return [179 / 255, 203 / 255, 255 / 255]; // Snow
+  } else if ((NDBI >= 0.2) & (NDBI < 0.5)) {
+    return [255 / 255, 204 / 255, 204 / 255]; // Ice
+  } else if ((NDBI >= 0.5) & (NDBI < 0.8)) {
+    return [0 / 255, 0 / 255, 255 / 255]; // Dark ice
   } else {
-      return [0,0,0]; // Shadows, water...
+    return [0, 0, 0]; // Shadows, water...
   }
 }

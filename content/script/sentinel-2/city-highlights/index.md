@@ -17,6 +17,7 @@ Thales Sehn Koerting
 ## Description of representative images
 
 Inserted are 2 examples:
+
 - city highlights is the result of the script
 - true color is showing the default true color representation of Sentinel Hub
 

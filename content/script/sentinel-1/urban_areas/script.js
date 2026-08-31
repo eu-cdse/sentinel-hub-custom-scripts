@@ -7,7 +7,7 @@
 function setup() {
   return {
     input: ["VV", "VH", "dataMask"],
-    output: { bands: 4 }
+    output: { bands: 4 },
   };
 }
 

@@ -6,7 +6,7 @@ Author of the script: Kamil Onoszko
 function setup() {
   return {
     input: ["VV", "VH"],
-    output: { bands: 3 }
+    output: { bands: 3 },
   };
 }
 

@@ -1,8 +1,8 @@
 //VERSION=3
 
 // Normalized Difference Vegetation Index, NDVI
-// Negative values of NDVI (values approaching -1) correspond to water. 
-// Values close to zero (-0.1 to 0.1) generally correspond to barren areas of rock, sand, or snow. 
+// Negative values of NDVI (values approaching -1) correspond to water.
+// Values close to zero (-0.1 to 0.1) generally correspond to barren areas of rock, sand, or snow.
 // Low, positive values represent shrub and grassland (approximately 0.2 to 0.4).
 // High values indicate temperate and tropical rainforests (values approaching 1).
 // Thresholds may be adapted depending on local conditions.
@@ -10,7 +10,7 @@
 function setup() {
   return {
     input: ["B17", "B08"],
-    output: { bands: 3 }
+    output: { bands: 3 },
   };
 }
 

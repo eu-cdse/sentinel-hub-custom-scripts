@@ -10,18 +10,16 @@ function setup() {
         datasource: "S2L1C",
         bands: ["B02", "B03", "B04", "CLM", "CLP"],
         units: ["REFLECTANCE", "REFLECTANCE", "REFLECTANCE", "DN", "DN"],
-        mosaicking: "ORBIT"
+        mosaicking: "ORBIT",
       },
       {
         datasource: "S1GRD",
         bands: ["VV", "VH"],
-        mosaicking: "ORBIT"
+        mosaicking: "ORBIT",
       },
     ],
-    output: [
-      { id: "default", bands: 3, sampleType: SampleType.AUTO }
-    ]
-  }
+    output: [{ id: "default", bands: 3, sampleType: SampleType.AUTO }],
+  };
 }
 
 function evaluatePixel(samples) {
@@ -31,21 +29,20 @@ function evaluatePixel(samples) {
   let CLP = S2L1C.CLP / 2.55; // Cloud Propability
   let CLPT = 70; // Cloud Propabilty Threshold in percent
 
-  if ((CLP > CLPT && S1.VV / S1.VH <= WAT)) {
+  if (CLP > CLPT && S1.VV / S1.VH <= WAT) {
     return {
-      default: [S1.VV * 3.0, S1.VV * 1.1 + S1.VH * 8.75, S1.VH * 1.75]
-    }
+      default: [S1.VV * 3.0, S1.VV * 1.1 + S1.VH * 8.75, S1.VH * 1.75],
+    };
   }
 
-  if ((CLP > CLPT && S1.VV / S1.VH > WAT)) {
+  if (CLP > CLPT && S1.VV / S1.VH > WAT) {
     return {
-      default: [S1.VV * 1, S1.VV * 8, 0.5 + S1.VV * 3 + S1.VH * 2000]
-    }
+      default: [S1.VV * 1, S1.VV * 8, 0.5 + S1.VV * 3 + S1.VH * 2000],
+    };
   }
-
 
   let val = [3 * S2L1C.B04, 3 * S2L1C.B03, 3 * S2L1C.B02];
   return {
-    default: val
-  }
+    default: val,
+  };
 }

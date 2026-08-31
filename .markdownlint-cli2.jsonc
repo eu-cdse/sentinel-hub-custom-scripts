@@ -25,6 +25,6 @@
     "MD052": true,
 
     // Table rows whose column count does not match the header.
-    "MD056": true
-  }
+    "MD056": true,
+  },
 }

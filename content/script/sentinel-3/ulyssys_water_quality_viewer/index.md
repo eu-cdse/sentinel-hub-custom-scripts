@@ -9,15 +9,12 @@ verification: ["cites literature"]
 default: ["default"]
 ---
 
-
-
 The Sentinel 2 Version of this script can be found [here](/sentinel-2/ulyssys_water_quality_viewer/).  
 Version 1 works for both Sentinel 2 and Sentinel 3 as is. Version 3 adds support for advanced EO-Browser features like statistics and point information.
 
 | Timelapse (2019) of Lake Balaton with Sentinel-2 and Sentinel-3 imagery side by side |
 | :----------------------------------------------------------------------------------: |
 |  !['Timelapse of 2019'](fig/gif/Sentinel-2-3_2019_jan_dec_balaton_with_closeup.gif)  |
-
 
 ## Evaluate and visualize
 
@@ -84,7 +81,7 @@ const PARAMS = {
   foreground: "default",
   foregroundOpacity: 1.0,
   background: "default",
-  backgroundOpacity: 1.0
+  backgroundOpacity: 1.0,
 };
 ```
 
