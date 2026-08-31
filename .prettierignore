@@ -12,3 +12,8 @@ package-lock.json
 # prettier-plugin-go-template is added, delete the line below
 # and this comment.
 layouts
+
+# Minified build artifacts, produced by
+# content/script/sentinel-3/ulyssys_water_quality_viewer/src/npm_scripts/minify.js.
+# Formatting these would undo the minification.
+*.min.js
