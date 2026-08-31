@@ -18,13 +18,12 @@ header {
     }
     a {
         color: white;
-
     }
 }
 
 main {
     display: grid;
-    grid-template-columns: 300px minmax(0,1fr) 300px;
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
 }
 
 img {
@@ -32,7 +31,9 @@ img {
     height: auto;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 10px;
@@ -47,6 +48,40 @@ th {
 
 div.table-container {
     overflow-x: auto;
+}
+
+blockquote {
+    padding: 0.2rem 0.8rem;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    .alert-heading {
+        font-weight: bold;
+    }
+    &.alert-note {
+        background: rgba(255, 235, 130, 0.2);
+        border-left-color: #e7af06;
+        .alert-heading {
+            color: #e7af06;
+        }
+    }
+    &.alert-warning {
+        background: rgba(255, 159, 130, 0.2);
+        border-left-color: #f12d23;
+        .alert-heading {
+            color: #f12d23;
+        }
+    }
+    &.alert-tip {
+        background: rgba(197, 236, 175, 0.2);
+        border-left-color: #17770f;
+        .alert-heading {
+            color: #17770f;
+        }
+    }
 }
 
 #taxonomies {
@@ -71,7 +106,7 @@ div.table-container {
         right: 10px;
         top: 10px;
     }
-    .highlight  {
+    .highlight {
         pre {
             code {
                 display: block;
@@ -89,7 +124,7 @@ div.table-container {
         right: 10px;
         top: 10px;
     }
-    .highlight  pre{
+    .highlight pre {
         padding: 10px;
         margin: 0;
     }

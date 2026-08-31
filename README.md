@@ -178,7 +178,7 @@ When you add a script, you can specify terms for any of these supported taxonomi
 | **Types** | `types` | `composite`, `index`, `regression`, `classification` |
 | **Verifications** | `verifications` | `cites literature`, `cites operational use case` |
 | **Default** | `default` | `default`, `custom` |
-| **Domains** | `domains` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
+| **Domains** | `domains` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology`, `art`, `preprocessing` |
 | **Data-Sources** | `data-sources` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM` |
 | **Resolutions** | `resolutions` | `10m`, `60m`, `300m` ... |
 
