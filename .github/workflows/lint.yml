@@ -1,0 +1,59 @@
+name: Lint
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+# Cancel a previous run when new commits are pushed to the same pull request.
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Prettier
+        run: npm run format:check
+
+      - name: ESLint and markdownlint
+        run: npm run lint
+
+      - uses: astral-sh/setup-uv@v10
+
+      - name: djlint formatting
+        run: npm run format:templates:check
+
+      # Run djlint directly rather than through npm run lint:templates so the
+      # two rules below can be skipped: no page sets a <title> or a meta
+      # description yet. Drop --ignore once issue 1147 is fixed.
+      - name: djlint
+        run: uvx djlint layouts --lint --profile golang --ignore "H016,H030"
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.164.0
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Install Hugo
+        run: |
+          curl -sL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" -o hugo.deb
+          sudo dpkg -i hugo.deb
+
+      # A broken Hugo template fails the build, which is what covers the
+      # templates that djlint cannot check.
+      - name: Build
+        run: hugo --gc --minify
