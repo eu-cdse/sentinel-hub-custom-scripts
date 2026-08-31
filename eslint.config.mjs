@@ -1,17 +1,7 @@
-// ESLint flat config.
-//
-// Scope: correctness only. Prettier owns all formatting, so nothing here
-// touches whitespace, quotes or semicolons.
-//
-// The rule set is deliberately small. The evalscripts under content/ are
-// community contributions written over many years; enabling ESLint's full
-// "recommended" set would report hundreds of style-era complaints that nobody
-// is going to fix, and a check that always fails is a check people ignore.
-// Every rule below flags something that is actually broken, so a red run
-// always means a real problem.
+// Correctness only, Prettier owns formatting. Rules are limited to genuine
+// breakage so a red run always means a real problem, see issue #1105.
 
-// Names injected by the Sentinel Hub evalscript runtime. Evalscripts have no
-// imports, so without this list ESLint reports every use of them as undefined.
+// Injected by the Sentinel Hub runtime; evalscripts have no imports.
 // https://docs.sentinel-hub.com/api/latest/evalscript/v3/
 const sentinelHubGlobals = {
   ColorMapVisualizer: "readonly",
@@ -42,18 +32,16 @@ const correctnessRules = {
 
 export default [
   {
-    // A config object containing only `ignores` applies repo-wide.
+    // An object with only `ignores` applies repo-wide.
     ignores: [
       "public/",
       "resources/",
       "node_modules/",
-
       // Minified build artifacts.
       "**/*.min.js",
 
-      // Placeholder example page holding a Version 1 evalscript. V1 syntax
-      // is not valid standard JavaScript, so ESLint cannot parse it at all.
-      // Remove this entry once the sentinel-2 collection is reworked.
+      // V1 evalscript, not valid JavaScript so ESLint cannot parse it.
+      // Temporary page, remove once the sentinel-2 collection is reworked.
       "content/script/sentinel-2/city-highlights/script.js",
     ],
   },

@@ -7,26 +7,8 @@ resources
 node_modules
 package-lock.json
 
-# Hugo templates. Not a temporary exclusion: no safe formatter exists.
-#
-# Prettier's built-in html parser does not understand Go template actions at
-# all. prettier-plugin-go-template (v0.0.15) parses them but treats whitespace
-# around {{ ... }} as insignificant, which silently corrupts output. Verified
-# against a before/after `hugo --minify` build of this site:
-#
-#   class="tab-button{{ if eq $first . }} selected{{ end }}"
-#     -> class="tab-button{{ if eq $first . }}selected{{ end }}"
-#     -> renders as class="tab-buttonselected", losing the CSS class
-#
-#   {{- if $u.IsAbs }} rel="external" ...
-#     -> renders as <a href="..."rel="external">, malformed HTML
-#
-# Whitespace is part of the output in Hugo templates, especially with {{- -}}
-# trim markers, so reformatting them is not safe. The CI build is what
-# validates these instead: a broken template fails `hugo`.
+# Hugo templates. No safe formatter exists, see issue #1105.
 layouts
 
-# Minified build artifacts, produced by
-# content/script/sentinel-3/ulyssys_water_quality_viewer/src/npm_scripts/minify.js.
-# Formatting these would undo the minification.
+# Minified build artifacts.
 *.min.js
