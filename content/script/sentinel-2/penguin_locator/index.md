@@ -1,20 +1,9 @@
 ---
 title: Penguin Locator
-parent: Sentinel-2
-grand_parent: Sentinel
-layout: script
-permalink: /sentinel-2/penguin_locator/
-nav_exclude: true
-examples:
-- zoom: '13'
-  lat: '-73.33561'
-  lng: '169.67045'
-  datasetId: S2L2A
-  fromTime: '2024-09-28T00:00:00.000Z'
-  toTime: '2024-09-28T23:59:59.999Z'
-  platform:
-  - CDSE
-  evalscripturl: https://raw.githubusercontent.com/sentinel-hub/customScripts/master/sentinel-2/penguin_locator/script.js
+evalscripts: ["script.js"]
+types: ["index"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m"]
 ---
 
 ## General description of the script

@@ -68,10 +68,10 @@ July 18th 2019.
 
 ## References
 
-[1] Braaten J, Cohen WB, Yang Z. (2015). [Automated cloud and cloud shadow identification in Landsat MSS imagery for temperate ecosystems. Remote Sensing of Environment. 169:128-138.](https://doi.org/10.1016/j.rse.2015.08.006){:target="_blank"}
+[1] Braaten J, Cohen WB, Yang Z. (2015). [Automated cloud and cloud shadow identification in Landsat MSS imagery for temperate ecosystems. Remote Sensing of Environment. 169:128-138.](https://doi.org/10.1016/j.rse.2015.08.006)
 
-[2] Fogh, P. (2018). Braaten-Cohen-Yang cloud detector custom script. [Retrieved from here](https://github.com/PeterFogh/custom-scripts/tree/master/sentinel-2/cby_cloud_detection#braaten-cohen-yang-cloud-detector]{:target="_blank"}
+[2] Fogh, P. (2018). Braaten-Cohen-Yang cloud detector custom script. [Retrieved from here](https://github.com/PeterFogh/custom-scripts/tree/master/sentinel-2/cby_cloud_detection#braaten-cohen-yang-cloud-detector]
 
-[3] Hu, C. (2009). [A novel ocean color index to detect floating algae in the global oceans. Remote Sensing of Environment, 113: 2118ñ2129.](https://doi.org/10.1016/j.rse.2009.05.012){:target="_blank"}
+[3] Hu, C. (2009). [A novel ocean color index to detect floating algae in the global oceans. Remote Sensing of Environment, 113: 2118ñ2129.](https://doi.org/10.1016/j.rse.2009.05.012)
 
-[4] Thamaga, K.H. and Dube, T. (2018). Remote sensing of invasive water hyacinth (Eichhornia crassipes): [A review on applications and challenges. Remote Sensing Applications: Society and Environment, 10:36-46.](https://doi.org/10.1016/j.rsase.2018.02.005){:target="_blank"}
+[4] Thamaga, K.H. and Dube, T. (2018). Remote sensing of invasive water hyacinth (Eichhornia crassipes): [A review on applications and challenges. Remote Sensing Applications: Society and Environment, 10:36-46.](https://doi.org/10.1016/j.rsase.2018.02.005)

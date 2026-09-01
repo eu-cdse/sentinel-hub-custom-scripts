@@ -2,7 +2,7 @@
 title: Cloud Statistics
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["atmosphere"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

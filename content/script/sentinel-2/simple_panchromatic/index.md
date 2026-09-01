@@ -1,24 +1,10 @@
 ---
 title: Sentinel-2 Simple Panchromatic
-parent: sentinel-2
-layout: script
-nav_exclude: true
-scripts:
-- - Sentinel-2
-  - script.js
-- - Sentinel-2 Quarterly Cloudless Mosaics
-  - script_mosaics.js
-examples:
-- zoom: '14'
-  lat: '-1.29954'
-  lng: '36.85158'
-  datasetId: S2L2A
-  fromTime: '2025-03-03T00:00:00.000Z'
-  toTime: '2025-03-03T23:59:59.999Z'
-  platform:
-  - CDSE
-  - EOB
-  evalscripturl: https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2\simple_panchromatic\script.js
+evalscripts: ["script.js","script_mosaics.js"]
+types: ["composite"]
+domains: ["preprocessing"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m","60m"]
 ---
 
 ## General description of the script
@@ -29,4 +15,4 @@ This script is for creating a simple panchromatic greyscale visualization from S
 
 This scene is a Sentinel-2 image of Nairobi, Kenya
 
-!['Sentinel-2 simple panchromatic image of Nairobi, Kenya on 3 March 2025'](.\img\nairobi.jpg)
+!['Sentinel-2 simple panchromatic image of Nairobi, Kenya on 3 March 2025'](img/nairobi.jpg)

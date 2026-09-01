@@ -2,7 +2,7 @@
 title: Braaten-Cohen-Yang cloud detector
 evalscripts: ["script.js","script_bcy_original.js"]
 types: ["index"]
-domains: ["atmosphere"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m","20m"]
 ---

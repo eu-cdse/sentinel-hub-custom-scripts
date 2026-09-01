@@ -2,6 +2,7 @@
 title: Cloudless mosaic
 evalscripts: ["script.js","L2A-first_quartile_4bands.js"]
 types: ["index"]
+domain: "preprocessing"
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

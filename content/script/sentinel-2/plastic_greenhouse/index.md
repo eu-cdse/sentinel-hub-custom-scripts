@@ -1,41 +1,13 @@
 ---
 title: Plastic Greenhouse Index
-parent: Sentinel-2
-grand_parent: Sentinel
-layout: script
-permalink: /sentinel-2/plastic_greenhouse/
-nav_exclude: true
-examples:
-- zoom: '12'
-  lat: '36.76703'
-  lng: '-2.71259'
-  datasetId: S2L2A
-  fromTime: '2025-08-10T00:00:00.000Z'
-  toTime: '2025-08-10T23:59:59.999Z'
-  platform:
-  - CDSE
-  evalscripturl: https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel/sentinel-2/plastic_greenhouse/script.js
+evalscripts: ["script.js"]
+types: ["index"]
+verification: ["cites literature"]
+domains: ["agriculture"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m"]
 ---
 
-
-## Adding examples
-
-This page shows how example links can be added by defining the parameters in the [front matter](https://jekyllrb.com/docs/front-matter/). 
-An example is defined like this:
-
-```yaml
-examples:
-- zoom: '10'
-  lat: '42.76703'
-  lng: '11.22847'
-  datasetId: S2L2A
-  fromTime: '2020-07-12T00:00:00.000Z'
-  toTime: '2020-07-12T23:59:59.999Z'
-  platform:
-  - CDSE
-  - EOB
-  evalscripturl: https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/eob.js
-```
 
 ## General description of the script
 

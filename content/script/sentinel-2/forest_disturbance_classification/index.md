@@ -1,27 +1,10 @@
 ---
 title: Forest Disturbance Classification
-parent: Sentinel-2
-grand_parent: Sentinel
-layout: script
-nav_exclude: true
-scripts:
-- - Visualization
-  - script.js
-- - Raw Values
-  - raw.js
-- - Raw Class Probabilities
-  - raw_prob.js
-examples:
-- zoom: '16'
-  lat: '52.67571'
-  lng: '23.59823'
-  datasetId: S2L2A
-  fromTime: '2019-06-04T00:00:00.000Z'
-  toTime: '2019-06-04T23:59:59.999Z'
-  platform:
-  - CDSE
-  - EOB
-  evalscripturl: https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/forest_disturbance_classification/script.js
+evalscripts: ["script.js"]
+types: [""]
+domains: [""]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m"]
 ---
 
 ## General description of the script
@@ -30,47 +13,14 @@ This script provides a LightGBM classification which classifies pixels into diff
 
 The following classes can be discerned:
 
-<table>
-  <thead>
-    <tr>
-      <th>Value</th>
-      <th>Color</th>
-      <th>Label</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td style="background-color: #ab6820;"></td>
-      <td>0 - Bark Beetle</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td style="background-color: #b8b6b4;"></td>
-      <td>1 - Clear Cut</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td style="background-color: #215728;"></td>
-      <td>2 - Healthy</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td style="background-color: #b8b6b4;"></td>
-      <td>3 - Salvage logged (low confidence)</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td style="background-color: #7a2e01;"></td>
-      <td>4 - Wildfire</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td style="background-color: #4c77ed;"></td>
-      <td>5 - Windthrow</td>
-    </tr>
-  </tbody>
-</table>
+| Value | Color | Label | 
+|-------|-------|-------|
+| 0 | !#ab6820 | 0 - Bark Beetle |
+| 1 | !#b8b6b4 | 1 - Clear Cut |
+| 2 | !#215728 | 2 - Healthy |
+| 3 | !#b8b6b4 | 3 - Salvage logged (low confidence) |
+| 4 | !#7a2e01 | 4 - Wildfire |
+| 5 | !#4c77ed | 5 - Windthrow |
 
 The classification was trained on ground truth samples in Europe. Namely Germany, Sweden and Spain. For only taking in spectral features as input and not taking disturbance objects into account during the classification, the classification works reasonably well in European areas. One class separation which does not work well is between salvage logged areas and clear cut areas. Because of this in the visualization we have used the same color for both classes.
 
@@ -80,9 +30,8 @@ Also keep in mind that this script is run on all pixels, irrespective of if the 
 
 The classification works best on large scale disturbances. 
 
-{: .note}
-
-Although the full model did perform reasonably well in accuracy testing (Macro F1 Score of 0.83), it has to be expected that there are major classification errors. This is especially true in areas outside Europe. Use at own caution and always validate results.
+> [!NOTE]
+> Although the full model did perform reasonably well in accuracy testing (Macro F1 Score of 0.83), it has to be expected that there are major classification errors. This is especially true in areas outside Europe. Use at own caution and always validate results.
 
 ### Types of scripts
 
