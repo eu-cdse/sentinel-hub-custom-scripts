@@ -16,9 +16,9 @@ The script applies the square root of the OLCI true color bands, which have lowe
 
 ```javascript
 return [
-  Math.sqrt(0.9 * samples.B08 - 0.055),
-  Math.sqrt(0.9 * samples.B06 - 0.055),
-  Math.sqrt(0.9 * samples.B04 - 0.055),
+    Math.sqrt(0.9 * samples.B08 - 0.055),
+    Math.sqrt(0.9 * samples.B06 - 0.055),
+    Math.sqrt(0.9 * samples.B04 - 0.055),
 ];
 ```
 

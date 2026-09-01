@@ -5,10 +5,10 @@
 // License: CC BY 4.0 International
 
 function setup() {
-  return {
-    input: ["VV", "VH"],
-    output: { bands: 3 },
-  };
+    return {
+        input: ["VV", "VH"],
+        output: { bands: 3 },
+    };
 }
 
 var c1 = 10e-4;
@@ -24,26 +24,28 @@ var c8 = 0.25;
 var enhanced = false;
 
 function evaluatePixel(samples) {
-  var VV = samples.VV;
-  var VH = samples.VH;
+    var VV = samples.VV;
+    var VH = samples.VH;
 
-  if (enhanced != true) {
-    //Non-enhanced option
-    var band1 = c4 + Math.log(c1 - Math.log(c6 / (c3 + 2 * VV)));
-    var band2 =
-      c6 + Math.exp(c8 * (Math.log(c2 + 2 * VV) + Math.log(c3 + 5 * VH)));
-    var band3 = 1 - Math.log(c6 / (c5 - c7 * VV));
-  } else {
-    //Enhanced option
-    var band1 =
-      c4 +
-      Math.log(
-        c1 - Math.log(c6 / (c3 + 2.5 * VV)) + Math.log(c6 / (c3 + 1.5 * VH)),
-      );
-    var band2 =
-      c6 + Math.exp(c8 * (Math.log(c2 + 2 * VV) + Math.log(c3 + 7 * VH)));
-    var band3 = 0.8 - Math.log(c6 / (c5 - c7 * VV));
-  }
+    if (enhanced != true) {
+        //Non-enhanced option
+        var band1 = c4 + Math.log(c1 - Math.log(c6 / (c3 + 2 * VV)));
+        var band2 =
+            c6 + Math.exp(c8 * (Math.log(c2 + 2 * VV) + Math.log(c3 + 5 * VH)));
+        var band3 = 1 - Math.log(c6 / (c5 - c7 * VV));
+    } else {
+        //Enhanced option
+        var band1 =
+            c4 +
+            Math.log(
+                c1 -
+                    Math.log(c6 / (c3 + 2.5 * VV)) +
+                    Math.log(c6 / (c3 + 1.5 * VH)),
+            );
+        var band2 =
+            c6 + Math.exp(c8 * (Math.log(c2 + 2 * VV) + Math.log(c3 + 7 * VH)));
+        var band3 = 0.8 - Math.log(c6 / (c5 - c7 * VV));
+    }
 
-  return [band1, band2, band3];
+    return [band1, band2, band3];
 }

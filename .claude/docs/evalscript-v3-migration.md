@@ -56,13 +56,13 @@ return [VV * 3, VH * 8, VH * 3];
 let viz = new Identity();
 
 function evaluatePixel(samples) {
-  let val = index(samples[0].B03, samples[0].B11);
-  return viz.process(val);
+    let val = index(samples[0].B03, samples[0].B11);
+    return viz.process(val);
 }
 
 function setup(ds) {
-  setInputComponents([ds.B03, ds.B11]);
-  setOutputComponentCount(1);
+    setInputComponents([ds.B03, ds.B11]);
+    setOutputComponentCount(1);
 }
 ```
 
@@ -74,16 +74,18 @@ no array; it becomes `samples.B03`.
 ```javascript
 //VERSION=2
 function setup(ds) {
-  return {
-    components: [ds.B01, ds.B02, ds.B03],
-    output: [{ id: "B01", sampleType: SampleType.UINT16, componentCount: 1 }],
-    temporal: true,
-    mosaicking: Mosaicking.TILE,
-  };
+    return {
+        components: [ds.B01, ds.B02, ds.B03],
+        output: [
+            { id: "B01", sampleType: SampleType.UINT16, componentCount: 1 },
+        ],
+        temporal: true,
+        mosaicking: Mosaicking.TILE,
+    };
 }
 
 function evaluatePixel(samples) {
-  return { default: [ccc / 900] };
+    return { default: [ccc / 900] };
 }
 ```
 
@@ -112,20 +114,20 @@ Two shapes cover nearly every script in the catalogue.
 ```javascript
 //VERSION=3
 function setup() {
-  return {
-    input: ["B02", "B03", "B04", "dataMask"],
-    output: { bands: 4 },
-  };
+    return {
+        input: ["B02", "B03", "B04", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 
 function evaluatePixel(sample) {
-  let gain = 2.5;
-  return [
-    sample.B04 * gain,
-    sample.B03 * gain,
-    sample.B02 * gain,
-    sample.dataMask,
-  ];
+    let gain = 2.5;
+    return [
+        sample.B04 * gain,
+        sample.B03 * gain,
+        sample.B02 * gain,
+        sample.dataMask,
+    ];
 }
 ```
 
@@ -136,29 +138,29 @@ function evaluatePixel(sample) {
 ```javascript
 //VERSION=3
 function setup() {
-  return {
-    input: ["B10", "B11", "B12", "dataMask"],
-    output: [
-      { id: "default", bands: 4 },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["B10", "B11", "B12", "dataMask"],
+        output: [
+            { id: "default", bands: 4 },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 const visualizer = new ColorRampVisualizer(map);
 
 function evaluatePixel(samples) {
-  let OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
-  const indexVal =
-    samples.dataMask === 1 && OTCI >= -10 && OTCI <= 10 ? OTCI : NaN;
-  return {
-    default: [...visualizer.process(OTCI), samples.dataMask],
-    index: [indexVal],
-    browserStats: [indexVal],
-    dataMask: [samples.dataMask],
-  };
+    let OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
+    const indexVal =
+        samples.dataMask === 1 && OTCI >= -10 && OTCI <= 10 ? OTCI : NaN;
+    return {
+        default: [...visualizer.process(OTCI), samples.dataMask],
+        index: [indexVal],
+        browserStats: [indexVal],
+        dataMask: [samples.dataMask],
+    };
 }
 ```
 
@@ -188,10 +190,10 @@ but drop the parenthetical when you touch such a file.
 
 ```javascript
 function setup() {
-  return {
-    input: ["VV", "VH", "dataMask"],
-    output: { bands: 4 },
-  };
+    return {
+        input: ["VV", "VH", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 ```
 
@@ -265,9 +267,9 @@ diff. Declare the aliases at the top of `evaluatePixel` and leave the formula by
 
 ```javascript
 function evaluatePixel(samples) {
-  var VV = samples.VV;
-  var VH = samples.VH;
-  // ... original formula unchanged below
+    var VV = samples.VV;
+    var VH = samples.VH;
+    // ... original formula unchanged below
 }
 ```
 
@@ -333,31 +335,31 @@ wrapper and the `samples.` prefixes changed.
 // Sentinel-3 OLCI - Tristimulus
 
 var red = Math.log(
-  1.0 +
-    0.01 * B01 +
-    0.09 * B02 +
-    0.35 * B03 +
-    0.04 * B04 +
-    0.01 * B05 +
-    0.59 * B06 +
-    0.85 * B07 +
-    0.12 * B08 +
-    0.07 * B09 +
-    0.04 * B10,
+    1.0 +
+        0.01 * B01 +
+        0.09 * B02 +
+        0.35 * B03 +
+        0.04 * B04 +
+        0.01 * B05 +
+        0.59 * B06 +
+        0.85 * B07 +
+        0.12 * B08 +
+        0.07 * B09 +
+        0.04 * B10,
 );
 var green = Math.log(
-  1.0 +
-    0.26 * B03 +
-    0.21 * B04 +
-    0.5 * B05 +
-    B06 +
-    0.38 * B07 +
-    0.04 * B08 +
-    0.03 * B09 +
-    0.02 * B10,
+    1.0 +
+        0.26 * B03 +
+        0.21 * B04 +
+        0.5 * B05 +
+        B06 +
+        0.38 * B07 +
+        0.04 * B08 +
+        0.03 * B09 +
+        0.02 * B10,
 );
 var blue = Math.log(
-  1.0 + 0.07 * B01 + 0.28 * B02 + 1.77 * B03 + 0.47 * B04 + 0.16 * B05,
+    1.0 + 0.07 * B01 + 0.28 * B02 + 1.77 * B03 + 0.47 * B04 + 0.16 * B05,
 );
 
 return [red, green, blue];
@@ -370,58 +372,58 @@ return [red, green, blue];
 // Sentinel-3 OLCI - Tristimulus
 
 function setup() {
-  return {
-    input: [
-      "B01",
-      "B02",
-      "B03",
-      "B04",
-      "B05",
-      "B06",
-      "B07",
-      "B08",
-      "B09",
-      "B10",
-    ],
-    output: { bands: 3 },
-  };
+    return {
+        input: [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+        ],
+        output: { bands: 3 },
+    };
 }
 
 function evaluatePixel(samples) {
-  var red = Math.log(
-    1.0 +
-      0.01 * samples.B01 +
-      0.09 * samples.B02 +
-      0.35 * samples.B03 +
-      0.04 * samples.B04 +
-      0.01 * samples.B05 +
-      0.59 * samples.B06 +
-      0.85 * samples.B07 +
-      0.12 * samples.B08 +
-      0.07 * samples.B09 +
-      0.04 * samples.B10,
-  );
-  var green = Math.log(
-    1.0 +
-      0.26 * samples.B03 +
-      0.21 * samples.B04 +
-      0.5 * samples.B05 +
-      samples.B06 +
-      0.38 * samples.B07 +
-      0.04 * samples.B08 +
-      0.03 * samples.B09 +
-      0.02 * samples.B10,
-  );
-  var blue = Math.log(
-    1.0 +
-      0.07 * samples.B01 +
-      0.28 * samples.B02 +
-      1.77 * samples.B03 +
-      0.47 * samples.B04 +
-      0.16 * samples.B05,
-  );
+    var red = Math.log(
+        1.0 +
+            0.01 * samples.B01 +
+            0.09 * samples.B02 +
+            0.35 * samples.B03 +
+            0.04 * samples.B04 +
+            0.01 * samples.B05 +
+            0.59 * samples.B06 +
+            0.85 * samples.B07 +
+            0.12 * samples.B08 +
+            0.07 * samples.B09 +
+            0.04 * samples.B10,
+    );
+    var green = Math.log(
+        1.0 +
+            0.26 * samples.B03 +
+            0.21 * samples.B04 +
+            0.5 * samples.B05 +
+            samples.B06 +
+            0.38 * samples.B07 +
+            0.04 * samples.B08 +
+            0.03 * samples.B09 +
+            0.02 * samples.B10,
+    );
+    var blue = Math.log(
+        1.0 +
+            0.07 * samples.B01 +
+            0.28 * samples.B02 +
+            1.77 * samples.B03 +
+            0.47 * samples.B04 +
+            0.16 * samples.B05,
+    );
 
-  return [red, green, blue];
+    return [red, green, blue];
 }
 ```
 
@@ -637,16 +639,16 @@ object of the same shape:
 
 ```javascript
 function preProcessScenes(collections) {
-  collections.scenes.orbits = collections.scenes.orbits.filter(
-    function (orbit) {
-      var orbitDateFrom = new Date(orbit.dateFrom);
-      return (
-        orbitDateFrom.getTime() >=
-        collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
-      );
-    },
-  );
-  return collections;
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
+            );
+        },
+    );
+    return collections;
 }
 ```
 
@@ -710,28 +712,28 @@ that's what `otci` did, hex-encoding the same 0–1 triplets:
 ```javascript
 // V1
 colorBlend(
-  OTCI,
-  [0, 1, 1.8, 2.5, 4, 4.5, 5],
-  [
-    [0, 0, 0.5],
-    [0, 0.3, 0.8],
-    [1, 0.2, 0.2],
-    [1, 0.9, 0],
-    [0, 0.8, 0.1],
-    [0, 0.6, 0.2],
-    [1, 1, 1],
-  ],
+    OTCI,
+    [0, 1, 1.8, 2.5, 4, 4.5, 5],
+    [
+        [0, 0, 0.5],
+        [0, 0.3, 0.8],
+        [1, 0.2, 0.2],
+        [1, 0.9, 0],
+        [0, 0.8, 0.1],
+        [0, 0.6, 0.2],
+        [1, 1, 1],
+    ],
 );
 
 // V3
 const map = [
-  [0.0, 0x00007d],
-  [1.0, 0x004ccc],
-  [1.8, 0xff3333],
-  [2.5, 0xffe500],
-  [4.0, 0x00cc19],
-  [4.5, 0x00cc19],
-  [5.0, 0xffffff],
+    [0.0, 0x00007d],
+    [1.0, 0x004ccc],
+    [1.8, 0xff3333],
+    [2.5, 0xffe500],
+    [4.0, 0x00cc19],
+    [4.5, 0x00cc19],
+    [5.0, 0xffffff],
 ];
 new ColorRampVisualizer(map).process(OTCI);
 ```

@@ -9,10 +9,10 @@
 // Higher values of Lambda (e.g. 8, 9, 10) will result in brighter images more adapted to dark vegetated areas. Note that in this case clouds brightness will saturate.
 
 function setup() {
-  return {
-    input: ["B04", "B06", "B08"],
-    output: { bands: 3 },
-  };
+    return {
+        input: ["B04", "B06", "B08"],
+        output: { bands: 3 },
+    };
 }
 
 var lambda = 7.0;
@@ -21,25 +21,25 @@ var GREEN_offset = 0.05;
 var BLUE_offset = 0.08;
 
 function evaluatePixel(samples) {
-  var R = samples.B08 - RED_offset;
-  var G = samples.B06 - GREEN_offset;
-  var B = samples.B04 - BLUE_offset;
+    var R = samples.B08 - RED_offset;
+    var G = samples.B06 - GREEN_offset;
+    var B = samples.B04 - BLUE_offset;
 
-  if (R < 0) {
-    R = 0.0;
-  }
-  if (G < 0) {
-    G = 0.0;
-  }
-  if (B < 0) {
-    B = 0.0;
-  }
+    if (R < 0) {
+        R = 0.0;
+    }
+    if (G < 0) {
+        G = 0.0;
+    }
+    if (B < 0) {
+        B = 0.0;
+    }
 
-  var RED = 2 * (1 / (1 + Math.exp(-lambda * R)) - 0.5);
-  var GREEN = 2 * (1 / (1 + Math.exp(-lambda * G)) - 0.5);
-  var BLUE = 2 * (1 / (1 + Math.exp(-lambda * B)) - 0.5);
+    var RED = 2 * (1 / (1 + Math.exp(-lambda * R)) - 0.5);
+    var GREEN = 2 * (1 / (1 + Math.exp(-lambda * G)) - 0.5);
+    var BLUE = 2 * (1 / (1 + Math.exp(-lambda * B)) - 0.5);
 
-  var naturalColour = [RED, GREEN, BLUE];
+    var naturalColour = [RED, GREEN, BLUE];
 
-  return naturalColour;
+    return naturalColour;
 }

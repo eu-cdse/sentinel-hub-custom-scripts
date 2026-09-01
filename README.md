@@ -76,9 +76,9 @@ choco install hugo-extended -confirm
 
 1. Clone this repository and open the project directory.
 2. Spin up the development server:
-   ```bash
-   hugo server
-   ```
+    ```bash
+    hugo server
+    ```
 3. Open your browser and go to `http://localhost:1313`.
 
 The local server supports hot-reloading: changes to your Markdown content, JS, or SCSS files will instantly refresh the page in the browser.
