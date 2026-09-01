@@ -1,22 +1,14 @@
+//VERSION=3
 /*
 Author of the script: Bence Mélykúti, DPhil (Oxf)
 */
 
-var estimator =
-    -1.76e-5 +
-    10000 *
-        (-0.0003402 * B01 -
-            0.0004585 * B02 +
-            0.001415 * B03 +
-            0.01254 * B04 -
-            0.01112 * B05 -
-            0.01346 * B06 +
-            0.002762 * B07 +
-            0.002481 * B08 +
-            0.009605 * B8A +
-            0.001247 * B09 -
-            0.01462 * B11 +
-            0.00406 * B12);
+function setup() {
+    return {
+        input: ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B11", "B12", "dataMask"],
+        output: { bands: 4 }
+    };
+}
 
 function clamp(a) {
     return a < -1 ? 0 : a > 1 ? 1 : (1 + a) / 2;
@@ -32,6 +24,25 @@ function cividis(x) {
     ];
 }
 
-var NDWI = (B03 - B08) / (B03 + B08);
+function evaluatePixel(sample) {
+    var estimator =
+        -1.76e-5 +
+        10000 *
+            (-0.0003402 * sample.B01 -
+                0.0004585 * sample.B02 +
+                0.001415 * sample.B03 +
+                0.01254 * sample.B04 -
+                0.01112 * sample.B05 -
+                0.01346 * sample.B06 +
+                0.002762 * sample.B07 +
+                0.002481 * sample.B08 +
+                0.009605 * sample.B8A +
+                0.001247 * sample.B09 -
+                0.01462 * sample.B11 +
+                0.00406 * sample.B12);
 
-return NDWI < 0 ? [2.5 * B04, 2.5 * B03, 2.5 * B02] : cividis(clamp(estimator));
+    var NDWI = (sample.B03 - sample.B08) / (sample.B03 + sample.B08);
+
+    var imgVals = NDWI < 0 ? [2.5 * sample.B04, 2.5 * sample.B03, 2.5 * sample.B02] : cividis(clamp(estimator));
+    return imgVals.concat(sample.dataMask);
+}

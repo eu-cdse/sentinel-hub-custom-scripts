@@ -1,3 +1,11 @@
+//VERSION=3
+function setup() {
+  return {
+    input: ["B04", "B08", "dataMask"],
+    output: { bands: 4 }
+  };
+}
+
 function clamp (a) {
   return a<0 ? 0 : a > 1 ? 1 : a;
 }
@@ -12,4 +20,6 @@ function sigNDVI (b4, s4, b8, s8) {
     0.8*clamp(ndvi)*darkness,
     0.1*darkness];
 }
-return sigNDVI(B04, 0.02, B08, 0.03);
+function evaluatePixel(sample) {
+  return sigNDVI(sample.B04, 0.02, sample.B08, 0.03).concat(sample.dataMask);
+}

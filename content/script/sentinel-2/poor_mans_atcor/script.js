@@ -1,4 +1,11 @@
- 
+//VERSION=3
+function setup() {
+  return {
+    input: ["B02", "B03", "B04", "dataMask"],
+    output: { bands: 4 }
+  };
+}
+
 //== PARAMETERS ===========================
 var c0r = 0.036;   // amount of atmosphere we're compensating
 //var cManual = [0.039, 0.071, 0.121]; // manual white point
@@ -47,7 +54,7 @@ var checkDebug = arr => {
   }
   var maxC = Math.max.apply(null, arr);
   var minC = Math.min.apply(null, arr);
-  
+
   return (minC < 0) // Highlight too dark pixels
      ? arr.map(a => a < 0 ? 1 : 0)
      : (maxC > 1) // Highlight too bright pixels
@@ -58,7 +65,8 @@ var checkDebug = arr => {
 };
 
 //== SCRIPT ============================
-var rgb = satEnh([B04,B03,B02].map(atm).map(adj));
-		  
-return checkDebug(rgb).map(sRGBenc);
- 
+function evaluatePixel(sample) {
+  var rgb = satEnh([sample.B04,sample.B03,sample.B02].map(atm).map(adj));
+
+  return checkDebug(rgb).map(sRGBenc).concat(sample.dataMask);
+}

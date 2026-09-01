@@ -1,3 +1,4 @@
+//VERSION=3
 /*
 Normalized difference chlorophyll index
 https://pdfs.semanticscholar.org/2fba/caa14adb43d5bc8d2dd274304f60814d933c.pdf

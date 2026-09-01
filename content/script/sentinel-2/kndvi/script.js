@@ -1,4 +1,4 @@
-//VERSION = 3
+//VERSION=3
 //by András Zlinszky @azlinszky - based on https://www.sentinel-hub.com/faq/how-get-s2a-scene-classification-sentinel-2/ and https://www.science.org/doi/10.1126/sciadv.abc7447
 
 function setup() {

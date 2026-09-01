@@ -1,3 +1,11 @@
+//VERSION=3
+function setup() {
+    return {
+        input: ["B02", "B03", "B04", "dataMask"],
+        output: { bands: 4 }
+    };
+}
+
 function sum(a, b) {
     return a + b;
 }
@@ -67,8 +75,8 @@ function Lab_to_sRGB(Lab) {
   return XYZ_to_sRGB(Lab_to_XYZ(Lab));
 }
 
-function getSolarIrr() {
-  return [B02, 0.939*B03, 0.779*B04];
+function getSolarIrr(sample) {
+  return [sample.B02, 0.939*sample.B03, 0.779*sample.B04];
 }
 
 function S2_to_XYZ(rad, T, gain) {
@@ -93,4 +101,6 @@ var gain = 2.5;
 var gammaAdj = 2.2;
 var gainL = 1;
 
-return ProperGamma_S2_to_sRGB(getSolarIrr(), T, gain, gammaAdj, gainL);
+function evaluatePixel(sample) {
+  return ProperGamma_S2_to_sRGB(getSolarIrr(sample), T, gain, gammaAdj, gainL).concat(sample.dataMask);
+}

@@ -1,7 +1,7 @@
-//Aesthetic Neon - Aesthetic script for urban and dry areas 
+//VERSION=3
+//Aesthetic Neon - Aesthetic script for urban and dry areas
 //Author: Monja Šebela
 
-//VERSION=3
 function setup() {
   return {
     input: ["B04", "B03", "B02", "B12", "dataMask"],

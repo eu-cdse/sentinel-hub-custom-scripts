@@ -1,3 +1,4 @@
+//VERSION=3
 // inspired by Custom script repository
 // ndviColorMap taken from NDVI script description
 // findColor function taken from ...
@@ -5,8 +6,12 @@
 // works on L2A data with SCL layer vegetation class
 // naturalColour combination B04, B03, B02 with gain adapted to L2A surface reflectance
 
-
-var naturalColour = [3*B04, 3*B03, 3*B02];
+function setup() {
+	return {
+		input: ["B02", "B03", "B04", "B8A", "SCL", "dataMask"],
+		output: { bands: 4 }
+	};
+}
 
 let ndviColorMap = [
 	[-1.0, 0x000000],
@@ -41,5 +46,11 @@ function findColor(colValPairs, val) {
 	return toRGB(colValPairs[n-1][1]);
 }
 
-return (SCL == 4)? 
-  findColor(ndviColorMap, index(B8A, B04)): naturalColour;
+function evaluatePixel(sample) {
+	var naturalColour = [3*sample.B04, 3*sample.B03, 3*sample.B02];
+
+	let imgVals = (sample.SCL == 4)?
+	  findColor(ndviColorMap, index(sample.B8A, sample.B04)): naturalColour;
+
+	return imgVals.concat(sample.dataMask);
+}

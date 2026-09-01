@@ -1,4 +1,4 @@
-//VERSION 3
+//VERSION=3
 function setup() {
     return {
         input: ["B03", "B08"],

@@ -1,5 +1,13 @@
+//VERSION=3
 // CyanoLakes Bloom Index
 // Kravitz, J.A., Matthews, M.W., 2020
+
+function setup() {
+  return {
+    input: ["B02", "B03", "B04", "B05", "B06", "B08", "B11", "B12", "dataMask"],
+    output: { bands: 4 }
+  };
+}
 
 // Water body detection - Credit : Mohor Gartner
 var MNDWI_threshold = 0.42; //testing shows recommended 0.42 for Sentinel-2 and Landsat 8. For the scene in article [1] it was 0.8.
@@ -47,7 +55,6 @@ function wbi(r, g, b, nir, swir1, swir2) {
   }
   return ws;
 }
-let water = wbi(B04, B03, B02, B08, B11, B12);
 
 // Baseline subtractions
 function MCI(a, b, c) {
@@ -56,9 +63,6 @@ function MCI(a, b, c) {
 function FAI(a, b, c) {
   return b - a - ((c - a) * (740 - 665)) / (842 - 665);
 }
-
-// True color representation
-var trueColor = [3 * B04, 3 * B03, 3 * B02];
 
 // Switches to FAI if FAI > MCI
 function Switch(a, b) {
@@ -69,9 +73,6 @@ function Switch(a, b) {
   }
 }
 
-// Bloom index
-var bloom_index = Switch(MCI(B04, B05, B06), FAI(B04, B06, B08));
-
 // HighlightCompressVisualizer
 // This compresses bloom index values over 0.05 corresponding to floating algae
 // 0.05 will return ~ 0.9
@@ -80,7 +81,18 @@ const compressviz = new HighlightCompressVisualizer(0, 0.05);
 // Visualise on color scale between 0 and 1 (after compression)
 var viz = ColorRampVisualizer.createBlueRed(0, 1);
 
-//Compressed index
-compressed_index = compressviz.process(bloom_index);
+function evaluatePixel(sample) {
+  let water = wbi(sample.B04, sample.B03, sample.B02, sample.B08, sample.B11, sample.B12);
 
-return water == 0 ? trueColor : viz.process(compressed_index);
+  // True color representation
+  var trueColor = [3 * sample.B04, 3 * sample.B03, 3 * sample.B02];
+
+  // Bloom index
+  var bloom_index = Switch(MCI(sample.B04, sample.B05, sample.B06), FAI(sample.B04, sample.B06, sample.B08));
+
+  //Compressed index
+  var compressed_index = compressviz.process(bloom_index);
+
+  var imgVals = water == 0 ? trueColor : viz.process(compressed_index);
+  return imgVals.concat(sample.dataMask);
+}

@@ -1,3 +1,4 @@
+//VERSION=3
 //
 // Pseudo Forest Canopy Density (FCD)
 // -----------------------------
@@ -6,8 +7,15 @@
 // https://creativecommons.org/licenses/by/4.0/
 //
 
+function setup() {
+	return {
+		input: ["B03", "B04", "B08", "dataMask"],
+		output: { bands: 4 }
+	};
+}
+
 // Set to false to avoid detecting water bodies
-detect_water = true;
+let detect_water = true;
 
 // Colors
 let water = [51/255, 128/255, 204/255]; // Blue #3380cc
@@ -34,29 +42,30 @@ let ndvi_hi = 0.40; // 0.40 for L1C (suggested value)
                     // 0.45 for L2A (suggested value)
 
 // Shadow index (SI) high and low limits
-let si_lo = 0.90; // 0.90 for L1C (suggested value) 
+let si_lo = 0.90; // 0.90 for L1C (suggested value)
                   // 0.92 for L2A (suggested value)
-let si_hi = 0.93; // 0.93 for L1C (suggested value) 
+let si_hi = 0.93; // 0.93 for L1C (suggested value)
                   // 0.95 for L2A (suggested value)
 
-if (detect_water) {
-	ndwi = (B03 - B08) / (B03 + B08);
-	if (ndwi > ndwi_hi)
-	  return water;
+function evaluatePixel(sample) {
+	if (detect_water) {
+		let ndwi = (sample.B03 - sample.B08) / (sample.B03 + sample.B08);
+		if (ndwi > ndwi_hi)
+		  return water.concat(sample.dataMask);
+	}
+
+	let ndvi = (sample.B08 - sample.B04) / (sample.B08 + sample.B04);
+	let bi_1 = (sample.B08 + sample.B03 + sample.B04) / (sample.B08 + sample.B03 - sample.B04);
+	let si = Math.pow((1 - sample.B03) * (1 - sample.B04), 1/2);
+
+	if (ndvi > ndvi_hi && bi_1 < bi_hi && si > si_hi)
+	  return hi_forest.concat(sample.dataMask);
+	else if (ndvi_hi > ndvi > ndvi_lo && bi_1 < bi_hi && si_hi > si > si_lo)
+	  return low_forest.concat(sample.dataMask);
+	else if (ndvi > ndvi_lo)
+	  return grass_land.concat(sample.dataMask);
+	else if (ndvi < ndvi_lo && bi_1 > bi_hi && si_lo > si)
+	  return bare_land.concat(sample.dataMask);
+	else
+	  return other.concat(sample.dataMask);
 }
-
-let ndvi = (B08 - B04) / (B08 + B04);
-let bi_1 = (B08 + B03 + B04) / (B08 + B03 - B04);
-let si = Math.pow((1 - B03) * (1 - B04), 1/2);
-
-if (ndvi > ndvi_hi && bi_1 < bi_hi && si > si_hi)
-  return hi_forest;
-else if (ndvi_hi > ndvi > ndvi_lo && bi_1 < bi_hi && si_hi > si > si_lo)
-  return low_forest;
-else if (ndvi > ndvi_lo)
-  return grass_land;
-else if (ndvi < ndvi_lo && bi_1 > bi_hi && si_lo > si)
-  return bare_land;
-else
-  return other;
-  

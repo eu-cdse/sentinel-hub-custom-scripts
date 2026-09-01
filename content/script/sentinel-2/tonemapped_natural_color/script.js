@@ -1,3 +1,11 @@
+//VERSION=3
+function setup() {
+  return {
+    input: ["B02", "B03", "B04", "dataMask"],
+    output: { bands: 4 }
+  };
+}
+
 var tonemapMethod = 4;
 // 0 - Simple Reinhard
 // 1 - Luma based Reinhard
@@ -121,25 +129,27 @@ function sRGBCurve(C) {
   return C < 0.0031308 ? (12.92 * C) : (1.055 * Math.pow(C, 0.41666) - 0.055);
 }
 
-var col = [B04, B03, B02];
-col = col.map(atm);
-if (adjForSunColor)
-  col = [col[0], 0.939 * col[1], 0.779 * col[2]]
+function evaluatePixel(sample) {
+  var col = [sample.B04, sample.B03, sample.B02];
+  col = col.map(atm);
+  if (adjForSunColor)
+    col = [col[0], 0.939 * col[1], 0.779 * col[2]]
 
-col = col.map(a => a * gain);
+  col = col.map(a => a * gain);
 
-if (debug) {
-  var minC = Math.min.apply(null, col);
-  if (minC < 0.) col = [0., 0., 1.,];
+  if (debug) {
+    var minC = Math.min.apply(null, col);
+    if (minC < 0.) col = [0., 0., 1.,];
+  }
+
+  col = Saturate(col);
+  col = tonemap(col);
+
+  if (debug) {
+    var maxC = Math.max.apply(null, col);
+    if (maxC > 1.) col = [1., 0., 0.,];
+  }
+  col = col.map(sRGBCurve);
+
+  return col.concat(sample.dataMask);
 }
-
-col = Saturate(col);
-col = tonemap(col);
-
-if (debug) {
-  var maxC = Math.max.apply(null, col);
-  if (maxC > 1.) col = [1., 0., 0.,];
-}
-col = col.map(sRGBCurve);
-
-return col;

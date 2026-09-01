@@ -1,8 +1,8 @@
+//VERSION=3
 //Detection of Evapotranspiration Levels
 //Author: Ramon Suarez
 //License: Cc by Zero 1.0
 //___________________________
-//Version 3
 function setup() {
     return {
         input:  ["B11", "B09", "B02", "dataMask"],

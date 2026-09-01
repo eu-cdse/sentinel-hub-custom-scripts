@@ -1,4 +1,4 @@
-// VERSION=3
+//VERSION=3
 // QuickFire V1.0.0 by Pierre Markuse (https://twitter.com/Pierre_Markuse)
 // Adjusted for use in the Copernicus Browser (https://dataspace.copernicus.eu/browser/)
 // CC BY 4.0 International (https://creativecommons.org/licenses/by/4.0/)
