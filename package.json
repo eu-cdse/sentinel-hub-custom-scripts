@@ -1,0 +1,20 @@
+{
+  "name": "sentinel-hub-custom-scripts",
+  "private": true,
+  "description": "Tooling for the Sentinel Hub custom scripts Hugo site",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:templates": "uvx djlint layouts --reformat --profile golang --exclude _markup",
+    "format:templates:check": "uvx djlint layouts --check --profile golang --exclude _markup",
+    "lint": "npm run lint:js && npm run lint:md",
+    "lint:js": "eslint .",
+    "lint:md": "markdownlint-cli2",
+    "lint:templates": "uvx djlint layouts --lint --profile golang"
+  },
+  "devDependencies": {
+    "eslint": "^10.9.1",
+    "markdownlint-cli2": "^0.23.2",
+    "prettier": "^3.6.2"
+  }
+}

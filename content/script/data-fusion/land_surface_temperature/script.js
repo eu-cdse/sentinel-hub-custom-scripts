@@ -1,4 +1,4 @@
-// VERSION 3
+//VERSION=3
 
 /**
   This script is directly based on the Landsat-8 Land Surface Temperature Mapping script by Mohor Gartner

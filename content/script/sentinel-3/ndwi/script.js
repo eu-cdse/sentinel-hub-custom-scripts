@@ -19,7 +19,7 @@ let viz2 = new ColorRampVisualizer(colorRamp2);
 function evaluatePixel(samples) {
 var val = index(samples.B06, samples.B17);
 
-if (val < -0) {
+if (val < 0) {
   return viz1.process(-val);
 } else {
   return viz2.process(Math.sqrt(Math.sqrt(val)));
