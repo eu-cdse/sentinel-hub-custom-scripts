@@ -39,10 +39,6 @@ export default [
             "node_modules/",
             // Minified build artifacts.
             "**/*.min.js",
-
-            // V1 evalscript, not valid JavaScript so ESLint cannot parse it.
-            // Temporary page, remove once the sentinel-2 collection is reworked.
-            "content/script/sentinel-2/city-highlights/script.js",
         ],
     },
 

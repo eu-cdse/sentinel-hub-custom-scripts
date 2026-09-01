@@ -124,8 +124,6 @@ npm run lint:templates           # djlint
 
 `npm run lint` needs Node only, so you can check a content change without installing the Python tooling. The two `:templates` commands need uv.
 
-`layouts/_markup/` is excluded from template formatting. Those templates are inserted into the middle of page text, so reformatting them would change the rendered page.
-
 ---
 
 ## 3. Project Structure
@@ -142,11 +140,6 @@ Here is how the repository is organized:
 ├── content/                 # Site pages & script documentation
 │   ├── _index.md            # Home page configuration and introduction
 │   └── script/              # Script directories grouped by sensor
-│       ├── sentinel-2/
-│       │   └── city-highlights/  # An example of a Leaf Bundle
-│       │       ├── index.md      # Page content and metadata
-│       │       ├── script.js     # Evalscript source file
-│       │       └── fig/          # Images used specifically on this page
 │       └── sentinel-5/
 ├── layouts/                 # HTML Templates & Partials
 │   ├── baseof.html          # Shell layout (HTML wrapper, grid, head, footer)

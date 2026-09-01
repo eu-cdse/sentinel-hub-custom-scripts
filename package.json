@@ -5,8 +5,8 @@
     "scripts": {
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "format:templates": "uvx djlint layouts --reformat --profile golang --indent 4 --exclude _markup",
-        "format:templates:check": "uvx djlint layouts --check --profile golang --indent 4 --exclude _markup",
+        "format:templates": "uvx djlint layouts --reformat --profile golang --indent 4",
+        "format:templates:check": "uvx djlint layouts --check --profile golang --indent 4",
         "lint": "npm run lint:js && npm run lint:md",
         "lint:js": "eslint .",
         "lint:md": "markdownlint-cli2",
