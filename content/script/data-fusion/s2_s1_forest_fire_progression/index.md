@@ -8,7 +8,7 @@ verification: ["cites literature"]
 default: ["custom"]
 ---
 
-## General description of the script  
+## General description of the script
 
 One big advantage of using data fusion techniques is that the combined sensors can compensate for difficulties of the other.
 Especially for the monitoring of dynamic environmental disturbances like forest fires, a data gap would mean uncertainty and could hinder the development of mitigation strategies and delay countermeasures.
@@ -27,14 +27,15 @@ Besides the custom script for Burned Area Visualisation, the difference layer se
 The forest fire progression script produces a fire propagation map where areas that were already burned on 7th September 2019 are coloured in light yellow, and the newly burned areas in red.
 By combining data from two different satellite sensors we can avoid data gaps and clearly monitor different development stages of the forest fire, even during highly inconsistent weather conditions.
 
-## Author of the script:  
+## Author of the script:
+
 Max Kampen
 
-## Description of representative images  
-  
+## Description of representative images
+
 1. Left: S-2 SWIR composite from 7th September 2019 showing the burn scar with active forest fires. Right: a True Color image of the next acquisition date on 12th September 2019 showing completely overcast conditions.
-![NDBI](fig/im1.png)   
-2. Left: Sentinel-1 image in VV polarisation mode on 12th September 2019 showing the propagation of the forest fire. Right: the calculated VH backscatter difference layer that was created by subtracting the first from the latter dataset. 
-![NDBI_map](fig/im2.png)  
-3. Fire propagation map depicting previously burned areas from 7 September 2019 in light yellow (analysed with Sentinel-2 data), and newly burned areas in red (analysis based on Sentinel-1 data) on a Sentinel-2 SWIR composite background. 
-![RGB](fig/im3.png)
+   ![NDBI](fig/im1.png)
+2. Left: Sentinel-1 image in VV polarisation mode on 12th September 2019 showing the propagation of the forest fire. Right: the calculated VH backscatter difference layer that was created by subtracting the first from the latter dataset.
+   ![NDBI_map](fig/im2.png)
+3. Fire propagation map depicting previously burned areas from 7 September 2019 in light yellow (analysed with Sentinel-2 data), and newly burned areas in red (analysis based on Sentinel-1 data) on a Sentinel-2 SWIR composite background.
+   ![RGB](fig/im3.png)

@@ -5,14 +5,14 @@ function setup() {
         output: [
             { id: "default", bands: 4 },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
-            { id: "browserStats", bands: 1, sampleType: 'FLOAT32' },
-            { id: "dataMask", bands: 1 }
-        ]
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
     };
 }
 
-const rvi_min = 0;  // Lower limit of the color ramp
-const rvi_max = 1;  // Upper limit of the color ramp
+const rvi_min = 0; // Lower limit of the color ramp
+const rvi_max = 1; // Upper limit of the color ramp
 
 // Colors of the ramp, from bare soil to fully developed canopy
 const colors = [0x8e0152, 0xde77ae, 0xf7f7f7, 0x7fbc41, 0x276419];
@@ -30,7 +30,7 @@ const visualizer = new ColorRampVisualizer(ramp);
 function evaluatePixel(samples) {
     //equivalent to complement of the degree of polarization
     // Ratio parameter
-    let q =  (samples.VH / samples.VV);
+    let q = samples.VH / samples.VV;
 
     // co-pol purity parameter m
     // m = (1-q)/(1+q)
@@ -38,12 +38,12 @@ function evaluatePixel(samples) {
     // beta = 1/(1+q)
     // Dual-pol radar vegetation indec DpRVIc = 1-(m*beta)
     // It can be also written directly in terms of q as follows
-    let N = q*(q+3);
-    let D = (q+1)*(q+1);
+    let N = q * (q + 3);
+    let D = (q + 1) * (q + 1);
 
     //depolarization within the vegetation
     //let val = (Math.sqrt(dop)) * ((4 * (samples.VH)) / (samples.VV + samples.VH));
-    let val = N/D;
+    let val = N / D;
 
     // The library for tiffs works well only if there is only one channel returned.
     // So we encode the "no data" as NaN here and ignore NaNs on frontend.
@@ -53,6 +53,6 @@ function evaluatePixel(samples) {
         default: imgVals.concat(samples.dataMask),
         index: [indexVal],
         browserStats: [val],
-        dataMask: [samples.dataMask]
+        dataMask: [samples.dataMask],
     };
 }

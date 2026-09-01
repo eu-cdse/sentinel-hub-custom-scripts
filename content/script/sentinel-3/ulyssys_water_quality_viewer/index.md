@@ -9,8 +9,6 @@ verification: ["cites literature"]
 default: ["default"]
 ---
 
-
-
 The Sentinel 2 Version of this script can be found [here](/sentinel-2/ulyssys_water_quality_viewer/).  
 Version 1 works for both Sentinel 2 and Sentinel 3 as is. Version 3 adds support for advanced EO-Browser features like statistics and point information.
 
@@ -18,19 +16,18 @@ Version 1 works for both Sentinel 2 and Sentinel 3 as is. Version 3 adds support
 | :----------------------------------------------------------------------------------: |
 |  !['Timelapse of 2019'](fig/gif/Sentinel-2-3_2019_jan_dec_balaton_with_closeup.gif)  |
 
-
 ## Evaluate and visualize
 
 1. Visit one of the following example sites or find your own area of interest:
-   - Lake Balaton, Hungary, Europe (2019-09-05)
-     - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=46.8797&lng=17.7402&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2019-09-05T00%3A00%3A00.000Z&toTime=2019-09-05T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
-     - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=46.8797&lng=17.7402&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2019-09-05T00%3A00%3A00.000Z&toTime=2019-09-05T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
-   - Lake Pontchartrain, Louisiana, USA (2020-01-06)
-     - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=30.2012&lng=-90.1009&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2020-01-06T00%3A00%3A00.000Z&toTime=2020-01-06T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
-     - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=30.2012&lng=-90.1009&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2020-01-06T00%3A00%3A00.000Z&toTime=2020-01-06T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
-   - North Azadegan Oil Field, Iraqian/Iranian border (2019-09-08)
-     - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=31.1561&lng=47.7953&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2019-09-08T00%3A00%3A00.000Z&toTime=2019-09-08T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
-     - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=31.1561&lng=47.7953&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2019-09-08T00%3A00%3A00.000Z&toTime=2019-09-08T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
+    - Lake Balaton, Hungary, Europe (2019-09-05)
+        - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=46.8797&lng=17.7402&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2019-09-05T00%3A00%3A00.000Z&toTime=2019-09-05T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
+        - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=46.8797&lng=17.7402&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2019-09-05T00%3A00%3A00.000Z&toTime=2019-09-05T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
+    - Lake Pontchartrain, Louisiana, USA (2020-01-06)
+        - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=30.2012&lng=-90.1009&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2020-01-06T00%3A00%3A00.000Z&toTime=2020-01-06T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
+        - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=30.2012&lng=-90.1009&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2020-01-06T00%3A00%3A00.000Z&toTime=2020-01-06T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
+    - North Azadegan Oil Field, Iraqian/Iranian border (2019-09-08)
+        - [EO Browser](https://apps.sentinel-hub.com/eo-browser/?zoom=11&lat=31.1561&lng=47.7953&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fcreodias.sentinel-hub.com%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI&fromTime=2019-09-08T00%3A00%3A00.000Z&toTime=2019-09-08T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22#custom-script)
+        - [Copernicus Browser](https://dataspace.copernicus.eu/browser/?zoom=11&lat=31.1561&lng=47.7953&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F4b010cc9-3f03-4bd9-bd4c-fc7bbd98fcc9&evalscripturl=https%3A%2F%2Fcustom-scripts.sentinel-hub.com%2Fsentinel-3%2Fulyssys_water_quality_viewer%2Feob.js&datasetId=S3OLCI_CDAS&fromTime=2019-09-08T00%3A00%3A00.000Z&toTime=2019-09-08T23%3A59%3A59.999Z&demSource3D=%22MAPZEN%22&cloudCoverage=30#custom-script)
 2. Interpret what you see
 3. Modify the values in the `PARAMS` object according to your needs (for possible values see `Understanding and fine tuning PARAMS`)
 4. Hit `Refresh` after modifying any of the properties !['Refresh'](assets/refresh_button.png)
@@ -69,40 +66,40 @@ Structure and default values:
 
 ```javascript
 const PARAMS = {
-  // Indices
-  chlIndex: "default",
-  tssIndex: "default",
-  watermaskIndices: ["ndwi", "hol"],
-  // Limits
-  chlMin: -0.005,
-  chlMax: 0.05,
-  tssMin: 0.075,
-  tssMax: 0.185,
-  waterMax: 0,
-  cloudMax: 0.02,
-  // Graphics
-  foreground: "default",
-  foregroundOpacity: 1.0,
-  background: "default",
-  backgroundOpacity: 1.0
+    // Indices
+    chlIndex: "default",
+    tssIndex: "default",
+    watermaskIndices: ["ndwi", "hol"],
+    // Limits
+    chlMin: -0.005,
+    chlMax: 0.05,
+    tssMin: 0.075,
+    tssMax: 0.185,
+    waterMax: 0,
+    cloudMax: 0.02,
+    // Graphics
+    foreground: "default",
+    foregroundOpacity: 1.0,
+    background: "default",
+    backgroundOpacity: 1.0,
 };
 ```
 
 Possible values:
 
 - `chlIndex`: selected chlorophyll index (see Technical background for more information)
-  - `'mci'` or `'rlh'` for Sentinel-2
-  - `'flh'` or `'rlh'` or `'mci'` for Sentinel-3
-  - `'default'` for default value (`'mci'` for Sentinel-2, `'flh'` for Sentinel-3)
-  - `null` (without quotation marks) if not set, in this case chlorophyll is not visualized
+    - `'mci'` or `'rlh'` for Sentinel-2
+    - `'flh'` or `'rlh'` or `'mci'` for Sentinel-3
+    - `'default'` for default value (`'mci'` for Sentinel-2, `'flh'` for Sentinel-3)
+    - `null` (without quotation marks) if not set, in this case chlorophyll is not visualized
 - `tssIndex`: selected sediment index (see Technical background for more information)
-  - `'b05'` for Sentinel-2
-  - `'b07'` or `'b11'` for Sentinel-3
-  - `'default'` for default value (`'b05'` for Sentinel-2, `'b11'` for Sentinel-3)
-  - `null` (without quotation marks) if not set, in this case sediment is not visualized
+    - `'b05'` for Sentinel-2
+    - `'b07'` or `'b11'` for Sentinel-3
+    - `'default'` for default value (`'b05'` for Sentinel-2, `'b11'` for Sentinel-3)
+    - `null` (without quotation marks) if not set, in this case sediment is not visualized
 - `watermaskIndices`: selected water/cloud mask indices (see Technical background for more information)
-  - an array of `'ndwi'`, `'hol'`, `'bcy'` or any combination of them
-  - `[]` (empty array) if not set
+    - an array of `'ndwi'`, `'hol'`, `'bcy'` or any combination of them
+    - `[]` (empty array) if not set
 - `chlMin`: lower limit of `chlIndex`; decrease this for more sensitivity to low chlorophyll concentrations
 - `chlMax`: upper limit of `chlIndex`; decrease this for stronger highlighting of high chlorophyll concentrations
 - `tssMin`: lower limit of `tssIndex`; decrease this for more sensitivity to low sediment concentrations (but a higher chance of mistaking sediment for chlorophyll)
@@ -110,16 +107,16 @@ Possible values:
 - `waterMax`: upper limit of NDWI; if NDWI is above this limit the pixel is assumed to be water. Decrease this for more water but more commission errors
 - `cloudMax`: minimum value for BCY cloud detection. Only affects the output if `'bcy'` is in `watermaskIndices`. Decrease this for higher sensitivity to clouds, increase for less clouds (and more water)
 - `foreground`: fill type of water areas
-  - `'default'`: fill the water pixels with the UWQV visualization (combine chlorophyll and sediment)
-  - `'natural'`: for natural color image
-  - custom color with an array of RGB colors (e.g. `[83, 109, 254]` for blue).
+    - `'default'`: fill the water pixels with the UWQV visualization (combine chlorophyll and sediment)
+    - `'natural'`: for natural color image
+    - custom color with an array of RGB colors (e.g. `[83, 109, 254]` for blue).
 - `foregroundOpacity`: opacity of foreground layer over the background layer, between 0.0 (fully transparent) and 1.0 (fully opaque).
 - `background`: fill type of non-water (background) areas
-  - `'natural'` for natural color image
-  - `'black'` for black background
-  - `'white'` for white background
-  - `'default'` for default value (`'natural'`)
-  - custom color with an array of RGB colors (e.g. `[255, 255, 0]` for yellow)
+    - `'natural'` for natural color image
+    - `'black'` for black background
+    - `'white'` for white background
+    - `'default'` for default value (`'natural'`)
+    - custom color with an array of RGB colors (e.g. `[255, 255, 0]` for yellow)
 - `backgroundOpacity`: opacity of background fill over natural color image, between 0.0 (fully transparent), showing true colour non-water pixels and 1.0 (fully opaque), showing single colour background.
 
 ## Details of the script
@@ -144,9 +141,9 @@ We are aware of some typical cases where the algorithm produces errors:
 - Cloud haze or thin clouds over water are sometimes missed by cloud masking, and these false water pixels will be shown to have have erroneously high suspended sediment concentrations. These cases are relatively easy to identify since the haze is visible in the true colour areas outside the water surface. To create a stricter cloud mask, one thing to try is to add `'bcy'` to `watermaskIndices` and decrease the `cloudMax` parameter.
 - Similarly, cloud shadows are not always perfectly masked, and they can be mistaken as water areas with low suspended sediment. Cloud shadows can be identified based on the presence of clouds, which typically keep their natural colour at the default settings of our algorithm. For this problem, the first thing to try is to increase the `waterMax` parameter.
 - Very high concentrations of suspended sediment or chlorophyll may cause the Hollstein algorithm or the NDWI-based water masking algorithm to fail, mistaking water areas for land. In this case, the algorithm returns the background image (by default the natural color image). To correct this, try:
-  - set `watermaskIndices` to `['ndwi']` (delete `hol`),
-  - secrease the value of `waterMax` (e.g. to -0.2) or
-  - completely disable water and cloud masking (set `watermaskIndices` to `[]`)
+    - set `watermaskIndices` to `['ndwi']` (delete `hol`),
+    - secrease the value of `waterMax` (e.g. to -0.2) or
+    - completely disable water and cloud masking (set `watermaskIndices` to `[]`)
 - Also, relatively dark unvegetated land pixels (such as bare soil areas or deciduous forests in winter) sometimes fool the NDWI water masking algorithm, showing large water areas. Our recommended solution is to try tuning the `waterMax` parameter, increasing e.g. up to 0.45 to decrease these effects.
 - The optical signal of chlorophyll and suspended sediment can not always be spectrally separated with these simple methods. This is especially problematic for Sentinel 2, where chlorophyll detection is based both for `mci` and for `rlh` on the peak of B05 above the neighbouring channels, and suspended sediment visualization is also based on B05 intensity. Therefore in some cases, low concentrations of bright sediment may influence the chlorophyll visualization. Similarly, in very transparent but shallow waters, the lake/sea bottom may be visible through the water and produce a sediment or chlorophyll signal. This effect can be especially prominent when only a single parameter is visualized by setting `chlIndex` or `tssIndex` to `null` (without quotation marks). It is always a good idea to take a look at the scene in true colour (by setting `foreground` to `'natural'`) to help you find the places influenced by this problem.
   Sentinel-3 has lower resolution and higher revisit frequency than Sentinel-2 but is also less sensitive to this problem since the bands used for visualizing chlorophyll and suspended sediment concentrations are different. The Sentinel3 OLCI sensor was designed specifically for water applications and is known to produce more accurate information on water quality than Sentinel2, therefore we recommend to look at your lake/river/sea and date of choice first on Sentinel-3 (unless it is a very small area). If you are in a cloud free period, take a look at Sentinel-3 images a few days before and after your date of interest to get an understanding for the currents and water quality processes forming the patterns you see. Then, if Sentinel-2 imagery is also available, you can take a more detailed look with higher resolution. Comparing between Sentinel-3 (higher accuracy, lower resolution) and Sentinel-2 (higher resolution, lower accuracy) will help you understand the limitations of each dataset.

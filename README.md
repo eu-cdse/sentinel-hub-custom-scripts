@@ -37,9 +37,10 @@ Publishing your product should be easy, nevertheless, any feedback and ideas how
 # Development
 
 ## 1. Technology Stack
-* **SSG:** Hugo (extended version recommended for Sass processing).
-* **Styling:** SCSS (preprocessed using Hugo Pipes).
-* **Interactivity:** Vanilla JavaScript for search, sidebars, and tab selectors.
+
+- **SSG:** Hugo (extended version recommended for Sass processing).
+- **Styling:** SCSS (preprocessed using Hugo Pipes).
+- **Interactivity:** Vanilla JavaScript for search, sidebars, and tab selectors.
 
 ---
 
@@ -47,22 +48,26 @@ Publishing your product should be easy, nevertheless, any feedback and ideas how
 
 To run this project locally, you need to [install](https://gohugo.io/installation/) the latest version of Hugo, then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
 
-***Warning:*** If you are using Ubuntu or Debian, apt version of Hugo is considerably older. Install with snap.
+_**Warning:**_ If you are using Ubuntu or Debian, apt version of Hugo is considerably older. Install with snap.
 
 ### Prerequisites
 
 #### Linux (Debian/Ubuntu)
+
 We recommend installing the **extended** version of Hugo for Sass/SCSS compiling:
+
 ```bash
 sudo apt install hugo
 ```
 
 #### macOS (Homebrew)
+
 ```bash
 brew install hugo
 ```
 
 #### Windows (Chocolatey)
+
 ```bash
 choco install hugo-extended -confirm
 ```
@@ -71,9 +76,9 @@ choco install hugo-extended -confirm
 
 1. Clone this repository and open the project directory.
 2. Spin up the development server:
-   ```bash
-   hugo server
-   ```
+    ```bash
+    hugo server
+    ```
 3. Open your browser and go to `http://localhost:1313`.
 
 The local server supports hot-reloading: changes to your Markdown content, JS, or SCSS files will instantly refresh the page in the browser.
@@ -119,8 +124,6 @@ npm run lint:templates           # djlint
 
 `npm run lint` needs Node only, so you can check a content change without installing the Python tooling. The two `:templates` commands need uv.
 
-`layouts/_markup/` is excluded from template formatting. Those templates are inserted into the middle of page text, so reformatting them would change the rendered page.
-
 ---
 
 ## 3. Project Structure
@@ -137,11 +140,6 @@ Here is how the repository is organized:
 ├── content/                 # Site pages & script documentation
 │   ├── _index.md            # Home page configuration and introduction
 │   └── script/              # Script directories grouped by sensor
-│       ├── sentinel-2/
-│       │   └── city-highlights/  # An example of a Leaf Bundle
-│       │       ├── index.md      # Page content and metadata
-│       │       ├── script.js     # Evalscript source file
-│       │       └── fig/          # Images used specifically on this page
 │       └── sentinel-5/
 ├── layouts/                 # HTML Templates & Partials
 │   ├── baseof.html          # Shell layout (HTML wrapper, grid, head, footer)
@@ -167,22 +165,29 @@ Custom scripts in this project are managed as **Hugo Leaf Bundles** (directories
 ### Step-by-Step Instructions
 
 #### Step 4.1: Create a Leaf Bundle Folder
+
 Navigate to the directory of the respective satellite sensor (inside `content/script/<sensor>/`) and create a new directory for your script:
+
 ```bash
 mkdir -p content/script/sentinel-2/my-new-script/fig
 ```
 
 #### Step 4.2: Add the Source Code File
-Place the raw Sentinel Hub JavaScript file into your new directory:
-* `content/script/sentinel-2/my-new-script/script.js`
 
-*Note: You can include multiple JS files if your script has variations (e.g., `script_v1.js`, `script_v2.js`). You will reference these in the metadata.*
+Place the raw Sentinel Hub JavaScript file into your new directory:
+
+- `content/script/sentinel-2/my-new-script/script.js`
+
+_Note: You can include multiple JS files if your script has variations (e.g., `script_v1.js`, `script_v2.js`). You will reference these in the metadata._
 
 #### Step 4.3: Add Preview Figures
+
 Save representative screenshots (e.g., comparison images showing the visual outputs or specific highlights) inside your `fig/` folder:
-* `content/script/sentinel-2/my-new-script/fig/example_output.png`
+
+- `content/script/sentinel-2/my-new-script/fig/example_output.png`
 
 #### Step 4.4: Create the `index.md` and Configure Frontmatter
+
 Create an `index.md` file inside `content/script/sentinel-2/my-new-script/` and configure the metadata at the top (frontmatter):
 
 ```markdown
@@ -216,22 +221,24 @@ Taxonomies are configured globally in `config/_default/hugo.toml`. They enable f
 
 When you add a script, you can specify terms for any of these supported taxonomies in the frontmatter of your `index.md`:
 
-| Taxonomy | Frontmatter Key | Common Values / Terms |
-| :--- | :--- | :--- |
-| **Types** | `type` | `composite`, `index`, `regression`, `classification` |
-| **Verifications** | `verification` | `cites literature`, `cites operational use case` |
-| **Default** | `default` | `default`, `custom` |
-| **Domains** | `domain` | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
-| **Data-Sources** | `data-source` | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM` |
-| **Resolutions** | `resolution` | `10m`, `60m`, `300m` ... |
+| Taxonomy          | Frontmatter Key | Common Values / Terms                                                                                                |
+| :---------------- | :-------------- | :------------------------------------------------------------------------------------------------------------------- |
+| **Types**         | `type`          | `composite`, `index`, `regression`, `classification`                                                                 |
+| **Verifications** | `verification`  | `cites literature`, `cites operational use case`                                                                     |
+| **Default**       | `default`       | `default`, `custom`                                                                                                  |
+| **Domains**       | `domain`        | `atmosphere`, `agriculture`, `disasters`, `urban`, `water`, `vegetation`, `forest`, `fire`, `flood`, `geomorphology` |
+| **Data-Sources**  | `data-source`   | `Data fusion`, `Sentinel-1`, `Sentinel-2`, `Sentinel-3`, `Sentinel-5P`, `CLMS`, `DEM`                                |
+| **Resolutions**   | `resolution`    | `10m`, `60m`, `300m` ...                                                                                             |
 
 Explanation of types:
+
 - **composite**: bands shown as red/green/blue so the output is an image, generated by assigning a spectral product to each band of an image (like RGB ratio, like true color)
 - **index**: a fixed formula that scores every pixel on one property, a scalar generated by calculating a single value from one or more spectral bands and visualizing it with a palette (like NDVI)
 - **regression**: a real physical quantity you could measure with an instrument, an index that is calibrated to a meaningful physical quantity that has a dimension (like Leaf Area Index, like land surface temperature)
 - **classification**: every pixel sorted into one of a few named categories, an operation on one or more bands where the outcome is a unique value from a pre-defined set - typically based on threshold values from one or more regresssions (like flood mapping, like land cover)
 
 ### Frontmatter Example with Full Taxonomies:
+
 ```yaml
 ---
 title: "Advanced Agricultural Monitoring"
@@ -248,9 +255,10 @@ data-source: ["Sentinel-2"]
 
 ## 6. How Templates Render Scripts Automatically
 
-The templates in `layouts/script/single.html` contain robust logic designed to automate rendering. 
+The templates in `layouts/script/single.html` contain robust logic designed to automate rendering.
 
 When Hugo builds a script page it will:
+
 1.  Read the `evalscripts` list in your frontmatter.
 2.  Grab the `.js` files from the same folder.
 3.  Generate selection tabs for them automatically.

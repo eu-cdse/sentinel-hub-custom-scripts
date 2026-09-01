@@ -8,20 +8,20 @@ resolution: ["300m"]
 default: ["default"]
 ---
 
-
-
 ## Author of the script
-By TIZNEGAR Startup Co, 
+
+By TIZNEGAR Startup Co,
 [www.tiznegar.com](https://www.tiznegar.com/)
 
 ## General description
-Vegetation monitoring index for Sentinel 3 OLCI (VMI3) uses NDVI, a normalized difference index of NIR* and RED wavelengths. The script displays the vegetation index with a continuous colour scale and uses cloud mask to display clouds and snow in white. It also provides a preprepared conditional statement for land classification, by only changing the visualized range. 
+
+Vegetation monitoring index for Sentinel 3 OLCI (VMI3) uses NDVI, a normalized difference index of NIR* and RED wavelengths. The script displays the vegetation index with a continuous colour scale and uses cloud mask to display clouds and snow in white. It also provides a preprepared conditional statement for land classification, by only changing the visualized range.
 
 The index is calculated as:
 
 **VMI3 = (B17 - B08) / (B17 + B08)**
 
-The range of the index is between -1 and 1: 
+The range of the index is between -1 and 1:
 
 **-1 ≤ VMI3 ≤ 1**
 
@@ -45,5 +45,3 @@ In this case, only the areas with the VMI3 index in range of 0.4 to 1 are visual
 
 ![A3](fig/fig3.jpg)
 In this image, only areas with the VMI3 index range of -1 to 0 are visualized in a continuous color scale, displaying water areas in blue colors. The water levels of Lake Urmia and Sefidrud Dam in Gilan province are well visible. Other areas are returned in true color, with cloud mask in white.
-
-

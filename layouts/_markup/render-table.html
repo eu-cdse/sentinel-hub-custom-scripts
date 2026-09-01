@@ -1,47 +1,36 @@
-<table
-  {{- range $k, $v := .Attributes }}
-    {{- if $v }}
-      {{- printf " %s=%q" $k $v | safeHTMLAttr }}
-    {{- end }}
-  {{- end }}>
-  <thead>
-    {{- range .THead }}
-      <tr>
-        {{- range . }}
-          <th
-            {{- with .Alignment }}
-              {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
-            {{- end -}}
-          >
-            {{- .Text -}}
-          </th>
+<table {{- range $k, $v := .Attributes }} {{- if $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end }}>
+    <thead>
+        {{- range .THead }}
+            <tr>
+                {{- range . }}
+                    <th {{- with .Alignment }}
+                        {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
+                        {{- end -}}>{{- .Text -}}</th>
+                {{- end }}
+            </tr>
         {{- end }}
-      </tr>
-    {{- end }}
-  </thead>
-  <tbody>
-    {{- range .TBody }}
-      <tr>
-        {{- range . }}
-          {{ $align := "" }}
-          {{- if .Alignment -}}
-            {{ $align = printf "text-align: %s;" .Alignment }}
-          {{- end -}}
-          {{ $color := "" }}
-          {{- if hasPrefix .Text "!#" -}}
-          	{{ $color = printf "background-color: %s;" ( replace .Text "!" "" ) }}
-          {{- end -}}
-          <td
-            {{- with (printf "%s" $align | printf "%s%s" $color | printf "%s") }}
-              {{- printf " style=%q" . | safeHTMLAttr }}
-            {{- end -}}
-          >
-          	{{ if not $color }}
-	          {{- .Text -}}
-            {{ end }}
-          </td>
+    </thead>
+    <tbody>
+        {{- range .TBody }}
+            <tr>
+                {{- range . }}
+                    {{ $align := "" }}
+                    {{- if .Alignment -}}
+                        {{ $align = printf "text-align: %s;" .Alignment }}
+                    {{- end -}}
+                    {{ $color := "" }}
+                    {{- if hasPrefix .Text "!#" -}}
+                        {{ $color = printf "background-color: %s;" ( replace .Text "!" "" ) }}
+                    {{- end -}}
+                    <td {{- with (printf "%s" $align | printf "%s%s" $color | printf "%s") }}
+                        {{- printf " style=%q" . | safeHTMLAttr }}
+                        {{- end -}}>
+                        {{ if not $color }}
+                            {{- .Text -}}
+                        {{ end }}
+                    </td>
+                {{- end }}
+            </tr>
         {{- end }}
-      </tr>
-    {{- end }}
-  </tbody>
+    </tbody>
 </table>

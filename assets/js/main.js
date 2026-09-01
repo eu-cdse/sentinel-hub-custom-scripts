@@ -1,13 +1,14 @@
 const addCopyEventHandler = (buttonId, textId) => {
     const button = document.getElementById(buttonId);
     if (!button) {
-        return
+        return;
     }
-    const codeElement = document.getElementById(textId)
+    const codeElement = document.getElementById(textId);
     if (!codeElement) {
-        return
+        return;
     }
-    const text = codeElement.querySelector(".highlight")
+    const text = codeElement
+        .querySelector(".highlight")
         .innerText.replaceAll("\n\n", "\n");
     if (button) {
         button.addEventListener("click", () => {
@@ -30,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             const button_id = button.id;
-            const tab_id = button_id + "-content"
-            buttons.forEach(btn=>btn.classList.remove("selected"))
-            button.classList.add("selected")
-            tabs.forEach(tab => tab.classList.remove("selected") );
-            document.getElementById(tab_id).classList.add("selected")
+            const tab_id = button_id + "-content";
+            buttons.forEach((btn) => btn.classList.remove("selected"));
+            button.classList.add("selected");
+            tabs.forEach((tab) => tab.classList.remove("selected"));
+            document.getElementById(tab_id).classList.add("selected");
         });
     });
 });
