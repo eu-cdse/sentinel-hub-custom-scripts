@@ -21,7 +21,7 @@ Images can be over-saturated during prolonged periods of drought/floods and no v
 
 Crop properties and VV/VH radar signal limitations have impact on RVI sensitivity (author's understanding is that soybeans are best targets).
 
-It is definitely beneficial to tinker with the pixel evaluation, and value stretch settings, as well as the time-frame of analysis. 
+It is definitely beneficial to tinker with the pixel evaluation, and value stretch settings, as well as the time-frame of analysis.
 
 [Some output images.](https://twitter.com/Valtzen/status/1221548334520905729)
 
@@ -35,10 +35,10 @@ In the image you can see agriculture fields around Yeya river, Krasnodar region,
 
 Under the current settings the images would be colored based on the Change of RV (increase, stable, decrease), so:
 
-* black/dark and white/grey areas are where the index is stable, like water (low RVI) or forests (high RVI)
-* blue/light blue areas indicate increasing crop growth
-* green/yellow areas indicate ripening or ripe crops
-* orange/red areas indicate areas of harvested areas
+- black/dark and white/grey areas are where the index is stable, like water (low RVI) or forests (high RVI)
+- blue/light blue areas indicate increasing crop growth
+- green/yellow areas indicate ripening or ripe crops
+- orange/red areas indicate areas of harvested areas
 
 ![The script example](fig/Sentinel-1_IW-VVVH_2018-07-31.jpg)
 

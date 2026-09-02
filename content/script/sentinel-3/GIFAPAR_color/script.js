@@ -4,17 +4,17 @@
 
 function setup() {
     return {
-      input: ["GIFAPAR", "dataMask"], 
-      output: [
-        { id: "default", bands: 4 },
-        { id: "index", bands: 1, sampleType: "FLOAT32" },
-        { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
-        { id: "dataMask", bands: 1 }
-      ]
+        input: ["GIFAPAR", "dataMask"],
+        output: [
+            { id: "default", bands: 4 },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
     };
-  }
-  
-  const ramp = [
+}
+
+const ramp = [
     [0, 0xeaeaea],
     [0.025, 0xfff9cc],
     [0.05, 0xede8b5],
@@ -32,18 +32,18 @@ function setup() {
     [0.5, 0x306d1c],
     [0.55, 0x216011],
     [0.6, 0x0f540a],
-    [1, 0x004400]
-  ];
-  
-  let viz = new ColorRampVisualizer(ramp);
-  
-  function evaluatePixel(sample) {
+    [1, 0x004400],
+];
+
+let viz = new ColorRampVisualizer(ramp);
+
+function evaluatePixel(sample) {
     let val = sample.GIFAPAR;
-    let ImgVals = viz.process(val); 
+    let ImgVals = viz.process(val);
     return {
-      default: ImgVals.concat(sample.dataMask),
-      index: [sample.dataMask == 1 ? sample.GIFAPAR : NaN], 
-      eobrowserStats: [sample.dataMask == 1 ? sample.GIFAPAR : NaN], 
-      dataMask: [sample.dataMask]
+        default: ImgVals.concat(sample.dataMask),
+        index: [sample.dataMask == 1 ? sample.GIFAPAR : NaN],
+        eobrowserStats: [sample.dataMask == 1 ? sample.GIFAPAR : NaN],
+        dataMask: [sample.dataMask],
     };
-  }
+}

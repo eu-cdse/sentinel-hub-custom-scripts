@@ -37,15 +37,15 @@ function setup() {
 }
 
 function preProcessScenes(collections) {
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (
-        orbit
-    ) {
-        var orbitDateFrom = new Date(orbit.dateFrom);
-        return (
-            orbitDateFrom.getTime() >=
-            collections.to.getTime() - 36 * 30 * 24 * 3600 * 1000
-        ); // Data from 36 months to current date
-    });
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 36 * 30 * 24 * 3600 * 1000
+            ); // Data from 36 months to current date
+        },
+    );
     return collections;
 }
 

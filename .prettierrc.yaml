@@ -2,4 +2,4 @@
 # Copernicus Browser URLs, and rewrapping would break those links.
 # This is Prettier's default, pinned here so it is not changed by accident.
 proseWrap: preserve
-
+tabWidth: 4
