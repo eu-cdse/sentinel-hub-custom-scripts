@@ -1,6 +1,10 @@
 ---
 title: True color product
-
+evalscripts: ["script.js"]
+types: ["composite"]
+domains: ["preprocessing"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m"]
 ---
 
 ## General description

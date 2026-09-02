@@ -1,8 +1,9 @@
 ---
 title: 'Vegetation Productivity Indicator '
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+verification: ["cites literature"]
+domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

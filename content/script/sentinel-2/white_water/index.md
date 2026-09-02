@@ -1,10 +1,10 @@
 ---
 title: White-Water Detection Script
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m"]
+resolutions: ["10m","20m","60m"]
 ---
 
 ## General description of the script

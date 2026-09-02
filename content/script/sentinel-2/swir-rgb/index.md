@@ -1,8 +1,8 @@
 ---
 title: SWIR - Short Wave Infrared RGB Composite
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["composite"]
+domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

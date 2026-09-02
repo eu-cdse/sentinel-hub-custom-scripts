@@ -11,11 +11,20 @@ eddies, temperature induced vortices, suspended matter in shallow water, oil sli
 
 */
 
-var v1 = Math.log((B02/B03)); 
-var v2 = Math.log((B03/B04));
-var v3 = Math.log((B04/B08));
+function setup() {
+  return {
+    input: ["B02", "B03", "B04", "B08", "dataMask"],
+    output: { bands: 4 }
+  };
+}
 
-return [v1,v2,v3];
+function evaluatePixel(sample) {
+  let v1 = Math.log((sample.B02/sample.B03));
+  let v2 = Math.log((sample.B03/sample.B04));
+  let v3 = Math.log((sample.B04/sample.B08));
 
-// alternatively, one can enhace the green band fraction slightly more, by multiplying v1 with v2 in the R band
-// return [v1*v2,v2,v3];
+  return [v1, v2, v3, sample.dataMask];
+
+  // alternatively, one can enhace the green band fraction slightly more, by multiplying v1 with v2 in the R band
+  // return [v1*v2, v2, v3, sample.dataMask];
+}

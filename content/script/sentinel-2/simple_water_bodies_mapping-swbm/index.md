@@ -1,10 +1,11 @@
 ---
 title: 'Simple Water Bodies'' Mapping - SWBM '
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+verifications: ["cites literature"]
+domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m"]
+resolutions: ["10m","20m"]
 ---
 
 ## General description of the script

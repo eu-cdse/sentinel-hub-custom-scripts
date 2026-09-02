@@ -1,8 +1,8 @@
 ---
 title: Tonemapped Natural Color Script
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

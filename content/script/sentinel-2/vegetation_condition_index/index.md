@@ -1,8 +1,8 @@
 ---
 title: 'Vegetation Condition Index '
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

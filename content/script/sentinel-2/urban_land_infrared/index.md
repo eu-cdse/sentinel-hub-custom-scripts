@@ -1,10 +1,10 @@
 ---
 title: Urban Land Infrared Color Script
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+domains: ["urban"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m"]
+resolutions: ["10m","20m"]
 ---
 
 ## General description of the script
