@@ -1,0 +1,14 @@
+# Hugo build output and caches
+public
+resources
+.hugo_build.lock
+
+# Dependencies and generated files
+node_modules
+package-lock.json
+
+# Hugo templates. Formatted by djlint instead, see issue #1105.
+layouts
+
+# Minified build artifacts.
+*.min.js

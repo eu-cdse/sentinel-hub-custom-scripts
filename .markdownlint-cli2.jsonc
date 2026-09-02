@@ -1,0 +1,30 @@
+// markdownlint-cli2 configuration.
+//
+// Scope: breakage only, matching eslint.config.mjs. Prettier already handles
+// markdown layout (trailing whitespace, blank lines, list markers).
+//
+// So every default rule is off, and only rules describing a genuinely broken
+// page are enabled. The repo passes this set cleanly today.
+{
+  "globs": ["**/*.md"],
+  "ignores": ["node_modules", "public", "resources"],
+
+  "config": {
+    "default": false,
+
+    // (text)[url] instead of [text](url). Renders as literal text, not a link.
+    "MD011": true,
+
+    // Empty link destination: [text]().
+    "MD042": true,
+
+    // Link anchor pointing at a heading that does not exist on the page.
+    "MD051": true,
+
+    // Reference link with no matching definition. Renders literally.
+    "MD052": true,
+
+    // Table rows whose column count does not match the header.
+    "MD056": true
+  }
+}

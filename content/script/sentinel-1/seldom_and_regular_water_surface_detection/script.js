@@ -1,3 +1,5 @@
+//VERSION=3
+
 /*
 SELDOM AND REGULAR WATER SURFACE DETECTION AND POSSIBLE HIGH INCLINATION (INFRASTRUCTURE, ROADS, BRIDGES, RIDGE, CLIFFS, MOUNTAINS, HILLS, ETC.)
 use only in multi-temporal processing, it is recommended to have around 30 samples.
@@ -27,8 +29,6 @@ REPRESENTATIVE IMAGES
 5. Polemidia dam (Cyprus): VVminLim=0.006, VV50lim=1, percLim=0.1;
 
 */
-
-//VERSION=3
 
 var VVminLim = 0.02;
 var VV50lim = 1;
