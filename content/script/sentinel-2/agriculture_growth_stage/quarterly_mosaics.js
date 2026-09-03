@@ -47,9 +47,16 @@ function evaluatePixel(samples, scenes) {
 
         if (sceneQuarter == endQuarter) {
             ndvi3 = ndvi; // Most recent quarter
-        } else if (sceneQuarter == endQuarter - 1 || (endQuarter == 0 && sceneQuarter == 3)) {
+        } else if (
+            sceneQuarter == endQuarter - 1 ||
+            (endQuarter == 0 && sceneQuarter == 3)
+        ) {
             ndvi2 = ndvi; // Middle quarter
-        } else if (sceneQuarter == endQuarter - 2 || (endQuarter == 0 && sceneQuarter == 2) || (endQuarter == 1 && sceneQuarter == 3)) {
+        } else if (
+            sceneQuarter == endQuarter - 2 ||
+            (endQuarter == 0 && sceneQuarter == 2) ||
+            (endQuarter == 1 && sceneQuarter == 3)
+        ) {
             ndvi1 = ndvi; // Oldest quarter
         }
     }
@@ -68,12 +75,14 @@ function stretch(val, min, max) {
 
 function preProcessScenes(collections) {
     // Filter scenes to include only the last three quarters
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-        var orbitDateFrom = new Date(orbit.dateFrom);
-        return (
-            orbitDateFrom.getTime() >=
-            collections.to.getTime() - 3 * 3 * 30 * 24 * 3600 * 1000 // Last 9 months
-        );
-    });
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 3 * 3 * 30 * 24 * 3600 * 1000 // Last 9 months
+            );
+        },
+    );
     return collections;
 }

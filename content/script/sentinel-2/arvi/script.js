@@ -8,16 +8,18 @@
 //
 
 function setup() {
-  return {
-    input: ["B02", "B04", "B8A"],
-    output: { bands: 1 }
-  };
+    return {
+        input: ["B02", "B04", "B8A"],
+        output: { bands: 1 },
+    };
 }
 
 // Initialize parameters
 let y = 0.106;
 
 function evaluatePixel(samples) {
-  let val = (samples.B8A - samples.B04 - y * (samples.B04 - samples.B02)) / (samples.B8A + samples.B04 - y * (samples.B04 - samples.B02));
-  return [val];
+    let val =
+        (samples.B8A - samples.B04 - y * (samples.B04 - samples.B02)) /
+        (samples.B8A + samples.B04 - y * (samples.B04 - samples.B02));
+    return [val];
 }

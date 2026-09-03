@@ -5,8 +5,22 @@ Author of the script: Bence Mélykúti, DPhil (Oxf)
 
 function setup() {
     return {
-        input: ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B11", "B12", "dataMask"],
-        output: { bands: 4 }
+        input: [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B8A",
+            "B09",
+            "B11",
+            "B12",
+            "dataMask",
+        ],
+        output: { bands: 4 },
     };
 }
 
@@ -43,6 +57,9 @@ function evaluatePixel(sample) {
 
     var NDWI = (sample.B03 - sample.B08) / (sample.B03 + sample.B08);
 
-    var imgVals = NDWI < 0 ? [2.5 * sample.B04, 2.5 * sample.B03, 2.5 * sample.B02] : cividis(clamp(estimator));
+    var imgVals =
+        NDWI < 0
+            ? [2.5 * sample.B04, 2.5 * sample.B03, 2.5 * sample.B02]
+            : cividis(clamp(estimator));
     return imgVals.concat(sample.dataMask);
 }

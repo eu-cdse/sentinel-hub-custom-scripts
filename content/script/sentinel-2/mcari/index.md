@@ -13,10 +13,10 @@ MCARI gives a measure of the depth of chlorophyll absorption and is very sensiti
 
 ## Description of representative images
 
-MCARI, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+MCARI, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![MCARI](fig/fig1.png)
 
-
 ## References
+
 https://www.hiphen-plant.com

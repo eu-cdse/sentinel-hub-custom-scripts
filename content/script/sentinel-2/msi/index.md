@@ -2,9 +2,9 @@
 title: Moisture index
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["forest","agriculture","fire","vegetation"]
+domains: ["forest", "agriculture", "fire", "vegetation"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -19,6 +19,6 @@ Values description: The values of this index range from 0 to more than 3. The co
 
 ## Description of representative images
 
-The MSI of Rome, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+The MSI of Rome, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![MSI](fig/fig1.png)

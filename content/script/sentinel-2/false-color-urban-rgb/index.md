@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["composite"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -17,7 +17,7 @@ This composite is used to visualize urbanized areas more clearly. Vegetation is 
 
 ## Description of representative images
 
-False Color Urban composite  of Rome, Italy. 
+False Color Urban composite of Rome, Italy.
 
 ![False Color Urban Rome](fig/fig1.png)
 

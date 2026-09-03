@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -37,37 +37,38 @@ Sérgio Augusto Jardim Volkmer
 
 ## Description of representative images
 
-1) Visualization of BRAZIL, Lagoa dos Patos, RS dry season 2020-01-10
+1. Visualization of BRAZIL, Lagoa dos Patos, RS dry season 2020-01-10
 
 LEFT: Using separated enhancement for land and water:
+
 - Land, using "NATURAL_SWIR" [(B04*2.6+B12*0.8), (B03*3.0+B08*0.5), (B02*3.0)], enhances both vegetation, farmlands, bare soil;
 - Water, using "NATURAL_REDGE" [(B04*4.0), (B03*2.8+B06*1.5), (B02*3.5)], enhances turbidity moistures and algae in it.
 
 RIGHT: Using only NATURAL_SWIR for both land and water: enhances land, but loses differentiation of water, turbidity moistures, algae.
 ![The script example 1](fig/1-brazil.png)
 
-2) Visualization of BOLIVIA, Pucara de Oroncota 2019-11-02
+2. Visualization of BOLIVIA, Pucara de Oroncota 2019-11-02
 
 LEFT: Script highly enhances geology differentiation, while selectively enhancing waterways.
 
 RIGHT: True Color shows not much differentiation in geology itself, and with waterways, all in similar colors.
 ![The script example 2](fig/2-bolivia.png)
 
-3) Visualization of NAMIBIA, Aussenkehr Farm 2020-01-09
+3. Visualization of NAMIBIA, Aussenkehr Farm 2020-01-09
 
 LEFT: Enhanced geology differentiation, magmatic dikes (bluish-grey) cutting through different rock layers, while selectively enhancing farmlands.
 
 RIGHT: True Color, indiferentiated geology, magmatic dikes not visible.
 ![The script example 3](fig/3-namibia.png)
 
-4) Visualization of RUSSIA, Severny Island on summer 2019-08-20
+4. Visualization of RUSSIA, Severny Island on summer 2019-08-20
 
 LEFT: Different treatement of brightness and contrast for snow and glaciers versus land , vegetation and rocks.
 
 RIGHT: True Color highly oversaturated whitness of snow an glaciers and no differentiation of vegetation and soil.
 ![The script example 4](fig/4-russia.png)
 
-5) Visualization of ITALY, Golfo di Venezia 2019-11-10
+5. Visualization of ITALY, Golfo di Venezia 2019-11-10
 
 LEFT: Using selection as an artistic blackout mask to enhance water turbidity alone.
 
@@ -77,14 +78,14 @@ RIGHT: True Color with much less differentiation of clear water and turbidity.
 ## References
 
 For limit values of Indices:
-[1] [NDSI: (B03-B11)/(B03+B11) > 0.42 for snow areas and glaciers](https://custom-scripts.sentinel-hub.com/sentinel-2/ndsi/) 
+[1] [NDSI: (B03-B11)/(B03+B11) > 0.42 for snow areas and glaciers](https://custom-scripts.sentinel-hub.com/sentinel-2/ndsi/)
 
-[2] [NDVI: (B08-B04)/(B08+B04) > 0.2 for grass, shrub; > 0.4 dense forest](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index) 
+[2] [NDVI: (B08-B04)/(B08+B04) > 0.2 for grass, shrub; > 0.4 dense forest](https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index)
 
-[3] [NDWI2: (B03-B08)/(B03+B08) > 0.3 for water bodies](https://en.wikipedia.org/wiki/Normalized_difference_water_index)   
+[3] [NDWI2: (B03-B08)/(B03+B08) > 0.3 for water bodies](https://en.wikipedia.org/wiki/Normalized_difference_water_index)
 
 ## Credits
 
-[1] Selective treatment logics based on Simon Gascoin's [Better snow visualisation using NDSI](https://www.sentinel-hub.com/contest)  
+[1] Selective treatment logics based on Simon Gascoin's [Better snow visualisation using NDSI](https://www.sentinel-hub.com/contest)
 
 [2] Enhancement functions based on Pierre Markuse's [Wildfire visualization](https://custom-scripts.sentinel-hub.com/sentinel-2/markuse_fire/)

@@ -19,30 +19,23 @@ var stretchMin = 0;
 var stretchMax = 1;
 
 function setup() {
-  return {
-    input: [{
-      bands: [
-          "B02",
-          "B03",
-          "B04",
-          "B05",
-          "B08",
-          "B11"
-      ]
-    }],
-    output: { bands: 3 },
-    mosaicking: "ORBIT"
-  }
+    return {
+        input: [
+            {
+                bands: ["B02", "B03", "B04", "B05", "B08", "B11"],
+            },
+        ],
+        output: { bands: 3 },
+        mosaicking: "ORBIT",
+    };
 }
 
-
 function NDSI(sample) {
-    return ((sample.B03 - sample.B11) / (0.01 + sample.B03 + sample.B11));
+    return (sample.B03 - sample.B11) / (0.01 + sample.B03 + sample.B11);
 }
 
 function NDWI(sample) {
-    return ((sample.B03 - sample.B08) / (sample.B03 + sample.B08));
-
+    return (sample.B03 - sample.B08) / (sample.B03 + sample.B08);
 }
 
 function median(values) {
@@ -50,7 +43,7 @@ function median(values) {
     if (values.length === 0) return 0;
     if (values.length === 1) return values[0];
 
-    values.sort(function(a, b) {
+    values.sort(function (a, b) {
         return a - b;
     });
 
@@ -59,7 +52,7 @@ function median(values) {
 }
 
 function r(a, b) {
-    return (a / b);
+    return a / b;
 }
 
 function stretch(val, min, max) {
@@ -125,14 +118,20 @@ function evaluatePixel(samples, scenes) {
                 B04.push(samples[i].B04);
                 B05.push(samples[i].B05);
                 B08.push(samples[i].B08);
-            } else if ((samples[i].B02 < highBlueThresold) & (samples[i].B02 > blueThresold)) {
+            } else if (
+                (samples[i].B02 < highBlueThresold) &
+                (samples[i].B02 > blueThresold)
+            ) {
                 highB02.push(samples[i].B02);
                 highB03.push(samples[i].B03);
                 highB04.push(samples[i].B04);
                 highB05.push(samples[i].B05);
                 highB08.push(samples[i].B08);
             }
-            if ((NDSI(samples[i]) > NDSIthresold) & (samples[i].B04 > redThresold)) {
+            if (
+                (NDSI(samples[i]) > NDSIthresold) &
+                (samples[i].B04 > redThresold)
+            ) {
                 snowyCount++;
                 snowB02.push(samples[i].B02);
                 snowB03.push(samples[i].B03);
@@ -143,23 +142,51 @@ function evaluatePixel(samples, scenes) {
             }
         }
     }
-    if ((B02.length > 0)) {
+    if (B02.length > 0) {
         if (isWater > 2) {
             bestRatio = indexOfMaxRatio(B02, B08);
         } else {
             bestRatio = indexOfMaxRatio(B08, B03);
         }
-        colorMap = [stretch((2.8 * B04[bestRatio] + 0.1 * B05[bestRatio]), stretchMin, stretchMax), stretch((2.8 * B03[bestRatio] + 0.15 * B08[bestRatio]), stretchMin, stretchMax), stretch((2.8 * B02[bestRatio]), stretchMin, stretchMax)];
+        colorMap = [
+            stretch(
+                2.8 * B04[bestRatio] + 0.1 * B05[bestRatio],
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(
+                2.8 * B03[bestRatio] + 0.15 * B08[bestRatio],
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(2.8 * B02[bestRatio], stretchMin, stretchMax),
+        ];
     } else if ((highB02.length > 0) & (B02.length < 1)) {
         if (isWater > 2) {
             bestRatio = indexOfMaxRatio(B02, B08);
         } else {
             bestRatio = indexOfMaxRatio(highB03, highB02);
         }
-        colorMap = [stretch((2.8 * highB04[bestRatio] + 0.1 * highB05[bestRatio]), stretchMin, stretchMax), stretch((2.8 * highB03[bestRatio] + 0.15 * highB08[bestRatio]), stretchMin, stretchMax), stretch((2.8 * highB02[bestRatio]), stretchMin, stretchMax)];
+        colorMap = [
+            stretch(
+                2.8 * highB04[bestRatio] + 0.1 * highB05[bestRatio],
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(
+                2.8 * highB03[bestRatio] + 0.15 * highB08[bestRatio],
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(2.8 * highB02[bestRatio], stretchMin, stretchMax),
+        ];
     } else if ((snowyCount > 0) & (highB02.length < 1) & (B02.length < 1)) {
         // snowColorMap
-        colorMap = [1.1 * median(snowB04), 1.3 * median(snowB03), 1.1 * median(snowB02)];
+        colorMap = [
+            1.1 * median(snowB04),
+            1.3 * median(snowB03),
+            1.1 * median(snowB02),
+        ];
     } else {
         colorMap = [1, 0, 0];
     }
@@ -167,10 +194,16 @@ function evaluatePixel(samples, scenes) {
     return colorMap;
 }
 
-function preProcessScenes (collections) {
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-        var orbitDateFrom = new Date(orbit.dateFrom)
-        return orbitDateFrom.getTime() >= (collections.to.getTime() - (numberOfMonthsToUse * 31 * 24 * 3600 * 1000));
-    })
-    return collections
+function preProcessScenes(collections) {
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() -
+                    numberOfMonthsToUse * 31 * 24 * 3600 * 1000
+            );
+        },
+    );
+    return collections;
 }

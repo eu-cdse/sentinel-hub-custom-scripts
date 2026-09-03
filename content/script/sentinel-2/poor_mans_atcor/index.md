@@ -8,6 +8,7 @@ resolutions: ["10m"]
 ---
 
 ## Basic information
+
 - Bands used by the algorithm: B2, B3, B4
 - Parameters:
     - **c0r**: atmospheric correction offset in red band B4
@@ -29,4 +30,5 @@ Color correction over Tierra del Fuego. Acquired on 2018-04-27.
 ![Color correction of Tierra del Fuego](fig/fig1.png)
 
 ## References
- - Sentinel Hub Blog, [Color Correction with Sentinel Hub](https://medium.com/p/d721e12a919).
+
+- Sentinel Hub Blog, [Color Correction with Sentinel Hub](https://medium.com/p/d721e12a919).

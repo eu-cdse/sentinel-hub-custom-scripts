@@ -1,8 +1,8 @@
 ---
-title: 'Max Multitemporal NDVI'
+title: "Max Multitemporal NDVI"
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["vegetation","agriculture"]
+domains: ["vegetation", "agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
@@ -15,6 +15,6 @@ Note that multi-temporal processing needs to be enabled for this script to run.
 
 ## Description of representative images
 
-The max NDVI of Madrid, Spain. Acquired on 08.11.2019, processed by Sentinel Hub. 
+The max NDVI of Madrid, Spain. Acquired on 08.11.2019, processed by Sentinel Hub.
 
 ![max NDVI of Madrid.](fig/fig1.png)

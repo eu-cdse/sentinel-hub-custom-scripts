@@ -1,8 +1,8 @@
 ---
 title: SAVI (Soil Adjusted Vegetation Index)
-evalscripts: ["script.js","raw.js",]
+evalscripts: ["script.js", "raw.js"]
 types: ["index"]
-domains: ["vegetation","agriculture"]
+domains: ["vegetation", "agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
@@ -11,7 +11,7 @@ resolutions: ["10m"]
 
 For Sentinel-2, the index looks like this:
 
-$$SAVI = \frac{B8-B4}{B8+B4+L} \cdot (1+L)$$ 
+$$SAVI = \frac{B8-B4}{B8+B4+L} \cdot (1+L)$$
 
 where $L$ is the soil brightness correction factor and could range from (0 -1).
 
@@ -19,10 +19,9 @@ Empirically derived NDVI products have been shown to be unstable, varying with s
 
 ## Description of representative images
 
-SAVI visualized image, Italy. Acquired on 25.05.2020, processed by Sentinel Hub. 
+SAVI visualized image, Italy. Acquired on 25.05.2020, processed by Sentinel Hub.
 
 ![SAVI](fig/fig1.png)
-
 
 ## Contributors:
 

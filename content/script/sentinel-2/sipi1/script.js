@@ -8,26 +8,29 @@
 //
 
 function setup() {
-  return {
-    input: ["B01", "B04", "B08", "dataMask"],
-    output: { bands: 4 }
-  };
+    return {
+        input: ["B01", "B04", "B08", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 
 function evaluatePixel(sample) {
-  let val = (sample.B08 - sample.B01) / (sample.B08 - sample.B04);
+    let val = (sample.B08 - sample.B01) / (sample.B08 - sample.B04);
 
-  let imgVals = colorBlend(val, [0.5, 1, 1.1, 1.2, 3, 5],
-  [
-    [0,0,0],
-    [0,0.5,0],
-    [0,1,0],
-    [1,1,0],
-    [0.8,0.8,0.8],
-    [1,1,1]
-  ]);
+    let imgVals = colorBlend(
+        val,
+        [0.5, 1, 1.1, 1.2, 3, 5],
+        [
+            [0, 0, 0],
+            [0, 0.5, 0],
+            [0, 1, 0],
+            [1, 1, 0],
+            [0.8, 0.8, 0.8],
+            [1, 1, 1],
+        ],
+    );
 
-  return imgVals.concat(sample.dataMask);
+    return imgVals.concat(sample.dataMask);
 }
 
 /*

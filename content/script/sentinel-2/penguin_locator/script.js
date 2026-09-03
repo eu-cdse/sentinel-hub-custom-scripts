@@ -5,30 +5,30 @@
 //By reducing oversaturation and highlighting small differences, patterns in snow and ice dominated landscapes stand out, including marks of penguin colonies.
 
 function setup() {
-  return {
-    input: ["B02", "B03", "B04", "B08"],
-    output: { bands: 3 }
-  };
+    return {
+        input: ["B02", "B03", "B04", "B08"],
+        output: { bands: 3 },
+    };
 }
 
 function evaluatePixel(sample) {
-  var r = Math.sqrt(0.6 * sample.B08) - 0.1;
-  var g = Math.sqrt(0.6 * sample.B04) - 0.1;
-  var b = Math.sqrt(0.6 * sample.B03) - 0.1;
+    var r = Math.sqrt(0.6 * sample.B08) - 0.1;
+    var g = Math.sqrt(0.6 * sample.B04) - 0.1;
+    var b = Math.sqrt(0.6 * sample.B03) - 0.1;
 
-  var r2 = Math.sqrt(0.6 * sample.B08) - 0.1;
-  var g2 = Math.sqrt(0.6 * sample.B03) - 0.1;
-  var b2 = Math.sqrt(0.6 * sample.B02) - 0.1;
+    var r2 = Math.sqrt(0.6 * sample.B08) - 0.1;
+    var g2 = Math.sqrt(0.6 * sample.B03) - 0.1;
+    var b2 = Math.sqrt(0.6 * sample.B02) - 0.1;
 
-  var dark = 7;
+    var dark = 7;
 
-  var dif1 = (1 - ((r + r2) / 2)) / dark;
-  var dif2 = (1 - ((g + g2) / 2)) / dark;
-  var dif3 = (1 - ((b + b2) / 2)) / dark;
+    var dif1 = (1 - (r + r2) / 2) / dark;
+    var dif2 = (1 - (g + g2) / 2) / dark;
+    var dif3 = (1 - (b + b2) / 2) / dark;
 
-  var r3 = ((r + r2) / 2) - dif1;
-  var g3 = ((g + g2) / 2) - dif2;
-  var b3 = ((b + b2) / 2) - dif3;
+    var r3 = (r + r2) / 2 - dif1;
+    var g3 = (g + g2) / 2 - dif2;
+    var b3 = (b + b2) / 2 - dif3;
 
-  return [r3, g3, b3];
+    return [r3, g3, b3];
 }

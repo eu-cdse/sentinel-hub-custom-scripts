@@ -1,10 +1,10 @@
 ---
 title: Sentinel-2 Simple Panchromatic
-evalscripts: ["script.js","script_mosaics.js"]
+evalscripts: ["script.js", "script_mosaics.js"]
 types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","60m"]
+resolutions: ["10m", "60m"]
 ---
 
 ## General description of the script

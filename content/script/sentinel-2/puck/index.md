@@ -6,6 +6,7 @@ domains: [""]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
+
 ## General description of the script
 
 A set of visualization utilities that produce beautiful images designed for human perception from single-channel data (NDVI, spectral angle, etc). Generate quality figures that are true to the data.
@@ -42,9 +43,9 @@ return cmap.get_color(ndvi)
 
 In addition to LinearColormap, there is DivergentColormap, IsoluminantColormap, and the base class Colormap. The base class expects colors in CIELAB color space and simply calls colorBlend to get in-between colors before converting back to RGB space. All other classes expect colors in RGB space, map them onto CIELAB space, and apply a lightness correction specific to the class. The corrections for each class are:
 
--   LinearColormap: Lightness monotonically changes across the whole map. Your standard color ramp.
--   DivergentColormap: Lightness reaches a minimum or maximum at the center of the color map and monotonically changes towards the edges of the map. Each edge has the same lightness. Useful for showing how values are distributed around a reference value. However, problems can arise if data features straddle the lightness peak.
--   IsoluminantColormap: Lightness is the same across the whole map. Not very pretty on its own, but useful when one wants to visualize data on top of relief shading.
+- LinearColormap: Lightness monotonically changes across the whole map. Your standard color ramp.
+- DivergentColormap: Lightness reaches a minimum or maximum at the center of the color map and monotonically changes towards the edges of the map. Each edge has the same lightness. Useful for showing how values are distributed around a reference value. However, problems can arise if data features straddle the lightness peak.
+- IsoluminantColormap: Lightness is the same across the whole map. Not very pretty on its own, but useful when one wants to visualize data on top of relief shading.
 
 ### Applicability
 

@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["classification"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -12,7 +12,6 @@ resolutions: ["10m","20m","60m"]
 The linked evalscript runs a prediction by a LightGBM classifier on the area-of-interest on L2A data. The pixel-wise probabilities are compared against a 0.8 threshold. Pixels with probabilities above this threshold are considered built-up (assigned a value of one), while others are non-built-up (assigned a zero). The mask is then expressed as a blue-tinted mask on Sentinel-2 True Color.
 
 For detailed information about the model read the [blog post](https://medium.com/p/7f2d7114ed1c/).
-
 
 ## Author of the script
 

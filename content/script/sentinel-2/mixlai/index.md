@@ -3,9 +3,9 @@ title: Mix Leaf Area Index (MixLAI)
 evalscripts: ["script.js"]
 types: ["index"]
 verifications: ["cites literature"]
-domains: ["vegetation","agriculture"]
+domains: ["vegetation", "agriculture"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -27,6 +27,7 @@ MAE = (ABS(MODIS - S2)/C); MAE: mean absolute error; C: count image (Picture of 
 exam point of world:
 
 **long lat**
+
 ```
 -3.787585 40.089773
 

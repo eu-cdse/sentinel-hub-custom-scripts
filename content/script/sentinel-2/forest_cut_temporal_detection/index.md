@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["forest"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -12,17 +12,19 @@ resolutions: ["10m","20m"]
 Forests are essential for wildlife, biodiversity and to fight climate change.
 
 In order to map forest cutting from one year to another, this script compares:
-* the mean ndvi of the three previous months from the selected image
-* to the mean ndvi of the three same months but from the previous year 
+
+- the mean ndvi of the three previous months from the selected image
+- to the mean ndvi of the three same months but from the previous year
 
 If the NDVI decreases above 0.25, it is certainly a clear cut.
 
-As the aim of the script is to represent the forest cutting, it will color in red the pixel where cuts have been detected. 
+As the aim of the script is to represent the forest cutting, it will color in red the pixel where cuts have been detected.
 
 The limitations are essentially:
-* can't work if no unclouded pixel is available in the last three months 
-* forest can be confused with crops (it is best to know it was forest previous year)
-* cuts can be confused with later phenology (e.g. drought)
+
+- can't work if no unclouded pixel is available in the last three months
+- forest can be confused with crops (it is best to know it was forest previous year)
+- cuts can be confused with later phenology (e.g. drought)
 
 ## Author of the script
 

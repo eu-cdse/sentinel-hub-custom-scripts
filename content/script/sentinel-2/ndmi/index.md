@@ -1,19 +1,20 @@
 ---
 title: Normalized Difference Moisture Index (NDMI)
-evalscripts: ["script.js","raw.js"]
+evalscripts: ["script.js", "raw.js"]
 types: ["index"]
 verification: ["cites literature"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m"]
 ---
+
 ## General description of the script
 
-The NDMI is a normalized difference moisture index, that uses NIR and SWIR bands to display moisture. 
-The SWIR band reflects changes in both the vegetation water content and the spongy mesophyll structure in vegetation canopies, 
-while the NIR reflectance is affected by leaf internal structure and leaf dry matter content but not by water content. 
-The combination of the NIR with the SWIR removes variations induced by leaf internal structure and leaf dry matter content, improving the accuracy in retrieving the vegetation water content. 
-The amount of water available in the internal leaf structure largely controls the spectral reflectance in the SWIR interval of the electromagnetic spectrum. 
+The NDMI is a normalized difference moisture index, that uses NIR and SWIR bands to display moisture.
+The SWIR band reflects changes in both the vegetation water content and the spongy mesophyll structure in vegetation canopies,
+while the NIR reflectance is affected by leaf internal structure and leaf dry matter content but not by water content.
+The combination of the NIR with the SWIR removes variations induced by leaf internal structure and leaf dry matter content, improving the accuracy in retrieving the vegetation water content.
+The amount of water available in the internal leaf structure largely controls the spectral reflectance in the SWIR interval of the electromagnetic spectrum.
 SWIR reflectance is therefore negatively related to leaf water content. In short, NDMI is used to monitor changes in water content of leaves, and was [proposed by Gao.](https://www.sciencedirect.com/science/article/abs/pii/S0034425796000673)
 NDMI is computed using the near infrared (NIR) and the short wave infrared (SWIR) reflectances:
 
@@ -30,11 +31,11 @@ Sentinel-2 NDMI = **(B08 - B11) / (B08 + B11)**
 
 ## Description of representative images
 
-The NDMI of Rome, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+The NDMI of Rome, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![NDWI](fig/fig1.png)
 
-The NDMI of Betsiboka river, Madagascar. Acquired on 2020-08-01, processed by Sentinel Hub. 
+The NDMI of Betsiboka river, Madagascar. Acquired on 2020-08-01, processed by Sentinel Hub.
 
 ![NDWI](fig/fig2.jpg)
 
@@ -42,4 +43,4 @@ The NDMI of Betsiboka river, Madagascar. Acquired on 2020-08-01, processed by Se
 
 - [Normalized difference water index](https://www.usgs.gov/land-resources/nli/landsat/normalized-difference-moisture-index)
 - Gao, B.-C. 1996. NDWI - A normalized difference water index for remote sensing of vegetation liquid
-water from space. Remote Sensing of Environment 58: 257-266. [Link to Article](https://www.sciencedirect.com/science/article/abs/pii/S0034425796000673)
+  water from space. Remote Sensing of Environment 58: 257-266. [Link to Article](https://www.sciencedirect.com/science/article/abs/pii/S0034425796000673)

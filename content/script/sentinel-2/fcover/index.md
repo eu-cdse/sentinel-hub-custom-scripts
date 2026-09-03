@@ -2,9 +2,9 @@
 title: FCOVER (Fraction of green Vegetation Cover)
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["agriculture","vegetation","forest"]
+domains: ["agriculture", "vegetation", "forest"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -22,5 +22,6 @@ FCOVER visualization of Emmeloord, Flevoland, The Netherlands. Acquired on 18.11
 ![FCOVER of Flevoland](fig/fig1.png)
 
 ## References
+
 - [COPERNICUS Global Land Service](https://land.copernicus.eu/global/products/fcover)
 - [S2Toolbox Level 2 products ATBD](https://step.esa.int/docs/extra/ATBD_S2ToolBox_L2B_V1.1.pdf)

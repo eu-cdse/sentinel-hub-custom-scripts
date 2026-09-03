@@ -28,5 +28,6 @@ False color composite of Rome. Acquired on 8.10.2017.
 ![False color composite of Rome](fig/fig1.png)
 
 ## References
+
 - [1] Wikipedia, [False color](https://en.wikipedia.org/wiki/False_color). Accessed October 10th 2017.
 - [2] Wikipedia, [sRGB](https://en.wikipedia.org/wiki/SRGB). Accessed October 10th 2017.

@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script

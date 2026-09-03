@@ -2,9 +2,9 @@
 title: FAPAR (The Fraction of Absorbed Photosynthetically Active Radiation)
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["agriculture","vegetation","forest"]
+domains: ["agriculture", "vegetation", "forest"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script

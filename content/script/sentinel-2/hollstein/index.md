@@ -5,7 +5,7 @@ types: ["classification"]
 verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description

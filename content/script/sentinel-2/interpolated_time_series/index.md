@@ -1,12 +1,11 @@
 ---
 title: Interpolated Time-series script
-evalscripts: ["script.js","script_old.js"]
+evalscripts: ["script.js", "script_old.js"]
 types: [""]
 domains: [""]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
-
 
 This evalscript returns a temporally-interpolated stack of band or band indices values.
 

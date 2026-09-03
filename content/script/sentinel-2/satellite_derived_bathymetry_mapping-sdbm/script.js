@@ -88,14 +88,15 @@ function wbi(r, g, b, nr, s1, s2) {
             ws = 1;
         }
         // filter urban & bare
-        ws =
-            filter_UABS && ws == 1 && (aweinsh <= -0.03 || dbsi > 0) ? 0 : ws;
+        ws = filter_UABS && ws == 1 && (aweinsh <= -0.03 || dbsi > 0) ? 0 : ws;
         // filter shadows & snow/ice
         ws =
             filter_SSI &&
             ws == 1 &&
-            (aweish <= 0.1112 && ndvi > -0.2) &&
-            (aweinsh < 0.5 && ndvi > -0.2) &&
+            aweish <= 0.1112 &&
+            ndvi > -0.2 &&
+            aweinsh < 0.5 &&
+            ndvi > -0.2 &&
             (aweinsh < 0 || aweish <= 0 || ndvi > -0.1) &&
             (g >= 0.319
                 ? mndwi > 0.2
@@ -131,11 +132,11 @@ function setup() {
             },
         ],
         output: [
-			{id: "default", bands: 3 },
-			{id: "index", bands: 1, sampleType: "FLOAT32" }, // pSDB
-			{id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" }, // pSDB
-			{id: "dataMask", bands: 1}, // data validity mask			
-		],
+            { id: "default", bands: 3 },
+            { id: "index", bands: 1, sampleType: "FLOAT32" }, // pSDB
+            { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" }, // pSDB
+            { id: "dataMask", bands: 1 }, // data validity mask
+        ],
         mosaicking: "ORBIT",
     };
 }
@@ -213,25 +214,37 @@ function evaluatePixel(p) {
     psdbAvg = psdbAvg / N;
     sdbAvg = sdbAvg / N;
     // preAnalysis out color: red-clampedMinMax; green-true Value*multiplier(mp)
-    let psdbCol = colorBlend(psdbAvg, [pSDBmin, pSDBmax], [
-        [0, 0, 0],
-        [1, 0, 1],
-    ]);
+    let psdbCol = colorBlend(
+        psdbAvg,
+        [pSDBmin, pSDBmax],
+        [
+            [0, 0, 0],
+            [1, 0, 1],
+        ],
+    );
     psdbCol[1] = psdbAvg * mp;
     // bath color: psdb || sdb(cs0 || 1 || 2)
     let bath = preAnalysis
         ? psdbCol
         : cs == 0
-        ? cs0.getColorFromValue(sdbAvg)
-        : cs == 1
-        ? colorBlend(sdbAvg, [0, 18], [
-              [0, 1, 1],
-              [0, 0, 0.7],
-          ])
-        : colorBlend(sdbAvg, [0, 18], [
-              [0, 0, 1],
-              [0, 0, 0],
-          ]);
+          ? cs0.getColorFromValue(sdbAvg)
+          : cs == 1
+            ? colorBlend(
+                  sdbAvg,
+                  [0, 18],
+                  [
+                      [0, 1, 1],
+                      [0, 0, 0.7],
+                  ],
+              )
+            : colorBlend(
+                  sdbAvg,
+                  [0, 18],
+                  [
+                      [0, 0, 1],
+                      [0, 0, 0],
+                  ],
+              );
 
     // Calculate the dataMask using the new function
     let finalDataMask = calculateDataMask(p);

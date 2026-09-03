@@ -21,10 +21,10 @@ Martin Javorka
 
 ## Description of representative images
 
-1) The NDVI visualization of Liptov, Slovakia.
+1. The NDVI visualization of Liptov, Slovakia.
 
 ![The script example 1](fig/2019-07-04_Sentinel-2A_L1C_NDVI_viz.jpg)
 
-2) The NDSI visualization of the Danube Delta in summer, which nicely differentiates water (shown as red) from the land.
+2. The NDSI visualization of the Danube Delta in summer, which nicely differentiates water (shown as red) from the land.
 
 ![The script example 2](fig/2019-08-31_Sentinel-2A_L1C_NDSI_viz.jpg)

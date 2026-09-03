@@ -2,9 +2,9 @@
 title: EVI2 (Enhanced Vegetation Index 2)
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["vegetation","forest"]
+domains: ["vegetation", "forest"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -13,6 +13,6 @@ In areas of dense canopy where the leaf area index (LAI) is high, the NDVI value
 
 ## Description of representative images
 
-EVI2, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+EVI2, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![EVI2](fig/fig1.png)

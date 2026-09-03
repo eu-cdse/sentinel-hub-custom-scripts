@@ -5,28 +5,30 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
-MAGO Water Quality Monitoring tool is a code to estimate water quality parameters in lakes, reservoir or large ponds from Sentinel-2 images. The user can visualize water quality parameters (chlorophyll-a, cyanotoxins, turbidity...) on the EO Browser map  and get the corresponding time series at selected points or areas.
+
+MAGO Water Quality Monitoring tool is a code to estimate water quality parameters in lakes, reservoir or large ponds from Sentinel-2 images. The user can visualize water quality parameters (chlorophyll-a, cyanotoxins, turbidity...) on the EO Browser map and get the corresponding time series at selected points or areas.
 
 ### Visuals
+
 The following is the display that can be obtained for concentration of Chrlorophyll-a for the day 2022-01-30 at Barrage Lebna (Tunisia)
+
 - Configuration of variables:
 
 ![Code of custom script](fig/custom_script_index_selection_jan_22.png)
 { align=center,width=600 }
 
-
 - Map visualization
 
- ![Output of script on January 2022](fig/viz_jan_22.png)
+![Output of script on January 2022](fig/viz_jan_22.png)
 { align=center,width=600 }
 
 - Time series plot
 
- ![Output of statistical time series](fig/plot_jan_22.png)
+![Output of statistical time series](fig/plot_jan_22.png)
 { align=center,width=600 }
 
 ### Script description
@@ -46,29 +48,36 @@ var indexNumber = 0;
 By modifying the min/max values of the script it is possible to adjust the numerical thresholds to fit the visualization to the current conditions. Only the following two lines need to be modified:
 
 ```js
-var minValue = 0; 
+var minValue = 0;
 var maxValue = 30;
 ```
 
 More in detail:
 
-* **minValue**: decrease this for more sensitivity to low concentrations of the selected index.
-* **maxValue**: increase this for more sensitivity to high concentrations of the selected index.
+- **minValue**: decrease this for more sensitivity to low concentrations of the selected index.
+- **maxValue**: increase this for more sensitivity to high concentrations of the selected index.
 
 ![Color Legend](fig/Description_1_scale.png)
 {align=center,width=500}
 
 ```js
-var scaleLimits = [minValue, (maxValue + 3*minValue)/4, (maxValue + minValue)/2, (3*maxValue + minValue)/4, maxValue]
+var scaleLimits = [
+    minValue,
+    (maxValue + 3 * minValue) / 4,
+    (maxValue + minValue) / 2,
+    (3 * maxValue + minValue) / 4,
+    maxValue,
+];
 var s = 255; // Values range from 0 to 255 for every color channel
-var colorScale =  // Define the RGB colors for each border
-  [
-   [0/s, 0/s, 255/s], // Blue
-   [0/s, 255/s, 255/s], // Cyan
-   [0/s, 255/s, 0/s], // Green
-   [255/s, 255/s, 0/s], // Yellow
-   [255/s, 0/s, 0/s], // Red
-  ];
+var colorScale =
+    // Define the RGB colors for each border
+    [
+        [0 / s, 0 / s, 255 / s], // Blue
+        [0 / s, 255 / s, 255 / s], // Cyan
+        [0 / s, 255 / s, 0 / s], // Green
+        [255 / s, 255 / s, 0 / s], // Yellow
+        [255 / s, 0 / s, 0 / s], // Red
+    ];
 ```
 
 #### Pixel filtering
@@ -99,8 +108,9 @@ Based on this classification, the function will evaluate every pixel and return 
 
 ![Filtering cloudy acquisitions from time series](fig/Description_3_filtering.png)
 {align=center,width=900}
-        
+
 ## Scientific Background
+
 ### Introduction
 
 Satellite-based water quality monitoring have been applied for many years and are supported by the different absortion and reflectance of the sun light by the water components. For exemple, algae pigment chlorophyll-a reflects the green spectral band (between 530-590 nm) but absorb red band (between 640-670 nm).
@@ -111,7 +121,7 @@ Sentinel 2 offers a greater frequency in the measurement than previous satellite
 
 The MAGO water quality monitoring tool aims at integrating different water quality parameters calculated by using the formulas listed in the table below - listed by **Index Number** from 0 to 7.
 
- ![Table with overview of indices](fig/Description_4_index.png)
+![Table with overview of indices](fig/Description_4_index.png)
 { align=center,width=1000 }
 
 The MAGO Water Quality Monitoring Tool was focused on chlorophyll-a and cyanobacteria analysis, as well as some physicochemical parameters were included. A brief explanation of the algorithms selected is the following:
@@ -126,18 +136,15 @@ For the measurement of this parameter in the MAGO tool we selected three differe
 
 **Chlorophyll-a low values also optimized by Soria-Perpinyà 2021** has been applied in Mediterranean inland waters with low concentrations of Chl-a which can be more challenge to detect, so it is applicable in those situations were low concentrations of Chl-a are expected.
 
-
 #### Cyanobacteria
 
 For the determination of Phycocyanin as a proxy of cyanobacteria occurrence two index were included in the MAGO tool.
 
 Both indices were developed for its application to inland water bodies. **Potes et al. 2018** showed good results in a preliminary test (see example of application section). Besides, **Soria-Perpinyà 2021** formula was included as it provides a broader range of phycocyanin concentration (this later formula is similar to Chlorophyll-a high values (Soria-Perpinyà 2021) since it is based on the correlation between Chl-a concentration and cyanobacteria concentration)
 
-
 #### Physicochemical parameters
 
 Three physicochemical parameters were included in the MAGO Water Quality Monitoring Tool, such as, Turbidity, Colored Dissolved Organic Matter (cDOM) and Total Suspended Solids (TSS).These parameters were selected as they are some of the most relevant for water quality monitoring and they can be measured through satellite analysis.The formulas included in the MAGO Tool were selected based on the following criteria:They were developed for inland water bodies, specifically for the Mediterranean zone.They were validated through comparison between satellite and in-situ data.Satellite data provided good correlation with in-situ measurements.
-
 
 ## Limitations
 
@@ -155,9 +162,10 @@ This suffers from several limitations:
 ### Use of previous scripts
 
 The script itself has been written in Java Script by using as a basis other open scripts such as:
--  Ulyssys Water Quality Viewer (UWQV) available at https://custom-scripts.sentinel-hub.com/sentinel-2/ulyssys_water_quality_viewer/
--  Se2WaQ - Sentinel-2 Water Quality Script available at https://custom-scripts.sentinel-hub.com/sentinel-2/se2waq/
--  Normalized difference vegetation index template code available at https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/
+
+- Ulyssys Water Quality Viewer (UWQV) available at https://custom-scripts.sentinel-hub.com/sentinel-2/ulyssys_water_quality_viewer/
+- Se2WaQ - Sentinel-2 Water Quality Script available at https://custom-scripts.sentinel-hub.com/sentinel-2/se2waq/
+- Normalized difference vegetation index template code available at https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/ndvi/
 
 ### Scientific references
 
@@ -173,8 +181,7 @@ The script itself has been written in Java Script by using as a basis other open
 
 This project is part of the PRIMA programme supported by the European Union
 
-
 ## License
 
-This work is licensed under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/ 
+This work is licensed under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 If needed, please cite as "MAGO Water Quality Monitoring Tool, open code for EO Browser developed within the PRIMA MAGO Project by CETAQUA"

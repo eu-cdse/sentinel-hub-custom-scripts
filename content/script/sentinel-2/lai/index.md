@@ -2,7 +2,7 @@
 title: LAI (Leaf Area Index)
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["agriculture","vegetation"]
+domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

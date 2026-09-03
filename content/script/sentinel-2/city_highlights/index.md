@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -20,6 +20,7 @@ Thales Sehn Koerting
 ## Description of representative images
 
 Inserted are 2 examples:
+
 - city highlights is the result of the script
 - true color is showing the default true color representation of Sentinel Hub
 

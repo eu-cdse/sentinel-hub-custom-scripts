@@ -11,20 +11,22 @@ resolutions: ["10m"]
 ## General description of the script
 
 Pseudo Forest Canopy Density classifies each pixel into one of the following categories:
- - High Forest
- - Low Forest
- - Grassland
- - Bare land
- - Water
- - Unknown
+
+- High Forest
+- Low Forest
+- Grassland
+- Bare land
+- Water
+- Unknown
 
 This allows the user to explore forest zones to fight deforestation, for agricultural purposes and even for city planning.
 
 According to the reference, the Forest Canopy Density (FCD) is calculated using four different indices:
- - Advanced vegetation index (AVI)
- - Bare soil index (BI)
- - Canopy shadow index (SI)
- - Thermal index (not used in my script)
+
+- Advanced vegetation index (AVI)
+- Bare soil index (BI)
+- Canopy shadow index (SI)
+- Thermal index (not used in my script)
 
 The pseudo-FCD script (and hence the name) implements a custom version of the AVI, BI and SI indices and uses Table 3 shown in the reference along with experimental thresholds to make the classification. It can be used with Sentinel-2 L1C and L2A.
 

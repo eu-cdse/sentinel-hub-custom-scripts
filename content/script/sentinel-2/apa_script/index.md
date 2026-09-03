@@ -5,7 +5,7 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -26,18 +26,18 @@ In a second order of results, turbid water is also identified by the set of indi
 
 The script presented allows identifying aquatic plants and algae in the bodies of water, since it highlights these spaces, while the rest of the territory is visualized in natural colour. Within the bodies of water, areas with vegetation or algae on the surface are distinguished: turquoise indicate a lower density than green or yellow colours, which means medium and high density areas respectively. In a second order of results, turbid water is also identified by the set of indices presented in the script and, thus, these areas with a large amount of sediment in suspension are painted in brown and red to purple colours.
 
-As the script presented here is highlighting the water bodies and the vegetated areas with higher moisture content, the script does not fulfil its function in areas with recent episodes of rainfall. Thus, the script can falsely detect the vegetation on the land with higher content of water. Also shallow waters are detected as highly vegetated water areas. 
+As the script presented here is highlighting the water bodies and the vegetated areas with higher moisture content, the script does not fulfil its function in areas with recent episodes of rainfall. Thus, the script can falsely detect the vegetation on the land with higher content of water. Also shallow waters are detected as highly vegetated water areas.
 
 In the case of the appearance of high-altitude clouds (such as cirrus), these have been classified as turbid areas. These clouds above lakes or lagoons are also identified and painted. However, they are easily distinguished according to their shape. The false detection of clouds was minimized by using a custom script created by Peter Fogh (Fogh, 2018).
 Finally, in some areas over the sea false detection of noise from aerosol particles in the atmosphere is displayed in green.
 
-The script designed has been tested in different waters around the world. However, one of the most relevant examples has been the detection of water hyacinth (Eichhornia crassipes) in Lake Victoria, which is Africa's largest lake and the world's second-largest freshwater lake by surface area. In spite of Eichhornia crassipes, large amount of algae have also been identified in Victoria's Lake. The identification of this aquatic plant has been carried out in the northeast of the lake. 
+The script designed has been tested in different waters around the world. However, one of the most relevant examples has been the detection of water hyacinth (Eichhornia crassipes) in Lake Victoria, which is Africa's largest lake and the world's second-largest freshwater lake by surface area. In spite of Eichhornia crassipes, large amount of algae have also been identified in Victoria's Lake. The identification of this aquatic plant has been carried out in the northeast of the lake.
 
 One of the worst ecological problems in Victoria's lake is the problem caused by the water hyacinth, an aquatic freshwater plant native to the Amazon basin classified as one of the 100 most harmful invasive alien species in the world. Under favourable growing conditions and environmental circumstances, some estimates that it can double its biomass in only two weeks. Water hyacinth can create a thick layer of vegetation that the sunlight does not reach to native plants in the lake and so they don't get the light they need and later the die-off of native plants affects fish and other aquatic animals. Water hyacinth as well creates suitable habitat for disease-carrying insects, such as mosquitoes. Another problem this invasive plant causes is clogging of waterways or irrigation canals and pipes.
 
 The localization of species in the water has also been carried out successfully in other lakes and lagoons of all continents such as in Lake Pontchartrain Estuarine System, in Louisiana, USA, and in Lake Taihu, in China.
 
-Additionally, the detection of turbid waters can also be used to detect the flow of sediment from the rivers to the sea. In order to check this possibility, the authors have used recent images after the Gloria storm in the deltaic zones of the rivers Ter, Llobregat and Ebro (Catalan shoreline, Spain). 
+Additionally, the detection of turbid waters can also be used to detect the flow of sediment from the rivers to the sea. In order to check this possibility, the authors have used recent images after the Gloria storm in the deltaic zones of the rivers Ter, Llobregat and Ebro (Catalan shoreline, Spain).
 
 The results obtained here are compiled in the [supplementary material](supplementary_material.pdf).
 
@@ -47,24 +47,24 @@ Anna Péliova, Carla Garcia-Lozano and Josep Sitjar from Service of Geographical
 
 ## Description of representative images
 
-1) The output of script shows the presence of aquatic plants and algae in Victoria Lake (Africa) in bright green colour while the turbid water is displayed in red. October 4th 2019.
-![The script example 1](fig/Image1.png)
+1. The output of script shows the presence of aquatic plants and algae in Victoria Lake (Africa) in bright green colour while the turbid water is displayed in red. October 4th 2019.
+   ![The script example 1](fig/Image1.png)
 
-2) Aquatic plants or algae visible on the shore of Palm Island, Queensland, Australia. Clouds are falsely detected by the script, whereas noise is also highlighted in bright green.
-July 18th 2019.
-![The script example 2](fig/Image2.png)
+2. Aquatic plants or algae visible on the shore of Palm Island, Queensland, Australia. Clouds are falsely detected by the script, whereas noise is also highlighted in bright green.
+   July 18th 2019.
+   ![The script example 2](fig/Image2.png)
 
-3) Algae and turbid water in Taihu Lake, near Shanghai, China. December 10th 2019.
-![The script example 3](fig/Image3.png)
+3. Algae and turbid water in Taihu Lake, near Shanghai, China. December 10th 2019.
+   ![The script example 3](fig/Image3.png)
 
-4) Algal bloom in Lake Pontchartrain Estuarine System, Louisiana. August 16th 2019. 
-![The script example 4](fig/Image4.png)
+4. Algal bloom in Lake Pontchartrain Estuarine System, Louisiana. August 16th 2019.
+   ![The script example 4](fig/Image4.png)
 
 ## Credits
 
 [1] The identification of aquatic plants and algae was inspired by previous research about detecting water hyacinth using remote (Thamaga and Dube, 2018) sensing and a floating algae index (FAI) designed by Hu (2009).
 
-[2] The false detection of clouds was minimized by using a custom script created by Peter Fogh (Fogh, 2018) who was inspired by previous research on cloud detection (Braaten et al., 2015). 
+[2] The false detection of clouds was minimized by using a custom script created by Peter Fogh (Fogh, 2018) who was inspired by previous research on cloud detection (Braaten et al., 2015).
 
 ## References
 

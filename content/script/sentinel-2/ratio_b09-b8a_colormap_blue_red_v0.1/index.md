@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["agriculture"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -35,15 +35,15 @@ A blue colour indicates a dry atmosphere like in desert area or high mountainous
 
 The two attached pictures illustrate those different conditions, the first one at continental scale showing the difference of atmosphere above Australia from the wet shores to the dry desert central areas and the other picture show the high contrast region of Himalaya that creates a sharp boundary between wet Northern India and very dry Tibetan plateau.
 
-1) Ratio B09-B8A ColorMap Legend
+1. Ratio B09-B8A ColorMap Legend
 
 ![The script example 1](fig/Ratio-B09-B8A-ColorMap-Legend.jpg)
 
-2) Australia
-![The script example 2](fig/Australia-Sentinel-2_L1C_from_2019-11-06.jpg)
+2. Australia
+   ![The script example 2](fig/Australia-Sentinel-2_L1C_from_2019-11-06.jpg)
 
-3) Himalaya
-![The script example 3](fig/Himalaya-Sentinel-2_L1C_from_2019-11-06.jpg)
+3. Himalaya
+   ![The script example 3](fig/Himalaya-Sentinel-2_L1C_from_2019-11-06.jpg)
 
 ## Credits
 

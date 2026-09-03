@@ -21,6 +21,6 @@ Short wave infrared (SWIR) measurements can help scientists estimate how much wa
 
 ## Description of representative images
 
-SWIR composite over Rome, Italy. 
+SWIR composite over Rome, Italy.
 
 ![SWIR Rome](fig/fig1.png)

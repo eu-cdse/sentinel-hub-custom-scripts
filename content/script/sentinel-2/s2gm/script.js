@@ -2,167 +2,175 @@
 //NOTE: This Custom script requires Sentinel Hub API v.2 to operate properly. It is however possible to use some parts of it already now.
 
 function setup() {
-  return {
-    input: [{
-      bands: [
-          "B01",
-          "B02",
-          "B03",
-          "B04",
-          "B05",
-          "B06",
-          "B07",
-          "B08",
-          "B8A",
-          "B11",
-          "B12",
-          "AOT",
-          "CLD",
-          "SNW",
-          "SCL",
-          "viewZenithMean",
-          "viewAzimuthMean",
-          "sunZenithAngles",
-          "sunAzimuthAngles"
-      ]
-    }],
-    output: [
-        {
-          id: "quality_aot",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B11",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B01",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B12",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "quality_cloud_confidence",
-          sampleType: "UINT8",
-          bands: 1
-        },
-        {
-          id: "B02",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "valid_obs",
-          sampleType: "UINT8",
-          bands: 1
-        },
-        {
-          id: "B03",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B04",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B05",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B06",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B07",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "view_azimuth_mean",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B08",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "sun_zenith",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "B8A",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "source_index",
-          sampleType: "INT16",
-          bands: 1
-        },
-        {
-          id: "view_zenith_mean",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "sun_azimuth",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "quality_snow_confidence",
-          sampleType: "UINT8",
-          bands: 1
-        },
-        {
-          id: "medoid_mos",
-          sampleType: "UINT16",
-          bands: 1
-        },
-        {
-          id: "quality_scene_classification",
-          sampleType: "UINT8",
-          bands: 1
-        }
-    ],
-    mosaicking: "TILE"
-  }
+    return {
+        input: [
+            {
+                bands: [
+                    "B01",
+                    "B02",
+                    "B03",
+                    "B04",
+                    "B05",
+                    "B06",
+                    "B07",
+                    "B08",
+                    "B8A",
+                    "B11",
+                    "B12",
+                    "AOT",
+                    "CLD",
+                    "SNW",
+                    "SCL",
+                    "viewZenithMean",
+                    "viewAzimuthMean",
+                    "sunZenithAngles",
+                    "sunAzimuthAngles",
+                ],
+            },
+        ],
+        output: [
+            {
+                id: "quality_aot",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B11",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B01",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B12",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "quality_cloud_confidence",
+                sampleType: "UINT8",
+                bands: 1,
+            },
+            {
+                id: "B02",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "valid_obs",
+                sampleType: "UINT8",
+                bands: 1,
+            },
+            {
+                id: "B03",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B04",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B05",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B06",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B07",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "view_azimuth_mean",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B08",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "sun_zenith",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "B8A",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "source_index",
+                sampleType: "INT16",
+                bands: 1,
+            },
+            {
+                id: "view_zenith_mean",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "sun_azimuth",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "quality_snow_confidence",
+                sampleType: "UINT8",
+                bands: 1,
+            },
+            {
+                id: "medoid_mos",
+                sampleType: "UINT16",
+                bands: 1,
+            },
+            {
+                id: "quality_scene_classification",
+                sampleType: "UINT8",
+                bands: 1,
+            },
+        ],
+        mosaicking: "TILE",
+    };
 }
-
 
 function evaluatePixel(samples, scenes) {
     var filteredSamples = filterByOrbitId(samples, scenes);
     var best = selectRepresentativeSample(filteredSamples);
     if (best === undefined) {
         return {
-            B01: [0], B02: [0], B03: [0],
-            B04: [0], B05: [0], B06: [0],
-            B07: [0], B08: [0], B8A: [0],
-            B11: [0], B12: [0],
+            B01: [0],
+            B02: [0],
+            B03: [0],
+            B04: [0],
+            B05: [0],
+            B06: [0],
+            B07: [0],
+            B08: [0],
+            B8A: [0],
+            B11: [0],
+            B12: [0],
             source_index: [65535],
             quality_aot: [0],
             quality_cloud_confidence: [0],
-            quality_snow_confidence:  [0],
+            quality_snow_confidence: [0],
             quality_scene_classification: [0],
             view_zenith_mean: [32768],
             view_azimuth_mean: [32768],
             sun_zenith: [32768],
             sun_azimuth: [32768],
             medoid_mos: [65535],
-            valid_obs: [0]
+            valid_obs: [0],
         };
     } else {
         var bestSample = best.sample;
@@ -195,7 +203,7 @@ function evaluatePixel(samples, scenes) {
             sun_zenith: [bestSample.sunZenithAngles * 100],
             sun_azimuth: [bestSample.sunAzimuthAngles * 100],
             medoid_mos: [mos],
-            valid_obs: [best.valid_obs]
+            valid_obs: [best.valid_obs],
         };
     }
 }
@@ -207,29 +215,33 @@ function toUInt16(value) {
 
 function filterByOrbitId(samples, scenes) {
     var orbitId = -1;
-    
-    return samples
-        .map(function (sample, i){
-                return {s: sample, orbitId: scenes[i].orbitId, tileId: scenes[i].tileId};
-            })
-        .filter(e => e.s.SCL > 0)
-        .sort(function(a, b) {
-                if (a.orbitId < b.orbitId) return 1;
-                if (a.orbitId > b.orbitId) return -1;
 
-                if (a.tileId < b.tileId) return 1;
-                if (a.tileId > b.tileId) return -1;
-                return 0;
-            })
-        .filter(function(e) {
+    return samples
+        .map(function (sample, i) {
+            return {
+                s: sample,
+                orbitId: scenes[i].orbitId,
+                tileId: scenes[i].tileId,
+            };
+        })
+        .filter((e) => e.s.SCL > 0)
+        .sort(function (a, b) {
+            if (a.orbitId < b.orbitId) return 1;
+            if (a.orbitId > b.orbitId) return -1;
+
+            if (a.tileId < b.tileId) return 1;
+            if (a.tileId > b.tileId) return -1;
+            return 0;
+        })
+        .filter(function (e) {
             if (e.orbitId !== orbitId) {
                 orbitId = e.orbitId;
                 return true;
             } else {
                 return false;
             }
-            })
-        .map(e => e.s);
+        })
+        .map((e) => e.s);
 }
 
 // Mosaic
@@ -245,7 +257,7 @@ function selectRepresentativeSample(samples) {
     }
 
     if (validSamplesNum == 1) {
-        return {sample: validSamples[0], mos: NaN, valid_obs: 1};
+        return { sample: validSamples[0], mos: NaN, valid_obs: 1 };
     }
 
     if (validSamplesNum >= minSamplesForMedoid) {
@@ -257,7 +269,11 @@ function selectRepresentativeSample(samples) {
 
 function performMedoid(samples) {
     var medoid = computeMedoidIndex(samples);
-    return {sample: samples[medoid.index], mos: medoid.spread, valid_obs: samples.length};
+    return {
+        sample: samples[medoid.index],
+        mos: medoid.spread,
+        valid_obs: samples.length,
+    };
 }
 
 function performStc(samples) {
@@ -265,12 +281,14 @@ function performStc(samples) {
     for (var i = 1; i < samples.length; i++) {
         bestSample = computeStc(samples[i], bestSample);
     }
-    return {sample: bestSample, mos: NaN, valid_obs: samples.length};
+    return { sample: bestSample, mos: NaN, valid_obs: samples.length };
 }
 
 // Validate
 function validate(sample) {
-    return validateSCL(sample.SCL) && validateViewZenithMean(sample.viewZenithMean);
+    return (
+        validateSCL(sample.SCL) && validateViewZenithMean(sample.viewZenithMean)
+    );
 }
 
 function validateSCL(scl) {
@@ -326,7 +344,11 @@ function computeStc(sampleA, sampleB) {
             break;
         case 405:
         case 504:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB) && sampleA.CLD <= sampleB.CLD) {
+            if (
+                computeVisualBandsSum(sampleA) <
+                    computeVisualBandsSum(sampleB) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -358,7 +380,11 @@ function computeStc(sampleA, sampleB) {
             break;
         //BARE_SOIL_DESERT
         case 505:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB) && sampleA.CLD <= sampleB.CLD) {
+            if (
+                computeVisualBandsSum(sampleA) <
+                    computeVisualBandsSum(sampleB) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -390,7 +416,11 @@ function computeStc(sampleA, sampleB) {
             break;
         //SNOW_ICE
         case 1111:
-            if (computeVisualBandsSum(sampleA) > computeVisualBandsSum(sampleB) && sampleA.CLD <= sampleB.CLD) {
+            if (
+                computeVisualBandsSum(sampleA) >
+                    computeVisualBandsSum(sampleB) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -420,8 +450,11 @@ function computeStc(sampleA, sampleB) {
             break;
         //Water
         case 606:
-            if ((computeNdwi(sampleA) > computeNdwi(sampleB) || computeSWIRMean(sampleA) < computeSWIRMean(sampleB)) &&
-                    sampleA.CLD <= sampleB.CLD) {
+            if (
+                (computeNdwi(sampleA) > computeNdwi(sampleB) ||
+                    computeSWIRMean(sampleA) < computeSWIRMean(sampleB)) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -449,7 +482,11 @@ function computeStc(sampleA, sampleB) {
             break;
         //DARK_FEATURE_SHADOW
         case 202:
-            if (computeVisualBandsSum(sampleA) > computeVisualBandsSum(sampleB) && sampleA.CLD <= sampleB.CLD) {
+            if (
+                computeVisualBandsSum(sampleA) >
+                    computeVisualBandsSum(sampleB) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -475,7 +512,11 @@ function computeStc(sampleA, sampleB) {
             break;
         //CLOUD_SHADOW
         case 303:
-            if (computeVisualBandsSum(sampleA) > computeVisualBandsSum(sampleB) && sampleA.CLD <= sampleB.CLD) {
+            if (
+                computeVisualBandsSum(sampleA) >
+                    computeVisualBandsSum(sampleB) &&
+                sampleA.CLD <= sampleB.CLD
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -499,7 +540,9 @@ function computeStc(sampleA, sampleB) {
             break;
         //CLOUD_LOW_PROBA
         case 707:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)) {
+            if (
+                computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -521,7 +564,9 @@ function computeStc(sampleA, sampleB) {
             break;
         //THIN_CIRRUS
         case 1010:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)) {
+            if (
+                computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -541,7 +586,9 @@ function computeStc(sampleA, sampleB) {
             break;
         //CLOUD_MEDIUM_PROBA
         case 808:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)) {
+            if (
+                computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -559,7 +606,9 @@ function computeStc(sampleA, sampleB) {
             break;
         //CLOUD_HIGH_PROBA
         case 909:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)) {
+            if (
+                computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -575,7 +624,9 @@ function computeStc(sampleA, sampleB) {
             break;
         //SATURATED_DEFECTIVE
         case 101:
-            if (computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)) {
+            if (
+                computeVisualBandsSum(sampleA) < computeVisualBandsSum(sampleB)
+            ) {
                 return sampleA;
             } else {
                 return sampleB;
@@ -595,20 +646,20 @@ function computeStc(sampleA, sampleB) {
 // Medoid
 function distance(a, b) {
     var ret = 0;
-    ret += Math.pow(a.B02-b.B02, 2);
-    ret += Math.pow(a.B03-b.B03, 2);
-    ret += Math.pow(a.B04-b.B04, 2);
-    ret += Math.pow(a.B06-b.B06, 2);
-    ret += Math.pow(a.B08-b.B08, 2);
-    ret += Math.pow(a.B11-b.B11, 2);
-    ret += Math.pow(a.B12-b.B12, 2);
+    ret += Math.pow(a.B02 - b.B02, 2);
+    ret += Math.pow(a.B03 - b.B03, 2);
+    ret += Math.pow(a.B04 - b.B04, 2);
+    ret += Math.pow(a.B06 - b.B06, 2);
+    ret += Math.pow(a.B08 - b.B08, 2);
+    ret += Math.pow(a.B11 - b.B11, 2);
+    ret += Math.pow(a.B12 - b.B12, 2);
     return Math.sqrt(ret);
 }
 
 function computeMedoidIndex(samples) {
     var n = samples.length;
     var d = createDistanceMatrix(samples);
-    
+
     var distanceRow;
     var distanceSum;
     var distanceSumMin = Number.POSITIVE_INFINITY;
@@ -624,7 +675,7 @@ function computeMedoidIndex(samples) {
             medoidIndex = j;
         }
     }
-    return {index: medoidIndex, spread: distanceSumMin / n};
+    return { index: medoidIndex, spread: distanceSumMin / n };
 }
 
 function createDistanceMatrix(samples) {
@@ -633,7 +684,7 @@ function createDistanceMatrix(samples) {
     for (var i = 0; i < n; i++) {
         var a = samples[i];
         for (var j = i + 1; j < n; j++) {
-            var b = samples[j]
+            var b = samples[j];
             d[i][j] = d[j][i] = distance(a, b);
         }
         d[i][i] = 0;
@@ -647,7 +698,7 @@ function createArray(length) {
 
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
+        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
     }
 
     return arr;

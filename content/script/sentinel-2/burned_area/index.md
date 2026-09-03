@@ -4,12 +4,12 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
 
-The script takes two pre-defined dates as an input (in preProcessScenes) and calculates changes of the [normalised burn ratio index.](https://custom-scripts.sentinel-hub.com/sentinel-2/nbr/) 
+The script takes two pre-defined dates as an input (in preProcessScenes) and calculates changes of the [normalised burn ratio index.](https://custom-scripts.sentinel-hub.com/sentinel-2/nbr/)
 
 ## Author of the script
 

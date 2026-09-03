@@ -25,11 +25,11 @@ Matevž Pintar
 
 ## Description of representative images
 
-1) Mondrian's painting
+1. Mondrian's painting
 
 ![Mondrian's painting](fig/composition-number-2.jpg)
 
-2) Flevoland province in the Netherlands
+2. Flevoland province in the Netherlands
 
 ![The script example 1](fig/Netherlands-1.jpg)
 
@@ -41,6 +41,6 @@ Matevž Pintar
 
 ## References
 
-[1] [Wikipedia: Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian) 
+[1] [Wikipedia: Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian)
 
 [2] [www.piet-mondrian.org](https://www.piet-mondrian.org)

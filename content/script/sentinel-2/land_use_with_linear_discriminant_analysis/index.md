@@ -5,7 +5,7 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -28,13 +28,13 @@ Marta Elvira, Roberto Calvo, Javier Becerra
 
 In general, the colors for each zone are:
 
-* Urban areas: pink, orange.
-* Industrial: brigth purple.
-* Crops: purple and bright green tones.
-* Forests: dark greens.
-* No vegetation: yellow and pink.
-* Water: blue.
-* Snow: white.
+- Urban areas: pink, orange.
+- Industrial: brigth purple.
+- Crops: purple and bright green tones.
+- Forests: dark greens.
+- No vegetation: yellow and pink.
+- Water: blue.
+- Snow: white.
 
 ![The script example 1](fig/Cairo_2019-10-11.jpg)
 
@@ -50,9 +50,9 @@ In general, the colors for each zone are:
 
 [1] [Scikit-learn, Linear Discriminant Analysis (LDA).](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html#sklearn.discriminant_analysis.LinearDiscriminantAnalysis)
 
-[2] GitHub repository, [Collection of custom scripts.](https://github.com/sentinel-hub/custom-scripts) 
+[2] GitHub repository, [Collection of custom scripts.](https://github.com/sentinel-hub/custom-scripts)
 
-[3] [List of spectral indexes for Sentinel and Landsat.](https://www.gisandbeers.com/listado-indices-espectrales-sentinel-landsat/) 
+[3] [List of spectral indexes for Sentinel and Landsat.](https://www.gisandbeers.com/listado-indices-espectrales-sentinel-landsat/)
 
 [4] Borras, J. & Delegido, Jes˙s & Pezzola, Alejandro & Pereira, M. & Morassi, G. & Camps-Valls, Gustau. (2017). [Clasificación de usos del suelo a partir de imágenes Sentinel-2. Revista de Teledeteccion.](https://www.researchgate.net/publication/317715999_Clasificacion_de_usos_del_suelo_a_partir_de_imagenes_Sentinel-2)
 

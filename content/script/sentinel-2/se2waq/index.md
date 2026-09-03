@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -21,20 +21,20 @@ Nuno Sidónio Andrade Pereira
 
 ## Description of representative images
 
-1) Distribution of Chl_a in the Neuchatel Lake (and also Murten) on the 2019-06-29. The values close to the shore show values > 50 mg/m3.
-![The script example 1](fig/image-1_Sentinel-2L2Afrom2019-06-29_CH_NeuchatelLake_Chl_a.jpg)
+1. Distribution of Chl_a in the Neuchatel Lake (and also Murten) on the 2019-06-29. The values close to the shore show values > 50 mg/m3.
+   ![The script example 1](fig/image-1_Sentinel-2L2Afrom2019-06-29_CH_NeuchatelLake_Chl_a.jpg)
 
-2) Distribution of Cya in the Alqueva Lake, in Portugal, on the 2017-10-12, during a particular dry Autumn. The lake is showing a high density of cyanobacteria (> 10^5 cells/ml), specially in the northern region.
-![The script example 2](fig/image-2_Sentinel-2L2Afrom2017-10-12_PT_AlquevaLake_Cya.jpg)
+2. Distribution of Cya in the Alqueva Lake, in Portugal, on the 2017-10-12, during a particular dry Autumn. The lake is showing a high density of cyanobacteria (> 10^5 cells/ml), specially in the northern region.
+   ![The script example 2](fig/image-2_Sentinel-2L2Afrom2017-10-12_PT_AlquevaLake_Cya.jpg)
 
-3) Distribution of dissolved organic carbon (DOC) in Sarygamysh Lake (Central Asia), on the 2019-07-31.  We can observe the diffusion of the DOC (>40 mg/l) concentrated in a pocket close to the shore.
-![The script example 3](fig/image-3_Sentinel-2L1Cfrom2019-07-31_CentralAsia_SarygamyshLake_DOC.jpg)
+3. Distribution of dissolved organic carbon (DOC) in Sarygamysh Lake (Central Asia), on the 2019-07-31. We can observe the diffusion of the DOC (>40 mg/l) concentrated in a pocket close to the shore.
+   ![The script example 3](fig/image-3_Sentinel-2L1Cfrom2019-07-31_CentralAsia_SarygamyshLake_DOC.jpg)
 
-4) Distribution of color dissolved organic matter (CDOM) in Kariba Lake in Africa, between Zambia and Zimbabwe, showing large areas of values above 5 mg/l.
-![The script example 3](fig/image-4_Sentinel-2L1Cfrom2019-02-24._Africa_KaribaLake_CDOM.jpg)
+4. Distribution of color dissolved organic matter (CDOM) in Kariba Lake in Africa, between Zambia and Zimbabwe, showing large areas of values above 5 mg/l.
+   ![The script example 3](fig/image-4_Sentinel-2L1Cfrom2019-02-24._Africa_KaribaLake_CDOM.jpg)
 
-5) Distribution of cyanobacteria in a region of Lake Ontario, North America, on the 2019-07-26. Close to shore values are above 10^5 cells/ml. This is a good example to show how the script deals with the presence of clouds. 
-![The script example 3](fig/image-5_Sentinel-2L2Afrom2019-07-26_LakeOntario_Cya.jpg)
+5. Distribution of cyanobacteria in a region of Lake Ontario, North America, on the 2019-07-26. Close to shore values are above 10^5 cells/ml. This is a good example to show how the script deals with the presence of clouds.
+   ![The script example 3](fig/image-5_Sentinel-2L2Afrom2019-07-26_LakeOntario_Cya.jpg)
 
 ## Credits
 
@@ -42,7 +42,7 @@ The equations from the empirical models implemented in the script are presented 
 
 - K. Toming, T. Kutser, A. Laas, M. Sepp, B. Paavel, and T. Nıges, ìFirst Experiences in Mapping Lake Water Quality Parameters with Sentinel-2 MSI Imagery,î Remote Sens., vol. 8, no. 8, p. 640, Aug. 2016.
 
--  M. Potes et al., ìUse of Sentinel 2-MSI for water quality monitoring at Alqueva reservoir, Portugal,î Proc. Int. Assoc. Hydrol. Sci., vol. 380, pp. 73ñ79, Dec. 2018.
+- M. Potes et al., ìUse of Sentinel 2-MSI for water quality monitoring at Alqueva reservoir, Portugal,î Proc. Int. Assoc. Hydrol. Sci., vol. 380, pp. 73ñ79, Dec. 2018.
 
 ## References
 

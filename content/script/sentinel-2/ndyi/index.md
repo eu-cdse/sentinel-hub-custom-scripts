@@ -11,7 +11,7 @@ resolutions: ["10m"]
 
 _Schizolobium parahyba_ is a species that is distributed in a large part of the Bolivian and South American Amazon. The flowering of this species is annual and coincides with the arrival of the boreal winter, dry season or time of less precipitation, between the months of May and July. Schizolobium parahyba is deciduous, can reach 40 metres in height, is heliophytic and has a large crown. It develops inflorescences with yellow petalled flowers which can be very prominent at flowering time, so much so that individual trees of the species can be detected in the visible spectrum with remote sensors like Sentinel-2. The flowering season of Schizolobium parahyba is closely associated with climate variations, therefore an alteration of its phenological cycle can be considered as an indicator of climate change [^1].
 
-The index (NDYI) was originally developed and applied to detect the flowering of canola crops as an alternative to the traditional indices used to measure the productivity of these crops, taking advantage of the high reflectivity in the blue and green bands of the yellow petals of their flowers [^2]. This index was also used for mapping and tracing the changes in canola planting areas and yields in China from MODIS medium resolution sensor data [^3]. 
+The index (NDYI) was originally developed and applied to detect the flowering of canola crops as an alternative to the traditional indices used to measure the productivity of these crops, taking advantage of the high reflectivity in the blue and green bands of the yellow petals of their flowers [^2]. This index was also used for mapping and tracing the changes in canola planting areas and yields in China from MODIS medium resolution sensor data [^3].
 
 To execute this script, Sentinel-2 L1C (Top-of-atmosphere reflectances) satellite images were used to find the ratio between blue and green band reflectances by means of the normalized difference yellowness index (NDYI), in order to discriminate and visualize more easily the flowering of individuals and populations of Schizolobium parahyba and canola crops and to relate their phenological cycles to climate change.
 
@@ -21,7 +21,7 @@ This script was applied for the discrimination and visualisation of the flowerin
 
 **False detection problems and limitations**
 
-- There are limitations in terms of sensitivity due to the resolution and the mixture of pixels. 
+- There are limitations in terms of sensitivity due to the resolution and the mixture of pixels.
 - In some cases it is not possible to discriminate in early or late flowering stages of the Schizolobium parahyba species and canola crops
 - The ranges of NDYI values chosen as thresholds for the discrimination of flowering trees and the environment sometimes incorporate savannah vegetation and in other cases do not incorporate flowering trees that are in the process of greening
 - In some cases bare soil, unvegetated crop fields and roads are not discriminated.
@@ -67,5 +67,7 @@ The formula for finding the normalized difference yellowness index (NDYI) was ta
 ## References
 
 [^1]: Justiniano, M. J., Pariona, W., Fredericksen, T. S., & Nash, D. (2001). Ecología y silvicultura de especies menos conocidas: Serebó o Sombrerillo Schizolobium parahyba (Vell.) SF Blake Caesalpiniaceae (No. 634.973749 E19). Proyecto de Manejo Forestal Sostenible, Santa Cruz (Bolivia).
+
 [^2]: Sulik, J. J. & Long, D. S. (2016). Spectral considerations for modeling yield of canola. Remote Sensing of Environment, 184, 161–174. doi:10.1016/j.rse.2016.06.016
+
 [^3]: Zang, Y., Chen, X., Chen, J., Tian, Y., Shi, Y., Cao, X., Cui, X. (2020). Remote Sensing Index for Mapping Canola Flowers Using MODIS Data. Remote Sens. 12, 3912. doi:10.3390/rs12233912

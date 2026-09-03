@@ -11,9 +11,8 @@ resolutions: ["10m"]
 
 GNDVI is more sensitive to variation in chlorophyll content than is NDVI (Gitelson et al., 1996)
 
-
 ## Description of representative images
 
-GNDVI, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+GNDVI, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![GNDVI](fig/fig1.png)

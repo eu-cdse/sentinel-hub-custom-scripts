@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -15,7 +15,7 @@ White-water mapping is beneficial in different areas: improvement of bathymetric
 
 ### Applicability of the script
 
-The script is globally applicable on coastal zones in case of coastal white-water detection. It is even applicable in low waves conditions (Adriatic, Mediterranean). If snow, ice, and white-water are all present, the script is not able to differentiate between them. 
+The script is globally applicable on coastal zones in case of coastal white-water detection. It is even applicable in low waves conditions (Adriatic, Mediterranean). If snow, ice, and white-water are all present, the script is not able to differentiate between them.
 
 In the case of white-water detection on rivers, the script is applicable to bigger and wider rivers, where no snow and ice are present. In addition, the river should not have a higher amount of floating sediment.
 
@@ -65,14 +65,15 @@ Also timelapse was tested for the area. It can be seen, that in some cases white
 5. Limassol (Cyprus)
 
 ![Limassol (Cyprus)](fig/05_limassol_cyprus_timelapse.gif)
-Bathymetric map from multi-temporal analysis of Sentinel-2 data (Evagorou et al., 2019) processed 12 satellite images one for each month from 4.4.2017 to 18.2.2018. With the script, time-lapse animation was done for the later period (cloud coverage under 57%) on the east side of the study site. For satellite image on 19.1.2018, custom script clearly detects white-water zone. The later image is a basis from one of twelve images for mapping bathymetry (Evagorou et al., 2019). Therefore, with custom script detection of white-water, the study could exclude the later image as it was identified that the quality of the bathymetry map could be affected by sea state (waves). In the mentioned period there are some other dates with white-water zone detection, which are not included in the study (14.4.2017, 6.9.2017, 25.12.2017, 4.1.2018). In addition, we can see that custom script is also applicable in case of low waves in the Mediterranean Sea.  
+Bathymetric map from multi-temporal analysis of Sentinel-2 data (Evagorou et al., 2019) processed 12 satellite images one for each month from 4.4.2017 to 18.2.2018. With the script, time-lapse animation was done for the later period (cloud coverage under 57%) on the east side of the study site. For satellite image on 19.1.2018, custom script clearly detects white-water zone. The later image is a basis from one of twelve images for mapping bathymetry (Evagorou et al., 2019). Therefore, with custom script detection of white-water, the study could exclude the later image as it was identified that the quality of the bathymetry map could be affected by sea state (waves). In the mentioned period there are some other dates with white-water zone detection, which are not included in the study (14.4.2017, 6.9.2017, 25.12.2017, 4.1.2018). In addition, we can see that custom script is also applicable in case of low waves in the Mediterranean Sea.
 
 [Supplementary material (PDF)](supplementary_material.pdf) includes other examples of custom script analysis for individual images.
 
 ## References
 
 Some theory/projects, which support usefulness of white-water custom script:
-- Denny, M., 1995. Survival in the Surf Zone. [American Scientist, Vol. 83., No. 2, pp. 166-173](https://www.jstor.org/stable/29775404 )
+
+- Denny, M., 1995. Survival in the Surf Zone. [American Scientist, Vol. 83., No. 2, pp. 166-173](https://www.jstor.org/stable/29775404)
 - Evagorou, E., Mettas, C., Agapiou, A., Themistocleous, K., Hadjimitsis, D., 2019. [Bathymetric maps from multi-temporal analysis of Sentinel-2 data: the case study of Limassol, Cyprus.](https://www.adv-geosci.net/45/397/2019/adgeo-45-397-2019.pdf) Department of Civil Engineering and Geomatics, School of Engineering and Technology, Cyprus University of Technology.
 - ISEAN, 2019. [Wave breaking phenomena.](https://www.insean.cnr.it/content/wave-breaking-phenomena) Marine Technology Research Institute.
 - SINERGISE, 2019. [Sentinel 2 EO products.](https://www.sentinel-hub.com/develop/documentation/eo_products/Sentinel2EOproducts)

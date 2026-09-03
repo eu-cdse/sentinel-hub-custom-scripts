@@ -29,7 +29,7 @@ Visualization of Beijing with the Green City script.
 
 ## References
 
-[1] Normalized difference vegetation index: 
+[1] Normalized difference vegetation index:
 https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index
 
 ## Credits

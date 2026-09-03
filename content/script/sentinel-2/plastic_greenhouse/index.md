@@ -8,7 +8,6 @@ data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
 
-
 ## General description of the script
 
 A simple spectral index for the detection of plastic greenhouses and agricultural foil, based on the Retrogressive Plastic Greenhouse Index developed by Ibrahim et al (2021). Plastic foil reflects strongly in Band 2 (Blue) of Sentinel-2, which is compared against the mean of bands 3 (green), 4 (red) and 8 (near infrared). Detection is not perfect - bare soil areas are sometimes mistaken.

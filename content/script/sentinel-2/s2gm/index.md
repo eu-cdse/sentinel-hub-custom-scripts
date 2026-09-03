@@ -4,9 +4,8 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
-
 
 ## General description
 

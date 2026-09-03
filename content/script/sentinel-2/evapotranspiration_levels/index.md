@@ -3,9 +3,9 @@ title: Detection of Evapotranspiration Levels Composite
 evalscripts: ["script.js"]
 types: ["composite"]
 verifications: ["cites literature"]
-domains: ["agriculture","vegetation"]
+domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -60,7 +60,6 @@ In the images you can see the different variations in the existing evapotranspir
 ![Demonstration 5](fig/Demostration5.png)
 
 ## References
-
 
 ## Credits
 

@@ -9,10 +9,10 @@
 //
 
 function setup() {
-  return {
-    input: ["B04", "B06", "B07", "B8A", "B12"],
-    output: { bands: 3 }
-  };
+    return {
+        input: ["B04", "B06", "B07", "B8A", "B12"],
+        output: { bands: 3 },
+    };
 }
 
 let min = 0;
@@ -25,20 +25,25 @@ let zero = 0.5;
 // This index crosses zero, so a diverging color map is used. To tweak the value of the break in the color map, change the variable 'zero'.
 
 let underflow_color = [1, 1, 1];
-let low_color = [0/255, 0/255, 255/255];
-let high_color = [255/255, 20/255, 20/255];
-let zero_color = [250/255, 255/255, 10/255];
-let overflow_color = [255/255, 0/255, 255/255];
+let low_color = [0 / 255, 0 / 255, 255 / 255];
+let high_color = [255 / 255, 20 / 255, 20 / 255];
+let zero_color = [250 / 255, 255 / 255, 10 / 255];
+let overflow_color = [255 / 255, 0 / 255, 255 / 255];
 
 function evaluatePixel(samples) {
-  let val = (1-((samples.B06*samples.B07*samples.B8A)/samples.B04)**0.5)*((samples.B12-samples.B8A)/((samples.B12+samples.B8A)**0.5)+1);
+    let val =
+        (1 - ((samples.B06 * samples.B07 * samples.B8A) / samples.B04) ** 0.5) *
+        ((samples.B12 - samples.B8A) / (samples.B12 + samples.B8A) ** 0.5 + 1);
 
-  return colorBlend(val, [min, min, zero, max],
-  [
-  	underflow_color,
-  	low_color,
-  	zero_color, // divergent step at zero
-  	high_color,
-  	overflow_color // uncomment to see overflows
-  ]);
+    return colorBlend(
+        val,
+        [min, min, zero, max],
+        [
+            underflow_color,
+            low_color,
+            zero_color, // divergent step at zero
+            high_color,
+            overflow_color, // uncomment to see overflows
+        ],
+    );
 }

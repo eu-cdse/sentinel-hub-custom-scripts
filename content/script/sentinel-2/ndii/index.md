@@ -2,7 +2,7 @@
 title: NDII (Normalized difference 819/1600)
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["agriculture","vegetation","forest"]
+domains: ["agriculture", "vegetation", "forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
@@ -17,6 +17,6 @@ Values description: The values of this index range from -1 to 1. The common rang
 
 ## Description of representative images
 
-NDII, Italy. Acquired on 08.10.2017, processed by Sentinel Hub. 
+NDII, Italy. Acquired on 08.10.2017, processed by Sentinel Hub.
 
 ![NDII](fig/fig1.png)

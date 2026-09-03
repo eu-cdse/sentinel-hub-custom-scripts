@@ -19,10 +19,10 @@ Refs.: [1]M. Potes et al., “Use of Sentinel 2 – MSI for water quality
 */
 
 function setup() {
-  return {
-    input: ["B01", "B02", "B03", "B04", "B08", "dataMask"],
-    output: { bands: 4 }
-  };
+    return {
+        input: ["B01", "B02", "B03", "B04", "B08", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 
 // user defined FLAGs
@@ -30,76 +30,87 @@ var FLAGparam = 5;
 var FLAGbackGround = 2;
 
 // Background indexes
-var Black = [0, 0, 0];                                 // FLAGbackGround = 0, and the fallback for >= 3
+var Black = [0, 0, 0]; // FLAGbackGround = 0, and the fallback for >= 3
 
 // Numerical values for the scales of parameters
 var scaleChl_a = [0, 6, 12, 20, 30, 50];
-var scaleCya   = [0, 10, 20, 40, 50, 100];
-var scaleTurb  = [0, 4, 8, 12, 16, 20];
-var scaleCDOM  = [0, 1, 2, 3, 4, 5];
-var scaleDOC   = [0, 5, 10, 20, 30, 40];
+var scaleCya = [0, 10, 20, 40, 50, 100];
+var scaleTurb = [0, 4, 8, 12, 16, 20];
+var scaleCDOM = [0, 1, 2, 3, 4, 5];
+var scaleDOC = [0, 5, 10, 20, 30, 40];
 var scaleColor = [0, 10, 20, 30, 40, 50];
 
 // Colors for the scales
 var s = 255;
-var colorScale =
-  [
-   [73/s, 111/s, 242/s],
-   [130/s, 211/s, 95/s],
-   [254/s, 253/s, 5/s],
-   [253/s, 0/s, 4/s],
-   [142/s, 32/s, 38/s],
-   [217/s, 124/s, 245/s]
-  ];
+var colorScale = [
+    [73 / s, 111 / s, 242 / s],
+    [130 / s, 211 / s, 95 / s],
+    [254 / s, 253 / s, 5 / s],
+    [253 / s, 0 / s, 4 / s],
+    [142 / s, 32 / s, 38 / s],
+    [217 / s, 124 / s, 245 / s],
+];
 
 function evaluatePixel(sample) {
+    // Water-land contrast index (to define the background)
+    var NDWI = index(sample.B03, sample.B08);
 
-  // Water-land contrast index (to define the background)
-  var NDWI = index(sample.B03, sample.B08);
+    // Background indexes
+    var NDVI = index(sample.B08, sample.B04); // FLAGbackGround = 1
+    var TrueColor = [sample.B04 * 2.5, sample.B03 * 2.5, sample.B02 * 2.5]; // FLAGbackGround = 2
 
-  // Background indexes
-  var NDVI = index(sample.B08, sample.B04);                                          // FLAGbackGround = 1
-  var TrueColor = [sample.B04*2.5, sample.B03*2.5, sample.B02*2.5];                  // FLAGbackGround = 2
+    // Empirical models
+    var Chl_a = 4.26 * Math.pow(sample.B03 / sample.B01, 3.94); // FLAGparam = 0; S2-L2A; [1] Unit: mg/m3;
+    var Cya =
+        115530.31 * Math.pow((sample.B03 * sample.B04) / sample.B02, 2.38); // FLAGparam = 1; S2-L2A; [1] Unit: 10^3 cell/ml;
+    var Turb = 8.93 * (sample.B03 / sample.B01) - 6.39; // FLAGparam = 2; S2-L2A; [1] Unit: NTU;
+    var CDOM = 537 * Math.exp((-2.93 * sample.B03) / sample.B04); // FLAGparam = 3; S2-L1C; [2] Unit: mg/l;
+    var DOC = 432 * Math.exp((-2.24 * sample.B03) / sample.B04); // FLAGparam = 4; S2-L1C; [2] Unit: mg/l;
+    var Color = 25366 * Math.exp((-4.53 * sample.B03) / sample.B04); // FLAGparam = 5; S2-L1C; [2] Unit: mg.Pt/l;
 
-  // Empirical models
-  var Chl_a = 4.26 * Math.pow(sample.B03/sample.B01, 3.94);                          // FLAGparam = 0; S2-L2A; [1] Unit: mg/m3;
-  var Cya = 115530.31 * Math.pow(sample.B03 * sample.B04 / sample.B02, 2.38);        // FLAGparam = 1; S2-L2A; [1] Unit: 10^3 cell/ml;
-  var Turb = 8.93 * (sample.B03/sample.B01) - 6.39;                                  // FLAGparam = 2; S2-L2A; [1] Unit: NTU;
-  var CDOM = 537 * Math.exp(-2.93*sample.B03/sample.B04);                            // FLAGparam = 3; S2-L1C; [2] Unit: mg/l;
-  var DOC = 432 * Math.exp(-2.24*sample.B03/sample.B04);                             // FLAGparam = 4; S2-L1C; [2] Unit: mg/l;
-  var Color = 25366 * Math.exp(-4.53*sample.B03/sample.B04);                         // FLAGparam = 5; S2-L1C; [2] Unit: mg.Pt/l;
-
-  // Image generation
-  if (NDWI<0) {
-    if ( FLAGbackGround == 1 ) {
-      return [0, .5*(NDVI+1), 0, sample.dataMask];
-    } else if ( FLAGbackGround == 2 ) {
-      return TrueColor.concat(sample.dataMask);
+    // Image generation
+    if (NDWI < 0) {
+        if (FLAGbackGround == 1) {
+            return [0, 0.5 * (NDVI + 1), 0, sample.dataMask];
+        } else if (FLAGbackGround == 2) {
+            return TrueColor.concat(sample.dataMask);
+        } else {
+            return Black.concat(sample.dataMask); // FLAGbackGround = 0 or >= 3
+        }
     } else {
-      return Black.concat(sample.dataMask);                                             // FLAGbackGround = 0 or >= 3
+        switch (FLAGparam) {
+            case 0:
+                return colorBlend(Chl_a, scaleChl_a, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            case 1:
+                return colorBlend(Cya, scaleCya, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            case 2:
+                return colorBlend(Turb, scaleTurb, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            case 3:
+                return colorBlend(CDOM, scaleCDOM, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            case 4:
+                return colorBlend(DOC, scaleDOC, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            case 5:
+                return colorBlend(Color, scaleColor, colorScale).concat(
+                    sample.dataMask,
+                );
+                break;
+            default:
+                return TrueColor.concat(sample.dataMask);
+        }
     }
-  } else {
-    switch ( FLAGparam ) {
-      case 0:
-       return colorBlend(Chl_a, scaleChl_a, colorScale).concat(sample.dataMask);
-       break;
-      case 1:
-        return colorBlend(Cya, scaleCya, colorScale).concat(sample.dataMask);
-        break;
-      case 2:
-        return colorBlend(Turb, scaleTurb, colorScale).concat(sample.dataMask);
-        break;
-      case 3:
-        return colorBlend(CDOM, scaleCDOM, colorScale).concat(sample.dataMask);
-        break;
-      case 4:
-        return colorBlend(DOC, scaleDOC, colorScale).concat(sample.dataMask);
-        break;
-      case 5:
-        return colorBlend(Color, scaleColor, colorScale).concat(sample.dataMask);
-        break;
-      default:
-        return TrueColor.concat(sample.dataMask);
-    }
-  }
 }

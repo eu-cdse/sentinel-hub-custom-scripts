@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -39,27 +39,27 @@ WILLM Loïc, LEFEBVRE GaÎtan, DAVRANCHE AurÈlie, CAMPAGNA Julie, REDMOND Laure
 
 ## Description of representative images
 
-1) Timelapse ChaSca
+1. Timelapse ChaSca
 
 WIW time-lapse at the largest reed marsh in southern France from October 2018 through September 2019 (monthly interval). This example highlights the robustness of WIW for detecting surface water under dense vegetation cover of Phragmites australis (same color as open-water areas).
 ![Timelapse ChaSca](fig/timelapse_chasca_12images_sent2.gif)
 
-2) Camargue (France): Sentinel-2 annual hydroperiod 2018
+2. Camargue (France): Sentinel-2 annual hydroperiod 2018
 
 Thanks to the high temporal frequency of Sentinel 2, annual water maps can be built with a high accuracy (35 scenes were used here to illustrate inundation patterns of the Camargue wetlands over a year)
 ![Camargue (France): Sentinel-2 annual hydroperiod 2018](fig/camargue_france_annual_hydroperiod2018.jpg)
 
-3) Donana (Spain)
+3. Donana (Spain)
 
 By contrasting two ecosystems with opposed hydrological cycles, this example shows how WIW can detect equally well water under vegetation of natural marshes during the winter season and rice growing fields during the summer season.
 ![Donana (Spain)](fig/donana_spain.jpg)
 
-4) Everglades (USA) : NDWI-WIW comparison
+4. Everglades (USA) : NDWI-WIW comparison
 
 In contrast to the Normalized Difference Water Index (NDWI), WIW succeeds in detecting water under vegetation and not only in open-water areas.!
 [Everglades (USA) : NDWI-WIW comparison](fig/everglades_usa_ndwi_wiw_comparison.jpg)
 
-5) Barotse floodplain (Zambia) (time-lapse)
+5. Barotse floodplain (Zambia) (time-lapse)
 
 The Barotse floodplain is in the Zambezian flooded grasslands ecoregion. The flood provides aquatic habitats for fish such as tigerfish and bream, crocodiles, hippopotamus, waterbirds, fish-eating birds, and lechwe, the wading antelope found in wetlands of south central Africa. The peak of the flood occurs on the floodplain about 3 months after the peak of the rainy season in January-February.
 ![Barotse floodplain (Zambia) (time-lapse)](fig/barotse_floodplain_Zambia.gif)
@@ -75,4 +75,5 @@ The Barotse floodplain is in the Zambezian flooded grasslands ecoregion. The flo
 [DOI](https://dx.doi.org/10.3390/rs11192210)
 
 ## Acknowledgments
+
 The WIW script was developed within the ECOPOTENTIAL project, a H2020 European project under grant agreement No 642088.

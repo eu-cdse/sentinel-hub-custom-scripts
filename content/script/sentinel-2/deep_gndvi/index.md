@@ -9,29 +9,30 @@ resolutions: ["10m"]
 
 ## General description of the script
 
-The raw data for Green Normalized Difference Vegetation Index (GNDVI) has been extracted using a [custom script](https://custom-scripts.sentinel-hub.com/sentinel-2/gndvi/) via Sentinel Hub's Feature Info Service (FIS). It performs elementary statistical computations - such as mean, standard deviation, etc. approximating the distribution of reflectance values - on remotely sensed data for a region specified in a given spatial reference system across different bands and time ranges. 
+The raw data for Green Normalized Difference Vegetation Index (GNDVI) has been extracted using a [custom script](https://custom-scripts.sentinel-hub.com/sentinel-2/gndvi/) via Sentinel Hub's Feature Info Service (FIS). It performs elementary statistical computations - such as mean, standard deviation, etc. approximating the distribution of reflectance values - on remotely sensed data for a region specified in a given spatial reference system across different bands and time ranges.
 
 The next subsections describe the different stages of the methodology for data handling, performing the prediction and visualizing the prediction results.
 
 1. The region chosen for training the model in this notebook is Empedrado, Chile.
-From the bounding box coordinated for Emperdrado, the region in the GeoJSON split into smaller tiles from which a 5x5 grid is selected.
+   From the bounding box coordinated for Emperdrado, the region in the GeoJSON split into smaller tiles from which a 5x5 grid is selected.
 
 2. The EOPatches are filled with GNDVI data from Sentinel Hub having minimal cloud coverage.
 
 3. EOPatches are created and manipulated using EOTasks, which are then chained in an EOWorkflow. The following workflow is created and executed:
+
 - Create EOPatches with band and cloud data.
 - Add mask of valid pixels.
 - Calculate and add GNDVI data.
 - Save EOPatches
 
 4. The obtained data is pre-processed and prepared for training for which we create a new workflow that performs the following preprocessing:
-Checks the ratio of the valid data for each EOPatch and for each time frame
-Retain only time frames with > 80% valid coverage
+   Checks the ratio of the valid data for each EOPatch and for each time frame
+   Retain only time frames with > 80% valid coverage
 
-5. The complete data array is split to train and test sets in the ratio 0.7 Additional variables Normalized Difference Vegetation Index (NDVI), Normalized Difference Water Index  (NDWI), Normalized Difference Built up Index (NDBI) are also used as features during the training process.
-NDVI: (B08 - B04)/(B08 + B04)
-NDWI: (B03 - B08)/(B03 + B08)
-NDBI: (B11 - B08)/(B11 + B08)
+5. The complete data array is split to train and test sets in the ratio 0.7 Additional variables Normalized Difference Vegetation Index (NDVI), Normalized Difference Water Index (NDWI), Normalized Difference Built up Index (NDBI) are also used as features during the training process.
+   NDVI: (B08 - B04)/(B08 + B04)
+   NDWI: (B03 - B08)/(B03 + B08)
+   NDBI: (B11 - B08)/(B11 + B08)
 
 6. The data is fit on a [LightGBMRegressor()](https://lightgbm.readthedocs.io/en/latest/pythonapi/lightgbm.LGBMRegressor.html).
 
@@ -52,8 +53,8 @@ Roshni Biswas, Anurag Saha Roy
 
 ## Description of representative images
 
-1) GNDVI = (NIR - Green)/(NIR + Green)
-The photos here are in grayscale; are the predicted vs actual GNDVI values.
+1. GNDVI = (NIR - Green)/(NIR + Green)
+   The photos here are in grayscale; are the predicted vs actual GNDVI values.
 
 ![GNDVI = (NIR - Green)/(NIR + Green)](fig/deepgndvi_result.png)
 

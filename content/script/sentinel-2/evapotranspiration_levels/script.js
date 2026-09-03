@@ -5,10 +5,15 @@
 //___________________________
 function setup() {
     return {
-        input:  ["B11", "B09", "B02", "dataMask"],
-       output: { bands :  4   }
+        input: ["B11", "B09", "B02", "dataMask"],
+        output: { bands: 4 },
     };
- }
+}
 function evaluatePixel(sample) {
-	return [2.5 * sample.B11,2.5 * sample.B09,2.5 * sample.B02, sample.dataMask ];
+    return [
+        2.5 * sample.B11,
+        2.5 * sample.B09,
+        2.5 * sample.B02,
+        sample.dataMask,
+    ];
 }

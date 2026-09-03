@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -12,6 +12,7 @@ resolutions: ["10m","20m"]
 Monthly composite (31 days before the chosen date), computed with best bands ratio. This script is here for those who want a cloud free image representing the last 31 days.
 
 In order to select the best pixel in a month (and avoid cloud), a selection is made using a ratio :
+
 - When blue < 0.12, date is chosen where max ratio of B08 against B02.
 - If no pixel available above, when blue < 0.45, date is chosen where max ratio of B03 against B02.
 - If water is detected, date is chosen where max ratio of B02 against B08.
@@ -40,5 +41,6 @@ See the [supplementary material](supplementary_material.pdf) for more examples.
 ## Credits
 
 Thanks to :
+
 - Pierre Markuse for his natural color script
 - Harel Dan for his temporal script

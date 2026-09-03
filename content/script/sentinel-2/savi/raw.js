@@ -7,14 +7,16 @@ function setup() {
         input: ["B04", "B08"],
         output: {
             bands: 1,
-            sampleType: "FLOAT32"
-        }
+            sampleType: "FLOAT32",
+        },
     };
 }
 
 let L = 0.428; // L = soil brightness correction factor could range from (0 -1)
 
 function evaluatePixel(samples) {
-    const val = (samples.B08 - samples.B04) / (samples.B08 + samples.B04 + L) * (1.0 + L);
-    return [val]
+    const val =
+        ((samples.B08 - samples.B04) / (samples.B08 + samples.B04 + L)) *
+        (1.0 + L);
+    return [val];
 }

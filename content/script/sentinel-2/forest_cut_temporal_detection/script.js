@@ -10,41 +10,34 @@ var stretchMin = 0;
 var stretchMax = 0.8;
 
 function setup() {
-  return {
-    input: [{
-      bands: [
-          "B02",
-          "B03",
-          "B04",
-          "B05",
-          "B08",
-          "B12"
-      ]
-    }],
-    output: { bands: 3 },
-    mosaicking: "ORBIT"
-  }
+    return {
+        input: [
+            {
+                bands: ["B02", "B03", "B04", "B05", "B08", "B12"],
+            },
+        ],
+        output: { bands: 3 },
+        mosaicking: "ORBIT",
+    };
 }
-
 
 function stretch(val, min, max) {
     return (val - min) / (max - min);
 }
 
-
 function NDVI(sample) {
     let denom = sample.B08 + sample.B04;
-    return ((denom != 0) ? (sample.B08 - sample.B04) / denom : 0.0);
+    return denom != 0 ? (sample.B08 - sample.B04) / denom : 0.0;
 }
 
 function NDWI(sample) {
     let denom = sample.B03 + sample.B08;
-    return ((denom != 0) ? (sample.B03 - sample.B08) / denom : -1);
+    return denom != 0 ? (sample.B03 - sample.B08) / denom : -1;
 }
 
 function mean(array) {
     if (array.length == 0) {
-        return 1
+        return 1;
     } else {
         var sum = 0;
         for (var i = 0; i < array.length; i++) {
@@ -52,7 +45,7 @@ function mean(array) {
         }
 
         var avg = sum / array.length;
-        return avg
+        return avg;
     }
 }
 
@@ -63,7 +56,7 @@ function getNeededDates(sceneMonth, sceneYear, monthsToTake) {
     let monthToGet = [];
     let yearToGet = [];
 
-    for (i = 0; i < monthsToTake; i++) {
+    for (const i = 0; i < monthsToTake; i++) {
         if (sceneMonth - i <= 0) {
             month = 12 - (sceneMonth - i);
             year = sceneYear - 1;
@@ -105,7 +98,6 @@ function evaluatePixel(samples, scenes) {
                     {
                         currentYearNDVI = currentYearNDVI + ndvi;
                         currentYearCount++;
-
                     }
                     // if year before
                     else if (monthsAndYears[1].includes(sceneYear + 1)) {
@@ -134,21 +126,58 @@ function evaluatePixel(samples, scenes) {
     // check also if is not water
     let difference = avgPreviousYearNDVI - avgCurrentYearNDVI;
 
-    if ((NDWI(samples[0]) < 0.5) & (difference >= thresold) & (avgPreviousYearNDVI > minimunNDVI) & (mean(lastYearMonth0) > minimunNDVI) & (mean(lastYearMonth1) > minimunNDVI) & (mean(lastYearMonth2) > minimunNDVI)) {
+    if (
+        (NDWI(samples[0]) < 0.5) &
+        (difference >= thresold) &
+        (avgPreviousYearNDVI > minimunNDVI) &
+        (mean(lastYearMonth0) > minimunNDVI) &
+        (mean(lastYearMonth1) > minimunNDVI) &
+        (mean(lastYearMonth2) > minimunNDVI)
+    ) {
         // the more the difference is high, the more it is red
-        colorMap = [stretch((2.8 * (2 / 3) * 10 * difference * samples[0].B04 + 0.1 * samples[0].B05), stretchMin, stretchMax), stretch((2.8 * samples[0].B03 + 0.15 * samples[0].B08), stretchMin, stretchMax), stretch((2.8 * samples[0].B02), stretchMin, stretchMax)];
+        colorMap = [
+            stretch(
+                2.8 * (2 / 3) * 10 * difference * samples[0].B04 +
+                    0.1 * samples[0].B05,
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(
+                2.8 * samples[0].B03 + 0.15 * samples[0].B08,
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(2.8 * samples[0].B02, stretchMin, stretchMax),
+        ];
     }
     // else show current image
     else {
-        colorMap = [stretch((2.8 * samples[0].B04 + 0.1 * samples[0].B05), stretchMin, stretchMax), stretch((2.8 * samples[0].B03 + 0.15 * samples[0].B08), stretchMin, stretchMax), stretch((2.8 * samples[0].B02), stretchMin, stretchMax)];
+        colorMap = [
+            stretch(
+                2.8 * samples[0].B04 + 0.1 * samples[0].B05,
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(
+                2.8 * samples[0].B03 + 0.15 * samples[0].B08,
+                stretchMin,
+                stretchMax,
+            ),
+            stretch(2.8 * samples[0].B02, stretchMin, stretchMax),
+        ];
     }
     return colorMap;
 }
 
-function preProcessScenes (collections) {
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-        var orbitDateFrom = new Date(orbit.dateFrom)
-        return orbitDateFrom.getTime() >= (collections.to.getTime()-(14 * 31 * 24 * 3600 * 1000)); // 14 = 11 months + 3 months
-    })
-    return collections
+function preProcessScenes(collections) {
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 14 * 31 * 24 * 3600 * 1000
+            ); // 14 = 11 months + 3 months
+        },
+    );
+    return collections;
 }

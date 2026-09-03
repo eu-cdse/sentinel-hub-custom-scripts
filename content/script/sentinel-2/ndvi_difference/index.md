@@ -8,6 +8,7 @@ resolutions: ["10m"]
 ---
 
 ## General description
+
 This script aims to obtain the diffence of NDVI between the latest acquisition and the acquisition 10-day prior to the latest on within a specified time period. Multi-temporal analysis is common in the Earth Observation field. Here we take NDVI as an example and demonstrate how to calculate the difference of NDVI between two acquisitions using [`mosaicking: ORBIT`](https://docs.sentinel-hub.com/api/latest/evalscript/v3/#mosaicking) and [`preProcessScenes`](https://docs.sentinel-hub.com/api/latest/evalscript/v3/#preprocessscenes-function-optional) in one single request.
 
 To implement multi-temporal analysis in the Evalscript, we apply `ORBIT` mosaicking to query daily mosaic in the specified time period. Then, by using the optional `preProcessScenes` function, we find out the acquisition acquired on the date closest to the date 10-day prior to the latest acquisition and filter the out the other unused acquisitions to save Processing Units. Last but not least, in the `evaluatePixel` function we initialise a combined mask to ensure the difference of NDVI between two acquisitions exists only if there is data on both dates.
@@ -19,5 +20,6 @@ To implement multi-temporal analysis in the Evalscript, we apply `ORBIT` mosaick
 Chung-Xiang Hong
 
 ## Description of representative images
+
 The following image shows the NDVI difference between the latest acquisition and the acquisition 10-day prior to the latest one during the time period from 29th of June, 2023 to 29th July, 2023.
 ![NDVI difference example](fig/ndvi_difference_pink_green.png)

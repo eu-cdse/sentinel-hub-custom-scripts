@@ -1,14 +1,15 @@
 ---
 title: NDWI Normalized Difference Water Index
-evalscripts: ["script.js","raw.js"]
+evalscripts: ["script.js", "raw.js"]
 types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
+
 ## General description of the script
 
-The NDWI is used to monitor changes related to water content in water bodies. As water bodies strongly absorb light in visible to infrared electromagnetic spectrum,  NDWI uses green and near infrared bands to highlight water bodies. It is sensitive to built-up land and can result in over-estimation of water bodies. The index was proposed by McFeeters, 1996.
+The NDWI is used to monitor changes related to water content in water bodies. As water bodies strongly absorb light in visible to infrared electromagnetic spectrum, NDWI uses green and near infrared bands to highlight water bodies. It is sensitive to built-up land and can result in over-estimation of water bodies. The index was proposed by McFeeters, 1996.
 
 - Sentinel-2 NDWI = **(B03 - B08) / (B03 + B08)**
 - [Landsat 1-5 MSS NDWI](https://custom-scripts.sentinel-hub.com/landsat-1-5-mss/ndwi/) = **(B01 - B04) / (B01 + B04)**
@@ -31,4 +32,5 @@ NDWI of Canadian lakes. Acquired on 2020-08-05.
 ![NDWI of Canada](fig/fig2.jpg)
 
 ## References
+
 Source: https://en.wikipedia.org/wiki/Normalized_difference_water_index

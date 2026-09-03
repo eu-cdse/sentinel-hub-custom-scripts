@@ -1,16 +1,16 @@
 ---
-title: 'Simple Water Bodies'' Mapping - SWBM '
+title: "Simple Water Bodies' Mapping - SWBM "
 evalscripts: ["script.js"]
 types: ["index"]
 verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
 
-The script detects water areas on the basis of simple indices MNDWI, NDWI and in case of Sentinel-2 also SWI [1]. Threshold values for indices (calibration) are obtained with histogram analysis which is also done with the script using histogram function of EO Browser. After that, the calibration timelapse functionality of EO Browser is used. 
+The script detects water areas on the basis of simple indices MNDWI, NDWI and in case of Sentinel-2 also SWI [1]. Threshold values for indices (calibration) are obtained with histogram analysis which is also done with the script using histogram function of EO Browser. After that, the calibration timelapse functionality of EO Browser is used.
 
 The script can be used on either Sentinel-2 or Landsat data sources. Sentinel-2 analysis additionally includes the SWI index. In case of Sentinel-2 L2A, cloud detection is also available for cloud filtering when generating statistical informatiom for a point or area of interest.
 
@@ -52,11 +52,12 @@ Detailed instructions on how to use the script are in the comments of the script
 ## Description of representative images
 
 ### Example 1 & 2: Lake of Sainte-Croix, Alpes-de-Haute-Provence, France
+
 _Sentinel-2 L2A, timelapse 2017-2022 filter for August , % of clouds < 22%_
 
-Southern France, more specifically Alpes-de-Haute-Provence and its related watersheds in Alps received low precipitation in the last 12 months. In addition, the amount of snow in mountains was low in the winter season 2021/2022. This resulted in untypical low water levels of lakes and reservoirs in winter already. The same is true for the observed Lake of Sainte-Croix, despite it being a regulated, artificial lake. 
+Southern France, more specifically Alpes-de-Haute-Provence and its related watersheds in Alps received low precipitation in the last 12 months. In addition, the amount of snow in mountains was low in the winter season 2021/2022. This resulted in untypical low water levels of lakes and reservoirs in winter already. The same is true for the observed Lake of Sainte-Croix, despite it being a regulated, artificial lake.
 
-In the timelapse below, one can observe obvious water extent reductions in the northern part of the lake in 2022 compared to previous years. We can see how the coastal region is extended, with water replaced by bare soil. It is also interesting to see how the island in the lake got connected to the mainland because of the low water level. 
+In the timelapse below, one can observe obvious water extent reductions in the northern part of the lake in 2022 compared to previous years. We can see how the coastal region is extended, with water replaced by bare soil. It is also interesting to see how the island in the lake got connected to the mainland because of the low water level.
 
 ![The script example 1](fig/fig1.gif)
 
@@ -67,6 +68,7 @@ The scene was also analysed with a point of interest statistics. The point for a
 We also made the same analysis with Landsat 8, confirming that in the last 9 years (from 2013), the island was only connected to the mainland in 2022.
 
 **Input data for the script**
+
 ```javascript
 var source = ""S2L2A"";
 var MNDWI_thr = 0.3;
@@ -75,6 +77,7 @@ var SWI_thr = -0.005;
 ```
 
 ### Oroville Dam, California, USA
+
 _Sentinel-2 L2A, timelapse 2017-01-30 to 2017-12-21 , % of clouds < 100%_
 
 After the drought, there was extreme rainfall on the watershed of the Oroville Dam in February 2017. Because reservoir of the dam was full, they needed to use both the main and emergency spillway. When the main spillway got damaged, the emergency spillway got dangerously eroded.
@@ -86,6 +89,7 @@ On the first image on the timelapse below we can see that water level was low (3
 We can also see that SCL based cloud filter does its job very well. Clouds are mostly not detected. In addition, cloud shadow also wasn't detected as water surface. In the selected timespan, no image had a full cloud coverage, and so the cloud coverage filter could be left at 100%.
 
 **Input data for the script**
+
 ```javascript
 var source = "S2L2A";
 var MNDWI_thr = -0.11;
@@ -96,13 +100,15 @@ var SWI_thr = -0.11;
 ![The script example 1](fig/fig3.gif)
 
 #### Kandhkot, Sindh, Pakistan
+
 _Landsat 8-9 L2. Timelapse 2022-06-10 and 2022-09-06_
 
 Since the middle of June 2022 and at least till September 2022, Pakistan was hit by extreme floods. Floods were caused by heavier than usual monsoon rains and melting glaciers, following a severe heat wave. Extreme floods and heatwaves are linked to the climate change [10].
 
-The analysed scene is from Kandhkot city (northern part of the scene) and its surrounding area. Two scenes are shown, one from 10.6.22 before the floods and another from 6.9.2022 after the heavy rainfall. We can see that water level is still quite high, which is typical for flat areas with extensive watershed. It seems that bottom and right parts of the scene are areas, for which it flooding can be expected in an event of high waters, but probably not to the extent of this flooding. In the flood plain we can see the roads, which are set higher than the  surrounding terrain and thus weren't flooded. On the northern part there is s city of Kandhkot, which is near a river meander and a water channel, which is south-east from the city. Comparing the scenes, at least the eastern part of the city must had been flooded.
+The analysed scene is from Kandhkot city (northern part of the scene) and its surrounding area. Two scenes are shown, one from 10.6.22 before the floods and another from 6.9.2022 after the heavy rainfall. We can see that water level is still quite high, which is typical for flat areas with extensive watershed. It seems that bottom and right parts of the scene are areas, for which it flooding can be expected in an event of high waters, but probably not to the extent of this flooding. In the flood plain we can see the roads, which are set higher than the surrounding terrain and thus weren't flooded. On the northern part there is s city of Kandhkot, which is near a river meander and a water channel, which is south-east from the city. Comparing the scenes, at least the eastern part of the city must had been flooded.
 
 **Input data for the script**
+
 ```javascript
 var source = ""L8"";
 var MNDWI_thr = -0.07;
@@ -112,6 +118,7 @@ var NDWI_thr = -0.1;
 ![The script example 1](fig/fig4.gif)
 
 #### Furnace Creek, Death valley, USA
+
 _Landsat 8-9 L1. Timelapse 2022-08-02 and 2022-09-04, manually selected scenes_
 
 On 5.8.2022, Furnace Creek in Death Valley received unusual heavy rainfall which produced a 1000 year flood. With such unusual rainfall, event predictions state that extreme floods and heat waves could be even more intense in the future.
@@ -119,6 +126,7 @@ On 5.8.2022, Furnace Creek in Death Valley received unusual heavy rainfall which
 The timelapse below includes eight manually selected images for the period between 2.8.22 and 4.9.22. Before 5.8.22, almost no water areas are detected by the script. After the rainfall, we can see that two water aquifers are created. It is visible that with time, water level in those aquifers is dropping. After the event we can also observe bare soil terrain changes due to water erosion.
 
 **Input data for the script**
+
 ```javascript
 var source = "L8";
 var MNDWI_thr = 0.5;
@@ -131,7 +139,7 @@ var NDWI_thr = 0.3;
 
 - Mohor Gartner
 
-## Credits 
+## Credits
 
 - [1] Jiang W et al. 2021. An Effective Water Body Extraction Method with New Water Index for Sentinel-2 Imagery. https://www.mdpi.com/2073-4441/13/12/1647
 - [2] Du, Y., Zhang Y., Ling, F., Wang, Q., Li, W., Li, X. 2016. Water Bodies’ Mapping from Sentinel-2 Imagery with Modified Normalized Difference Water Index at 10-m Spatial Resolution Produced by Sharpening the SWIR Band. https://bit.ly/2ZOjvA6

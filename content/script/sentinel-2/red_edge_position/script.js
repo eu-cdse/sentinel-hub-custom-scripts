@@ -8,10 +8,10 @@
 // Article: https://www.mdpi.com/1999-4907/7/10/226
 
 function setup() {
-	return {
-		input: ["B04", "B05", "B06", "B07", "dataMask"],
-		output: { bands: 4 }
-	};
+    return {
+        input: ["B04", "B05", "B06", "B07", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 
 let min = 690;
@@ -30,16 +30,23 @@ let zero_color = [255 / 255, 255 / 255, 0 / 255];
 let overflow_color = [0, 0, 0];
 
 function evaluatePixel(sample) {
-	let val = 700 + 40 * ((((sample.B04 + sample.B07) / 2) - sample.B05) / (sample.B06 - sample.B05));
+    let val =
+        700 +
+        40 *
+            (((sample.B04 + sample.B07) / 2 - sample.B05) /
+                (sample.B06 - sample.B05));
 
-	let imgVals = colorBlend(val, [min, min, zero, max],
-		[
-			underflow_color,
-			low_color,
-			zero_color, // divergent step at zero
-			high_color,
-			//overflow_color // uncomment to see overflows
-		]);
+    let imgVals = colorBlend(
+        val,
+        [min, min, zero, max],
+        [
+            underflow_color,
+            low_color,
+            zero_color, // divergent step at zero
+            high_color,
+            //overflow_color // uncomment to see overflows
+        ],
+    );
 
-	return imgVals.concat(sample.dataMask);
+    return imgVals.concat(sample.dataMask);
 }

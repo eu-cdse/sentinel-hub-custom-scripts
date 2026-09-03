@@ -1,5 +1,5 @@
 ---
-title: 'Vegetation Productivity Indicator '
+title: "Vegetation Productivity Indicator "
 evalscripts: ["script.js"]
 types: ["index"]
 verification: ["cites literature"]
@@ -16,7 +16,8 @@ Please note that in case of Sentinel 2, only a few years of history are availabl
 
 The script takes the newest (latest) available scene as the observed one. Then, for each previous year the script finds all values within `toleranceDays` of the most recent date.
 
-The actual scenes (dates) used can be returned as meta-data with an API requests by replacing the ```responses``` part of the request with:
+The actual scenes (dates) used can be returned as meta-data with an API requests by replacing the `responses` part of the request with:
+
 ```json
   "responses":  [{
     "identifier": "userdata",
@@ -28,13 +29,13 @@ Example response:
 
 ```json
 {
-  "historical":[
-    "2019-05-31T00:00:00.000Z",
-    "2018-05-31T00:00:00.000Z",
-    "2017-05-26T00:00:00.000Z",
-    "2016-06-07T00:00:00.000Z"
+    "historical": [
+        "2019-05-31T00:00:00.000Z",
+        "2018-05-31T00:00:00.000Z",
+        "2017-05-26T00:00:00.000Z",
+        "2016-06-07T00:00:00.000Z"
     ],
-  "observed":"2020-05-30T00:00:00.000Z"
+    "observed": "2020-05-30T00:00:00.000Z"
 }
 ```
 

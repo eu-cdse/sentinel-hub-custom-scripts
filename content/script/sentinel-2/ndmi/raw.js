@@ -2,7 +2,7 @@
 function setup() {
     return {
         input: ["B8A", "B11"],
-        output: { bands: 1, sampleType: "FLOAT32" }
+        output: { bands: 1, sampleType: "FLOAT32" },
     };
 }
 

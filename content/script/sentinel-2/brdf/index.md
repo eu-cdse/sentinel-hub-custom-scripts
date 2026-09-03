@@ -5,7 +5,7 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -22,7 +22,6 @@ BRDF corrections are available for Sentinel 2 bands 2, 3, 4, 8, 11 and 12. In th
 
 There are 3 output options available, a True Color and False Color visualization and the option to return Raw Values. Changing what the script does is just a matter of commenting and uncommenting the output options that are available. The output can also be customized following the same schema of the three available output options. This can for example be done to define custom composites using other bands.
 
-
 ## Description of representative images
 
 **Top image**: True Colour RGB acquired with Sentinel-2 (L2A processing level) over the Australian desert, on the border between Queensland and South Australia. The image is composed of two acquisitions from different orbits from 2nd January 2022 and 4th January 2022.
@@ -31,7 +30,6 @@ There are 3 output options available, a True Color and False Color visualization
 
 ![Uncorrected](fig/uncorrected.jpg)
 ![Corrected](fig/corrected.jpg)
-
 
 ## References
 

@@ -5,12 +5,12 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
 
-The raw data for Burned Area Index for Sentinel 2 (BAIS2) has been extracted using a [custom script](https://custom-scripts.sentinel-hub.com/sentinel-2/bais2/) via Sentinel Hub's Feature Info Service (FIS). It performs elementary statistical computations - such as mean, standard deviation, etc. approximating the distribution of reflectance values - on remotely sensed data for a region specified in a given spatial reference system across different bands and time ranges. 
+The raw data for Burned Area Index for Sentinel 2 (BAIS2) has been extracted using a [custom script](https://custom-scripts.sentinel-hub.com/sentinel-2/bais2/) via Sentinel Hub's Feature Info Service (FIS). It performs elementary statistical computations - such as mean, standard deviation, etc. approximating the distribution of reflectance values - on remotely sensed data for a region specified in a given spatial reference system across different bands and time ranges.
 
 The next subsections describe the different stages of the methodology for data handling, performing the prediction and visualizing the prediction results.
 
@@ -37,8 +37,7 @@ The obtained data is pre-processed and prepared for training for which we create
 - Checks the ratio of the valid data for each EOPatch and for each time frame
 - Retain only time frames with > 80% valid coverage
 
-
-The complete data array is split to train and test sets in the ratio 0.7 Additional variables Normalized Difference Vegetation Index (NDVI), Normalized Difference Water Index  (NDWI), Normalized Difference Built up Index (NDBI) are also used as features during the training process.
+The complete data array is split to train and test sets in the ratio 0.7 Additional variables Normalized Difference Vegetation Index (NDVI), Normalized Difference Water Index (NDWI), Normalized Difference Built up Index (NDBI) are also used as features during the training process.
 
 - NDVI: (B08 - B04)/(B08 + B04)
 - NDWI: (B03 - B08)/(B03 + B08)

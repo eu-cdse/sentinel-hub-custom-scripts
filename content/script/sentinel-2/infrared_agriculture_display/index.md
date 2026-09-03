@@ -7,7 +7,6 @@ data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
 
-
 ## General description of the script
 
 Combining band 4 (red), band 8 (nir) and band 2 (blue) on RGB display, vegetation is highlighted so it's easier to detect crops anomalies, and healthy vegetation can be seen in bright green.

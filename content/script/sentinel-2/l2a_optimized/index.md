@@ -13,6 +13,6 @@ True color composite uses visible light bands red, green and blue in the corresp
 
 ## Description of representative images
 
-Optimized True Color image of Rome. Acquired on 2023-01-30, processed by Sentinel Hub. 
+Optimized True Color image of Rome. Acquired on 2023-01-30, processed by Sentinel Hub.
 
 ![S2-L2A True Color Optimized](fig/fig1.png)

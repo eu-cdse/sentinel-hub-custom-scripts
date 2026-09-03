@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m","60m"]
+resolutions: ["10m", "20m", "60m"]
 ---
 
 ## General description of the script
@@ -14,10 +14,11 @@ The script is adapted to Sentinel-2 Level-1C images. It separates land from wate
 The author tested different machine learning methods (different versions of the support vector machine with linear, polynomial and radial basis function kernels), and selected the best found. For training, he labeled 115 pixels (13 with plastic, 102 without), and used all 12 bands which reach the bottom of the atmosphere as explanatory variables (B01, B02, B03, B04, B05, B06, B07, B08, B8A, B09, B11, B12). Plastic labeling comes from a study where researchers placed three 10m by 10m frames full of plastic material into the sea for a single overpass of Sentinel-1 and -2 satellites (2018-06-07, the beach of Tsamakia of Mytilene, N 39.10769, E 26.56523, WGS84).
 
 Several notable contributions:
-1) A facility was written in Python3, implemented in a Jupyter notebook, to select and visualize selected pixels. Their values in the 12 bands are read out. Bands with lower resolution are upsampled to 10m resolution.
-2) The implementation in Python3 using only basic operations, of the evaluation of fitted machine learning models from Scikit-Learn, tested against the Scikit-Learn implementations themselves.
-3) For each model, tailored Python3 code turns author's implementation into Javascript code for Sentinel Hub.
-4) A Google Cloud Storage bucket was created to host various scripts.
+
+1. A facility was written in Python3, implemented in a Jupyter notebook, to select and visualize selected pixels. Their values in the 12 bands are read out. Bands with lower resolution are upsampled to 10m resolution.
+2. The implementation in Python3 using only basic operations, of the evaluation of fitted machine learning models from Scikit-Learn, tested against the Scikit-Learn implementations themselves.
+3. For each model, tailored Python3 code turns author's implementation into Javascript code for Sentinel Hub.
+4. A Google Cloud Storage bucket was created to host various scripts.
 
 Given more images of plastic (just more pixels!), more area in images that are known to contain no plastic, more effort spent labeling, and by testing a wider range of machine learning models, major improvements are possible. There is a research group working on this (Dr. Lauren Biermann, Plymouth Marine Laboratory, UK).
 
@@ -41,9 +42,9 @@ The script shows around the southeast tip of Lesbos island some vessels and an i
 
 [1] Konstantinos Topouzelis, Apostolos Papakonstantinou, Shungudzemwoyo P. Garaba. Detection of floating plastics from satellite and unmanned aerial systems (Plastic Litter Project 2018). Int J Appl Earth Obs Geoinformation 79 (2019) 175ñ183.
 
-[2] [Plastic Litter Project 2018](https://mrsg.aegean.gr/?content=&nav=55) 
+[2] [Plastic Litter Project 2018](https://mrsg.aegean.gr/?content=&nav=55)
 
-[3] [Plastic Litter Project 2019](https://mrsg.aegean.gr/?content=&nav=65) 
+[3] [Plastic Litter Project 2019](https://mrsg.aegean.gr/?content=&nav=65)
 
 [4] Lauren Biermann, Victor Martinez Vincente, Sevrine Sailley, Aser Mata, and Christopher Steele. Towards a method for detecting macroplastics by satellite: examining Sentinel-2 earth observation data for floating debris in the coastal zone. Geophysical Research Abstracts Vol. 21, EGU2019-17469, 2019. European Geosciences Union General Assembly 2019.
 

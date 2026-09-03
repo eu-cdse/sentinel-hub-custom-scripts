@@ -14,6 +14,7 @@ This script aims to obtain a time series within a specific time period by a sing
 In this script we take NDVI as an example, but this can be easily changed to other data. To obtain the exact NDVI value in the centre of Rome from 1st of July 2022 to 11th of July 2022, `updateOutput` function is used to update the number of output bands without knowing beforehand how many there are, which allows users to create a multi-band tiff having data of selected acquisition dates in each band. Furthermore, `updateOutputMetadata` function is used in the script to generate a json file with a list of the NDVI dates used in the analysis, which would be really useful in a time-series analysis.
 
 To make this script work, the `responses` parameter in the payload need to be set as following:
+
 ```json
 "reponses": [
     {

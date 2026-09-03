@@ -2,7 +2,7 @@
 title: NDVI on L2A Vegetation and Natural Colours Script
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["agriculture","vegetation"]
+domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
@@ -25,8 +25,9 @@ Due to visualization issue with the Scene Classification Map this script perform
 
 It works better in vegetated area without too many clouds however the L2A vegetation class is pretty reliable.
 The natural colours visualisation is obtained with a gain of 3.0 optimized for the visualisation of surface reflectance:
+
 ```js
-naturalColour = [3*B04, 3*B03, 3*B02]
+naturalColour = [3 * B04, 3 * B03, 3 * B02];
 ```
 
 ## Author of the script
@@ -35,7 +36,7 @@ Jérôme LOUIS
 
 ## Description of representative images
 
-1) The two images of forest of Compiègne acquired 6 months apart (early summer vs early winter) show the difference of forest NDVI depending on the season.
+1. The two images of forest of Compiègne acquired 6 months apart (early summer vs early winter) show the difference of forest NDVI depending on the season.
 
 The early summer image
 
@@ -45,7 +46,7 @@ The early winter image
 
 ![Compiègne, France - early winter](fig/Forest-North-of-France-Sentinel-2_L2A_from_2020-01-06.jpg)
 
-2) The borders of the Virunga Park lying across the boundaries of three states (DRC, Ugunda, Rwanda) are clearly visible as the NDVI values differ between the Park and the surrounded areas more influenced by human land-use.
+2. The borders of the Virunga Park lying across the boundaries of three states (DRC, Ugunda, Rwanda) are clearly visible as the NDVI values differ between the Park and the surrounded areas more influenced by human land-use.
 
 ![Virunga Park](fig/Virunga-National-Park-Sentinel-2_L2A_from_2019-08-16.jpg)
 

@@ -6,7 +6,7 @@ types: ["index"]
 
 ## General description of the script
 
-Deep moist convection (DC) is associated with hazardous weather phenomena such as torrential rainfall and flash floods, severe convective wind gusts, large hail, and tornadoes. The latent heat release inside deep convective clouds plays a crucial role in several phenomena, for example, the intensification of hurricanes and cyclones in general. Several studies have shown that DC and overshooting cloud tops penetrate the lowest stratosphere and allow the exchange of gases from the troposphere deep into the stratosphere. 
+Deep moist convection (DC) is associated with hazardous weather phenomena such as torrential rainfall and flash floods, severe convective wind gusts, large hail, and tornadoes. The latent heat release inside deep convective clouds plays a crucial role in several phenomena, for example, the intensification of hurricanes and cyclones in general. Several studies have shown that DC and overshooting cloud tops penetrate the lowest stratosphere and allow the exchange of gases from the troposphere deep into the stratosphere.
 
 For all the aforementioned reasons, I believe the Sentinel constellation of satellites provide a unique opportunity to monitor DC around the globe, regardless the ground emissivity which is a major problem in other remote sensing techniques using the microwave and infrared spectrum. In addition, infrared channels from geostationary satellites may provide misleading information about the actual areas covered with DC due to high-level clouds (e.g. Cirrus canopy), let alone the lower spatial resolution compared to Sentinel.
 

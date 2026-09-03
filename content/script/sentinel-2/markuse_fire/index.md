@@ -5,10 +5,11 @@ types: ["index"]
 verifications: ["cites literature"]
 domains: ["wildfire"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m","20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description
+
 The script visualizes wildfires from Sentinel-2 data. It was published by Pierre Markuse on his blog [1] in September 2022.
 
 ## Description of representative images

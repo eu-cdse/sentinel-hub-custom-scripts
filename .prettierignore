@@ -12,3 +12,10 @@ layouts
 
 # Minified build artifacts.
 *.min.js
+
+# Ignoring because they become a few thousand lines long
+content/script/sentinel-2/deep_bais2/script.js
+content/script/sentinel-2/built_up_classifier_mask/script.js
+content/script/sentinel-2/forest_disturbance_classification/*.js
+content/script/sentinel-2/deep_gndvi/script.js
+content/script/sentinel-2/obs_outlier_detector/script.js
