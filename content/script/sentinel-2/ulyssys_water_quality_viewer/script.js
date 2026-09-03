@@ -17,7 +17,34 @@ const PARAMS = {
     background: "default",
     backgroundOpacity: 1.0,
 };
+const isSentinel3 = false;
 //* PARAMS END
+
+const nOut = (PARAMS.chlIndex !== null) + (PARAMS.tssIndex !== null);
+
+function setup() {
+    return {
+        input: [
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B8A",
+            "B09",
+            "B11",
+            "dataMask",
+        ], // You need to add here all the bands you are going to use
+        output: [
+            { id: "default", bands: 3 },
+            { id: "index", bands: nOut, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: nOut + 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
+}
 
 /**
  * Returns indices object used for output calculation
@@ -35,31 +62,31 @@ function getIndices(isSentinel3) {
     return isSentinel3
         ? {
               natural:
-                  "[1.0*B07+1.4*B09-0.1*B14,1.1*B05+1.4*B06-0.2*B14,2.6*B04-B14*0.6]",
+                  "[1.0*samples.B07+1.4*samples.B09-0.1*samples.B14,1.1*samples.B05+1.4*samples.B06-0.2*samples.B14,2.6*samples.B04-samples.B14*0.6]",
               chl: {
-                  flh: "B10-1.005*(B08+(B11-B08)*((0.681-0.665)/(0.708-0.665)))",
-                  rlh: "B11-B10-(B18-B10*((0.70875-0.68125)*1000.0))/((0.885-0.68125)*1000.0)",
-                  mci: "B11-((0.75375-0.70875)/(0.75375-0.68125))*B10-(1.0-(0.75375-0.70875)/(0.75375-0.68125))*B12",
+                  flh: "samples.B10-1.005*(samples.B08+(samples.B11-samples.B08)*((0.681-0.665)/(0.708-0.665)))",
+                  rlh: "samples.B11-samples.B10-(samples.B18-samples.B10*((0.70875-0.68125)*1000.0))/((0.885-0.68125)*1000.0)",
+                  mci: "samples.B11-((0.75375-0.70875)/(0.75375-0.68125))*samples.B10-(1.0-(0.75375-0.70875)/(0.75375-0.68125))*samples.B12",
               },
               tss: {
-                  b07: "B07",
-                  b11: "B11",
+                  b07: "samples.B07",
+                  b11: "samples.B11",
               },
               watermask: {
-                  ndwi: "(B06-B17)/(B06+B17)",
+                  ndwi: "(samples.B06-samples.B17)/(samples.B06+samples.B17)",
               },
           }
         : {
-              natural: "[2.5*B04,2.5*B03,2.5*B02]",
+              natural: "[2.5*samples.B04,2.5*samples.B03,2.5*samples.B02]",
               chl: {
-                  rlh: "B05-B04-(B07-B04*((0.705-0.665)*1000.0))/((0.783-0.665)*1000.0)",
-                  mci: "B05-((0.74-0.705)/(0.74-0.665))*B04-(1.0-(0.74-0.705)/(0.74-0.665))*B06",
+                  rlh: "samples.B05-samples.B04-(samples.B07-samples.B04*((0.705-0.665)*1000.0))/((0.783-0.665)*1000.0)",
+                  mci: "samples.B05-((0.74-0.705)/(0.74-0.665))*samples.B04-(1.0-(0.74-0.705)/(0.74-0.665))*samples.B06",
               },
               tss: {
-                  b05: "B05",
+                  b05: "samples.B05",
               },
               watermask: {
-                  ndwi: "(B03-B08)/(B03+B08)",
+                  ndwi: "(samples.B03-samples.B08)/(samples.B03+samples.B08)",
               },
           };
 }
@@ -154,10 +181,16 @@ function getColors(type, index, min, max, isSentinel3Flh) {
  *
  * @param {boolean} isSentinel3: is it Sentinel-3 or not (=Sentinel-2)
  */
-function isPureWater(isSentinel3) {
+function isPureWater(isSentinel3, samples) {
     return isSentinel3
-        ? B06 < 0.319 && B17 < 0.166 && B06 - B16 >= 0.027 && B20 - B21 < 0.021
-        : B03 < 0.319 && B8A < 0.166 && B03 - B07 >= 0.027 && B09 - B11 < 0.021;
+        ? samples.B06 < 0.319 &&
+              samples.B17 < 0.166 &&
+              samples.B06 - samples.B16 >= 0.027 &&
+              samples.B20 - samples.B21 < 0.021
+        : samples.B03 < 0.319 &&
+              samples.B8A < 0.166 &&
+              samples.B03 - samples.B07 >= 0.027 &&
+              samples.B09 - samples.B11 < 0.021;
 }
 
 /**
@@ -167,11 +200,15 @@ function isPureWater(isSentinel3) {
  * @param {number} limit: user defined cloud limit
  * @param {boolean} isSentinel3: is it Sentinel-3 or not (=Sentinel-2)
  */
-function isCloud(limit, isSentinel3) {
+function isCloud(limit, isSentinel3, samples) {
     const bRatio = isSentinel3
-        ? (B04 - 0.175) / (0.39 - 0.175)
-        : (B02 - 0.175) / (0.39 - 0.175);
-    return bRatio > 1 || (bRatio > 0 && (B04 - B06) / (B04 + B06) > limit);
+        ? (samples.B04 - 0.175) / (0.39 - 0.175)
+        : (samples.B02 - 0.175) / (0.39 - 0.175);
+    return (
+        bRatio > 1 ||
+        (bRatio > 0 &&
+            (samples.B04 - samples.B06) / (samples.B04 + samples.B06) > limit)
+    );
 }
 
 /**
@@ -180,7 +217,7 @@ function isCloud(limit, isSentinel3) {
  *
  * @param {String} s: input string to evaluate
  */
-function getEval(s) {
+function getEval(s, samples) {
     return eval(s);
 }
 
@@ -197,6 +234,7 @@ function isWater(
     waterMax,
     cloudMax,
     isSentinel3,
+    samples,
 ) {
     if (selectedWatermaskIndices.length === 0) {
         return true;
@@ -206,14 +244,14 @@ function isWater(
             const wm = selectedWatermaskIndices[i];
             if (
                 wm == "ndwi" &&
-                getEval(availableWatermaskIndices.ndwi) < waterMax
+                getEval(availableWatermaskIndices.ndwi, samples) < waterMax
             ) {
                 isItWater = false;
                 break;
-            } else if (wm == "hol" && !isPureWater(isSentinel3)) {
+            } else if (wm == "hol" && !isPureWater(isSentinel3, samples)) {
                 isItWater = false;
                 break;
-            } else if (wm == "bcy" && isCloud(cloudMax, isSentinel3)) {
+            } else if (wm == "bcy" && isCloud(cloudMax, isSentinel3, samples)) {
                 isItWater = false;
                 break;
             }
@@ -229,13 +267,13 @@ function isWater(
  * @param {Array<numer>} naturalIndex: natural color index
  * @param {number} opacity: background opacity from 0 to 1 (floating value)
  */
-function getBackground(background, naturalIndex, opacity) {
+function getBackground(background, naturalIndex, opacity, samples) {
     let backgroundLayer;
     let isRgb = false;
     const alpha = parseInt(opacity * 100);
     // Default should be the natural layer
     if (background === "default" || background === "natural") {
-        backgroundLayer = getEval(naturalIndex);
+        backgroundLayer = getEval(naturalIndex, samples);
         isRgb = true;
     } else if (background === "black") {
         // Black background
@@ -250,7 +288,12 @@ function getBackground(background, naturalIndex, opacity) {
     // Only calculate alpha is really needed
     return isRgb || opacity === 1
         ? backgroundLayer
-        : blend(backgroundLayer, getEval(naturalIndex), alpha, 100 - alpha);
+        : blend(
+              backgroundLayer,
+              getEval(naturalIndex, samples),
+              alpha,
+              100 - alpha,
+          );
 }
 
 /**
@@ -261,11 +304,17 @@ function getBackground(background, naturalIndex, opacity) {
  * @param {*} naturalIndex: natural layer
  * @param {*} opacity: foreground opacity from 0 to 1 (floating value)
  */
-function getForeground(foreground, backgroundLayer, naturalIndex, opacity) {
+function getForeground(
+    foreground,
+    backgroundLayer,
+    naturalIndex,
+    opacity,
+    samples,
+) {
     let layer;
     const alpha = parseInt(opacity * 100);
     if (foreground === "natural") {
-        layer = getEval(naturalIndex);
+        layer = getEval(naturalIndex, samples);
     } else {
         layer = getStaticColor(foreground);
     }
@@ -288,15 +337,13 @@ function getStaticColor(colorArray) {
  *
  * @param {Object} params: user defined parameters
  */
-function getValue(params) {
+function getValue(params, samples) {
     let chlIndex, chlLayer, tssIndex, tssLayer, tssAlpha;
     const chl = params.chlIndex;
     const tss = params.tssIndex;
     const background = params.background;
     const foreground = params.foreground;
     const foregroundOpacity = params.foregroundOpacity;
-    // Decide whether the data is Sentinel-3 (otherwise it is assumed to be Sentinel-2)
-    const isSentinel3 = typeof B18 !== "undefined";
     // Get the indices that could potentially be used
     const indices = getIndices(isSentinel3);
     // Define background layer
@@ -304,35 +351,50 @@ function getValue(params) {
         background,
         indices.natural,
         params.backgroundOpacity,
+        samples,
     );
     // Decide whether the pixel can be assumed as water
     // Return background layer if it is not water
-    if (
-        !isWater(
-            indices.watermask,
-            params.watermaskIndices,
-            params.waterMax,
-            params.cloudMax,
-            isSentinel3,
-        )
-    ) {
-        return backgroundLayer;
+    const waterMask = !isWater(
+        indices.watermask,
+        params.watermaskIndices,
+        params.waterMax,
+        params.cloudMax,
+        isSentinel3,
+        samples,
+    );
+    const dummyOut = Array(nOut).fill(NaN);
+    if (waterMask) {
+        return {
+            default: backgroundLayer,
+            index: dummyOut,
+            browserStats: dummyOut.concat(0),
+            dataMask: [0],
+        };
     }
     // Return a static color if set so with opacity
     if (foreground !== "default") {
-        return getForeground(
-            foreground,
-            backgroundLayer,
-            indices.natural,
-            foregroundOpacity,
-        );
+        return {
+            default: getForeground(
+                foreground,
+                backgroundLayer,
+                indices.natural,
+                foregroundOpacity,
+                samples,
+            ),
+            index: dummyOut,
+            browserStats: dummyOut.concat(0),
+            dataMask: [0],
+        };
     }
     let value;
+    let outIndices = [];
     // Define the chlorophyll layer if needed
     if (chl !== null) {
         // In case of 'default' set proper algorighm
         const alg = chl === "default" ? (isSentinel3 ? "flh" : "mci") : chl;
-        chlIndex = getEval(indices.chl[alg]);
+        chlIndex = getEval(indices.chl[alg], samples);
+        outIndices.push(chlIndex);
         chlLayer = getColors(
             "chl",
             chlIndex,
@@ -345,7 +407,8 @@ function getValue(params) {
     if (tss !== null) {
         // In case of 'default' set proper algorighm
         const alg = tss === "default" ? (isSentinel3 ? "b11" : "b05") : tss;
-        tssIndex = getEval(indices.tss[alg]);
+        tssIndex = getEval(indices.tss[alg], samples);
+        outIndices.push(tssIndex);
         tssLayer = getColors("tss", tssIndex, params.tssMin, params.tssMax);
         tssAlpha = getAlpha(tssIndex, params.tssMin, params.tssMax);
     }
@@ -367,9 +430,25 @@ function getValue(params) {
     }
     // Return foreground (with opacity if needed on top of background)
     const foregroundAlpha = parseInt(foregroundOpacity * 100);
-    return foregroundOpacity === 1
-        ? value
-        : blend(value, backgroundLayer, foregroundAlpha, 100 - foregroundAlpha);
+    const imgVals =
+        foregroundOpacity === 1
+            ? value
+            : blend(
+                  value,
+                  backgroundLayer,
+                  foregroundAlpha,
+                  100 - foregroundAlpha,
+              );
+    return {
+        default: imgVals,
+        index: outIndices,
+        browserStats: outIndices.concat(
+            isCloud(params.cloudMax, isSentinel3, samples),
+        ),
+        dataMask: [samples.dataMask],
+    };
 }
 
-return getValue(PARAMS);
+function evaluatePixel(samples) {
+    return getValue(PARAMS, samples);
+}

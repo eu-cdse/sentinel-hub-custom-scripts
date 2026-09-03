@@ -13,7 +13,6 @@ const srcFile = "./src/script.js";
 const dstFile = "./" + distfolder + "/script.min.js";
 const tempFile = "./" + distfolder + "/script.tmp.js";
 const lr = new LineReader(srcFile, { encoding: "utf8" });
-const returnText = "return getValue(PARAMS);";
 var writeThis = false;
 const paramLines = [];
 const lines = [];
@@ -25,7 +24,7 @@ lr.on("line", function (lineno, line) {
     if (writeThis === false) {
         paramLines.push(line);
     }
-    if (writeThis && line.trim() !== returnText && line.trim().length > 0) {
+    if (writeThis && line.trim().length > 0) {
         lines.push(line);
     }
 });
@@ -51,8 +50,7 @@ function doMinify() {
             paramLines.forEach(function (line) {
                 finalContent = finalContent + os.EOL + line;
             });
-            finalContent =
-                finalContent + os.EOL + minified + returnText + os.EOL;
+            finalContent = finalContent + os.EOL + minified + os.EOL;
             fs.writeFile(dstFile, finalContent, function (err) {
                 if (err) {
                     return console.log(err);

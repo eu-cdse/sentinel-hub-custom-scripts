@@ -49,14 +49,14 @@ The index was trained on synthetic data with the following restrictions to
 limit uncertainty due to extreme cases:
 
 1. Concentration of non-algal particles (Cnap) < 10 ug/L
-2. Absorption due to coloured dissolved organic matter (CDOM) < 3 m<sup>-1</sup>
+2. Absorption due to coloured dissolved organic matter (CDOM) < 3 m^-1^
 3. Chl-a concentrations less than 500 ug/L
 4. Only cyanobacteria _M. aeruginosa_ used in training.
 
 This resulting in 9836 samples, which were separated into a training dataset
 of 7868 samples (80%) and a dataset to test the predictive capability of the
 model of 1968 samples (20%). An exponential model resulted in the best fit on
-the training data (eq. 2) based on Pearson correlation coefficient (R<sup>2</sup>=0.52),
+the training data (eq. 2) based on Pearson correlation coefficient (R^2^=0.52),
 with predictive statistics shown in the figure below.
 
 $Chl-a = 17.441e(4.7038*NDCI)$ (2)

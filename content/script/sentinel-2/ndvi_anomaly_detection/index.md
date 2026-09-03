@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
-resolutions: ["10m"]
+resolutions: ["10m","20m"]
 ---
 
 ## General description of the script
