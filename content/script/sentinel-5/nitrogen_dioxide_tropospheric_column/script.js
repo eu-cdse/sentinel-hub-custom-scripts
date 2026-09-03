@@ -3,32 +3,39 @@
 // Author: Annamaria Luongo (Twitter: @annamaria_84, www.linkedin.com/in/annamaria-luongo-RS)
 // CC BY 4.0 International - https://creativecommons.org/licenses/by/4.0/
 
-const values = [2.5 * 1e-5, 5 * 1e-5, 7.5 * 1e-5, 1 * 1e-4, 2.5 * 1e-4, 5 * 1e-4]; //value of NO2 in mol/m2
+const values = [
+    2.5 * 1e-5,
+    5 * 1e-5,
+    7.5 * 1e-5,
+    1 * 1e-4,
+    2.5 * 1e-4,
+    5 * 1e-4,
+]; //value of NO2 in mol/m2
 const colors = [
-  [64 / 255, 27 / 255, 134 / 255], //  -> 2.5*1e-5 = #401B86
-  [37 / 255, 70 / 255, 201 / 255], //  -> 5.0*1e-5 = #2546C9
-  [42 / 255, 212 / 255, 36 / 255], //  -> 7.5*1e-5 = #2AD424
-  [240 / 255, 236 / 255, 37 / 255], //  -> 1.0*1e-4 = #F0EC25
-  [240 / 255, 117 / 255, 55 / 255], //  -> 2.5*1e-4 = #F07537
-  [219 / 255, 58 / 255, 76 / 255], //  -> 5.0*1e-4 = #DB3A4C
+    [64 / 255, 27 / 255, 134 / 255], //  -> 2.5*1e-5 = #401B86
+    [37 / 255, 70 / 255, 201 / 255], //  -> 5.0*1e-5 = #2546C9
+    [42 / 255, 212 / 255, 36 / 255], //  -> 7.5*1e-5 = #2AD424
+    [240 / 255, 236 / 255, 37 / 255], //  -> 1.0*1e-4 = #F0EC25
+    [240 / 255, 117 / 255, 55 / 255], //  -> 2.5*1e-4 = #F07537
+    [219 / 255, 58 / 255, 76 / 255], //  -> 5.0*1e-4 = #DB3A4C
 ];
 
 function setup() {
-  return {
-    input: ["NO2", "dataMask"],
-    output: [
-      { id: "default", bands: 4 },
-      { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["NO2", "dataMask"],
+        output: [
+            { id: "default", bands: 4 },
+            { id: "eobrowserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 function evaluatePixel(sample) {
-  const [r, g, b] = colorBlend(sample["NO2"], values, colors);
-  return {
-    default: [r, g, b, sample.dataMask],
-    eobrowserStats: [sample["NO2"]],
-    dataMask: [sample.dataMask],
-  };
+    const [r, g, b] = colorBlend(sample["NO2"], values, colors);
+    return {
+        default: [r, g, b, sample.dataMask],
+        eobrowserStats: [sample["NO2"]],
+        dataMask: [sample.dataMask],
+    };
 }

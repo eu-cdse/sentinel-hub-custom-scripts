@@ -53,14 +53,14 @@ function evaluatePixel(samples, scenes) {
 }
 
 function preProcessScenes(collections) {
-    collections.scenes.orbits = collections.scenes.orbits.filter(function (
-        orbit
-    ) {
-        var orbitDateFrom = new Date(orbit.dateFrom);
-        return (
-            orbitDateFrom.getTime() >=
-            collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
-        );
-    });
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
+            );
+        },
+    );
     return collections;
 }

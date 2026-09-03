@@ -3,56 +3,56 @@
 //Author: Monja B. Šebela
 
 function setup() {
-  return {
-    input: [
-      { datasource: "S3OLCI", bands: ["B04", "B06", "B08"] },
-      { datasource: "S5PL2", bands: ["CLOUD_TOP_PRESSURE"] },
-    ],
-    output: [
-      { id: "default", bands: 3, sampleType: SampleType.AUTO },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
-    ],
-  };
+    return {
+        input: [
+            { datasource: "S3OLCI", bands: ["B04", "B06", "B08"] },
+            { datasource: "S5PL2", bands: ["CLOUD_TOP_PRESSURE"] },
+        ],
+        output: [
+            { id: "default", bands: 3, sampleType: SampleType.AUTO },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+        ],
+    };
 }
 
 function evaluatePixel(samples) {
-  var S5 = samples.S5PL2[0];
-  var S3 = samples.S3OLCI[0];
-  var CLOUD_TOP_PRESSURE = S5.CLOUD_TOP_PRESSURE;
-  //CLOUD_TOP_PRESSURE visualization
-  var minVal = 10000.0;
-  var maxVal = 110000.0;
-  var diff = maxVal - minVal;
-  var limits = [
-    minVal,
-    minVal + 0.125 * diff,
-    minVal + 0.375 * diff,
-    minVal + 0.625 * diff,
-    minVal + 0.875 * diff,
-    maxVal,
-  ];
-  var colors = [
-    [0, 0, 0.5],
-    [0, 0, 1],
-    [0, 1, 1],
-    [1, 1, 0],
-    [1, 0, 0],
-    [0.5, 0, 0],
-  ];
-  //End of CLOUD_TOP_PRESSURE visualization
-  if (CLOUD_TOP_PRESSURE > 0) {
+    var S5 = samples.S5PL2[0];
+    var S3 = samples.S3OLCI[0];
+    var CLOUD_TOP_PRESSURE = S5.CLOUD_TOP_PRESSURE;
+    //CLOUD_TOP_PRESSURE visualization
+    var minVal = 10000.0;
+    var maxVal = 110000.0;
+    var diff = maxVal - minVal;
+    var limits = [
+        minVal,
+        minVal + 0.125 * diff,
+        minVal + 0.375 * diff,
+        minVal + 0.625 * diff,
+        minVal + 0.875 * diff,
+        maxVal,
+    ];
+    var colors = [
+        [0, 0, 0.5],
+        [0, 0, 1],
+        [0, 1, 1],
+        [1, 1, 0],
+        [1, 0, 0],
+        [0.5, 0, 0],
+    ];
+    //End of CLOUD_TOP_PRESSURE visualization
+    if (CLOUD_TOP_PRESSURE > 0) {
+        return {
+            default: colorBlend(CLOUD_TOP_PRESSURE, limits, colors),
+            index: [CLOUD_TOP_PRESSURE],
+            browserStats: [CLOUD_TOP_PRESSURE],
+        };
+    }
     return {
-      default: colorBlend(CLOUD_TOP_PRESSURE, limits, colors),
-      index: [CLOUD_TOP_PRESSURE],
-      browserStats: [CLOUD_TOP_PRESSURE],
+        default: [S3.B08 * 3, S3.B06 * 3, S3.B04 * 3.5],
+        index: [CLOUD_TOP_PRESSURE],
+        browserStats: [CLOUD_TOP_PRESSURE],
     };
-  }
-  return {
-    default: [S3.B08 * 3, S3.B06 * 3, S3.B04 * 3.5],
-    index: [CLOUD_TOP_PRESSURE],
-    browserStats: [CLOUD_TOP_PRESSURE],
-  };
 }
 
 /*To replace the CLOUD_TOP_PRESSURE product with other products, replace all "CLOUD_TOP_PRESSURE" mentions in the script with the other available products: 

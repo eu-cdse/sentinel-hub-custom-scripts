@@ -11,13 +11,16 @@ verification: ["cites literature"]
 ## General description of the script
 
 ### Script Introduction
+
 This code was developed at Onera as part of the MEDUSA project. It is a visualization of a stack of SAR images highlighting change detection. Exploiting the HSV, it focuses on the temporal dimension for calculation and does not rely on any spatial computation. For this project, Sentinel-1 IW VV-VH images were used. The orbit was also fixed whether to ASCENDING or to DESCENDING when manipulating time-series. Its ultimate objective is to synthesize activity information embedded into a temporal data profile, all within a single colored image, emphasizing the presence or absence of significant change in bright colors.
 
 ### Intents & Motivations
+
 Difficult to interpret because of their geometry and speckle noise, SAR images are however very useful and effective in change detection. Until the advent of Sentinel-1 data from the Copernicus program, access to temporal stacks of data was scarce, and most algorithms focused on the spatial component of images. The recent context of big data opens many possibilities for SAR image processing, and one of the most remarkable is the access and the analysis of time-series.
 Exploiting the time dimension can be useful for filtering speckle noise. Indeed, in the absence of change, we have access, in a single pixel, to N realizations of a random signal.
 In the algorithm proposed here, we wish not only to improve the signal-to-noise ratio, but also to detect all the pixels for which a change occurred between the first and the last observation date. These generic changes can be either short changes in time (e.g. boats) or longer/permanent changes (e.g. a construction site).
 The REACTIV algorithm can display insights in different circumstances, such as monitoring of:
+
 - port areas, for highlighting maritime shipping routes;
 - urban areas, for the observation of city sprawl;
 - environment, to quickly map changes in forest cover;
@@ -60,7 +63,7 @@ In this Shanghai Port image, and thanks to the REACTIV method, maritime routes a
 
 2. Vegetation monitoring: Shanghai Wetlands
 
-Situated close to the Chongming Dongtan birds national nature reserve in Shanghai, the Shanghai wetlands are a very distinct ecosystem that is usually flooded with water on seasonal occasions, inducing huge variability in its environment and in its dielectric properties, crucial for SAR imagery. This variability is expected to be found and to be localised. As we can see this picture, we do have change being detected cohesively across the different subsurfaces of wetland. This is manifested by regions portrayed as green for some and pink for others. 
+Situated close to the Chongming Dongtan birds national nature reserve in Shanghai, the Shanghai wetlands are a very distinct ecosystem that is usually flooded with water on seasonal occasions, inducing huge variability in its environment and in its dielectric properties, crucial for SAR imagery. This variability is expected to be found and to be localised. As we can see this picture, we do have change being detected cohesively across the different subsurfaces of wetland. This is manifested by regions portrayed as green for some and pink for others.
 When checking the Hue range, we notice that green is located around the first third of the time interval, meaning around the end of 2018 while the pink values are located at the end of the interval, meaning the end of 2020. These similar yearly periods show how the REACTIV method successfully captured a seasonal and periodical event within the Shanghai wetlands.
 
 ![Vegetation monitoring: Shanghai Wetlands](fig/shanghai_wetland.png)

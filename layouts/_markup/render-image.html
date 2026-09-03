@@ -2,7 +2,7 @@
 {{- $height := index .Attributes "height" -}}
 {{- $align := index .Attributes "align" -}}
 
-<div style="display: flex; justify-content: {{ with $align}}{{.}}{{ end}};">
+<div style="display: flex; {{ with $align}}justify-content: {{.}}{{ end }};">
 	<img
 		src="{{ .Destination | safeURL }}"
 		alt="{{ .Text }}"

@@ -16,27 +16,27 @@ function setup() {
             { id: "default", bands: 4 },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
             { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
-            { id: "dataMask", bands: 1 }
-        ]
+            { id: "dataMask", bands: 1 },
+        ],
     };
 }
 
 var water_threshold = 10; // Lower means more water
 const rvi_min = -0.1; // Lower limit of the color ramp
-const rvi_max = 1;   // Upper limit of the color ramp
-const num_steps = 9;  // Number of steps in the ramp
+const rvi_max = 1; // Upper limit of the color ramp
+const num_steps = 9; // Number of steps in the ramp
 
 // Define the colors for the ramp from light sand brown to deep fir green
 const colors = [
     [0.93, 0.91, 0.71], // Light sand brown
     [0.87, 0.85, 0.61], // Sandy beige
-    [0.8, 0.78, 0.51],  // Light tan
+    [0.8, 0.78, 0.51], // Light tan
     [0.74, 0.72, 0.42], // Golden brown
     [0.69, 0.76, 0.38], // Olive green
-    [0.64, 0.8, 0.35],  // Light moss green
+    [0.64, 0.8, 0.35], // Light moss green
     [0.57, 0.75, 0.32], // Moss green
-    [0.5, 0.7, 0.28],   // Forest green
-    [0.38, 0.59, 0.21]  // Deep fir green
+    [0.5, 0.7, 0.28], // Forest green
+    [0.38, 0.59, 0.21], // Deep fir green
 ];
 
 // Generate the ramp dynamically
@@ -65,7 +65,7 @@ function evaluatePixel(samples) {
             default: [0.7, 0.8, 0.9, 1.0], // Water color (light greyish blue)
             index: [rvi],
             browserStats: [rvi],
-            dataMask: [dataMask]
+            dataMask: [dataMask],
         };
     } else {
         // Get the color from the ramp
@@ -74,7 +74,7 @@ function evaluatePixel(samples) {
             default: color.concat([dataMask]),
             index: [rvi],
             browserStats: [rvi],
-            dataMask: [dataMask]
+            dataMask: [dataMask],
         };
     }
 }

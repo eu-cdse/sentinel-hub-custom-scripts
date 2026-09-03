@@ -12,17 +12,14 @@ function evaluatePixel(samples) {
 }
 
 function setup() {
-  return {
-    input: [{
-      bands: [
-        "S3",
-        "S2",
-        "S1",
-        "dataMask"
-      ]
-    }],
-    output: {
-      bands: 4
-    }
-  }
+    return {
+        input: [
+            {
+                bands: ["S3", "S2", "S1", "dataMask"],
+            },
+        ],
+        output: {
+            bands: 4,
+        },
+    };
 }

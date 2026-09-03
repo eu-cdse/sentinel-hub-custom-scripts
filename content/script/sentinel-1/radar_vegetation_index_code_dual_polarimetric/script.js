@@ -18,8 +18,8 @@ function setup() {
             { id: "default", bands: 4 },
             { id: "index", bands: 1, sampleType: "FLOAT32" },
             { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
-            { id: "dataMask", bands: 1 }
-        ]
+            { id: "dataMask", bands: 1 },
+        ],
     };
 }
 
@@ -40,6 +40,6 @@ function evaluatePixel(samples) {
         default: [val, val, val, samples.dataMask],
         index: [indexVal],
         browserStats: [rvi],
-        dataMask: [samples.dataMask]
+        dataMask: [samples.dataMask],
     };
 }

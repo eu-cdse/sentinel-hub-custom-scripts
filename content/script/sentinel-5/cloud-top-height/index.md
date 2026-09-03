@@ -9,6 +9,7 @@ resolution: ["7km"]
 ---
 
 ## Description
+
 This script visualizes Sentinel 5P top height product (height of a cloud top in meters).
 
 ## Description of representative images

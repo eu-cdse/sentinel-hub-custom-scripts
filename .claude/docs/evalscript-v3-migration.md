@@ -28,12 +28,12 @@ original looks wrong, say so and ask — changing it is a separate request.
 
 Look at the first line and at how bands are referenced.
 
-| Signal | Version | Notes |
-| --- | --- | --- |
-| No pragma, bare band globals (`B04`), top-level `return` | **V1** | The bulk of legacy scripts |
-| `setup(dss)` calling `setInputComponents()` / `setOutputComponentCount()` | **V1** | The "function form" of V1 |
-| `//VERSION=2`, `setup(ds)` returning `{ components: [...], output: [...] }` | **V2** | Structurally close to V3 |
-| `//VERSION=3` on line 1, `setup()` returning `{ input, output }` | **V3** | Nothing to do |
+| Signal                                                                      | Version | Notes                      |
+| --------------------------------------------------------------------------- | ------- | -------------------------- |
+| No pragma, bare band globals (`B04`), top-level `return`                    | **V1**  | The bulk of legacy scripts |
+| `setup(dss)` calling `setInputComponents()` / `setOutputComponentCount()`   | **V1**  | The "function form" of V1  |
+| `//VERSION=2`, `setup(ds)` returning `{ components: [...], output: [...] }` | **V2**  | Structurally close to V3   |
+| `//VERSION=3` on line 1, `setup()` returning `{ input, output }`            | **V3**  | Nothing to do              |
 
 ### V1, statement form
 
@@ -46,7 +46,7 @@ per-pixel function, and bands are global variables.
 Author of the script: Kamil Onoszko
 */
 
-return [VV*3,VH*8,VH*3]
+return [VV * 3, VH * 8, VH * 3];
 ```
 
 ### V1, function form
@@ -77,10 +77,10 @@ function setup(ds) {
     return {
         components: [ds.B01, ds.B02, ds.B03],
         output: [
-            { id: "B01", sampleType: SampleType.UINT16, componentCount: 1 }
+            { id: "B01", sampleType: SampleType.UINT16, componentCount: 1 },
         ],
         temporal: true,
-        mosaicking: Mosaicking.TILE
+        mosaicking: Mosaicking.TILE,
     };
 }
 
@@ -91,15 +91,15 @@ function evaluatePixel(samples) {
 
 V2 → V3 is a rename job, not a restructure:
 
-| V2 | V3 |
-| --- | --- |
-| `setup(ds)` | `setup()` — no parameter |
-| `components: [ds.B01, ds.B02]` | `input: ["B01", "B02"]` |
-| `componentCount: 1` | `bands: 1` |
+| V2                              | V3                                                    |
+| ------------------------------- | ----------------------------------------------------- |
+| `setup(ds)`                     | `setup()` — no parameter                              |
+| `components: [ds.B01, ds.B02]`  | `input: ["B01", "B02"]`                               |
+| `componentCount: 1`             | `bands: 1`                                            |
 | `sampleType: SampleType.UINT16` | `sampleType: "UINT16"` (the enum still works, see §6) |
-| `temporal: true` | delete — implied by `mosaicking` |
-| `mosaicking: Mosaicking.TILE` | unchanged (or the string `"TILE"`) |
-| `evaluatePixel` body | unchanged |
+| `temporal: true`                | delete — implied by `mosaicking`                      |
+| `mosaicking: Mosaicking.TILE`   | unchanged (or the string `"TILE"`)                    |
+| `evaluatePixel` body            | unchanged                                             |
 
 Worked example: `custom-scripts/sentinel-2/s2gm/script.js` in commit `6354dbb4`.
 
@@ -114,15 +114,20 @@ Two shapes cover nearly every script in the catalogue.
 ```javascript
 //VERSION=3
 function setup() {
-  return {
-    input: ["B02", "B03", "B04", "dataMask"],
-    output: { bands: 4 }
-  };
+    return {
+        input: ["B02", "B03", "B04", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 
 function evaluatePixel(sample) {
-  let gain = 2.5;
-  return [sample.B04 * gain, sample.B03 * gain, sample.B02 * gain, sample.dataMask];
+    let gain = 2.5;
+    return [
+        sample.B04 * gain,
+        sample.B03 * gain,
+        sample.B02 * gain,
+        sample.dataMask,
+    ];
 }
 ```
 
@@ -133,28 +138,29 @@ function evaluatePixel(sample) {
 ```javascript
 //VERSION=3
 function setup() {
-  return {
-    input: ["B10", "B11", "B12", "dataMask"],
-    output: [
-      { id: "default", bands: 4 },
-      { id: "index", bands: 1, sampleType: "FLOAT32" },
-      { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
-      { id: "dataMask", bands: 1 },
-    ],
-  };
+    return {
+        input: ["B10", "B11", "B12", "dataMask"],
+        output: [
+            { id: "default", bands: 4 },
+            { id: "index", bands: 1, sampleType: "FLOAT32" },
+            { id: "browserStats", bands: 1, sampleType: "FLOAT32" },
+            { id: "dataMask", bands: 1 },
+        ],
+    };
 }
 
 const visualizer = new ColorRampVisualizer(map);
 
 function evaluatePixel(samples) {
-  let OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
-  const indexVal = samples.dataMask === 1 && OTCI >= -10 && OTCI <= 10 ? OTCI : NaN;
-  return {
-    default: [...visualizer.process(OTCI), samples.dataMask],
-    index: [indexVal],
-    browserStats: [indexVal],
-    dataMask: [samples.dataMask],
-  };
+    let OTCI = (samples.B12 - samples.B11) / (samples.B11 - samples.B10);
+    const indexVal =
+        samples.dataMask === 1 && OTCI >= -10 && OTCI <= 10 ? OTCI : NaN;
+    return {
+        default: [...visualizer.process(OTCI), samples.dataMask],
+        index: [indexVal],
+        browserStats: [indexVal],
+        dataMask: [samples.dataMask],
+    };
 }
 ```
 
@@ -184,10 +190,10 @@ but drop the parenthetical when you touch such a file.
 
 ```javascript
 function setup() {
-  return {
-    input: ["VV", "VH", "dataMask"],
-    output: { bands: 4 }
-  };
+    return {
+        input: ["VV", "VH", "dataMask"],
+        output: { bands: 4 },
+    };
 }
 ```
 
@@ -311,7 +317,7 @@ no-data pixels render as whatever colour 0 maps to instead of being transparent.
 Two idioms for appending, both common: `imgVals.concat(sample.dataMask)` and
 `[...imgVals, sample.dataMask]`.
 
-Under OGC (WMS/WMTS/WCS), `TRANSPARENCY` and `BGCOLOR` are ignored, so `dataMask` is the *only*
+Under OGC (WMS/WMTS/WCS), `TRANSPARENCY` and `BGCOLOR` are ignored, so `dataMask` is the _only_
 way to get transparency. And transparency only survives in PNG and TIFF — JPEG has no alpha
 channel.
 
@@ -328,11 +334,35 @@ wrapper and the `samples.` prefixes changed.
 ```javascript
 // Sentinel-3 OLCI - Tristimulus
 
-var red = Math.log(1.0 + 0.01 * B01 + 0.09 * B02+ 0.35 * B03 + 0.04 * B04 + 0.01 * B05 + 0.59 * B06 + 0.85 * B07 + 0.12 * B08 + 0.07 * B09 + 0.04 * B10);
-var green= Math.log(1.0 + 0.26 * B03 + 0.21 *B04 + 0.50 * B05 + B06 + 0.38 * B07 + 0.04 * B08 + 0.03 * B09 + 0.02 * B10);
-var blue= Math.log(1.0 + 0.07 * B01 + 0.28 * B02 + 1.77 * B03 + 0.47 * B04 + 0.16 * B05);
+var red = Math.log(
+    1.0 +
+        0.01 * B01 +
+        0.09 * B02 +
+        0.35 * B03 +
+        0.04 * B04 +
+        0.01 * B05 +
+        0.59 * B06 +
+        0.85 * B07 +
+        0.12 * B08 +
+        0.07 * B09 +
+        0.04 * B10,
+);
+var green = Math.log(
+    1.0 +
+        0.26 * B03 +
+        0.21 * B04 +
+        0.5 * B05 +
+        B06 +
+        0.38 * B07 +
+        0.04 * B08 +
+        0.03 * B09 +
+        0.02 * B10,
+);
+var blue = Math.log(
+    1.0 + 0.07 * B01 + 0.28 * B02 + 1.77 * B03 + 0.47 * B04 + 0.16 * B05,
+);
 
-return [red,green,blue];
+return [red, green, blue];
 ```
 
 **After**
@@ -342,30 +372,70 @@ return [red,green,blue];
 // Sentinel-3 OLCI - Tristimulus
 
 function setup() {
-  return {
-    input: ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10"],
-    output: { bands: 3 }
-  };
+    return {
+        input: [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10",
+        ],
+        output: { bands: 3 },
+    };
 }
 
 function evaluatePixel(samples) {
-  var red = Math.log(1.0 + 0.01 * samples.B01 + 0.09 * samples.B02 + 0.35 * samples.B03 + 0.04 * samples.B04 + 0.01 * samples.B05 + 0.59 * samples.B06 + 0.85 * samples.B07 + 0.12 * samples.B08 + 0.07 * samples.B09 + 0.04 * samples.B10);
-  var green = Math.log(1.0 + 0.26 * samples.B03 + 0.21 * samples.B04 + 0.50 * samples.B05 + samples.B06 + 0.38 * samples.B07 + 0.04 * samples.B08 + 0.03 * samples.B09 + 0.02 * samples.B10);
-  var blue = Math.log(1.0 + 0.07 * samples.B01 + 0.28 * samples.B02 + 1.77 * samples.B03 + 0.47 * samples.B04 + 0.16 * samples.B05);
+    var red = Math.log(
+        1.0 +
+            0.01 * samples.B01 +
+            0.09 * samples.B02 +
+            0.35 * samples.B03 +
+            0.04 * samples.B04 +
+            0.01 * samples.B05 +
+            0.59 * samples.B06 +
+            0.85 * samples.B07 +
+            0.12 * samples.B08 +
+            0.07 * samples.B09 +
+            0.04 * samples.B10,
+    );
+    var green = Math.log(
+        1.0 +
+            0.26 * samples.B03 +
+            0.21 * samples.B04 +
+            0.5 * samples.B05 +
+            samples.B06 +
+            0.38 * samples.B07 +
+            0.04 * samples.B08 +
+            0.03 * samples.B09 +
+            0.02 * samples.B10,
+    );
+    var blue = Math.log(
+        1.0 +
+            0.07 * samples.B01 +
+            0.28 * samples.B02 +
+            1.77 * samples.B03 +
+            0.47 * samples.B04 +
+            0.16 * samples.B05,
+    );
 
-  return [red, green, blue];
+    return [red, green, blue];
 }
 ```
 
 Other useful pairs to read side by side:
 
-| Case | Before (upstream `custom-scripts`) | After (this repo `content/script`) |
-| --- | --- | --- |
-| Boolean band expression, `dataMask` as a V1 global | `sentinel-1/urban_areas/script.js` | `sentinel-1/urban_areas/script.js` |
-| Top-level helpers preserved | `sentinel-1/sar-ice/script.js` | `sentinel-1/sar-ice/script.js` |
-| `colorBlend` + early returns, four return paths | `sentinel-3/vegetation_monitoring_masks/script.js` | same path |
-| `colorBlend` → `ColorRampVisualizer` + multi-output | `sentinel-3/otci/script.js` | same path |
-| Local aliases, mutable top-level state | `sentinel-3/enhanced_true_color-2/script.js` | same path |
+| Case                                                | Before (upstream `custom-scripts`)                 | After (this repo `content/script`) |
+| --------------------------------------------------- | -------------------------------------------------- | ---------------------------------- |
+| Boolean band expression, `dataMask` as a V1 global  | `sentinel-1/urban_areas/script.js`                 | `sentinel-1/urban_areas/script.js` |
+| Top-level helpers preserved                         | `sentinel-1/sar-ice/script.js`                     | `sentinel-1/sar-ice/script.js`     |
+| `colorBlend` + early returns, four return paths     | `sentinel-3/vegetation_monitoring_masks/script.js` | same path                          |
+| `colorBlend` → `ColorRampVisualizer` + multi-output | `sentinel-3/otci/script.js`                        | same path                          |
+| Local aliases, mutable top-level state              | `sentinel-3/enhanced_true_color-2/script.js`       | same path                          |
 
 ---
 
@@ -382,8 +452,8 @@ After the wrapper is added, the same line accumulates across the whole image.
 `enhanced_true_color-2` hit this. V1 had:
 
 ```javascript
-var saturation = 0.00;
-saturation = saturation * (-1);   // ran once per pixel in V1
+var saturation = 0.0;
+saturation = saturation * -1; // ran once per pixel in V1
 ```
 
 Moving that line into `evaluatePixel` while leaving `saturation` at top level would flip its
@@ -459,7 +529,7 @@ conversion produced a blank/saturated image". See §6.
 ### 5.7 Single-band output is not a colour ramp
 
 A V1 script ending in `return [index]` produced a coloured image in the Playground because the
-*layer*, not the script, applied a ramp. A V3 `output: { bands: 1 }` is a one-channel raster.
+_layer_, not the script, applied a ramp. A V3 `output: { bands: 1 }` is a one-channel raster.
 The repo convention is to make the ramp explicit in the script: a 3- or 4-band `default` built
 with a `ColorRampVisualizer`, plus a separate 1-band `FLOAT32` `index` output for the raw value
 (§7). Compare `custom-scripts/sentinel-2/savi/script.js` (4-band, ramped) with
@@ -484,14 +554,14 @@ in `input`. Same for `SCL`, `CLD`, `SNW`, `AOT` and the angle bands.
 
 ## 6. `sampleType` and value ranges
 
-| sampleType | Range |
-| --- | --- |
+| sampleType       | Range                                                            |
+| ---------------- | ---------------------------------------------------------------- |
 | `AUTO` (default) | 0–1, stretched to [0, 255] as UINT8; out-of-range values clamped |
-| `INT8` | −128 to 127 |
-| `UINT8` | 0 to 255 |
-| `INT16` | −32768 to 32767 |
-| `UINT16` | 0 to 65535 |
-| `FLOAT32` | effectively unlimited |
+| `INT8`           | −128 to 127                                                      |
+| `UINT8`          | 0 to 255                                                         |
+| `INT16`          | −32768 to 32767                                                  |
+| `UINT16`         | 0 to 65535                                                       |
+| `FLOAT32`        | effectively unlimited                                            |
 
 Floats returned for integer types are rounded and clamped for you (40.6 → 41; 310 → 255 under
 `UINT8`).
@@ -515,12 +585,12 @@ Consequences when converting:
 
 Once `output` is an array, `evaluatePixel` must return an **object keyed by output id**.
 
-| output id | bands | sampleType | purpose |
-| --- | --- | --- | --- |
-| `default` | 3 or 4 | `AUTO` | the RGB(A) visualization drawn on the map |
-| `index` | 1 | `FLOAT32` | raw value — the on-click readout and the histogram |
-| `browserStats` | 1 | `FLOAT32` | raw value — the time series; `NaN` where masked |
-| `dataMask` | 1 | | 1 = valid pixel, 0 = no data |
+| output id      | bands  | sampleType | purpose                                            |
+| -------------- | ------ | ---------- | -------------------------------------------------- |
+| `default`      | 3 or 4 | `AUTO`     | the RGB(A) visualization drawn on the map          |
+| `index`        | 1      | `FLOAT32`  | raw value — the on-click readout and the histogram |
+| `browserStats` | 1      | `FLOAT32`  | raw value — the time series; `NaN` where masked    |
+| `dataMask`     | 1      |            | 1 = valid pixel, 0 = no data                       |
 
 - `default` is required, and OGC requests return **only** this output.
 - Do not confuse this output id with the `default:` key in the `index.md` front matter. They are
@@ -555,11 +625,11 @@ masking), not a pattern to reproduce. One script, several outputs, one copy of t
 
 `setup().mosaicking` defaults to `SIMPLE`.
 
-| Mode | `samples` in `evaluatePixel` | `scenes` |
-| --- | --- | --- |
-| `SIMPLE` | a single object | empty |
-| `ORBIT` | an **array**, one entry per orbit | `scenes.orbits[i]` → `dateFrom`, `dateTo`, `tiles` |
-| `TILE` | an **array**, one entry per scene | `scenes.tiles[i]` → `date`, `cloudCoverage`, `dataPath`, `dataGeometry`, `dataEnvelope`, `shId` |
+| Mode     | `samples` in `evaluatePixel`      | `scenes`                                                                                        |
+| -------- | --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `SIMPLE` | a single object                   | empty                                                                                           |
+| `ORBIT`  | an **array**, one entry per orbit | `scenes.orbits[i]` → `dateFrom`, `dateTo`, `tiles`                                              |
+| `TILE`   | an **array**, one entry per scene | `scenes.tiles[i]` → `date`, `cloudCoverage`, `dataPath`, `dataGeometry`, `dataEnvelope`, `shId` |
 
 Both `mosaicking: "ORBIT"` and `mosaicking: Mosaicking.ORBIT` are accepted; the string form is
 the repo default.
@@ -574,11 +644,16 @@ object of the same shape:
 
 ```javascript
 function preProcessScenes(collections) {
-  collections.scenes.orbits = collections.scenes.orbits.filter(function (orbit) {
-    var orbitDateFrom = new Date(orbit.dateFrom);
-    return orbitDateFrom.getTime() >= collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000;
-  });
-  return collections;
+    collections.scenes.orbits = collections.scenes.orbits.filter(
+        function (orbit) {
+            var orbitDateFrom = new Date(orbit.dateFrom);
+            return (
+                orbitDateFrom.getTime() >=
+                collections.to.getTime() - 3 * 31 * 24 * 3600 * 1000
+            );
+        },
+    );
+    return collections;
 }
 ```
 
@@ -594,11 +669,11 @@ acquisition per day occurs.
 
 ## 9. Optional functions
 
-| Function | Signature | Purpose |
-| --- | --- | --- |
-| `updateOutput` | `updateOutput(output, collection)` | Set band counts that aren't known until runtime (e.g. one band per available scene: `output.my_output.bands = collection.scenes.length`). Runs after `setup`/`preProcessScenes`, before `evaluatePixel`. Mutates; returns nothing. The `output` here is *not* the object `setup` returned. |
-| `updateOutputMetadata` | `updateOutputMetadata(scenes, inputMetadata, outputMetadata)` | Attach dataset-wide metadata via `outputMetadata.userData`, returned as `userdata.json`. Runs once at the end — cheaper than writing metadata per pixel. |
-| `preProcessScenes` | `preProcessScenes(collections)` | Filter scenes before processing (§8). |
+| Function               | Signature                                                     | Purpose                                                                                                                                                                                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `updateOutput`         | `updateOutput(output, collection)`                            | Set band counts that aren't known until runtime (e.g. one band per available scene: `output.my_output.bands = collection.scenes.length`). Runs after `setup`/`preProcessScenes`, before `evaluatePixel`. Mutates; returns nothing. The `output` here is _not_ the object `setup` returned. |
+| `updateOutputMetadata` | `updateOutputMetadata(scenes, inputMetadata, outputMetadata)` | Attach dataset-wide metadata via `outputMetadata.userData`, returned as `userdata.json`. Runs once at the end — cheaper than writing metadata per pixel.                                                                                                                                   |
+| `preProcessScenes`     | `preProcessScenes(collections)`                               | Filter scenes before processing (§8).                                                                                                                                                                                                                                                      |
 
 `inputMetadata` exposes `serviceVersion` and `normalizationFactor`
 (`REFLECTANCE = DN * normalizationFactor`). `customData` is reserved for future use.
@@ -641,13 +716,29 @@ that's what `otci` did, hex-encoding the same 0–1 triplets:
 
 ```javascript
 // V1
-colorBlend(OTCI, [0, 1, 1.8, 2.5, 4, 4.5, 5],
-  [[0, 0, 0.5], [0, 0.3, 0.8], [1, 0.2, 0.2], [1, 0.9, 0], [0, 0.8, 0.1], [0, 0.6, 0.2], [1, 1, 1]]);
+colorBlend(
+    OTCI,
+    [0, 1, 1.8, 2.5, 4, 4.5, 5],
+    [
+        [0, 0, 0.5],
+        [0, 0.3, 0.8],
+        [1, 0.2, 0.2],
+        [1, 0.9, 0],
+        [0, 0.8, 0.1],
+        [0, 0.6, 0.2],
+        [1, 1, 1],
+    ],
+);
 
 // V3
 const map = [
-  [0.0, 0x00007d], [1.0, 0x004ccc], [1.8, 0xff3333], [2.5, 0xffe500],
-  [4.0, 0x00cc19], [4.5, 0x00cc19], [5.0, 0xffffff],
+    [0.0, 0x00007d],
+    [1.0, 0x004ccc],
+    [1.8, 0xff3333],
+    [2.5, 0xffe500],
+    [4.0, 0x00cc19],
+    [4.5, 0x00cc19],
+    [5.0, 0xffffff],
 ];
 new ColorRampVisualizer(map).process(OTCI);
 ```
