@@ -28,12 +28,12 @@
                         {{ $input := .Content }}
                         {{ $lang := "js" }}
                         <div id="script">
-                            <button id="copy-script" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
+                            <button type="button" id="copy-script" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                             {{ transform.Highlight $input $lang }}
                         </div>
                         Script url:
                         <div id="script-url">
-                            <button id="copy-url" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
+                            <button type="button" id="copy-url" class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                             {{ transform.Highlight .Permalink "http" }}
                         </div>
                     {{ end }}

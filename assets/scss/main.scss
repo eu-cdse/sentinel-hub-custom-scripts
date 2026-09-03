@@ -26,6 +26,18 @@ main {
     grid-template-columns: 300px minmax(0, 1fr) 300px;
 }
 
+.image {
+    display: flex;
+    &.align-left {
+        justify-content: left;
+    }
+    &.align-right {
+        justify-content: right;
+    }
+    &.align-center {
+        justify-content: center;
+    }
+}
 img {
     max-width: 100%;
     height: auto;
