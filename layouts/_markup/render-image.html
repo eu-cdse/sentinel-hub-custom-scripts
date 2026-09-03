@@ -1,14 +1,15 @@
 {{- $width := index .Attributes "width" -}}
 {{- $height := index .Attributes "height" -}}
 {{- $align := index .Attributes "align" -}}
-
-<div style="display: flex; {{ with $align}}justify-content: {{.}}{{ end }};">
-	<img
-		src="{{ .Destination | safeURL }}"
-		alt="{{ .Text }}"
-		{{ with $width }}width="{{ . }}"{{ end }}
-		{{ with $height }}height="{{ . }}"{{ end }}
-		{{ with .Title }}title="{{ . }}"{{ end }}
-		loading="lazy"
-	>
+<div style="display: flex;
+            {{ with $align}}justify-content: {{.}}{{ end }}">
+    <img src="{{ .Destination | safeURL }}"
+         alt="{{ .Text }}"
+         {{ with $width }}width="{{ . }}"
+         {{ end }}
+         {{ with $height }}height="{{ . }}"
+         {{ end }}
+         {{ with .Title }}title="{{ . }}"
+         {{ end }}
+         loading="lazy">
 </div>
