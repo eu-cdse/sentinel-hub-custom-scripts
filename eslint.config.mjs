@@ -9,6 +9,7 @@ const sentinelHubGlobals = {
     ColorRampVisualizer: "readonly",
     HighlightCompressVisualizer: "readonly",
     HighlightCompressVisualizerSingle: "readonly",
+    JAVA_DOUBLE_MAX_VAL: "readonly",
     Mosaicking: "readonly",
     SampleType: "readonly",
     colorBlend: "readonly",
