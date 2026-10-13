@@ -21,25 +21,27 @@ SentinelHub custom scripts have limited support for custom color maps: colorBlen
 
 This script supports 4 flavors of color map in addition to functions that inter-convert between the CIELAB, XYZ, and RGB color spaces in pure JavaScript. In each case, the user simply provides two arrays, one for anchor colors and one for data values, and the class will generate the correct color for data values calculated by the script. For example, to generate a brown-green color map for NDVI values in the range [0, 1], simply use:
 
+```javascript
 var ndvi_map = [
-// https://www.google.com/search?q=rgb+color+picker
-[66/255, 50/255, 28/255],
-[0, 209/255, 3/255],
-]
-var data = [0, 1]
+    // https://www.google.com/search?q=rgb+color+picker
+    [66 / 255, 50 / 255, 28 / 255],
+    [0, 209 / 255, 3 / 255],
+];
+var data = [0, 1];
 var cmap = new LinearColormap(ndvi_map, data);
 
 function setup() {
-return {
-input: ["B04", "B08", "dataMask"],
-output: { bands: 3 }
-}
+    return {
+        input: ["B04", "B08", "dataMask"],
+        output: { bands: 3 },
+    };
 }
 
 function evaluatePixel(sample) {
-let ndvi = (sample.B08 - sample.B04) / (sample.B08 + sample.B04)
-return cmap.get_color(ndvi)
+    let ndvi = (sample.B08 - sample.B04) / (sample.B08 + sample.B04);
+    return cmap.get_color(ndvi);
 }
+```
 
 In addition to LinearColormap, there is DivergentColormap, IsoluminantColormap, and the base class Colormap. The base class expects colors in CIELAB color space and simply calls colorBlend to get in-between colors before converting back to RGB space. All other classes expect colors in RGB space, map them onto CIELAB space, and apply a lightness correction specific to the class. The corrections for each class are:
 
