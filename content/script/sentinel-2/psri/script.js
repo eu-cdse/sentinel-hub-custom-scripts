@@ -9,7 +9,7 @@ function evaluatePixel(samples) {
     let val =
         samples.B06 > 0
             ? (samples.B04 - samples.B02) / samples.B06
-            : JAVA_DOUBLE_MAX_VAL;
+            : Number.MAX_VALUE;
     return viz.process(val);
 }
 

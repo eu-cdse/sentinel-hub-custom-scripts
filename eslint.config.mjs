@@ -4,12 +4,16 @@
 // Injected by the Sentinel Hub runtime; evalscripts have no imports.
 // https://docs.sentinel-hub.com/api/latest/evalscript/v3/
 const sentinelHubGlobals = {
+    ColorGradientVisualizer: "readonly",
     ColorMapVisualizer: "readonly",
     ColorRampVisualizer: "readonly",
     HighlightCompressVisualizer: "readonly",
+    HighlightCompressVisualizerSingle: "readonly",
+    Mosaicking: "readonly",
     SampleType: "readonly",
     colorBlend: "readonly",
     index: "readonly",
+    valueInterpolate: "readonly",
 };
 
 const correctnessRules = {
