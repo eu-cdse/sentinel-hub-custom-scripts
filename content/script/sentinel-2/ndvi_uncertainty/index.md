@@ -26,7 +26,7 @@ $$\Delta_{NDVI} := \frac{\sqrt{B8^2 \Delta_{B4}^2 + B4^2 \Delta_{B8}^2 - 2B4 B8 
 where $\Delta_{B4}$ and $\Delta_{B8}$ are uncertainties of red and near infrared bands respectively (reported by ESA to be 0.02 and 0.03). We left out the mixed part $\Delta_{B4B8}$ as if the two uncertainties were not correlated.
 
 The script encodes the uncertainty with darkness, as can be seen in following figure [^2]  
-![Color map of the NDVI uncertainty script from [2][1]](fig/cmap.jpg)
+![Color map of the NDVI uncertainty script](fig/cmap.jpg)
 
 ## Description of representative images
 
