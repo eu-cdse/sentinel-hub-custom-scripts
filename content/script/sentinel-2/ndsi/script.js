@@ -10,6 +10,7 @@ function setup() {
 
 function evaluatePixel(samples) {
     let val = index(samples.B03, samples.B11);
+    let imgVals;
 
     if (val > 0.42) imgVals = [0, 0.8, 1, samples.dataMask];
     else

@@ -30,7 +30,7 @@ function evaluatePixel(samples) {
     var noOfSamples = 0;
 
     // Loop over available samples (images)
-    for (i = 0; i < samples.length; i++) {
+    for (let i = 0; i < samples.length; i++) {
         //If there is no value available, we avoid further count
         if (!samples[i].dataMask) continue;
         noOfSamples++;

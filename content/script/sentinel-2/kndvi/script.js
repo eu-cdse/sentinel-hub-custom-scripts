@@ -30,7 +30,7 @@ const kndvi_ramp = [
     [0.55, [0.13, 0.38, 0.07]],
     [0.6, [0.06, 0.33, 0.04]],
 ];
-visualizer = new ColorRampVisualizer(kndvi_ramp);
+const visualizer = new ColorRampVisualizer(kndvi_ramp);
 const cloud_palette = {
     0: [0, 0, 0], // No Data (Missing data) - black
     1: [1, 0, 0.016], // Saturated or defective pixel - red

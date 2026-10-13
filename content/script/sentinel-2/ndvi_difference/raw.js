@@ -48,7 +48,7 @@ function preProcessScenes(collections) {
     // find closet timestamp to the target
     let diff = Number.POSITIVE_INFINITY;
     for (let i = 1; i < scenes.length; i++) {
-        current = new Date(scenes[i].dateFrom);
+        const current = new Date(scenes[i].dateFrom);
         if (Math.abs(current - target) >= diff) {
             break;
         }

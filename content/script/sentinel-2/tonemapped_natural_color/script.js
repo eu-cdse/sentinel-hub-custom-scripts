@@ -19,6 +19,8 @@ var adjForSunColor = true;
 
 var atmosphere = 0.025;
 
+var cManual; // unset = automatic; set e.g. [0.039, 0.071, 0.121] for a manual white point
+
 var gain = 1.5;
 
 var saturation = 2.0;
@@ -36,7 +38,7 @@ var atm2p = (a, c0, c1) => (a - c0) / c1;
 var atm1p = (a, c0) => atm2p(a, c0, (1 - c0) ** 2);
 
 var atm = (a, ii) =>
-    typeof cManual !== "undefined"
+    cManual !== undefined
         ? cManual[ii] instanceof Array
             ? atm2p(a, cManual[ii][0], cManual[ii][1])
             : atm1p(a, cManual[ii])

@@ -61,7 +61,7 @@ function stretch(val, min, max) {
 
 function indexOfMaxRatio(a, b) {
     ratios = [];
-    for (i = 0; i < a.length; i++) {
+    for (let i = 0; i < a.length; i++) {
         ratios.push(r(a[i], b[i]));
     }
     if (ratios.length === 0) {
@@ -108,7 +108,7 @@ function evaluatePixel(samples, scenes) {
     // to manage image length between tiles
     let realSampleLength = 0;
 
-    for (i = 0; i < samples.length; i++) {
+    for (let i = 0; i < samples.length; i++) {
         // in order to avoid black pixel (the ones between tiles)
         if ((samples[i].B02 > 0) & (samples[i].B03 > 0)) {
             realSampleLength++;

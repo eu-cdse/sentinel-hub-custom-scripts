@@ -16,7 +16,7 @@ function setup() {
 }
 
 function calcNDSI(sample) {
-    ndsi = (sample.B03 - sample.B11) / (0.01 + sample.B03 + sample.B11);
+    const ndsi = (sample.B03 - sample.B11) / (0.01 + sample.B03 + sample.B11);
     return (ndsi > 0.2) & (sample.B03 > 0.15) ? ndsi : 0.0;
 }
 

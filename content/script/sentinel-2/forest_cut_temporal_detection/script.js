@@ -56,7 +56,8 @@ function getNeededDates(sceneMonth, sceneYear, monthsToTake) {
     let monthToGet = [];
     let yearToGet = [];
 
-    for (const i = 0; i < monthsToTake; i++) {
+    for (let i = 0; i < monthsToTake; i++) {
+        let month, year;
         if (sceneMonth - i <= 0) {
             month = 12 - (sceneMonth - i);
             year = sceneYear - 1;
@@ -86,13 +87,13 @@ function evaluatePixel(samples, scenes) {
     let lastYearMonth1 = [];
     let lastYearMonth2 = [];
 
-    for (i = 0; i < samples.length; i++) {
+    for (let i = 0; i < samples.length; i++) {
         if (!(samples[i].B04 == 0) & !(samples[i].B03 == 0)) {
-            sceneMonth = scenes[i].date.getMonth();
-            sceneYear = scenes[i].date.getFullYear();
+            const sceneMonth = scenes[i].date.getMonth();
+            const sceneYear = scenes[i].date.getFullYear();
             if (monthsAndYears[0].includes(sceneMonth)) {
                 if (samples[i].B02 < blueThresold) {
-                    ndvi = NDVI(samples[i]);
+                    const ndvi = NDVI(samples[i]);
                     if (monthsAndYears[1].includes(sceneYear))
                     // if current year (last 12 months max)
                     {
@@ -126,6 +127,7 @@ function evaluatePixel(samples, scenes) {
     // check also if is not water
     let difference = avgPreviousYearNDVI - avgCurrentYearNDVI;
 
+    let colorMap;
     if (
         (NDWI(samples[0]) < 0.5) &
         (difference >= thresold) &

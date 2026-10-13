@@ -67,7 +67,7 @@ function evaluatePixel(samples, scenes) {
     // to manage image length between tiles
     realSampleLength = 0;
 
-    for (i = 0; i < samples.length; i++) {
+    for (let i = 0; i < samples.length; i++) {
         // in order to avoid black pixel (the ones between tiles)
 
         if (samples[i].B02 > 0 || samples[i].B03 > 0) {

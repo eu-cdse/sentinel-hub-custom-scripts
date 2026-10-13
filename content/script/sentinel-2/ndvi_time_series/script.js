@@ -28,7 +28,7 @@ function updateOutput(outputs, collection) {
 // dates used in the analysis.
 function updateOutputMetadata(scenes, inputMetadata, outputMetadata) {
     var dds = [];
-    for (i = 0; i < scenes.length; i++) {
+    for (let i = 0; i < scenes.length; i++) {
         dds.push(scenes[i].date);
     }
     outputMetadata.userData = { acquisition_dates: JSON.stringify(dds) };

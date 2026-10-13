@@ -96,7 +96,7 @@ function evaluatePixel(samples) {
     let imgVals = null;
     let val = NaN;
     // We made a first filter by NDWI (Water Index)
-    if (NDWI < -0) {
+    if (NDWI < 0) {
         // If NDWI is lower than 0 is not water, so return  true color
         imgVals = [...TrueColor, samples.dataMask];
     } else {

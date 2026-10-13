@@ -119,9 +119,9 @@ function wbi(r, g, b, nr, s1, s2) {
 }
 
 // pSDB calc, denum: green or red
-getPsdb = (b, denum, n) => Math.log(n * b) / Math.log(n * denum); //calculate log of b and denum, then divide them. This is the pSDB value. The log is used to make the values more linear, so that the SDB can be calculated more easily.
+const getPsdb = (b, denum, n) => Math.log(n * b) / Math.log(n * denum); //calculate log of b and denum, then divide them. This is the pSDB value. The log is used to make the values more linear, so that the SDB can be calculated more easily.
 // SDB calc - using a linear function with the coefficients m1 and m0
-getSdb = (pSDB, m1, m0) => m1 * pSDB - m0;
+const getSdb = (pSDB, m1, m0) => m1 * pSDB - m0;
 
 // setup values
 function setup() {
