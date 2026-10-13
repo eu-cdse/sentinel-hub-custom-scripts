@@ -2,7 +2,7 @@
 title: Pseudo Forest Canopy Density (Pseudo-FCD)
 evalscripts: ["script.js"]
 types: ["classification"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["agriculture", "forest", "urban"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]

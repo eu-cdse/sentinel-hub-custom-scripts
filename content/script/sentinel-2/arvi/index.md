@@ -4,7 +4,7 @@ evalscripts: ["script.js"]
 types: ["index"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-2"]
-resolution: ["10m", "20m"]
+resolutions: ["10m", "20m"]
 ---
 
 ## General description of the script
@@ -13,7 +13,7 @@ ARVI is most useful in regions of high atmospheric aerosol content. It uses blue
 
 General formula:
 
-_*(NIR - RED - y * (RED - BLUE))/ (NIR + RED - y*(RED-BLUE))_*
+**(NIR - RED - y \* (RED - BLUE))/ (NIR + RED - y\*(RED-BLUE))**
 
 Values description: The range for an ARVI is -1 to 1 where green vegetation generally falls between values of 0.20 to 0.80.
 

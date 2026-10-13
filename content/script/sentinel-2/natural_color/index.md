@@ -2,7 +2,7 @@
 title: Natural color product
 evalscripts: ["script.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]

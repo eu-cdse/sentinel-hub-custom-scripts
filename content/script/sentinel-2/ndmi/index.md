@@ -2,7 +2,7 @@
 title: Normalized Difference Moisture Index (NDMI)
 evalscripts: ["script.js", "raw.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m"]

@@ -2,7 +2,7 @@
 title: OSI - Oil Spill Index
 evalscripts: ["script.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["water", "disaster"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]

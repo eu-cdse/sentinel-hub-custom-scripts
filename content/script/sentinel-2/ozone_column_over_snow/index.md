@@ -2,7 +2,7 @@
 title: Total Ozone Column over snow in Antarctica
 evalscripts: ["script.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]

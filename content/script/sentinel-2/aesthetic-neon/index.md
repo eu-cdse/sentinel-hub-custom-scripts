@@ -1,10 +1,10 @@
 ---
 title: Aesthetic Neon Script
 evalscripts: ["script.js"]
-type: ["composite"]
-domain: ["art"]
-data-source: ["Sentinel-2"]
-resolution: ["10m", "20m"]
+types: ["composite"]
+domains: ["art"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m", "20m"]
 ---
 
 ## Evaluate and visualize

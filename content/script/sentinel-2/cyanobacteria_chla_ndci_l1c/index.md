@@ -2,7 +2,7 @@
 title: Cyanobacteria Chlorophyll-a NDCI L1C
 evalscripts: ["script.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]

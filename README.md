@@ -194,7 +194,7 @@ Create an `index.md` file inside `content/script/sentinel-2/my-new-script/` and 
 ---
 title: "My Amazing Custom Script"
 evalscripts: ["script.js"]
-fields: ["vegetation", "agriculture"] # Domain/field taxonomy tags
+domains: ["vegetation", "agriculture"]
 ---
 
 ## General description of the script
@@ -261,11 +261,11 @@ Explanation of types:
 ---
 title: "Advanced Agricultural Monitoring"
 evalscripts: ["script.js"]
-domain: ["agriculture", "vegetation"]
-type: ["index"]
-verification: ["cites literature"]
-resolution: ["10m"]
-data-source: ["Sentinel-2"]
+domains: ["agriculture", "vegetation"]
+types: ["index"]
+verifications: ["cites literature"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-2"]
 ---
 ```
 

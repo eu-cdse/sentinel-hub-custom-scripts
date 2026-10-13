@@ -1,10 +1,10 @@
 ---
 title: Agricultural growth stage
 evalscripts: ["script.js", "quarterly_mosaics.js"]
-type: ["composite"]
-domain: ["agriculture"]
-data-source: ["Sentinel-2"]
-resolution: ["10m"]
+types: ["composite"]
+domains: ["agriculture"]
+data-sources: ["Sentinel-2"]
+resolutions: ["10m"]
 ---
 
 ## Author of the script

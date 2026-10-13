@@ -2,7 +2,7 @@
 title: Normalized Difference Chlorophyll Index
 evalscripts: ["script.js", "raw.js"]
 types: ["index"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
