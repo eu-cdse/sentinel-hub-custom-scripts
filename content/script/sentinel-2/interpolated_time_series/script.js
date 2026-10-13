@@ -95,8 +95,8 @@ function linearInterpolation(x, x0, y0, x1, y1) {
 }
 
 function lininterp(x_arr, xp_arr, fp_arr) {
-    results = [];
-    quality_mask = [];
+    const results = [];
+    const quality_mask = [];
     for (var i = 0; i < x_arr.length; i++) {
         var x = x_arr[i];
         var interval = interval_search(x, xp_arr);

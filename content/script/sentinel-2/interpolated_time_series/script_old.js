@@ -44,12 +44,11 @@ function linearInterpolation(x, x0, y0, x1, y1, no_data_value = NaN) {
 }
 
 function lininterp(x_arr, xp_arr, fp_arr, no_data_value = NaN) {
-    results = [];
-    data_mask = [];
-    xp_arr_idx = 0;
+    const results = [];
+    const data_mask = [];
     for (var i = 0; i < x_arr.length; i++) {
         var x = x_arr[i];
-        interval = interval_search(x, xp_arr);
+        const interval = interval_search(x, xp_arr);
         if (interval === undefined) {
             data_mask.push(0);
             results.push(no_data_value);
@@ -82,7 +81,7 @@ function interpolated_index(index_a, index_b) {
 }
 
 function increase(original_date, period, period_unit) {
-    date = new Date(original_date);
+    const date = new Date(original_date);
     switch (period_unit) {
         case "millisecond":
             return new Date(
@@ -229,7 +228,7 @@ function evaluatePixel(samples, scenes) {
     }
 
     // Calculate indices and return optimised for UINT16 format (will need unpacking)
-    no_data_value = 10000;
+    const no_data_value = 10000;
     var [b02_interpolated, dm] = lininterp(
         sampled_dates,
         valid_dates,

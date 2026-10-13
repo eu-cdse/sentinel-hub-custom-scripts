@@ -83,32 +83,26 @@ function evaluatePixel(sample) {
                 return colorBlend(Chl_a, scaleChl_a, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             case 1:
                 return colorBlend(Cya, scaleCya, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             case 2:
                 return colorBlend(Turb, scaleTurb, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             case 3:
                 return colorBlend(CDOM, scaleCDOM, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             case 4:
                 return colorBlend(DOC, scaleDOC, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             case 5:
                 return colorBlend(Color, scaleColor, colorScale).concat(
                     sample.dataMask,
                 );
-                break;
             default:
                 return TrueColor.concat(sample.dataMask);
         }

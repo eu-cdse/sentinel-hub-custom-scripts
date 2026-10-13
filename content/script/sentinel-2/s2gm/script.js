@@ -341,7 +341,6 @@ function computeStc(sampleA, sampleB) {
                     return sampleB;
                 }
             }
-            break;
         case 405:
         case 504:
             if (
@@ -353,7 +352,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 400:
         case 401:
         case 402:
@@ -365,7 +363,6 @@ function computeStc(sampleA, sampleB) {
         case 410:
         case 411:
             return sampleA;
-            break;
         case 4:
         case 104:
         case 204:
@@ -377,7 +374,6 @@ function computeStc(sampleA, sampleB) {
         case 1004:
         case 1104:
             return sampleB;
-            break;
         //BARE_SOIL_DESERT
         case 505:
             if (
@@ -389,7 +385,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 500:
         case 501:
         case 502:
@@ -401,7 +396,6 @@ function computeStc(sampleA, sampleB) {
         case 510:
         case 511:
             return sampleA;
-            break;
         case 5:
         case 105:
         case 205:
@@ -413,7 +407,6 @@ function computeStc(sampleA, sampleB) {
         case 1005:
         case 1105:
             return sampleB;
-            break;
         //SNOW_ICE
         case 1111:
             if (
@@ -425,7 +418,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 1100:
         case 1101:
         case 1102:
@@ -436,7 +428,6 @@ function computeStc(sampleA, sampleB) {
         case 1109:
         case 1110:
             return sampleA;
-            break;
         case 11:
         case 111:
         case 211:
@@ -447,7 +438,6 @@ function computeStc(sampleA, sampleB) {
         case 911:
         case 1011:
             return sampleB;
-            break;
         //Water
         case 606:
             if (
@@ -459,7 +449,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 600:
         case 601:
         case 602:
@@ -469,7 +458,6 @@ function computeStc(sampleA, sampleB) {
         case 609:
         case 610:
             return sampleA;
-            break;
         case 6:
         case 106:
         case 206:
@@ -479,7 +467,6 @@ function computeStc(sampleA, sampleB) {
         case 906:
         case 1006:
             return sampleB;
-            break;
         //DARK_FEATURE_SHADOW
         case 202:
             if (
@@ -491,7 +478,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 200:
         case 201:
         case 203:
@@ -500,7 +486,6 @@ function computeStc(sampleA, sampleB) {
         case 209:
         case 210:
             return sampleA;
-            break;
         case 2:
         case 102:
         case 302:
@@ -509,7 +494,6 @@ function computeStc(sampleA, sampleB) {
         case 902:
         case 1002:
             return sampleB;
-            break;
         //CLOUD_SHADOW
         case 303:
             if (
@@ -521,7 +505,6 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 300:
         case 301:
         case 307:
@@ -529,7 +512,6 @@ function computeStc(sampleA, sampleB) {
         case 309:
         case 310:
             return sampleA;
-            break;
         case 3:
         case 103:
         case 703:
@@ -537,7 +519,6 @@ function computeStc(sampleA, sampleB) {
         case 903:
         case 1003:
             return sampleB;
-            break;
         //CLOUD_LOW_PROBA
         case 707:
             if (
@@ -547,21 +528,18 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 700:
         case 701:
         case 708:
         case 709:
         case 710:
             return sampleA;
-            break;
         case 7:
         case 107:
         case 807:
         case 907:
         case 1007:
             return sampleB;
-            break;
         //THIN_CIRRUS
         case 1010:
             if (
@@ -571,19 +549,16 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 1000:
         case 1001:
         case 1008:
         case 1009:
             return sampleA;
-            break;
         case 10:
         case 110:
         case 810:
         case 910:
             return sampleB;
-            break;
         //CLOUD_MEDIUM_PROBA
         case 808:
             if (
@@ -593,17 +568,14 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 800:
         case 801:
         case 809:
             return sampleA;
-            break;
         case 8:
         case 108:
         case 908:
             return sampleB;
-            break;
         //CLOUD_HIGH_PROBA
         case 909:
             if (
@@ -613,15 +585,12 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 900:
         case 901:
             return sampleA;
-            break;
         case 9:
         case 109:
             return sampleB;
-            break;
         //SATURATED_DEFECTIVE
         case 101:
             if (
@@ -631,13 +600,10 @@ function computeStc(sampleA, sampleB) {
             } else {
                 return sampleB;
             }
-            break;
         case 100:
             return sampleA;
-            break;
         case 1:
             return sampleB;
-            break;
         default:
             return undefined;
     }

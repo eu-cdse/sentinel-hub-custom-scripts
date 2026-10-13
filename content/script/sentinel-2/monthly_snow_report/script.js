@@ -65,7 +65,7 @@ function evaluatePixel(samples, scenes) {
     let B04 = [];
 
     // to manage image length between tiles
-    realSampleLength = 0;
+    let realSampleLength = 0;
 
     for (let i = 0; i < samples.length; i++) {
         // in order to avoid black pixel (the ones between tiles)
@@ -100,6 +100,7 @@ function evaluatePixel(samples, scenes) {
         }
     }
 
+    let colorMap;
     if ((snowB02 == 0) & (B02.length == 0)) {
         // no valid data available : dark green color
         colorMap = [0.05, 0.2, 0.05];

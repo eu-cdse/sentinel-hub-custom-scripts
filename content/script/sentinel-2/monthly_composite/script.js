@@ -60,7 +60,7 @@ function stretch(val, min, max) {
 }
 
 function indexOfMaxRatio(a, b) {
-    ratios = [];
+    const ratios = [];
     for (let i = 0; i < a.length; i++) {
         ratios.push(r(a[i], b[i]));
     }
@@ -142,6 +142,8 @@ function evaluatePixel(samples, scenes) {
             }
         }
     }
+    let bestRatio;
+    let colorMap;
     if (B02.length > 0) {
         if (isWater > 2) {
             bestRatio = indexOfMaxRatio(B02, B08);

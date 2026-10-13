@@ -148,7 +148,7 @@ function setup() {
 ////// MAIN
 function evaluatePixel(p) {
     // default value for vre1, if stays default that means that L8 is source
-    vre1 = 9999;
+    let vre1 = 9999;
 
     // define bands according to source
     if (source == "S2L2A" || source == "S2L1C") {
@@ -172,6 +172,7 @@ function evaluatePixel(p) {
         s1 = p[s1DS];
 
     //water body id according to the source
+    let w;
     if (source == "S2L2A" || source == "S2L1C") {
         w = wbiS2(g, nr, s1, vre1);
     } else {
@@ -190,8 +191,8 @@ function evaluatePixel(p) {
     let outPixel = null;
 
     // outpixel color definition
-    waterCol = [0, 0, 2, p.dataMask];
-    RGB = [r * 2, g * 2, b * 2, p.dataMask];
+    const waterCol = [0, 0, 2, p.dataMask];
+    const RGB = [r * 2, g * 2, b * 2, p.dataMask];
 
     //Define color for output, either water body (blue) or not (RGB). Also if cloud detected, pixel should be RGB
     // note: in case of S2L2A, if cloud filtering would filter out significant areas of water, user can disable below cloud filtering
