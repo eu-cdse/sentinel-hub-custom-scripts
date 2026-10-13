@@ -2,7 +2,7 @@
 title: Sentinel-2 L1C True Color Optimized
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["processing"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

@@ -2,6 +2,7 @@
 title: Detecting Deep Moist Convection Script
 evalscripts: ["script.js"]
 types: ["index"]
+domains: ["atmosphere"]
 ---
 
 ## General description of the script

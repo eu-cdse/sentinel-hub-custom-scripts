@@ -3,7 +3,7 @@ title: Wildfire visualization
 evalscripts: ["script.js"]
 types: ["index"]
 verifications: ["cites literature"]
-domains: ["wildfire"]
+domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
 ---

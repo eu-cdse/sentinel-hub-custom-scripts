@@ -2,6 +2,7 @@
 title: Highlight Optimized Natural Color Script
 evalscripts: ["script.js"]
 types: ["composite"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

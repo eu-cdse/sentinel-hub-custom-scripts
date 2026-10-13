@@ -1,8 +1,8 @@
 ---
 title: Forest Disturbance Classification
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["classification"]
+domains: ["forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

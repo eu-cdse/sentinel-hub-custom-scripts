@@ -1,8 +1,7 @@
 ---
 title: Interpolated Time-series script
 evalscripts: ["script.js", "script_old.js"]
-types: [""]
-domains: [""]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

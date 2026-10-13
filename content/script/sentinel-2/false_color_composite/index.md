@@ -2,6 +2,7 @@
 title: False Color Composite Script
 evalscripts: ["script.js"]
 types: ["composite"]
+domains: ["geomorphology"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m", "60m"]
 ---

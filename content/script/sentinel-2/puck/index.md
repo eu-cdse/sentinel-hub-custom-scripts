@@ -1,8 +1,8 @@
 ---
 title: PUCK - Perceptually-Uniform Color Map Kit Script
 evalscripts: ["script.js"]
-types: [""]
-domains: [""]
+types: ["index"]
+domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
