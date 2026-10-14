@@ -23,9 +23,21 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
 }
 
+.image {
+    display: flex;
+    &.align-left {
+        justify-content: left;
+    }
+    &.align-right {
+        justify-content: right;
+    }
+    &.align-center {
+        justify-content: center;
+    }
+}
 img {
     max-width: 100%;
     height: auto;
@@ -43,11 +55,45 @@ td {
 }
 
 th {
-    background-color: #f0f0f0;
+    background-color: #e3e3e3;
 }
 
 div.table-container {
     overflow-x: auto;
+}
+
+blockquote {
+    padding: 0.2rem 0.8rem;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    border-left-width: 4px;
+    border-left-style: solid;
+    .alert-heading {
+        font-weight: bold;
+    }
+    &.alert-note {
+        background: rgba(255, 235, 130, 0.2);
+        border-left-color: #e7af06;
+        .alert-heading {
+            color: #e7af06;
+        }
+    }
+    &.alert-warning {
+        background: rgba(255, 159, 130, 0.2);
+        border-left-color: #f12d23;
+        .alert-heading {
+            color: #f12d23;
+        }
+    }
+    &.alert-tip {
+        background: rgba(197, 236, 175, 0.2);
+        border-left-color: #17770f;
+        .alert-heading {
+            color: #17770f;
+        }
+    }
 }
 
 #taxonomies {
@@ -72,10 +118,21 @@ div.table-container {
         right: 10px;
         top: 10px;
     }
-    .highlight pre {
-        padding: 10px;
-        margin: 0;
+    .highlight {
+        pre {
+            code {
+                display: block;
+                overflow: auto;
+            }
+            padding: 10px;
+            margin: 0;
+        }
     }
+}
+pre {
+    background-color: #e1e2e7;
+    overflow: auto;
+    padding: 5px;
 }
 #script-url {
     position: relative;
@@ -124,4 +181,9 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+mjx-container.MathJax[display] {
+    margin: 0;
+    padding: 0;
 }
