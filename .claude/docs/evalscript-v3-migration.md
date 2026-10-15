@@ -592,9 +592,14 @@ Once `output` is an array, `evaluatePixel` must return an **object keyed by outp
 | `browserStats` | 1      | `FLOAT32`  | raw value — the time series; `NaN` where masked    |
 | `dataMask`     | 1      |            | 1 = valid pixel, 0 = no data                       |
 
-- `default` is required, and OGC requests return **only** this output. It is what
-  `default: ["default"]` in the `index.md` front matter names — of the 41 pages in this repo, the
-  34 that declare `default:` all use exactly that value.
+- `default` is required, and OGC requests return **only** this output.
+- Do not confuse this output id with the `default:` key in the `index.md` front matter. They are
+  unrelated. The front-matter key marks whether the page is a **default Copernicus Browser
+  script** — it says nothing about the script's outputs or format. Its two values across the
+  catalogue are `["default"]` (50 pages) and `["custom"]` (11 pages, all under
+  `content/script/data-fusion/`, which need a custom configuration and so cannot ship as Browser
+  defaults). **Never add, remove or change this key as part of a conversion** — whether a script
+  is a Browser default is an editorial decision, not a consequence of its output ids.
 - Emit `NaN` (not 0) where `dataMask == 0`, so no-data pixels drop out of statistics instead of
   dragging the mean toward zero. The idiom in the repo is
   `samples.dataMask === 1 ? val : NaN`. `otci` additionally clips to a sane interval:
@@ -762,8 +767,9 @@ shifts the whole ramp — check the first and last stop against the original.
     is handled.
 14. No local variable named `index`.
 15. Colour ramp, thresholds and gain factors are byte-for-byte what the original had.
-16. `index.md` front matter still accurate — `evalscripts` lists the files present, `default`
-    matches the declared output ids.
+16. `index.md` front matter still accurate — `evalscripts` lists the files present. Leave
+    `default:` alone; it marks a default Copernicus Browser script and is unrelated to the
+    script's output ids (§7).
 
 ## 12. Verifying the result
 
