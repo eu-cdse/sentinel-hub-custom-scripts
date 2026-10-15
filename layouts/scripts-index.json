@@ -1,4 +1,4 @@
-{{- $scripts := slice -}}
+{{- $list := slice -}}
 
 {{- range where .Site.RegularPages "Section" "eq" "script" -}}
 	{{- $taxonomies := dict
@@ -15,9 +15,9 @@
 	    "content" ( .Content | plainify )
 		"taxonomies" $taxonomies
 	}}
-	{{- $scripts = $scripts | append $script -}}
+	{{- $list = $list | append $script -}}
 {{- end -}}
 
-{{- $object := dict "blog" $scripts -}}
+{{- $object := dict "scripts" $list -}}
 {{- $jsonifyOptions := dict "indent" "    " -}}
 {{- $object | jsonify $jsonifyOptions -}}
