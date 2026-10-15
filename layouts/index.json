@@ -2,19 +2,19 @@
 
 {{- range where .Site.RegularPages "Section" "eq" "script" -}}
 	{{- $taxonomies := dict
-	 	"type" ( .Param "types" | jsonify )
-	  	"verification" ( .Param "verifications" | jsonify )
-	  	"default" ( .Param "default" | jsonify )
-	  	"domain" ( .Param "domains" | jsonify )
-	  	"data-source" ( .Param "data-sources" | jsonify )
-	  	"resolution" ( .Param "resolutions" | jsonify )
+	 	"type" ( .Param "types" )
+	  	"verification" ( .Param "verifications"  )
+	  	"default" ( .Param "default"  )
+	  	"domain" ( .Param "domains"  )
+	  	"data-source" ( .Param "data-sources"  )
+	  	"resolution" ( .Param "resolutions"  )
 	-}}
 	{{- $script := dict
 	    "url" .Permalink
-	    "title" ( .Title | jsonify )
-	    "content" ( .Content | plainify | jsonify )
+	    "title" .Title
+	    "content" ( .Content | plainify )
+		"taxonomies" $taxonomies
 	}}
-	    {{/* "summary"{{ with .Description }}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}, */}}
 	{{- $scripts = $scripts | append $script -}}
 {{- end -}}
 
