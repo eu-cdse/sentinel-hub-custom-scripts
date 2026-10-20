@@ -1,6 +1,8 @@
-#  DLTC 20m 3yearly (2018-2021)
+#  DLTC 20m 3yearly
 
-The High Resolution Layer Dominant Leaf Type Change (DLTC) 2018-2021 raster product provides information on the change between the reference years 2018 and 2021 and consists of 7 thematic classes (unchanged areas with no tree cover / new broadleaved cover / new coniferous cover / loss of broadleaved cover / loss of coniferous cover / unchanged areas with tree cover / potential change among dominant leaf types).
+The High Resolution Layer Dominant Leaf Type Change (DLTC) raster provides information on the change between two reference years, and consists of 5 thematic classes (new broadleaved cover / new coniferous cover / loss of broadleaved cover / loss of coniferous cover / unchanged areas with tree cover).
+
+This collection currently includes two comparison periods: 2018–2021 and 2021–2024. Each product's date reflects only the end year of its comparison period — refer to the tile/product name for the full year range it covers.
 
 This dataset is provided in 20 meter rasters (fully conformant with the EEA reference grid) in 100 x 100 km tiles covering the EEA38 countries.
 
