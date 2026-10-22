@@ -2,7 +2,7 @@
 title: Snow Cover Change Detection
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["water"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
 ---

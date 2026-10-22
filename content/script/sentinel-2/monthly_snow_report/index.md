@@ -2,7 +2,7 @@
 title: Monthly Snow Report Script
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["water"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---
