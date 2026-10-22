@@ -1,10 +1,10 @@
 ---
 title: "GIFAPAR Color Visualization"
 evalscripts: ["script.js"]
-type: ["index"]
-domain: ["vegetation"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
+types: ["index"]
+domains: ["vegetation"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
 default: ["default"]
 ---
 

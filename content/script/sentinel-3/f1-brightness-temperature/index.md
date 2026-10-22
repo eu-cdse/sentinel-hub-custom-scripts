@@ -1,10 +1,10 @@
 ---
 title: F1 Brightness Temperature Visualization
 evalscripts: ["script.js"]
-type: ["index"]
-domain: ["fire"]
-data-source: ["Sentinel-3"]
-resolution: ["1000m"]
+types: ["index"]
+domains: ["fire"]
+data-sources: ["Sentinel-3"]
+resolutions: ["1000m"]
 default: ["default"]
 ---
 

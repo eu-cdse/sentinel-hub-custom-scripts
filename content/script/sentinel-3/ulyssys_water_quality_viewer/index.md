@@ -1,11 +1,11 @@
 ---
 title: "Ulyssys Water Quality Viewer (UWQV)"
 evalscripts: ["script.js"]
-type: ["composite"]
-domain: ["water"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
-verification: ["cites literature"]
+types: ["composite"]
+domains: ["water"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
+verifications: ["cites literature"]
 default: ["default"]
 ---
 
