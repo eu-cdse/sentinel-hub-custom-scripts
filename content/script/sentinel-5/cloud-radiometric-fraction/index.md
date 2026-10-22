@@ -1,11 +1,11 @@
 ---
 title: Sentinel-5P Effective Radiometric Cloud Fraction
 evalscripts: ["script.js"]
-type: ["index"]
+types: ["index"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
 ---
 
 ## Description

@@ -1,11 +1,11 @@
 ---
 title: NO2 Monthly mean
 evalscripts: ["script.js"]
-type: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
 ---
 
 ## General description of the script

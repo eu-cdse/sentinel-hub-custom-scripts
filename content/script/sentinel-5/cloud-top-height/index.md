@@ -1,11 +1,11 @@
 ---
 title: Sentinel-5P Cloud Top Height
 evalscripts: ["script.js"]
-type: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
 ---
 
 ## Description
