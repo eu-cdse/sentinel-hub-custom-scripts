@@ -1,7 +1,7 @@
 ---
 title: "SAR-Ice: A Sea Ice RGB Composite"
 evalscripts: ["script.js"]
-domains: ["water"]
+domains: ["water", "snow and ice"]
 types: ["composite"]
 resolutions: ["10m"]
 data-sources: ["Sentinel-1"]

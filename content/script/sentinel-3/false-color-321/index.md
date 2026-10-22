@@ -2,6 +2,7 @@
 title: Sentinel-3 SLSTR False color composite
 evalscripts: ["script.js"]
 types: ["composite"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-3"]
 resolutions: ["500m"]
 default: ["default"]

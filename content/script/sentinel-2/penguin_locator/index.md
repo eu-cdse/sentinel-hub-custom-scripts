@@ -2,6 +2,7 @@
 title: Penguin Locator
 evalscripts: ["script.js"]
 types: ["index"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
 ---

@@ -2,7 +2,7 @@
 title: "Highlight Optimized Natural Color Script"
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["atmosphere"]
+domains: ["preprocessing", "atmosphere"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 default: ["default"]

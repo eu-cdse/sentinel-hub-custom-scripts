@@ -2,7 +2,7 @@
 title: Snow classifier
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["water"]
+domains: ["snow and ice"]
 verifications: ["cites literature"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
