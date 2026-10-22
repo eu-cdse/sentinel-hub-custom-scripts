@@ -1,11 +1,11 @@
 ---
 title: Reactiv Script
 evalscripts: ["script.js"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 ---
 
 ## General description of the script

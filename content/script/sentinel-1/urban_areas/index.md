@@ -1,10 +1,10 @@
 ---
 title: Urban Areas Script
 evalscripts: ["script.js"]
-domain: ["urban"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["urban"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 
