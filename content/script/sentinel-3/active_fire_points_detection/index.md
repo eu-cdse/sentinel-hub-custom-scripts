@@ -2,7 +2,7 @@
 title: High Accuracy Active Fire Point Detection
 evalscripts: ["script.js"]
 types: ["composite"]
-domains: ["fire", "disaster"]
+domains: ["fire", "disasters"]
 data-sources: ["Sentinel-3"]
 resolutions: ["500m"]
 default: ["default"]
