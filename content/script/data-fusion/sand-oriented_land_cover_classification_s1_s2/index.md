@@ -1,9 +1,9 @@
 ---
 title: Data-Fusion Sand-Oriented Land Cover Classification
 evalscripts: ["script.js"]
-data-source: ["Data fusion", "Sentinel-1", "Sentinel-2"]
-type: ["index", "classification"]
-verification: ["cites literature", "cites operational use case"]
+data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
+types: ["index", "classification"]
+verifications: ["cites literature", "cites operational use case"]
 default: ["custom"]
 ---
 

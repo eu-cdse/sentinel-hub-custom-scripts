@@ -2,9 +2,9 @@
 title: DEM Grayscale Visualization
 evalscripts: ["script.js"]
 default: ["default"]
-domain: ["geomorphology"]
-data-source: ["DEM"]
-resolution: ["30m"]
+domains: ["geomorphology"]
+data-sources: ["DEM"]
+resolutions: ["30m"]
 ---
 
 ## General description of the script
