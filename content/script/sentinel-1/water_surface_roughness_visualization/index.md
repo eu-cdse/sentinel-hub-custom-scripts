@@ -1,10 +1,10 @@
 ---
 title: Water Surface Roughness Visualization
 evalscripts: ["script.js"]
-domain: ["water"]
-type: ["index"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["water"]
+types: ["index"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

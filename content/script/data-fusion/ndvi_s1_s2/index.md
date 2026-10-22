@@ -1,10 +1,10 @@
 ---
 title: Mapping Soybean and Maize NDVI with Sentinel-1 and Sentinel-2
 evalscripts: ["script.js"]
-domain: ["agriculture", "vegetation"]
-data-source: ["Data fusion", "Sentinel-1", "Sentinel-2"]
-type: ["composite", "regression"]
-verification: ["cites literature"]
+domains: ["agriculture", "vegetation"]
+data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
+types: ["composite", "regression"]
+verifications: ["cites literature"]
 default: ["custom"]
 ---
 

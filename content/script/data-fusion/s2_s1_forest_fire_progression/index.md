@@ -1,10 +1,10 @@
 ---
 title: Mapping forest fire progression with Sentinel-2 and Sentinel-1
 evalscripts: ["script.js"]
-domain: ["disasters", "forest", "fire"]
-data-source: ["Data fusion", "Sentinel-1", "Sentinel-2"]
-type: ["composite", "classification"]
-verification: ["cites literature"]
+domains: ["disasters", "forest", "fire"]
+data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
+types: ["composite", "classification"]
+verifications: ["cites literature"]
 default: ["custom"]
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: Detection of Lake Extent Changes
 evalscripts: ["script.js", "script_landsat_s2.js"]
-domain: ["water", "flood"]
-data-source: ["Data fusion", "Sentinel-2", "Landsat"]
-verification: ["cites literature"]
-type: ["classification"]
+domains: ["water", "flood"]
+data-sources: ["Data fusion", "Sentinel-2", "Landsat"]
+verifications: ["cites literature"]
+types: ["classification"]
 default: ["custom"]
 ---
 

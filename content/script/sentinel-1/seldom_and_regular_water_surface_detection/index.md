@@ -1,10 +1,10 @@
 ---
 title: Seldom and Regular Water Surface Detection Script
 evalscripts: ["script.js"]
-domain: ["water", "flood"]
-type: ["classification"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["water", "flood"]
+types: ["classification"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

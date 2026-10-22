@@ -1,8 +1,8 @@
 ---
 title: Sentinel-3 Land Surface Temperature Mapping
 evalscripts: ["script.js"]
-data-source: ["Data fusion", "Sentinel-3"]
-type: ["index"]
+data-sources: ["Data fusion", "Sentinel-3"]
+types: ["index"]
 default: ["custom"]
 ---
 

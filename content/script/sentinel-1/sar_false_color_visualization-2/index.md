@@ -1,10 +1,10 @@
 ---
 title: False color visualization for Sentinel-1
 evalscripts: ["script.js"]
-domain: ["water"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["water"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

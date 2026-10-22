@@ -1,12 +1,12 @@
 ---
 title: Soil Moisture Estimation Script
 evalscripts: ["script.js"]
-domain: ["agriculture"]
-type: ["regression"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["agriculture"]
+types: ["regression"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 ---
 
 ## General description of the script
