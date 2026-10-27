@@ -1,9 +1,9 @@
 ---
 title: Visualising floods using Sentinel-1 overlaid on Sentinel-2 imagery
 evalscripts: ["script.js", "mosaic.js"]
-domain: ["water", "flood"]
-data-source: ["Data fusion", "Sentinel-1", "Sentinel-2"]
-type: ["composite", "classification"]
+domains: ["water", "flood"]
+data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
+types: ["composite", "classification"]
 default: ["custom"]
 ---
 

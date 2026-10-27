@@ -1,12 +1,12 @@
 ---
 title: Tracking Radar Vegetation Index (Agriculture Development) Script
 evalscripts: ["script.js"]
-domain: ["vegetation", "agriculture"]
-type: ["composite", "index"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["vegetation", "agriculture"]
+types: ["composite", "index"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
 ---
 
 ## General description of the script

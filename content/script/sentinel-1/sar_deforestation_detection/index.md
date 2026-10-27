@@ -1,10 +1,10 @@
 ---
 title: SAR for Deforestation Detection Script
 evalscripts: ["script.js"]
-domain: ["forest", "vegetation"]
-type: ["classification"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["forest", "vegetation"]
+types: ["classification"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

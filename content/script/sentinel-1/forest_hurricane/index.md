@@ -1,10 +1,10 @@
 ---
 title: Forest Hurricane Script
 evalscripts: ["script.js"]
-domain: ["forest", "disasters"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["forest", "disasters"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

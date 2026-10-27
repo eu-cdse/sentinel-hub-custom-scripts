@@ -1,8 +1,8 @@
 ---
 title: Sentinel-3 OLCI true color under Sentinel-5 products
 evalscripts: ["script.js"]
-data-source: ["Data fusion", "Sentinel-3", "Sentinel-5"]
-type: ["composite"]
+data-sources: ["Data fusion", "Sentinel-3", "Sentinel-5"]
+types: ["composite"]
 default: ["custom"]
 ---
 

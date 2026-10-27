@@ -1,10 +1,10 @@
 ---
 title: "Normalized Difference Water Index, NDWI"
 evalscripts: ["script.js"]
-type: ["index"]
-domain: ["water"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
+types: ["index"]
+domains: ["water"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
 default: ["default"]
 ---
 

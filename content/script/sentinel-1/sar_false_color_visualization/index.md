@@ -1,9 +1,9 @@
 ---
 title: SAR False Color Visualization
 evalscripts: ["script.js"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

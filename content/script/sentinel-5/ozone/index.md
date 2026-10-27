@@ -1,11 +1,11 @@
 ---
 title: Sentinel-5P Ozone - O3
 evalscripts: ["script.js"]
-regression: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
 ---
 
 ## Description

@@ -1,9 +1,9 @@
 ---
 title: S2L2A Enhancement using S3SLTR F2 For Wildfire Detection
 evalscripts: ["script.js"]
-domain: ["disasters", "fire"]
-data-source: ["Data fusion", "Sentinel-2", "Sentinel-3"]
-type: ["composite"]
+domains: ["disasters", "fire"]
+data-sources: ["Data fusion", "Sentinel-2", "Sentinel-3"]
+types: ["composite"]
 default: ["custom"]
 ---
 
