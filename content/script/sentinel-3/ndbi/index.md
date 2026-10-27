@@ -2,7 +2,7 @@
 title: "Normalized Difference Bare Ice Index, NDBI"
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["water"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 verifications: ["cites literature"]
