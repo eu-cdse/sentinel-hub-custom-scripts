@@ -2,7 +2,7 @@
 title: Normalised Difference Snow Index, NDSI
 evalscripts: ["script.js", "raw.js"]
 types: ["index"]
-domains: ["preprocessing"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
 ---

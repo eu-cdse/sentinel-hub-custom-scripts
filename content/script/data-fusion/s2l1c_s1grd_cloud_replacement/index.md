@@ -3,6 +3,7 @@ title: Sentinel-2 with cloudy parts replaced by Sentinel-1
 evalscripts: ["script.js"]
 data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
 types: ["composite"]
+domains: ["preprocessing"]
 default: ["custom"]
 ---
 

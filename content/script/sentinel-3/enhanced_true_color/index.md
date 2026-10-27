@@ -2,6 +2,7 @@
 title: "Enhanced true color visualization"
 evalscripts: ["script.js"]
 types: ["composite"]
+domains: ["preprocessing"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 default: ["default"]
