@@ -72,9 +72,6 @@ export default [
                 window: "readonly",
                 fetch: "readonly",
             },
-            env: {
-                browser: true,
-            },
         },
         rules: correctnessRules,
     },

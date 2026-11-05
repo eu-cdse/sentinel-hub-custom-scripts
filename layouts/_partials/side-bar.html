@@ -1,13 +1,17 @@
 {{- $index := site.Home.OutputFormats.Get "json" -}}
-<form id="search-form" data-index-url="{{ with $index }}{{ .RelPermalink }}{{ end }}">
+<form id="search-form"
+      data-index-url="{{ with $index }}{{ .RelPermalink }}{{ end }}">
     <input type="search" placeholder="Search..." id="text-box">
     <fieldset>
         <legend>Domains</legend>
         {{ range $domain, $data := site.Taxonomies.domains }}
-        <div>
-            <input type="checkbox" id="{{ $domain }}" name="{{ $domain }}" class="domain-checkbox">
-            <label for="{{ $domain }}">{{ $domain }}</label>
-        </div>
+            <div>
+                <input type="checkbox"
+                       id="{{ $domain }}"
+                       name="{{ $domain }}"
+                       class="domain-checkbox">
+                <label for="{{ $domain }}">{{ $domain }}</label>
+            </div>
         {{ end }}
     </fieldset>
 </form>
