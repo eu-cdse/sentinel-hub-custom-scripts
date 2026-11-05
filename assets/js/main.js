@@ -1,18 +1,25 @@
 import Fuse from "https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.mjs";
 
-let searchIndex = {};
-
 class Search {
     constructor() {
         this.resultsElement = null;
         this.fuse = null;
         this.textValue = "";
         this.domains = [];
+        this.index = null;
     }
     initFuse(searchIndex) {
         this.fuse = new Fuse(searchIndex, {
-            keys: ["title", "content"],
+            ignoreLocation: true,
+            useTokenSearch: true,
+            includeMatches: true,
+            keys: [{ name: "title", weight: 2 }, "content"],
+            threshold: 0.3,
         });
+        this.index = searchIndex;
+    }
+    setIndex(index) {
+        this.index = index;
     }
     setResultsElement() {
         this.resultsElement = document.getElementById("search-results");
@@ -32,15 +39,57 @@ class Search {
         }
     }
     addResultElement(result) {
-        const li = document.createElement("li");
+        const matches = result.matches.filter((match) => match.key == "title");
+        const div = document.createElement("div");
         const a = document.createElement("a");
         a.href = result.item.url;
-        a.innerText = result.item.title;
-        li.appendChild(a);
-        this.resultsElement.appendChild(li);
+        const title = result.item.title;
+        if (matches.length == 0) {
+            a.innerText = title;
+        } else {
+            const indices = matches[0].indices;
+            const lastPart = [indices[indices.length - 1][1] + 1, title.length];
+            indices
+                .map((index, i) => {
+                    if (i == 0) {
+                        return [
+                            [0, index[0]],
+                            [index[0], index[1] + 1],
+                        ];
+                    }
+                    return [
+                        [indices[i - 1][1] + 1, index[0]],
+                        [index[0], index[1] + 1],
+                    ];
+                })
+                .flat()
+                .concat([lastPart])
+                .map((part) => title.slice(part[0], part[1]))
+                .forEach((part, i) => {
+                    if (i % 2 == 0) {
+                        a.appendChild(document.createTextNode(part));
+                    } else {
+                        const strong = document.createElement("strong");
+                        strong.innerText = part;
+                        a.appendChild(strong);
+                    }
+                });
+        }
+        div.appendChild(a);
+        this.resultsElement.appendChild(div);
     }
     filter() {
-        const results = this.fuse.search(this.textValue);
+        this.removeChildren();
+        if (this.fuse === null) {
+            return;
+        }
+        let results = this.fuse.search(this.textValue);
+        if (this.textValue === "") {
+            results = results.map((item) => {
+                item.matches = [];
+                return item;
+            });
+        }
         if (this.domains.length === 0) {
             results.forEach((result) => {
                 this.addResultElement(result);
@@ -51,11 +100,10 @@ class Search {
             if (result.item.taxonomies.domain === null) {
                 return false;
             }
-            return this.domains.every((domain) =>
+            return this.domains.some((domain) =>
                 result.item.taxonomies.domain.includes(domain),
             );
         });
-        this.removeChildren();
         filteredResults.forEach((result) => {
             this.addResultElement(result);
         });
@@ -100,14 +148,26 @@ const addTabClickEventHandler = () => {
         }),
     );
 };
+
+const debounce = (callback, wait = 150) => {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            callback(...args);
+        }, wait);
+    };
+};
+
 const addFiltering = () => {
     search.setResultsElement();
     const searchInput = document.getElementById("text-box");
-    searchInput.addEventListener("keyup", (event) => {
+    const debouncedHandler = debounce((event) => {
         const value = event.target.value;
         search.setTextValue(value);
         search.filter();
     });
+    searchInput.addEventListener("input", (event) => debouncedHandler(event));
     const domainCheckBoxes = document.getElementsByClassName("domain-checkbox");
     Array.from(domainCheckBoxes).forEach((checkbox) =>
         checkbox.addEventListener("change", (event) => {
@@ -122,12 +182,18 @@ const addFiltering = () => {
         }),
     );
 };
-fetch(`/index.json`)
-    .then((response) => response.json())
+const indexUrl = document.getElementById("search-form")?.dataset.indexUrl;
+fetch(indexUrl)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json();
+    })
     .then((data) => {
-        searchIndex = data.scripts;
-        search.initFuse(searchIndex);
-    });
+        search.initFuse(data.scripts);
+    })
+    .catch((reason) => console.warn("Couldn't load search index", reason));
 
 document.addEventListener("DOMContentLoaded", () => {
     addCopyEventHandler("copy-script", "script");

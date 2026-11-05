@@ -70,6 +70,10 @@ export default [
                 document: "readonly",
                 navigator: "readonly",
                 window: "readonly",
+                fetch: "readonly",
+            },
+            env: {
+                browser: true,
             },
         },
         rules: correctnessRules,

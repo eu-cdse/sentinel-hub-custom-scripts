@@ -1,4 +1,5 @@
-<form id="search-form">
+{{- $index := site.Home.OutputFormats.Get "json" -}}
+<form id="search-form" data-index-url="{{ with $index }}{{ .RelPermalink }}{{ end }}">
     <input type="search" placeholder="Search..." id="text-box">
     <fieldset>
         <legend>Domains</legend>
