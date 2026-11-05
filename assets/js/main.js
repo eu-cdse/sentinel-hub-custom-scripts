@@ -6,7 +6,6 @@ class Search {
         this.fuse = null;
         this.textValue = "";
         this.domains = [];
-        this.index = null;
     }
     initFuse(searchIndex) {
         this.fuse = new Fuse(searchIndex, {
@@ -17,9 +16,6 @@ class Search {
             threshold: 0.3,
         });
         this.index = searchIndex;
-    }
-    setIndex(index) {
-        this.index = index;
     }
     setResultsElement() {
         this.resultsElement = document.getElementById("search-results");
@@ -161,6 +157,9 @@ const debounce = (callback, wait = 150) => {
 
 const addFiltering = () => {
     search.setResultsElement();
+    document
+        .getElementById("search-form")
+        ?.addEventListener("submit", (event) => event.preventDefault());
     const searchInput = document.getElementById("text-box");
     const debouncedHandler = debounce((event) => {
         const value = event.target.value;
@@ -182,22 +181,29 @@ const addFiltering = () => {
         }),
     );
 };
-const indexUrl = document.getElementById("search-form")?.dataset.indexUrl;
-fetch(indexUrl)
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
-        return response.json();
-    })
-    .then((data) => {
-        search.initFuse(data.scripts);
-    })
-    .catch((reason) => console.warn("Couldn't load search index", reason));
 
-document.addEventListener("DOMContentLoaded", () => {
-    addCopyEventHandler("copy-script", "script");
-    addCopyEventHandler("copy-url", "script-url");
-    addTabClickEventHandler();
-    addFiltering();
-});
+const main = () => {
+    const indexUrl = document.getElementById("search-form")?.dataset.indexUrl;
+    if (indexUrl) {
+        fetch(indexUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                search.initFuse(data.scripts);
+            })
+            .catch((reason) => console.warn("Couldn't load search index", reason));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        addCopyEventHandler("copy-script", "script");
+        addCopyEventHandler("copy-url", "script-url");
+        addTabClickEventHandler();
+        addFiltering();
+    });
+}
+
+main()
