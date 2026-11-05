@@ -64,7 +64,7 @@ export default [
         files: ["assets/js/**/*.js"],
         languageOptions: {
             ecmaVersion: "latest",
-            sourceType: "script",
+            sourceType: "module",
             globals: {
                 console: "readonly",
                 document: "readonly",
