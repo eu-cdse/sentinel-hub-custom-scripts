@@ -12,12 +12,8 @@
             {{ partial "header.html" . }}
         </header>
         <main>
-            <div id="side-menu">
-                <ul>
-                    {{ range where ( where .Site.Pages "Type" "script" ) "IsSection" false }}
-                        <li><a href="{{.RelPermalink}}">{{ .LinkTitle }}</a></li>
-                    {{ end }}
-                </ul>
+            <div id="side-bar">
+            	{{ partial "side-bar.html" }}
             </div>
             <div id="main-content">
                 {{ block "main" . }}
