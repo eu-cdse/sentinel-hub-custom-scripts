@@ -13,7 +13,6 @@
             {{ end }}
         {{ end }}
     </div>
-    {{ partial "example-links.html" . }}
     <div class="code-section">
         <div class="tab-buttons">
             {{ $first := index .Params.evalscripts 0 }}
@@ -46,5 +45,6 @@
             {{ end }}
         </div>
     </div>
+    {{ partial "example-links.html" . }}
     {{ .Content }}
 {{ end }}

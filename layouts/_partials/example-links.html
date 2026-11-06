@@ -2,7 +2,8 @@
 {{/* An example without `evalscript` links the page's own script.js, so the link follows the site's URL. */}}
 {{/* URL parameters: https://github.com/eu-cdse/copernicus-browser/blob/main/public/deep-linking.txt */}}
 {{ with .Params.examples }}
-    <div id="example-links">
+    <section id="example-links">
+        <h2>Evaluate and visualize</h2>
         {{ range . }}
             {{ $params := dict "zoom" (string .zoom) "lat" (string .lat) "lng" (string .lng) "datasetId" .datasetId "fromTime" .fromTime "toTime" .toTime }}
             {{/* Compare dates only: a single day is stored as 00:00 to 23:59 */}}
@@ -20,8 +21,9 @@
                 {{ $params = merge $params (dict (index . 0) (index . 1)) }}
             {{ end }}
             <a href="https://browser.dataspace.copernicus.eu/?{{ querify $params | safeURL }}"
+               class="example-link"
                target="_blank"
                rel="noopener">Open in Copernicus Browser</a>
         {{ end }}
-    </div>
+    </section>
 {{ end }}
