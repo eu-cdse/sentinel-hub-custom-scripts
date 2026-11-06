@@ -12,7 +12,6 @@ examples:
       datasetId: S2_L1C_CDAS
       fromTime: "2022-06-16T00:00:00.000Z"
       toTime: "2022-06-16T23:59:59.999Z"
-      evalscript: Ly9WRVJTSU9OPTMKLy9Ob3JtYWxpemVkIERpZmZlcmVuY2UgWWVsbG93bmVzcyBJbmRleCAoTkRZSSkgZm9ybXVsYQpmdW5jdGlvbiBBIChhLCBiKXsKCXJldHVybiAoYSAtIGIpIC8gKGEgKyBiKQp9Cgp2YXIgTkRZSSA9IEEgKEIwMywgQjAyKQovL0RlZmF1bHQgTkRZSSB2YWx1ZSB3YXMgYXBwbGllZCBmb3IgdGhlIGRpc2NyaW1pbmF0aW9uIG9mIFNjaGl6b2xvYml1bSBwYXJhaHliYSBpbiBibG9vbSwgdG8gZGlzY3JpbWluYXRlIGNhbm9sYSBjcm9wLCBlbXBpcmljYWxseSBORFlJIDwgMC4wOC0wLjEzIHR1cm5lZCBvdXQgdG8gYmUgYWRlcXVhdGUuCmlmIChORFlJIDwgMC4wMikgewogIHJldHVybiBbNypCMDQsIDcqQjAzLCA1KkIwMl0gLy90cnVlIGNvbG9yCn0KCmVsc2UgewogIHJldHVybiBbMSwgMSwgMF0gLy95ZWxsb3cgbGF5ZXIKfQovL1BhcmEgRS4gUy4=
       additionalQueryParams:
           - [handlePositions, "0,1"]
           - [gradient, "0x000000,0xffffff"]

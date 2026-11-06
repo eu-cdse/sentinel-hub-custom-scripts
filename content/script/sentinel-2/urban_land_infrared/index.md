@@ -12,7 +12,6 @@ examples:
       datasetId: S2_L2A_CDAS
       fromTime: "2019-04-06T00:00:00.000Z"
       toTime: "2019-04-06T23:59:59.999Z"
-      evalscript: LyoKQXV0aG9yIG9mIHRoZSBzY3JpcHQ6IExlbyBUb2xhcmkKKi8KCnJldHVybiBbQjA4KjAuMyArIEIwNCoyLjUgKyAoQjA0KjEuMCtCMTIqMC4zKSwKICAgICAgICAgIEIwOCowLjMgKyBCMDMqMi41ICsgKEIwMyoxLjArQjEyKjAuMyksCiAgICAgICAgICBCMDgqMC4zICsgQjAyKjIuNSArIChCMDIqMS4wK0IxMiowLjMpXTsK
       additionalQueryParams:
           - [maxcc, "100"]
 ---

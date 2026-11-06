@@ -13,7 +13,6 @@ examples:
       datasetId: S2_L2A_CDAS
       fromTime: "2020-02-01"
       toTime: "2020-08-06"
-      evalscript: Ly8gT2lsIFNwaWxsIEluZGV4IGluIGdyYXlzY2FsZQpsZXQgT1NJID0gKEIwMyArIEIwNCkgLyBCMDI7CnJldHVybiBbT1NJLzNdCgovLyBSR0IgdmlzdWFsaXphdGlvbiBhKQovKgpsZXQgUiA9IChCMDUrQjA2KS9CMDcKbGV0IEcgPSAoQjAzK0IwNCkvQjAyCmxldCBCID0gKEIxMStCMTIpL0IwOApyZXR1cm4gW1IvMywgRy8zLCBCLzNdCiovCgovLyBSR0IgdmlzdWFsaXphdGlvbiBiKQovKgpsZXQgUiA9IChCMDMvQjAyKQpsZXQgRyA9IChCMDMrQjA0KS9CMDIKbGV0IEIgPSAoQjA2K0IwNykvQjA1CnJldHVybiBbUi8zLCBHLzMsIEIvM10KKi8=
       additionalQueryParams:
           - [maxcc, "21"]
 ---

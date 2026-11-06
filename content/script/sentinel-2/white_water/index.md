@@ -12,7 +12,6 @@ examples:
       datasetId: S2_L2A_CDAS
       fromTime: "2023-04-04T00:00:00.000Z"
       toTime: "2023-04-04T23:59:59.999Z"
-      evalscript: Ly9WRVJTSU9OPTMKZnVuY3Rpb24gc2V0dXAoKSB7CiAgcmV0dXJuIHsKICAgIGlucHV0OiBbIkIwMSIsIkIwMiIsIkIwMyIsICJkYXRhTWFzayJdLAogICAgb3V0cHV0OiB7IGJhbmRzOiA0IH0KICB9Owp9CgpmdW5jdGlvbiBldmFsdWF0ZVBpeGVsKHNhbXBsZSkgewogIAogIHJldHVybiBbMi41ICogc2FtcGxlLkIwMSwgMi41ICogc2FtcGxlLkIwMiwgMi41ICogc2FtcGxlLkIwMywgc2FtcGxlLmRhdGFNYXNrXTsKfQ==
 ---
 
 ## General description of the script

@@ -13,7 +13,6 @@ examples:
       datasetId: S1_CDAS_IW_VVVH
       fromTime: "2017-08-16T00:00:00.000Z"
       toTime: "2017-08-16T23:59:59.999Z"
-      evalscript: cmV0dXJuIFtWViozLFZIKjgsVkgqM10=
 ---
 
 ## General description of the script

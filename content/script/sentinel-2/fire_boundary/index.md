@@ -12,7 +12,6 @@ examples:
       datasetId: S2_L1C_CDAS
       fromTime: "2019-03-04T00:00:00.000Z"
       toTime: "2019-03-04T23:59:59.999Z"
-      evalscript: Ly9WRVJTSU9OPTMgKGF1dG8tY29udmVydGVkIGZyb20gMSkKLyoKQXV0aG9ycyBvZiB0aGUgc2NyaXB0OiBBZHphbmlsIFJhY2htYWRoaSBQdXRyYSwgRmF0d2EgUmFtZGFuaQoqLwoKZnVuY3Rpb24gc2V0dXAoKSB7CiAgcmV0dXJuIHsKICAgIGlucHV0OiBbewogICAgICBiYW5kczogWwogICAgICAgICAgIkIxMSIsCiAgICAgICAgICAiQjEyIgogICAgICBdCiAgICB9XSwKICAgIG91dHB1dDogeyBiYW5kczogMSB9ICB9Cn0KCgpsZXQgdml6ID0gbmV3IEhpZ2hsaWdodENvbXByZXNzVmlzdWFsaXplclNpbmdsZSgtMS4wLCAxLjApOwoKZnVuY3Rpb24gZXZhbHVhdGVQaXhlbChzYW1wbGVzKSB7CiAgbGV0IHZhbCA9IDguNSAqIChzYW1wbGVzLkIxMiAtIHNhbXBsZXMuQjExKSAvIChzYW1wbGVzLkIxMiArIHNhbXBsZXMuQjExICsgMC4yNSk7IHJldHVybiB2aXoucHJvY2Vzcyh2YWwpOwp9
       additionalQueryParams:
           - [maxcc, "20"]
 ---

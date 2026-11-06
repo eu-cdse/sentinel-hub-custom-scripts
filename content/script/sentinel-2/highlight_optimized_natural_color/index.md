@@ -12,7 +12,6 @@ examples:
       datasetId: S2_L2A_CDAS
       fromTime: "2019-05-08"
       toTime: "2019-05-09"
-      evalscript: cmV0dXJuIFtNYXRoLmNicnQoMC42KkIwNCksCiAgICAgICAgTWF0aC5jYnJ0KDAuNipCMDMpLAogICAgICAgIE1hdGguY2JydCgwLjYqQjAyKV0=
 ---
 
 ## General description of the script

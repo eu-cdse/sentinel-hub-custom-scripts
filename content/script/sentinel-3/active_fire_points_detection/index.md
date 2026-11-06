@@ -13,7 +13,6 @@ examples:
       datasetId: S3SLSTR_CDAS
       fromTime: "2018-08-06T00:00:00.000Z"
       toTime: "2018-08-06T23:59:59.999Z"
-      evalscript: Ly8gaGlnaCBhY2N1cmFjeSBEZXRlY3QgYWN0aXZlIGZpcmUgcG9pbnRzIAovL1NlbnRpbmVsLTMgU0xTVFIKLy9ieSBUaXpuZ2VyIHN0YXJ0dXAgY28KLy93d3cudGl6bmVnYXIuY29tCgp2YXIgU0FITT0gKChTNiAtIFM1KSAvIChTNiArIFM1KSk7CgppZihTQUhNPi4wNSAmJiBTMTwuMjMpewogIHJldHVybls1KlMzLCAxKlMyLCAxKlMxXQp9CgplbHNlIHsKIHJldHVybiBbUzYsUzMsUzJdCn0KCi8vUmVkIGNvbG9yIGluZGljYXRlcyBhY3RpdmUgZmlyZSBhcmVhcyBhbmQgcG9pbnRz
 ---
 
 ## General description
