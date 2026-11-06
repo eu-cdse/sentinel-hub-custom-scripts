@@ -5,6 +5,13 @@ types: ["index"]
 domains: ["agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m", "60m"]
+examples:
+    - zoom: 10
+      lat: -30.81145
+      lng: 124.35974
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-11-06"
+      toTime: "2019-11-07"
 ---
 
 ## General description of the script

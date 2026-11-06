@@ -5,6 +5,13 @@ domains: ["water", "flood"]
 data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
 types: ["composite", "classification"]
 default: ["custom"]
+examples:
+    - zoom: 12
+      lat: 51.98266
+      lng: -2.21409
+      datasetId: S2_L2A_CDAS
+      fromTime: "2021-02-28T00:00:00.000Z"
+      toTime: "2021-02-28T23:59:59.999Z"
 ---
 
 ## General description of the script

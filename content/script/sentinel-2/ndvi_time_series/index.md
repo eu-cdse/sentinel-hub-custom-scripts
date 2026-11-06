@@ -5,6 +5,24 @@ types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 14
+      lat: 41.9019
+      lng: 12.49419
+      datasetId: S2_L2A_CDAS
+      fromTime: "2022-07-09T00:00:00.000Z"
+      toTime: "2022-07-09T23:59:59.999Z"
+      additionalQueryParams:
+          - [layerId, "3_NDVI"]
+          - [
+                timelapse,
+                '{"displayTimelapseAreaPreview":false,"fromTime":"2022-07-01T00:00:00.000Z","toTime":"2022-07-11T23:59:59.999Z","filterMonths":null,"selectedPeriod":"day","minCoverageAllowed":0,"maxCCPercentAllowed":100,"isSelectAllChecked":true,"showBorders":false,"timelapseFPS":1,"transition":"none","pins":[],"timelapseSharePreviewMode":false,"previewFileUrl":null,"size":{"width":512,"height":512,"ratio":1.0000000000000213},"format":"GIF","fadeDuration":0.5}',
+            ]
+          - [timelapseSharePreviewMode, "true"]
+          - [
+                previewFileUrl,
+                "https://eob-timelapse-preview.s3.amazonaws.com/S2L2A-1233728189765450-timelapse.gif",
+            ]
 ---
 
 ## General description

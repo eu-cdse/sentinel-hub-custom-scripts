@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 11
+      lat: 59.43739477678559
+      lng: 24.67975616455078
+      datasetId: S2_L2A_CDAS
+      fromTime: "2019-04-28T00:00:00.000Z"
+      toTime: "2019-04-28T23:59:59.999Z"
 ---
 
 ## General description of the script

@@ -6,6 +6,13 @@ domains: ["vegetation"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 default: ["default"]
+examples:
+    - zoom: 8
+      lat: 37.45306
+      lng: 48.8562
+      datasetId: S3OLCI_CDAS
+      fromTime: "2020-06-18T00:00:00.000Z"
+      toTime: "2020-06-18T23:59:59.999Z"
 ---
 
 ## Author of the script

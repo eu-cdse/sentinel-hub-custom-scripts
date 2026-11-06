@@ -6,6 +6,13 @@ types: ["index"]
 resolutions: ["10m"]
 data-sources: ["Sentinel-1"]
 default: ["default"]
+examples:
+    - zoom: 11
+      lat: -1.1912
+      lng: 116.8719
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2018-04-01T00:00:00.000Z"
+      toTime: "2018-04-01T23:59:59.999Z"
 ---
 
 ## Description

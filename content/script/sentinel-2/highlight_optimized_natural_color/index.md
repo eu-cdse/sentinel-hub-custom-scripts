@@ -5,6 +5,13 @@ types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 11
+      lat: -51.0021
+      lng: -73.326
+      datasetId: S2_L2A_CDAS
+      fromTime: "2019-05-08"
+      toTime: "2019-05-09"
 ---
 
 ## General description of the script

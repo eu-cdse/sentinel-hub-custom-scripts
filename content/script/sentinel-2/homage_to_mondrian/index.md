@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["art"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 13
+      lat: 52.64765
+      lng: 5.74326
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-10-30T00:00:00.000Z"
+      toTime: "2019-10-30T23:59:59.999Z"
+      additionalQueryParams:
+          - [preset, "CUSTOM"]
+          - [layers, "B01,B02,B03"]
 ---
 
 ## General description of the script

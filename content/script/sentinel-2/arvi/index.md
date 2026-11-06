@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 42.19012
+      lng: 11.99707
+      datasetId: S2_L1C_CDAS
+      fromTime: "2018-05-07T00:00:00.000Z"
+      toTime: "2018-11-07T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "6"]
 ---
 
 ## General description of the script

@@ -5,6 +5,15 @@ types: ["index"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: 41.9027835
+      lng: 12.496365500000024
+      datasetId: S2_L2A_CDAS
+      fromTime: "2018-08-01"
+      toTime: "2019-02-20"
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description

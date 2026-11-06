@@ -5,6 +5,13 @@ types: ["composite"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: -21.9374
+      lng: 116.6572
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-01-05T00:00:00.000Z"
+      toTime: "2019-01-05T23:59:59.999Z"
 ---
 
 ## Author of the script

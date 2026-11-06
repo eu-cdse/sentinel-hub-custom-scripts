@@ -6,6 +6,15 @@ verifications: ["cites literature"]
 domains: ["agriculture", "forest", "urban"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 15
+      lat: 41.55805002939253
+      lng: -4.798321723937988
+      datasetId: S2_L2A_CDAS
+      fromTime: "2018-12-01"
+      toTime: "2019-06-03"
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description of the script

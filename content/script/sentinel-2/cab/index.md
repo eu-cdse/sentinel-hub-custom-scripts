@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["agriculture", "vegetation", "forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 43.5142
+      lng: 16.60103
+      datasetId: S2_L1C_CDAS
+      fromTime: "2023-07-12T00:00:00.000Z"
+      toTime: "2024-01-12T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "30"]
 ---
 
 ## General description of the script

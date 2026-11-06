@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: -33.9912
+      lng: 23.16793
+      datasetId: S2_L1C_CDAS
+      fromTime: "2017-05-05T00:00:00.000Z"
+      toTime: "2017-06-27T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "100"]
 ---
 
 ## General description of the script

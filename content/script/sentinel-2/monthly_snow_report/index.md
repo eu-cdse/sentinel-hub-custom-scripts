@@ -5,6 +5,15 @@ types: ["composite"]
 domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 10
+      lat: 42.77826738996885
+      lng: 0.44219970703125
+      datasetId: S2_L2A_CDAS
+      fromTime: "2015-01-01"
+      toTime: "2019-03-30"
+      additionalQueryParams:
+          - [maxcc, "95"]
 ---
 
 ## General description of the script

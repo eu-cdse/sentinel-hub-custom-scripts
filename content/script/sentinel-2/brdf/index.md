@@ -6,6 +6,15 @@ verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 10
+      lat: -25.56846
+      lng: 138.1723
+      datasetId: S2_L2A_CDAS
+      fromTime: "2022-01-01T00:00:00.000Z"
+      toTime: "2022-01-04T23:59:59.999Z"
+      additionalQueryParams:
+          - [minQa, "NaN"]
 ---
 
 ## General description of the script

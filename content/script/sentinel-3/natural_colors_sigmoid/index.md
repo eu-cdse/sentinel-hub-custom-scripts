@@ -6,6 +6,13 @@ domains: ["preprocessing"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 default: ["default"]
+examples:
+    - zoom: 8
+      lat: 34.196
+      lng: -117.169
+      datasetId: S3OLCI_CDAS
+      fromTime: "2020-01-24T00:00:00.000Z"
+      toTime: "2020-01-24T23:59:59.999Z"
 ---
 
 ## General description of the script
