@@ -6,6 +6,16 @@ verifications: ["cites literature"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m", "60m"]
+examples:
+    - zoom: 11
+      lat: 51.6877
+      lng: 4.80414
+      datasetId: S2_L2A_CDAS
+      fromTime: "2020-09-22T00:00:00.000Z"
+      toTime: "2020-09-22T23:59:59.999Z"
+      evalscript: Ly9WRVJTSU9OPTMKZnVuY3Rpb24gc2V0dXAoKSB7CiAgcmV0dXJuIHsKICAgIGlucHV0OiBbIkIxMSIsIkIwOSIsIkIwMiIsICJkYXRhTWFzayJdLAogICAgb3V0cHV0OiB7IGJhbmRzOiA0IH0KICB9Owp9CgpmdW5jdGlvbiBldmFsdWF0ZVBpeGVsKHNhbXBsZSkgewogIHJldHVybiBbMi41ICogc2FtcGxlLkIxMSwyLjUgKiBzYW1wbGUuQjA5LDIuNSAqIHNhbXBsZS5CMDIsIHNhbXBsZS5kYXRhTWFzayBdOwp9
+      additionalQueryParams:
+          - [minQa, "NaN"]
 ---
 
 ## General description of the script

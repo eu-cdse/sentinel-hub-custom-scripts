@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 10
+      lat: -45.33572
+      lng: 168.43826
+      datasetId: S2_L2A_CDAS
+      fromTime: "2019-09-19T00:00:00.000Z"
+      toTime: "2019-09-19T23:59:59.999Z"
+      evalscript: Ly9WRVJTSU9OPTMKLy9SZWZlcmVuY2U6IGh0dHBzOi8vZWFydGguZXNhLmludC93ZWIvc2VudGluZWwvdGVjaG5pY2FsLWd1aWRlcy9zZW50aW5lbC0yLW1zaS9sZXZlbC0yYS9hbGdvcml0aG0KCmxldCB2aXogPSBuZXcgSWRlbnRpdHkoKTsKCmZ1bmN0aW9uIHNldHVwKCkgewogIHJldHVybiB7CiAgICBpbnB1dDogWyJCMDMiLCAiQjExIiwiQjA0IiwiQjAyIiwiZGF0YU1hc2siXSwKICAgICBvdXRwdXQ6IFsKICAgICAgIHsgaWQ6ICJkZWZhdWx0IiwgYmFuZHM6IDQgfSwKICAgICAgIHsgaWQ6ICJpbmRleCIsIGJhbmRzOiAxLCBzYW1wbGVUeXBlOiAiRkxPQVQzMiIgfQogICAgIF0KICB9Owp9CgpmdW5jdGlvbiBldmFsdWF0ZVBpeGVsKHNhbXBsZXMpIHsKICAgIGxldCB2YWwgPSBpbmRleChzYW1wbGVzLkIwMywgc2FtcGxlcy5CMTEpOwogIAlsZXQgaW1nVmFscyA9IG51bGw7CiAgICAvLyBUaGUgbGlicmFyeSBmb3IgdGlmZnMgd29ya3Mgd2VsbCBvbmx5IGlmIHRoZXJlIGlzIG9ubHkgb25lIGNoYW5uZWwgcmV0dXJuZWQuCiAgICAvLyBTbyB3ZSBlbmNvZGUgdGhlICJubyBkYXRhIiBhcyBOYU4gaGVyZSBhbmQgaWdub3JlIE5hTnMgb24gZnJvbnRlbmQuCiAgICBjb25zdCBpbmRleFZhbCA9IHNhbXBsZXMuZGF0YU1hc2sgPT09IDEgPyB2YWwgOiBOYU47CiAgCiAgICBpZiAodmFsPjAuNDIpIAogICAgICBpbWdWYWxzID0gWzAsMC44LDEsc2FtcGxlcy5kYXRhTWFza107CiAgICBlbHNlIAogICAgICBpbWdWYWxzID0gWzIuNSpzYW1wbGVzLkIwNCwgMi41KnNhbXBsZXMuQjAzLDIuNSpzYW1wbGVzLkIwMixzYW1wbGVzLmRhdGFNYXNrXTsKCQogIAlyZXR1cm4gewogICAgICBkZWZhdWx0OiBpbWdWYWxzLAogICAgICBpbmRleDogW2luZGV4VmFsXSAKICAgIH07Cn0=
+      additionalQueryParams:
+          - [gain, "1.4"]
 ---
 
 ## General description of the script

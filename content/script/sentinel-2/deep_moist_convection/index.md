@@ -3,6 +3,16 @@ title: Detecting Deep Moist Convection Script
 evalscripts: ["script.js"]
 types: ["index"]
 domains: ["atmosphere"]
+examples:
+    - zoom: 10
+      lat: 40.1626081299121
+      lng: 21.917037963867188
+      datasetId: S2_L1C_CDAS
+      fromTime: "2018-10-01"
+      toTime: "2019-04-14"
+      evalscript: LyoKQXV0aG9yIG9mIHRoZSBzY3JpcHQ6IFN0YXZyb3MgRGFmaXMKKi8KCmZ1bmN0aW9uIFMgKGEgLCBiKSB7IHJldHVybiBhIC0gYiB9OwoKbGV0IGdhaW4gPSAyLjU7Cgp2YXIgTUlEQ0wgPSBTKEIwOCwgQjA5KSAKdmFyIERDID0gUyhCMTAsIEIxMikgICAgCnZhciBMT1dDTCA9IFMoQjExLCBCMTApICAgIAoKcmV0dXJuIFtNSURDTCwgREMsIExPV0NMXS5tYXAoYSA9PiBnYWluICogYSk7Cg==
+      additionalQueryParams:
+          - [maxcc, "100"]
 ---
 
 ## General description of the script

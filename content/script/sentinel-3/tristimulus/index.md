@@ -7,6 +7,13 @@ data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 verifications: ["cites literature"]
 default: ["default"]
+examples:
+    - zoom: 9
+      lat: 19.768
+      lng: 93.233
+      datasetId: S3OLCI_CDAS
+      fromTime: "2020-01-27T00:00:00.000Z"
+      toTime: "2020-01-27T23:59:59.999Z"
 ---
 
 ## Description

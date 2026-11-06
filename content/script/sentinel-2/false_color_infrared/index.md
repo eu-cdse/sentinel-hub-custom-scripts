@@ -5,6 +5,13 @@ types: ["composite"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 10
+      lat: 41.77643254375405
+      lng: 12.69744873046875
+      datasetId: S2_L2A_CDAS
+      fromTime: "2023-07-01"
+      toTime: "2023-08-01"
 ---
 
 ## General description

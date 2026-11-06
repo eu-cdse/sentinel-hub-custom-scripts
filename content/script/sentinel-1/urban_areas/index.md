@@ -6,6 +6,13 @@ types: ["composite"]
 resolutions: ["10m"]
 data-sources: ["Sentinel-1"]
 default: ["default"]
+examples:
+    - zoom: 13
+      lat: 44.5126
+      lng: 11.35008
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2019-05-26T00:00:00.000Z"
+      toTime: "2019-05-26T23:59:59.999Z"
 ---
 
 ## General description of the script

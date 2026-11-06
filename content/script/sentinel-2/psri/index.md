@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: 41.9027835
+      lng: 12.496365500000024
+      datasetId: S2_L2A_CDAS
+      fromTime: "2018-08-01"
+      toTime: "2019-02-20"
+      evalscript: Ly9WRVJTSU9OPTMgKGF1dG8tY29udmVydGVkIGZyb20gMSkKCmxldCBtaW5WYWwgPSAtMC4yOwpsZXQgbWF4VmFsID0gMC40OwoKbGV0IHZpeiA9IG5ldyBIaWdobGlnaHRDb21wcmVzc1Zpc3VhbGl6ZXJTaW5nbGUobWluVmFsLCBtYXhWYWwpOwoKZnVuY3Rpb24gZXZhbHVhdGVQaXhlbChzYW1wbGVzKSB7CiAgICBsZXQgdmFsID0gKHNhbXBsZXMuQjA2ID4gMCkgPyAoc2FtcGxlcy5CMDQgLSBzYW1wbGVzLkIwMikgLyBzYW1wbGVzLkIwNiA6IEpBVkFfRE9VQkxFX01BWF9WQUw7CiAgICByZXR1cm4gdml6LnByb2Nlc3ModmFsKTsKfQoKZnVuY3Rpb24gc2V0dXAoKSB7CiAgcmV0dXJuIHsKICAgIGlucHV0OiBbewogICAgICBiYW5kczogWwogICAgICAgICAgIkIwMiIsCiAgICAgICAgICAiQjA0IiwKICAgICAgICAgICJCMDYiCiAgICAgIF0KICAgIH1dLAogICAgb3V0cHV0OiB7IGJhbmRzOiAxIH0gIH0KfQo=
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description

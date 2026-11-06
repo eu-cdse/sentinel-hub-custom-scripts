@@ -6,6 +6,13 @@ default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
 resolutions: ["7km"]
+examples:
+    - zoom: 8
+      lat: 46.60228
+      lng: 15.17212
+      datasetId: S5_NO2_CDAS
+      fromTime: "2024-12-28T00:00:00.000Z"
+      toTime: "2025-01-28T23:59:59.999Z"
 ---
 
 ## General description of the script

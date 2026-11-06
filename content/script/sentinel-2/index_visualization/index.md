@@ -5,6 +5,14 @@ types: ["composite"]
 domains: ["vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 11
+      lat: 49.0874
+      lng: 19.4832
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-07-04T00:00:00.000Z"
+      toTime: "2019-07-04T23:59:59.999Z"
+      evalscript: ZnVuY3Rpb24gdmlzdWFsaXplX2lkeChiYW5kMSwgYmFuZDIsIGdhaW4pIHsKICBsZXQgaWR4ID0gaW5kZXgoYmFuZDEsIGJhbmQyKTsKICByZXR1cm4gW2lkeCwgYmFuZDEqIGdhaW4sIGJhbmQyICogZ2Fpbl07Cn0KLy9sZXQgbmRzaV92aXogPSB2aXN1YWxpemVfaWR4KEIwMywgQjEyLCAxKTsKLy9sZXQgbmR3aV92aXogPSB2aXN1YWxpemVfaWR4KEIwOCwgQjEyLCAxLjUpOwpsZXQgbmR2aV92aXogPSB2aXN1YWxpemVfaWR4KEIwOCwgQjA0LCAyKTsKLy9sZXQgZ25kdmlfdml6ID0gdmlzdWFsaXplX2lkeChCMDgsIEIwMywgMSk7Ci8vbGV0IGJuZHZpX3ZpeiA9IHZpc3VhbGl6ZV9pZHgoQjA4LCBCMDIsIDEuNSk7Ci8vbGV0IGdibmR2aV92aXogPSB2aXN1YWxpemVfaWR4KEIwOCwgQjA0K0IwMywgMSk7CnJldHVybiBuZHZpX3ZpejsK
 ---
 
 ## General description of the script

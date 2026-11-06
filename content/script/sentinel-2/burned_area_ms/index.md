@@ -5,6 +5,14 @@ types: ["composite"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: -21.9374
+      lng: 116.6572
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-01-05T00:00:00.000Z"
+      toTime: "2019-01-05T23:59:59.999Z"
+      evalscript: Ly9WRVJTSU9OPTMKZnVuY3Rpb24gc2V0dXAoKSB7CiAgICByZXR1cm4gewogICAgICAgIGlucHV0OiBbIkIwMiIsICJCMDMiLCAiQjA0IiwgIkIwOCIsICJCMTEiLCAiQjEyIiwgImRhdGFNYXNrIl0sCiAgICAgICAgb3V0cHV0OiB7IGJhbmRzOiA0IH0KICAgICAgfTsKfQoKZnVuY3Rpb24gZXZhbHVhdGVQaXhlbChzYW1wbGVzKSB7Cgl2YXIgTkRXST1pbmRleChzYW1wbGVzLkIwMywgc2FtcGxlcy5CMDgpOyAKCXZhciBORFZJPWluZGV4KHNhbXBsZXMuQjA4LCBzYW1wbGVzLkIwNCk7Cgl2YXIgSU5ERVg9ICgoc2FtcGxlcy5CMTEgLSBzYW1wbGVzLkIxMikgLyAoc2FtcGxlcy5CMTEgKyBzYW1wbGVzLkIxMikpKyhzYW1wbGVzLkIwOCk7CgogIAlpZigoSU5ERVg+MC4xKXx8KHNhbXBsZXMuQjAyPjAuMSl8fChzYW1wbGVzLkIxMTwwLjEpfHwoTkRWST4wLjMpfHwoTkRXSSA+IDAuMSkpewogIAkJcmV0dXJuWzIuNSpzYW1wbGVzLkIwNCwgMi41KnNhbXBsZXMuQjAzLCAyLjUqc2FtcGxlcy5CMDIsIHNhbXBsZXMuZGF0YU1hc2tdCgl9CgllbHNlIHsKIAlyZXR1cm4gWzEsIDAsIDAsIHNhbXBsZXMuZGF0YU1hc2tdCgl9Cn0=
 ---
 
 ## Author of the script

@@ -5,6 +5,17 @@ types: ["index"]
 domains: ["art"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 13
+      lat: 52.64765
+      lng: 5.74326
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-10-30T00:00:00.000Z"
+      toTime: "2019-10-30T23:59:59.999Z"
+      evalscript: dmFyIE5EVkkgPSBpbmRleCAoQjA4LCBCMDQpOyAvLyBjYWxjdWxhdGUgdGhlIGluZGV4IAoKaWYgKE5EVkkgPCAwLjEpIHsgCiAgCXJldHVybiBbMSwgMSwgMV0gLy8gd2hpdGUKfSAKaWYgKE5EVkkgPCAwLjIpIHsgCglyZXR1cm4gWzAuOCwgMC4yLCAwLl0gLy8gbmljZSByZWQKfSAKaWYgKE5EVkkgPCAwLjQpIHsKCXJldHVybiBbMC4yLCAwLjIsIDFdIC8vIG5pY2UgYmx1ZQp9CmlmIChORFZJIDwgMC42KSB7CglyZXR1cm4gWzEuLCAwLjcsIDAuXSAvLyBuaWNlIHllbGxvdwp9IAplbHNlIHsgCglyZXR1cm4gWzAsIDAsIDBdIC8vIGJsYWNrCn0=
+      additionalQueryParams:
+          - [preset, "CUSTOM"]
+          - [layers, "B01,B02,B03"]
 ---
 
 ## General description of the script
