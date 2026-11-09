@@ -4,12 +4,14 @@
     <input type="search" placeholder="Search..." id="text-box">
     <fieldset>
         <legend>Domains</legend>
-        {{ range $domain, $data := site.Taxonomies.domains }}
+        {{ range $key, $pages := site.Taxonomies.domains }}
+            {{ $term := $pages.Page.Data.Term }}
             <div>
                 <input type="checkbox"
-                       name="{{ $domain }}"
+                       id="{{ $key }}-domain"
+                       name="{{ $term }}"
                        class="domain-checkbox">
-                <label for="{{ $domain }}">{{ $domain }}</label>
+                <label for="{{ $key }}-domain">{{ $term }}</label>
             </div>
         {{ end }}
     </fieldset>

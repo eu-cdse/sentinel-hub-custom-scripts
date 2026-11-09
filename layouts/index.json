@@ -1,21 +1,22 @@
 {{- $list := slice -}}
 
 {{- range where .Site.RegularPages "Section" "eq" "script" -}}
-	{{- $taxonomies := dict
-	 	"type" ( .Param "types" )
-	  	"verification" ( .Param "verifications"  )
-	  	"default" ( .Param "default"  )
-	  	"domain" ( .Param "domains"  )
-	  	"data-source" ( .Param "data-sources"  )
-	  	"resolution" ( .Param "resolutions"  )
-	-}}
-	{{- $script := dict
-	    "url" .Permalink
-	    "title" .Title
-	    "content" ( .Content | plainify )
-		"taxonomies" $taxonomies
-	}}
-	{{- $list = $list | append $script -}}
+    {{- $page := . -}}
+    {{- $taxonomies := dict -}}
+    {{- range $taxonomy, $_ := site.Taxonomies -}}
+        {{- $terms := slice -}}
+        {{- range $page.GetTerms $taxonomy -}}
+            {{- $terms = $terms | append .Data.Term -}}
+        {{- end -}}
+        {{- $taxonomies = merge $taxonomies (dict $taxonomy $terms) -}}
+    {{- end -}}
+    {{- $script := dict
+        "url" .Permalink
+        "title" .Title
+        "content" ( .Content | plainify )
+        "taxonomies" $taxonomies
+    -}}
+    {{- $list = $list | append $script -}}
 {{- end -}}
 
 {{- $object := dict "scripts" $list -}}

@@ -15,7 +15,6 @@ class Search {
             keys: [{ name: "title", weight: 2 }, "content"],
             threshold: 0.3,
         });
-        this.index = searchIndex;
     }
     setResultsElement() {
         this.resultsElement = document.getElementById("search-results");
@@ -41,7 +40,7 @@ class Search {
         a.href = result.item.url;
         const title = result.item.title;
         if (matches.length === 0) {
-            a.innerText = title;
+            a.textContent = title;
         } else {
             const indices = matches[0].indices;
             const lastPart = [indices[indices.length - 1][1] + 1, title.length];
@@ -66,7 +65,7 @@ class Search {
                         a.appendChild(document.createTextNode(part));
                     } else {
                         const strong = document.createElement("strong");
-                        strong.innerText = part;
+                        strong.textContent = part;
                         a.appendChild(strong);
                     }
                 });
@@ -92,14 +91,11 @@ class Search {
             });
             return;
         }
-        const filteredResults = results.filter((result) => {
-            if (result.item.taxonomies.domain === null) {
-                return false;
-            }
-            return this.domains.some((domain) =>
-                result.item.taxonomies.domain.includes(domain),
-            );
-        });
+        const filteredResults = results.filter((result) =>
+            this.domains.some((domain) =>
+                result.item.taxonomies.domains.includes(domain),
+            ),
+        );
         filteredResults.forEach((result) => {
             this.addResultElement(result);
         });
@@ -145,28 +141,17 @@ const addTabClickEventHandler = () => {
     );
 };
 
-const debounce = (callback, wait = 150) => {
-    let timeoutId;
-    return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-            callback(...args);
-        }, wait);
-    };
-};
-
 const addFiltering = () => {
     search.setResultsElement();
     document
         .getElementById("search-form")
         ?.addEventListener("submit", (event) => event.preventDefault());
     const searchInput = document.getElementById("text-box");
-    const debouncedHandler = debounce((event) => {
+    searchInput.addEventListener("input", (event) => {
         const value = event.target.value;
         search.setTextValue(value);
         search.filter();
     });
-    searchInput.addEventListener("input", (event) => debouncedHandler(event));
     const domainCheckBoxes = document.getElementsByClassName("domain-checkbox");
     Array.from(domainCheckBoxes).forEach((checkbox) =>
         checkbox.addEventListener("change", (event) => {
@@ -195,7 +180,9 @@ const main = () => {
             .then((data) => {
                 search.initFuse(data.scripts);
             })
-            .catch((reason) => console.warn("Couldn't load search index", reason));
+            .catch((reason) =>
+                console.warn("Couldn't load search index", reason),
+            );
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -204,6 +191,6 @@ const main = () => {
         addTabClickEventHandler();
         addFiltering();
     });
-}
+};
 
-main()
+main();
