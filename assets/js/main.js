@@ -158,7 +158,7 @@ const addFiltering = () => {
         }),
     );
 };
-const loadIndex=()=> {
+const loadIndex = () => {
     const indexUrl = document.getElementById("search-form")?.dataset.indexUrl;
     if (indexUrl) {
         fetch(indexUrl)
@@ -175,10 +175,10 @@ const loadIndex=()=> {
                 console.warn("Couldn't load search index", reason),
             );
     }
-}
+};
 
 const main = () => {
-    loadIndex()
+    loadIndex();
     addCopyEventHandler("copy-script", "script");
     addCopyEventHandler("copy-url", "script-url");
     addTabClickEventHandler();
