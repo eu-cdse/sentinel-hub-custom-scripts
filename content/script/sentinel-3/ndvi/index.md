@@ -1,11 +1,21 @@
 ---
 title: "Normalized Difference Vegetation Index, NDVI"
 evalscripts: ["script.js"]
-type: ["index"]
-domain: ["vegetation"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
+types: ["index"]
+domains: ["vegetation"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
 default: ["default"]
+examples:
+    - zoom: 7
+      lat: 46.78423
+      lng: 0.21095
+      datasetId: S3OLCI_CDAS
+      fromTime: "2022-07-24T00:00:00.000Z"
+      toTime: "2022-07-24T23:59:59.999Z"
+      additionalQueryParams:
+          - [handlePositions, "0,1"]
+          - [gradient, "0xffffff,0x005824"]
 ---
 
 ## General description of the script

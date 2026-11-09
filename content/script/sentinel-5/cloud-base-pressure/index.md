@@ -1,11 +1,18 @@
 ---
 title: Sentinel-5P Cloud Base Pressure
 evalscripts: ["script.js"]
-type: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
+examples:
+    - zoom: 6
+      lat: -17.8742
+      lng: 101.82129
+      datasetId: S5_CLOUD_CDAS
+      fromTime: "2020-01-15T00:00:00.000Z"
+      toTime: "2020-01-15T23:59:59.999Z"
 ---
 
 ## Description

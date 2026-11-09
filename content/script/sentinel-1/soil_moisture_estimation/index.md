@@ -1,12 +1,22 @@
 ---
 title: Soil Moisture Estimation Script
 evalscripts: ["script.js"]
-domain: ["agriculture"]
-type: ["regression"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["agriculture"]
+types: ["regression"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 11
+      lat: 49.58263
+      lng: -97.78971
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2015-10-01T00:00:00.000Z"
+      toTime: "2019-10-31T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "20"]
 ---
 
 ## General description of the script

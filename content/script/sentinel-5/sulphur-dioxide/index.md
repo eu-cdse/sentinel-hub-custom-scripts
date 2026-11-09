@@ -1,11 +1,18 @@
 ---
 title: Sentinel-5P Sulphur Dioxide - SO2
 evalscripts: ["script.js"]
-type: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
+examples:
+    - zoom: 8
+      lat: 38.383
+      lng: 14.474
+      datasetId: S5_SO2_CDAS
+      fromTime: "2019-08-31T00:00:00.000Z"
+      toTime: "2019-08-31T23:59:59.999Z"
 ---
 
 ## Description

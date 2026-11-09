@@ -1,11 +1,18 @@
 ---
 title: High Accuracy Active Fire Point Detection
 evalscripts: ["script.js"]
-type: ["composite"]
-domain: ["fire", "disaster"]
-data-source: ["Sentinel-3"]
-resolution: ["500m"]
+types: ["composite"]
+domains: ["fire", "disasters"]
+data-sources: ["Sentinel-3"]
+resolutions: ["500m"]
 default: ["default"]
+examples:
+    - zoom: 10
+      lat: 37.66916
+      lng: -119.7551
+      datasetId: S3SLSTR_CDAS
+      fromTime: "2018-08-06T00:00:00.000Z"
+      toTime: "2018-08-06T23:59:59.999Z"
 ---
 
 ## General description

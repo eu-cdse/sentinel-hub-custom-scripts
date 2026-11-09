@@ -1,10 +1,10 @@
 ---
 title: Sentinel-1 Multi-temporal Backscatter Coefficient Composite
 evalscripts: ["script.js"]
-domain: ["disasters", "water"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["disasters", "water"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

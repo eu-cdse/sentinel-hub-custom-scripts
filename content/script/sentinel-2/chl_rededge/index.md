@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["agriculture", "vegetation", "forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m"]
+examples:
+    - zoom: 9
+      lat: 45.91486
+      lng: 13.72192
+      datasetId: S2_L2A_CDAS
+      fromTime: "2020-07-09T00:00:00.000Z"
+      toTime: "2020-07-09T23:59:59.999Z"
 ---
 
 The index is based on [Gitelson et al. 2003](https://doi.org/10.1078/0176-1617-00887).

@@ -1,10 +1,18 @@
 ---
 title: "Enhanced true color visualization 2"
 evalscripts: ["script.js"]
-type: ["composite"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
+types: ["composite"]
+domains: ["preprocessing"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
 default: ["default"]
+examples:
+    - zoom: 9
+      lat: -19.898
+      lng: 35.109
+      datasetId: S3OLCI_CDAS
+      fromTime: "2019-03-25T00:00:00.000Z"
+      toTime: "2019-03-25T23:59:59.999Z"
 ---
 
 ## Description

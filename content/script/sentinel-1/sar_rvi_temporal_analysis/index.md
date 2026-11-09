@@ -1,12 +1,19 @@
 ---
 title: Tracking Radar Vegetation Index (Agriculture Development) Script
 evalscripts: ["script.js"]
-domain: ["vegetation", "agriculture"]
-type: ["composite", "index"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["vegetation", "agriculture"]
+types: ["composite", "index"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 11
+      lat: 46.548944380517646
+      lng: 38.01544189453125
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2017-01-01"
+      toTime: "2019-07-30"
 ---
 
 ## General description of the script

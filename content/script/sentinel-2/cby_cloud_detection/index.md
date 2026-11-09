@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 10
+      lat: 46.07609
+      lng: 14.67773
+      datasetId: S2_L1C_CDAS
+      fromTime: "2016-12-06T00:00:00.000Z"
+      toTime: "2017-06-06T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "100"]
 ---
 
 ## General description

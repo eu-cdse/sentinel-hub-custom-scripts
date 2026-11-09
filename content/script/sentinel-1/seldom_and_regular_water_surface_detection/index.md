@@ -1,11 +1,21 @@
 ---
 title: Seldom and Regular Water Surface Detection Script
 evalscripts: ["script.js"]
-domain: ["water", "flood"]
-type: ["classification"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["water", "flood"]
+types: ["classification"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
+examples:
+    - zoom: 13
+      lat: 39.28464
+      lng: -94.86346
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2018-06-01T00:00:00.000Z"
+      toTime: "2019-03-30T23:59:59.999Z"
+      additionalQueryParams:
+          - [orthorectification, '"COPERNICUS"']
+          - [backscatterCoeff, '"GAMMA0_TERRAIN"']
 ---
 
 ## General description of the script

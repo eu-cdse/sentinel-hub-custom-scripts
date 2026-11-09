@@ -1,12 +1,19 @@
 ---
 title: "Normalized Difference Bare Ice Index, NDBI"
 evalscripts: ["script.js"]
-type: ["index"]
-domain: ["water"]
-data-source: ["Sentinel-3"]
-resolution: ["300m"]
-verification: ["cites literature"]
+types: ["index"]
+domains: ["snow and ice"]
+data-sources: ["Sentinel-3"]
+resolutions: ["300m"]
+verifications: ["cites literature"]
 default: ["default"]
+examples:
+    - zoom: 8
+      lat: 62.381
+      lng: -45.736
+      datasetId: S3OLCI_CDAS
+      fromTime: "2019-08-29T00:00:00.000Z"
+      toTime: "2019-08-29T23:59:59.999Z"
 ---
 
 ## General description of the script

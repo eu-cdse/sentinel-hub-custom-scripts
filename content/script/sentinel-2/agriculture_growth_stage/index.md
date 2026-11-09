@@ -5,6 +5,16 @@ types: ["composite"]
 domains: ["agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 11
+      lat: 45.6246
+      lng: 12.42073
+      datasetId: S2_L1C_CDAS
+      fromTime: "2017-06-01T00:00:00.000Z"
+      toTime: "2017-08-31T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "30"]
 ---
 
 ## Author of the script

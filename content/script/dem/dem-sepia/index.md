@@ -2,9 +2,16 @@
 title: DEM Sepia Visualization
 evalscripts: ["script.js"]
 default: ["default"]
-domain: ["geomorphology"]
-data-source: ["DEM"]
-resolution: ["30m"]
+domains: ["geomorphology"]
+data-sources: ["DEM"]
+resolutions: ["30m"]
+examples:
+    - zoom: 10
+      lat: 42.40876
+      lng: 12.00634
+      datasetId: DEM_COPERNICUS_30_CDAS
+      fromTime: "2023-10-02T00:00:00.000Z"
+      toTime: "2023-10-02T23:59:59.999Z"
 ---
 
 ## General description of the script

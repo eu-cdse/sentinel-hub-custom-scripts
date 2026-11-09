@@ -1,11 +1,18 @@
 ---
 title: Reactiv Script
 evalscripts: ["script.js"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 13
+      lat: 30.5219
+      lng: 114.05371
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2018-01-01T00:00:00.000Z"
+      toTime: "2020-09-11T23:59:59.999Z"
 ---
 
 ## General description of the script

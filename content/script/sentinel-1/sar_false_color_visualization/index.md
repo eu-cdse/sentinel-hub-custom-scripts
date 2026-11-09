@@ -1,10 +1,18 @@
 ---
 title: SAR False Color Visualization
 evalscripts: ["script.js"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+types: ["composite"]
+domains: ["preprocessing"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
+examples:
+    - zoom: 12
+      lat: -5.831
+      lng: 105.203
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2019-03-21T00:00:00.000Z"
+      toTime: "2019-03-21T23:59:59.999Z"
 ---
 
 ## Description

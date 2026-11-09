@@ -1,10 +1,18 @@
 ---
 title: Sentinel-3 SLSTR False color composite
 evalscripts: ["script.js"]
-type: ["composite"]
-data-source: ["Sentinel-3"]
-resolution: ["500m"]
+types: ["composite"]
+domains: ["preprocessing"]
+data-sources: ["Sentinel-3"]
+resolutions: ["500m"]
 default: ["default"]
+examples:
+    - zoom: 6
+      lat: 37.77072
+      lng: -110.21484
+      datasetId: S3SLSTR_CDAS
+      fromTime: "2021-06-13T00:00:00.000Z"
+      toTime: "2021-06-13T23:59:59.999Z"
 ---
 
 ## General description

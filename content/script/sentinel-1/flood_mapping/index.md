@@ -1,10 +1,10 @@
 ---
 title: Flood Mapping With Sentinel-1 Script
 evalscripts: ["script.js"]
-domain: ["flood", "disasters", "water"]
-type: ["regression"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["flood", "disasters", "water"]
+types: ["regression"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
 ---
 

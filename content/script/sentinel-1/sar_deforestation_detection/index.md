@@ -1,11 +1,18 @@
 ---
 title: SAR for Deforestation Detection Script
 evalscripts: ["script.js"]
-domain: ["forest", "vegetation"]
-type: ["classification"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["forest", "vegetation"]
+types: ["classification"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
+examples:
+    - zoom: 10
+      lat: -3.1254
+      lng: 113.6286
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2019-11-08T00:00:00.000Z"
+      toTime: "2019-11-08T23:59:59.999Z"
 ---
 
 ## General description of the script

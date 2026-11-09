@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 46.17032
+      lng: 14.19571
+      datasetId: S2_L1C_CDAS
+      fromTime: "2015-10-08"
+      toTime: "2017-10-09"
 ---
 
 ## General description

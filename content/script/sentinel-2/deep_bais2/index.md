@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 9
+      lat: 50.76339
+      lng: 3.01712
+      datasetId: S2_L2A_CDAS
+      fromTime: "2020-02-25T00:00:00.000Z"
+      toTime: "2020-02-25T23:59:59.999Z"
 ---
 
 ## General description of the script

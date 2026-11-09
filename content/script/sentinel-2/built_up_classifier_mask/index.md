@@ -5,6 +5,16 @@ types: ["classification"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m", "60m"]
+examples:
+    - zoom: 13
+      lat: 46.06168
+      lng: 14.51225
+      datasetId: S2_L1C_CDAS
+      fromTime: "2020-03-14T00:00:00.000Z"
+      toTime: "2020-09-14T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "58"]
 ---
 
 ## General description of the script

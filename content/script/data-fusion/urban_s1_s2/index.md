@@ -1,9 +1,9 @@
 ---
 title: Urban detection with Sentinel-1 and Sentinel-2
 evalscripts: ["script.js"]
-domain: ["urban"]
-data-source: ["Data fusion", "Sentinel-1", "Sentinel-2"]
-type: ["classification"]
+domains: ["urban"]
+data-sources: ["Data fusion", "Sentinel-1", "Sentinel-2"]
+types: ["classification"]
 default: ["custom"]
 ---
 

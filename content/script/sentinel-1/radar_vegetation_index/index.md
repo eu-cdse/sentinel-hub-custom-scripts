@@ -1,12 +1,19 @@
 ---
 title: Radar Vegetation Index for Sentinel-1 SAR data - RVI4S1 Script
 evalscripts: ["script.js"]
-domain: ["vegetation", "agriculture"]
-type: ["index"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["vegetation", "agriculture"]
+types: ["index"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 11
+      lat: 49.76752
+      lng: -97.85179
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2019-07-10T00:00:00.000Z"
+      toTime: "2019-07-10T23:59:59.999Z"
 ---
 
 ## General description of the script

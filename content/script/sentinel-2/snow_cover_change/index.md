@@ -2,9 +2,18 @@
 title: Snow Cover Change Detection
 evalscripts: ["script.js"]
 types: ["index"]
-domains: ["water"]
+domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 10
+      lat: 52.142338229345874
+      lng: -117.39921569824219
+      datasetId: S2_L2A_CDAS
+      fromTime: "2015-01-01"
+      toTime: "2018-08-31"
+      additionalQueryParams:
+          - [maxcc, "94"]
 ---
 
 ## General description of the script

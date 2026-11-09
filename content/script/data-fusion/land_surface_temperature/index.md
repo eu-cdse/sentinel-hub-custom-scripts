@@ -1,9 +1,21 @@
 ---
 title: Sentinel-3 Land Surface Temperature Mapping
 evalscripts: ["script.js"]
-data-source: ["Data fusion", "Sentinel-3"]
-type: ["index"]
+data-sources: ["Data fusion", "Sentinel-3"]
+types: ["index"]
 default: ["custom"]
+examples:
+    - zoom: 9
+      lat: 37.41489
+      lng: 13.98834
+      datasetId: S3OLCI_CDAS
+      fromTime: "2023-07-20T00:00:00.000Z"
+      toTime: "2023-07-20T23:59:59.999Z"
+      additionalQueryParams:
+          - [
+                dataFusion,
+                '[{"id":"CDAS_S3OLCI","alias":"S3OLCI"},{"id":"CDAS_S3SLSTR","alias":"S3SLSTR"}]',
+            ]
 ---
 
 ## General description of the script

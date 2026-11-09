@@ -1,11 +1,18 @@
 ---
 title: Sentinel-5P Carbon Monoxide - CO
 evalscripts: ["script.js"]
-type: ["regression"]
+types: ["regression"]
 default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
-resolution: ["7km"]
+resolutions: ["7km"]
+examples:
+    - zoom: 7
+      lat: -36.52748
+      lng: 150.13916
+      datasetId: S5_CO_CDAS
+      fromTime: "2020-01-27T00:00:00.000Z"
+      toTime: "2020-01-27T23:59:59.999Z"
 ---
 
 ## Description

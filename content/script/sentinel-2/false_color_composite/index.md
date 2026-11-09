@@ -5,6 +5,15 @@ types: ["composite"]
 domains: ["geomorphology"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m", "60m"]
+examples:
+    - zoom: 11
+      lat: 45.068671318263945
+      lng: 14.827766418457031
+      datasetId: S2_L2A_CDAS
+      fromTime: "2019-04-16T00:00:00.000Z"
+      toTime: "2019-04-16T23:59:59.999Z"
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description of the script

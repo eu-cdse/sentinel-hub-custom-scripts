@@ -1,12 +1,19 @@
 ---
 title: Radar Vegetation Index Code for Dual Polarimetric Script
 evalscripts: ["script.js", "sentinel_1_mosaics.js"]
-domain: ["agriculture", "vegetation"]
-type: ["index"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["agriculture", "vegetation"]
+types: ["index"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 11
+      lat: 15.9973
+      lng: 80.5751
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2019-11-21T00:00:00.000Z"
+      toTime: "2019-11-21T23:59:59.999Z"
 ---
 
 ## General description of the script

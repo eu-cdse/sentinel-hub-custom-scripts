@@ -5,6 +5,15 @@ types: ["index"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 12
+      lat: 35.174032839292316
+      lng: 35.90675354003906
+      datasetId: S2_L2A_CDAS
+      fromTime: "2021-03-01"
+      toTime: "2021-09-10"
+      additionalQueryParams:
+          - [maxcc, "87"]
 ---
 
 ## Author of the script

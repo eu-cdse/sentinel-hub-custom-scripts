@@ -1,12 +1,19 @@
 ---
 title: "SAR-Ice: A Sea Ice RGB Composite"
 evalscripts: ["script.js"]
-domain: ["water"]
-type: ["composite"]
-resolution: ["10m"]
-data-source: ["Sentinel-1"]
+domains: ["water", "snow and ice"]
+types: ["composite"]
+resolutions: ["10m"]
+data-sources: ["Sentinel-1"]
 default: ["default"]
-verification: ["cites literature"]
+verifications: ["cites literature"]
+examples:
+    - zoom: 9
+      lat: 67.227
+      lng: 46.401
+      datasetId: S1_CDAS_EW_HHHV
+      fromTime: "2018-02-12T00:00:00.000Z"
+      toTime: "2018-02-12T23:59:59.999Z"
 ---
 
 ## General description of the script

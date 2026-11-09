@@ -1,8 +1,8 @@
 ---
 title: DEM Topographic Visualization
 evalscripts: ["script.js"]
-domain: ["geomorphology"]
-data-source: ["DEM"]
+domains: ["geomorphology"]
+data-sources: ["DEM"]
 ---
 
 ## General description of the script
