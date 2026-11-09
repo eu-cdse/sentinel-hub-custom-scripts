@@ -7,7 +7,6 @@
         {{ range $domain, $data := site.Taxonomies.domains }}
             <div>
                 <input type="checkbox"
-                       id="{{ $domain }}"
                        name="{{ $domain }}"
                        class="domain-checkbox">
                 <label for="{{ $domain }}">{{ $domain }}</label>

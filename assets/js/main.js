@@ -1,4 +1,4 @@
-import Fuse from "https://cdn.jsdelivr.net/npm/fuse.js@7.5.0/dist/fuse.mjs";
+import Fuse from "fuse.js";
 
 class Search {
     constructor() {
@@ -35,19 +35,19 @@ class Search {
         }
     }
     addResultElement(result) {
-        const matches = result.matches.filter((match) => match.key == "title");
+        const matches = result.matches.filter((match) => match.key === "title");
         const div = document.createElement("div");
         const a = document.createElement("a");
         a.href = result.item.url;
         const title = result.item.title;
-        if (matches.length == 0) {
+        if (matches.length === 0) {
             a.innerText = title;
         } else {
             const indices = matches[0].indices;
             const lastPart = [indices[indices.length - 1][1] + 1, title.length];
             indices
                 .map((index, i) => {
-                    if (i == 0) {
+                    if (i === 0) {
                         return [
                             [0, index[0]],
                             [index[0], index[1] + 1],
@@ -62,7 +62,7 @@ class Search {
                 .concat([lastPart])
                 .map((part) => title.slice(part[0], part[1]))
                 .forEach((part, i) => {
-                    if (i % 2 == 0) {
+                    if (i % 2 === 0) {
                         a.appendChild(document.createTextNode(part));
                     } else {
                         const strong = document.createElement("strong");

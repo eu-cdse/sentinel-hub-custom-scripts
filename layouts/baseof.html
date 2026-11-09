@@ -12,7 +12,7 @@
             {{ partial "header.html" . }}
         </header>
         <main>
-            <div id="side-bar">{{ partial "side-bar.html" }}</div>
+            <div id="side-bar">{{ partialCached "side-bar.html" . }}</div>
             <div id="main-content">
                 {{ block "main" . }}
                     This will be replaced with content from the
