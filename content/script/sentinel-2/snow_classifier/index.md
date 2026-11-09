@@ -6,6 +6,13 @@ domains: ["snow and ice"]
 verifications: ["cites literature"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 13
+      lat: 46.35647
+      lng: 13.47542
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-10-26"
+      toTime: "2019-10-27"
 ---
 
 ## General description of the script

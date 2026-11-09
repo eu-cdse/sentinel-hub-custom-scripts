@@ -6,6 +6,13 @@ default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
 resolutions: ["7km"]
+examples:
+    - zoom: 4
+      lat: 51.39801
+      lng: 142.64648
+      datasetId: S5_O3_CDAS
+      fromTime: "2020-01-24T00:00:00.000Z"
+      toTime: "2020-01-24T23:59:59.999Z"
 ---
 
 ## Description

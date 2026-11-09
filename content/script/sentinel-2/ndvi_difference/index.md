@@ -5,6 +5,13 @@ types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 15
+      lat: 42.38635
+      lng: 12.4479
+      datasetId: S2_L2A_CDAS
+      fromTime: "2023-06-29T00:00:00.000Z"
+      toTime: "2023-07-29T23:59:59.999Z"
 ---
 
 ## General description

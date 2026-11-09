@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 55.99961
+      lng: -122.43681
+      datasetId: S2_L1C_CDAS
+      fromTime: "2022-09-10T00:00:00.000Z"
+      toTime: "2022-09-10T23:59:59.999Z"
 ---
 
 ## General description

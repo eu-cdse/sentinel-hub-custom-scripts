@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["vegetation", "agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 12
+      lat: 46.62
+      lng: 7.86
+      datasetId: S2_L2A_CDAS
+      fromTime: "2023-09-16T00:00:00.000Z"
+      toTime: "2023-09-16T23:59:59.999Z"
 ---
 
 [Interlaken, Switzerland](http://link.dataspace.copernicus.eu/cft5) (to show green vegetation, bare rock, snow and ice, and clouds together with kNDVI)

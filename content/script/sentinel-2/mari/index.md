@@ -5,6 +5,15 @@ types: ["composite"]
 domains: ["forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 41.956171100940026
+      lng: 12.29095458984375
+      datasetId: S2_L1C_CDAS
+      fromTime: "2018-05-01"
+      toTime: "2018-11-14"
+      additionalQueryParams:
+          - [maxcc, "5"]
 ---
 
 ## General description of the script

@@ -5,6 +5,16 @@ types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 14
+      lat: -13.91488
+      lng: -60.98871
+      datasetId: S2_L1C_CDAS
+      fromTime: "2022-06-16T00:00:00.000Z"
+      toTime: "2022-06-16T23:59:59.999Z"
+      additionalQueryParams:
+          - [handlePositions, "0,1"]
+          - [gradient, "0x000000,0xffffff"]
 ---
 
 ## General description of the script

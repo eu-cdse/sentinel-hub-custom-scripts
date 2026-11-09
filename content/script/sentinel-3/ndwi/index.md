@@ -6,6 +6,16 @@ domains: ["water"]
 data-sources: ["Sentinel-3"]
 resolutions: ["300m"]
 default: ["default"]
+examples:
+    - zoom: 8
+      lat: 43.86351
+      lng: 10.54141
+      datasetId: S3OLCI_CDAS
+      fromTime: "2022-07-20T00:00:00.000Z"
+      toTime: "2022-07-20T23:59:59.999Z"
+      additionalQueryParams:
+          - [handlePositions, "0,1"]
+          - [gradient, "0xffffff,0x005824"]
 ---
 
 ## General description of the script

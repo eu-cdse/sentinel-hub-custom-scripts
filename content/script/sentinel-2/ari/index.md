@@ -6,6 +6,16 @@ verifications: ["cites literature"]
 domains: ["forest", "agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 41.95617
+      lng: 12.29095
+      datasetId: S2_L1C_CDAS
+      fromTime: "2018-05-14T00:00:00.000Z"
+      toTime: "2018-11-14T23:59:59.999Z"
+      additionalQueryParams:
+          - [mosaickingOrder, "mostRecent"]
+          - [cloudCoverage, "5"]
 ---
 
 ## General description of the script

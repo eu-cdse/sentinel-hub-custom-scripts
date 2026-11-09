@@ -5,6 +5,13 @@ types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 12
+      lat: -2.65054
+      lng: -42.67467
+      datasetId: S2_L1C_CDAS
+      fromTime: "2022-08-07T00:00:00.000Z"
+      toTime: "2022-08-07T23:59:59.999Z"
 ---
 
 ## Description

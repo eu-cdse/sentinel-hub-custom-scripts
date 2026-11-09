@@ -5,6 +5,15 @@ types: ["index"]
 domains: ["urban"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 13
+      lat: -23.26295352597338
+      lng: -46.00567817687988
+      datasetId: S2_L2A_CDAS
+      fromTime: "2018-11-01"
+      toTime: "2019-05-31"
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description of the script

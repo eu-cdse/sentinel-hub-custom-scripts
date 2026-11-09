@@ -5,6 +5,16 @@ types: ["composite"]
 domains: ["forest", "agriculture", "fire", "vegetation"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 10
+      lat: 41.9
+      lng: 12.5
+      datasetId: S2_L1C_CDAS
+      fromTime: "2017-10-08"
+      toTime: "2017-10-08"
+      additionalQueryParams:
+          - [preset, "CUSTOM"]
+          - [layers, "B01,B02,B03"]
 ---
 
 ## General description of the script

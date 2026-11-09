@@ -5,6 +5,15 @@ types: ["index"]
 domains: ["fire"]
 data-sources: ["Sentinel-2"]
 resolutions: ["20m"]
+examples:
+    - zoom: 13
+      lat: -37.654266597292256
+      lng: 146.74816131591797
+      datasetId: S2_L1C_CDAS
+      fromTime: "2019-03-04T00:00:00.000Z"
+      toTime: "2019-03-04T23:59:59.999Z"
+      additionalQueryParams:
+          - [maxcc, "20"]
 ---
 
 ## General description of the script

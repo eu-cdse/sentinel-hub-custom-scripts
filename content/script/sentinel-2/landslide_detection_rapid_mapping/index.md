@@ -5,6 +5,15 @@ types: ["index"]
 domains: ["disasters"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 15
+      lat: 15.38928749640127
+      lng: -90.63991069793701
+      datasetId: S2_L2A_CDAS
+      fromTime: "2020-05-01"
+      toTime: "2020-11-11"
+      additionalQueryParams:
+          - [maxcc, "100"]
 ---
 
 ## General description of the script

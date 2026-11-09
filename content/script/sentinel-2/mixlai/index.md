@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["vegetation", "agriculture"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 12
+      lat: 34.59422
+      lng: 46.58478
+      datasetId: S2_L2A_CDAS
+      fromTime: "2020-09-20T00:00:00.000Z"
+      toTime: "2020-09-20T23:59:59.999Z"
 ---
 
 ## General description of the script

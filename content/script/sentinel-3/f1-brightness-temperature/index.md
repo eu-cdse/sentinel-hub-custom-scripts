@@ -6,6 +6,13 @@ domains: ["fire"]
 data-sources: ["Sentinel-3"]
 resolutions: ["1000m"]
 default: ["default"]
+examples:
+    - zoom: 6
+      lat: 33.08234
+      lng: -108.19336
+      datasetId: S3SLSTR_CDAS
+      fromTime: "2021-06-13T00:00:00.000Z"
+      toTime: "2021-06-13T23:59:59.999Z"
 ---
 
 ## General description

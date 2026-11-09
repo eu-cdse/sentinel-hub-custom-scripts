@@ -271,6 +271,34 @@ data-sources: ["Sentinel-2"]
 
 ---
 
+### Adding an Example Link
+
+Add an `examples` entry to the frontmatter to show an **Evaluate and visualize** section with an **Open in Copernicus Browser** button. The button opens the browser at that location and date with your script loaded.
+
+```yaml
+examples:
+    - zoom: 10
+      lat: 46.0569
+      lng: 14.5058
+      datasetId: S2_L2A_CDAS
+      fromTime: "2024-07-01T00:00:00.000Z"
+      toTime: "2024-07-01T23:59:59.999Z"
+      additionalQueryParams:
+          - [maxcc, "20"]
+```
+
+| Field                   | Required | Description                                                                                                                                                                                                                                                                            |
+| :---------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `zoom`, `lat`, `lng`    | yes      | Starting map position: `lat` and `lng` are the latitude and longitude of the map centre, `zoom` is the zoom level.                                                                                                                                                                     |
+| `datasetId`             | yes      | Copernicus Browser dataset ID, e.g. `S2_L2A_CDAS`, `S2_L1C_CDAS`, `S1_CDAS_IW_VVVH`, `S3OLCI_CDAS`, `S5_NO2_CDAS`. See the [full list](https://github.com/eu-cdse/copernicus-browser/blob/main/public/datasets.txt). It is case-sensitive; an unknown ID falls back to Sentinel-2 L2A. |
+| `fromTime`, `toTime`    | yes      | ISO-8601 date or date-time. If the dates differ, the link opens a time range.                                                                                                                                                                                                          |
+| `evalscript`            | no       | Base64-encoded script. Leave it out to link the page's own `script.js` (recommended).                                                                                                                                                                                                  |
+| `additionalQueryParams` | no       | Extra Copernicus Browser URL parameters as `[name, value]` pairs, e.g. cloud coverage (`maxcc`).                                                                                                                                                                                       |
+
+The easiest way to get the values is to set up the view in [Copernicus Browser](https://browser.dataspace.copernicus.eu/) and copy them from the URL.
+
+---
+
 ## 6. How Templates Render Scripts Automatically
 
 The templates in `layouts/script/single.html` contain robust logic designed to automate rendering.
@@ -282,5 +310,6 @@ When Hugo builds a script page it will:
 3.  Generate selection tabs for them automatically.
 4.  Apply server-side syntax highlighting (`transform.Highlight`).
 5.  Generate copy buttons to copy both the code block and the permalink of the raw `.js` file directly.
+6.  Build the **Open in Copernicus Browser** button from `examples`, if the frontmatter has any (see [Adding an Example Link](#adding-an-example-link)).
 
 This means you never need to copy-paste your code blocks into the markdown file manually! Simply keep the `.js` files in your bundle folder.

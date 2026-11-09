@@ -5,6 +5,13 @@ types: ["index"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m", "60m"]
+examples:
+    - zoom: 13
+      lat: 45.958906975029585
+      lng: 15.492095947265625
+      datasetId: S2_L1C_CDAS
+      fromTime: "2020-09-02"
+      toTime: "2020-09-03"
 ---
 
 ## General description of the script

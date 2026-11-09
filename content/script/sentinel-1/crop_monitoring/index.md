@@ -7,6 +7,13 @@ resolutions: ["10m"]
 data-sources: ["Sentinel-1"]
 default: ["default"]
 verifications: ["cites literature"]
+examples:
+    - zoom: 13
+      lat: 44.68397
+      lng: 12.16993
+      datasetId: S1_CDAS_IW_VVVH
+      fromTime: "2017-01-01T00:00:00.000Z"
+      toTime: "2018-08-28T23:59:59.999Z"
 ---
 
 ## General description of the script

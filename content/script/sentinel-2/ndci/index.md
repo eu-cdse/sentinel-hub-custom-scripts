@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["water"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 11
+      lat: 40.03498
+      lng: -119.55734
+      datasetId: S2_L1C_CDAS
+      fromTime: "2021-09-13T00:00:00.000Z"
+      toTime: "2021-09-13T23:59:59.999Z"
 ---
 
 ## General description of the script

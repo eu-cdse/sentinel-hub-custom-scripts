@@ -5,6 +5,15 @@ types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 12
+      lat: 34.23664
+      lng: 127.20074
+      datasetId: S2_L2A_CDAS
+      fromTime: "2024-05-16T00:00:00.000Z"
+      toTime: "2024-05-16T23:59:59.999Z"
+      additionalQueryParams:
+          - [cloudCoverage, "30"]
 ---
 
 ## General description

@@ -5,6 +5,13 @@ types: ["index"]
 domains: ["forest"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m", "20m"]
+examples:
+    - zoom: 14
+      lat: -18.702797593630123
+      lng: 48.444085121154785
+      datasetId: S2_L1C_CDAS
+      fromTime: "2015-01-01T00:00:00.000Z"
+      toTime: "2018-10-18T23:59:59.999Z"
 ---
 
 ## General description of the script

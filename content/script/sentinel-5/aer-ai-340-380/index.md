@@ -6,6 +6,13 @@ default: ["default"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-5P"]
 resolutions: ["7km"]
+examples:
+    - zoom: 6
+      lat: 21.33032
+      lng: -8.37158
+      datasetId: S5_AER_AI_CDAS
+      fromTime: "2019-07-04T00:00:00.000Z"
+      toTime: "2019-07-04T23:59:59.999Z"
 ---
 
 ## Description

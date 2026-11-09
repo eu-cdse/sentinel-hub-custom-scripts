@@ -6,6 +6,13 @@ verifications: ["cites literature"]
 domains: ["atmosphere"]
 data-sources: ["Sentinel-2"]
 resolutions: ["10m"]
+examples:
+    - zoom: 13
+      lat: -75.1347
+      lng: 123.38127
+      datasetId: S2_L2A_CDAS
+      fromTime: "2021-02-08T00:00:00.000Z"
+      toTime: "2021-02-08T23:59:59.999Z"
 ---
 
 ## General description of the script
