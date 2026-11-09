@@ -28,12 +28,7 @@ class Search {
     removeDomain(domain) {
         this.domains = this.domains.filter((d) => d !== domain);
     }
-    removeChildren() {
-        while (this.resultsElement.firstChild) {
-            this.resultsElement.removeChild(this.resultsElement.lastChild);
-        }
-    }
-    addResultElement(result) {
+    createResultElement(result) {
         const matches = result.matches.filter((match) => match.key === "title");
         const div = document.createElement("div");
         const a = document.createElement("a");
@@ -71,10 +66,9 @@ class Search {
                 });
         }
         div.appendChild(a);
-        this.resultsElement.appendChild(div);
+        return div;
     }
     filter() {
-        this.removeChildren();
         if (this.fuse === null) {
             return;
         }
@@ -85,20 +79,18 @@ class Search {
                 return item;
             });
         }
-        if (this.domains.length === 0) {
-            results.forEach((result) => {
-                this.addResultElement(result);
-            });
-            return;
+        let filteredResults = results;
+        if (this.domains.length > 0) {
+            filteredResults = results.filter((result) =>
+                this.domains.some((domain) =>
+                    result.item.taxonomies.domains.includes(domain),
+                ),
+            );
         }
-        const filteredResults = results.filter((result) =>
-            this.domains.some((domain) =>
-                result.item.taxonomies.domains.includes(domain),
-            ),
+        const resultsElements = filteredResults.map((result) =>
+            this.createResultElement(result),
         );
-        filteredResults.forEach((result) => {
-            this.addResultElement(result);
-        });
+        this.resultsElement.replaceChildren(...resultsElements);
     }
 }
 
@@ -131,12 +123,12 @@ const addTabClickEventHandler = () => {
     const tabs = document.querySelectorAll(".tab");
     buttons.forEach((button) =>
         button.addEventListener("click", () => {
-            const button_id = button.id;
-            const tab_id = button_id + "-content";
+            const buttonId = button.id;
+            const tabId = buttonId + "-content";
             buttons.forEach((btn) => btn.classList.remove("selected"));
             button.classList.add("selected");
             tabs.forEach((tab) => tab.classList.remove("selected"));
-            document.getElementById(tab_id).classList.add("selected");
+            document.getElementById(tabId).classList.add("selected");
         }),
     );
 };
@@ -166,8 +158,7 @@ const addFiltering = () => {
         }),
     );
 };
-
-const main = () => {
+const loadIndex=()=> {
     const indexUrl = document.getElementById("search-form")?.dataset.indexUrl;
     if (indexUrl) {
         fetch(indexUrl)
@@ -184,13 +175,14 @@ const main = () => {
                 console.warn("Couldn't load search index", reason),
             );
     }
+}
 
-    document.addEventListener("DOMContentLoaded", () => {
-        addCopyEventHandler("copy-script", "script");
-        addCopyEventHandler("copy-url", "script-url");
-        addTabClickEventHandler();
-        addFiltering();
-    });
+const main = () => {
+    loadIndex()
+    addCopyEventHandler("copy-script", "script");
+    addCopyEventHandler("copy-url", "script-url");
+    addTabClickEventHandler();
+    addFiltering();
 };
 
 main();
