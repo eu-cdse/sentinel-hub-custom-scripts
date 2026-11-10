@@ -34,3 +34,7 @@ default = 'default'
 domain = 'domains'
 data-source = 'data-sources'
 resolution = 'resolutions'
+
+
+[outputs]
+    home = ["HTML","JSON"]

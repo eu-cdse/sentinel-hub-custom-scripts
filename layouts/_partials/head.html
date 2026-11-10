@@ -2,8 +2,9 @@
 <link rel="stylesheet"
       href="{{ $style.RelPermalink }}"
       integrity="{{ $style.Data.Integrity }}">
-{{- $js := resources.Get "js/main.js" | minify | fingerprint -}}
+{{- $opts := dict "format" "esm" "minify" hugo.IsProduction -}}
+{{- $js := resources.Get "js/main.js" | js.Build $opts | fingerprint -}}
 <script src="{{ $js.RelPermalink }}"
         integrity="{{ $js.Data.Integrity }}"
-        defer></script>
-<title>{{ .Site.Title }} - {{ .Title }}</title>
+        type="module"></script>
+<title>{{ site.Title }} - {{ .Title }}</title>

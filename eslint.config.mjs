@@ -64,12 +64,13 @@ export default [
         files: ["assets/js/**/*.js"],
         languageOptions: {
             ecmaVersion: "latest",
-            sourceType: "script",
+            sourceType: "module",
             globals: {
                 console: "readonly",
                 document: "readonly",
                 navigator: "readonly",
                 window: "readonly",
+                fetch: "readonly",
             },
         },
         rules: correctnessRules,

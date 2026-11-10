@@ -1,0 +1,29 @@
+{{- /* Max characters of page text to include for search. */ -}}
+{{- $contentLength := 2000 -}}
+{{- $list := slice -}}
+
+{{- range where site.RegularPages "Section" "eq" "script" -}}
+    {{- $page := . -}}
+    {{- $taxonomies := dict -}}
+    {{- range $taxonomy, $_ := site.Taxonomies -}}
+        {{- $terms := slice -}}
+        {{- range $page.GetTerms $taxonomy -}}
+            {{- $terms = $terms | append .Data.Term -}}
+        {{- end -}}
+        {{- $taxonomies = merge $taxonomies (dict $taxonomy $terms) -}}
+    {{- end -}}
+    {{- $script := dict
+        "url" .RelPermalink
+        "title" .Title
+        "content" ( substr (.Plain | htmlUnescape) 0 $contentLength )
+        "taxonomies" $taxonomies
+    -}}
+    {{- $list = $list | append $script -}}
+{{- end -}}
+
+{{- $object := dict "scripts" $list -}}
+{{- $jsonifyOptions := dict -}}
+{{- if hugo.IsDevelopment -}}
+    {{- $jsonifyOptions = dict "indent" "    " -}}
+{{- end -}}
+{{- $object | jsonify $jsonifyOptions -}}
