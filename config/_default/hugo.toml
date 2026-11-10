@@ -24,6 +24,15 @@ sectionPagesMenu = 'main'
                     block = [['$$', '$$']]
                     inline = [['$(',')$']]
 
+[imaging]
+    # sharper than the default 'box' when downscaling
+    resampleFilter = 'Lanczos'
+    [imaging.webp]
+        compression = 'lossy'
+        # most figures are satellite imagery
+        hint = 'photo'
+        quality = 80
+
 [params]
     math = true
 

@@ -14,7 +14,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            HUGO_VERSION: 0.164.0
+            HUGO_VERSION: 0.169.0
         steps:
             # get the code
             - uses: actions/checkout@v4
@@ -39,6 +39,14 @@ jobs:
             - name: Setup Pages
               id: pages
               uses: actions/configure-pages@v5
+
+            # reuse processed images (resized/WebP) from previous builds
+            - name: Cache processed images
+              uses: actions/cache@v4
+              with:
+                  path: resources/_gen
+                  key: hugo-resources-${{ hashFiles('content/**/*.png', 'content/**/*.PNG', 'content/**/*.jpg', 'content/**/*.JPG', 'content/**/*.jpeg', 'content/**/*.gif', 'config/_default/hugo.toml', 'layouts/_markup/render-image.html') }}
+                  restore-keys: hugo-resources-
 
             # build
             - name: Build

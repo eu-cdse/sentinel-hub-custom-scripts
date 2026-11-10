@@ -1,8 +1,26 @@
 {{- $width := index .Attributes "width" -}}
 {{- $height := index .Attributes "height" -}}
 {{- $align := index .Attributes "align" -}}
-<div class="image {{ with $align}}align-{{.}}{{ end }}">
-    <img src="{{ .Destination | safeURL }}"
+{{- $src := .Destination -}}
+{{- $u := urls.Parse .Destination -}}
+{{- if not $u.IsAbs -}}
+    {{- with $.PageInner.Resources.Get (strings.TrimPrefix "./" $u.Path) -}}
+        {{- $img := . -}}
+        {{- /* tell layouts/script/single.html not to publish the original */ -}}
+        {{- $.PageInner.Store.SetInMap "embeddedImages" .Name true -}}
+        {{- if in (slice "image/jpeg" "image/png" "image/gif") .MediaType.Type -}}
+            {{- /* convert to WebP (animated GIFs stay animated); shrink to fit 1500x1500 */ -}}
+            {{- if or (gt .Width 1500) (gt .Height 1500) -}}
+                {{- $img = .Fit "1500x1500 webp" -}}
+            {{- else -}}
+                {{- $img = .Process "webp" -}}
+            {{- end -}}
+        {{- end -}}
+        {{- $src = $img.RelPermalink -}}
+    {{- end -}}
+{{- end -}}
+<div class="image {{ with $align }}align-{{ . }}{{ end }}">
+    <img src="{{ $src | safeURL }}"
          alt="{{ .Text }}"
          {{ with $width }}width="{{ . }}"
          {{ end }}
