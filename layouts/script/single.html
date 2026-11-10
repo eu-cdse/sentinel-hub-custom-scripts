@@ -48,12 +48,9 @@
     {{ partial "example-links.html" . }}
     {{ .Content }}
     {{- /* publishResources is off for script pages (content/script/_index.md). */ -}}
-    {{- /* Embedded images are published by the render hook as resized/WebP versions; */ -}}
-    {{- /* publish every other bundle file as-is (scripts, PDFs, other images). */ -}}
-    {{- $embedded := .Store.Get "embeddedImages" | default dict -}}
+    {{- /* Publish every bundle file: images as WebP, everything else as-is, */ -}}
+    {{- /* including images that no page references. */ -}}
     {{- range .Resources -}}
-        {{- if not (index $embedded .Name) -}}
-            {{- .Publish -}}
-        {{- end -}}
+        {{- (partial "webp-image.html" .).Publish -}}
     {{- end -}}
 {{ end }}

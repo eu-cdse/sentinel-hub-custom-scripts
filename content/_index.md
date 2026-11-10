@@ -1,5 +1,8 @@
 ---
 title: Collection of custom scripts
+build:
+    # the image render hook publishes custom-scripts-examples.jpg as WebP
+    publishResources: false
 ---
 
 ---
