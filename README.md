@@ -194,6 +194,7 @@ Create an `index.md` file inside `content/script/sentinel-2/my-new-script/` and 
 ---
 title: "My Amazing Custom Script"
 evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
 domains: ["vegetation", "agriculture"]
 ---
 
@@ -261,6 +262,7 @@ Explanation of types:
 ---
 title: "Advanced Agricultural Monitoring"
 evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
 domains: ["agriculture", "vegetation"]
 types: ["index"]
 verifications: ["cites literature"]
@@ -299,17 +301,29 @@ The easiest way to get the values is to set up the view in [Copernicus Browser](
 
 ---
 
-## 6. How Templates Render Scripts Automatically
+## 6. How Templates Render Scripts and Process Graphs Automatically
 
 The templates in `layouts/script/single.html` contain robust logic designed to automate rendering.
 
 When Hugo builds a script page it will:
 
 1.  Read the `evalscripts` list in your frontmatter.
-2.  Grab the `.js` files from the same folder.
-3.  Generate selection tabs for them automatically.
-4.  Apply server-side syntax highlighting (`transform.Highlight`).
-5.  Generate copy buttons to copy both the code block and the permalink of the raw `.js` file directly.
-6.  Build the **Open in Copernicus Browser** button from `examples`, if the frontmatter has any (see [Adding an Example Link](#adding-an-example-link)).
+2.  Read the `process-graphs` list in your frontmatter (optional).
+3.  Grab the `.js` and `.json` files from the same folder.
+4.  Generate selection tabs for them automatically.
+5.  Apply server-side syntax highlighting (`transform.Highlight`) - JavaScript for `.js` files, JSON for `.json` files.
+6.  Generate copy buttons to copy both the code block and the permalink of the raw file directly.
+7.  Build the **Open in Copernicus Browser** button from `examples`, if the frontmatter has any (see [Adding an Example Link](#adding-an-example-link)).
 
-This means you never need to copy-paste your code blocks into the markdown file manually! Simply keep the `.js` files in your bundle folder.
+This means you never need to copy-paste your code blocks into the markdown file manually! Simply keep the `.js` and `.json` files in your bundle folder.
+
+### OpenEO Process Graphs
+
+If your script has an OpenEO process graph equivalent, add it as a JSON file to your bundle folder and reference it in the frontmatter:
+
+```yaml
+evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
+```
+
+The template will create separate tabs for the evalscript and the process graph, with proper JSON syntax highlighting for the process graph.
