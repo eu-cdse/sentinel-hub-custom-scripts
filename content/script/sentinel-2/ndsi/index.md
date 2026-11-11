@@ -1,6 +1,7 @@
 ---
 title: Normalised Difference Snow Index, NDSI
 evalscripts: ["script.js", "raw.js"]
+process-graphs: ["process_graph.json"]
 types: ["index"]
 domains: ["snow and ice"]
 data-sources: ["Sentinel-2"]
