@@ -134,9 +134,11 @@ blockquote {
         }
     }
 }
-#script {
+#script,
+#graph {
     position: relative;
-    #copy-script {
+    #copy-script,
+    #copy-graph {
         position: absolute;
         right: 10px;
         top: 10px;
@@ -157,9 +159,11 @@ pre {
     overflow: auto;
     padding: 5px;
 }
-#script-url {
+#script-url,
+#graph-url {
     position: relative;
-    #copy-url {
+    #copy-url,
+    #copy-graph-url {
         position: absolute;
         right: 10px;
         top: 10px;
