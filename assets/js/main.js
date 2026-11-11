@@ -25,6 +25,8 @@ const addCopyEventHandler = (buttonId, textId) => {
 document.addEventListener("DOMContentLoaded", () => {
     addCopyEventHandler("copy-script", "script");
     addCopyEventHandler("copy-url", "script-url");
+    addCopyEventHandler("copy-graph", "graph");
+    addCopyEventHandler("copy-graph-url", "graph-url");
 
     const buttons = document.querySelectorAll(".tab-button");
     const tabs = document.querySelectorAll(".tab");
