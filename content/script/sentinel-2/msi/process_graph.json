@@ -1,0 +1,52 @@
+{
+    "loadcollection": {
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "sentinel-2-l1c",
+            "spatial_extent": {},
+            "temporal_extent": null,
+            "bands": ["B8A", "B11"],
+            "upsampling": "NEAREST",
+            "downsampling": "BILINEAR"
+        }
+    },
+    "save": {
+        "process_id": "save_result",
+        "arguments": {
+            "data": {
+                "from_node": "colorRamp"
+            },
+            "format": "webp"
+        },
+        "result": true
+    },
+    "index": {
+        "process_id": "ndvi",
+        "arguments": {
+            "data": {
+                "from_node": "loadcollection"
+            },
+            "target_band": "NDVI",
+            "nir": "B8A",
+            "red": "B11"
+        }
+    },
+    "colorRamp": {
+        "process_id": "color_ramp",
+        "arguments": {
+            "data": {
+                "from_node": "index"
+            },
+            "minValue": -1,
+            "maxValue": 1,
+            "colorRamps": [
+                [-0.8, "0x800000"],
+                [-0.24, "0xff0000"],
+                [-0.032, "0xffff00"],
+                [0.032, "0x00ffff"],
+                [0.24, "0x0000ff"],
+                [0.8, " 0x000080"]
+            ]
+        }
+    }
+}

@@ -1,0 +1,203 @@
+{
+    "loadcollection1": {
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "SENTINEL2_L2A",
+            "spatial_extent": {},
+            "temporal_extent": null,
+            "bands": ["B04", "B03", "B02", "B11"],
+            "upsampling": "NEAREST",
+            "downsampling": "BILINEAR"
+        }
+    },
+    "applydimension1": {
+        "process_id": "apply_dimension",
+        "arguments": {
+            "data": {
+                "from_node": "loadcollection1"
+            },
+            "dimension": "bands",
+            "process": {
+                "process_graph": {
+                    "array2": {
+                        "process_id": "array_element",
+                        "arguments": {
+                            "data": {
+                                "from_parameter": "data"
+                            },
+                            "index": 3
+                        }
+                    },
+                    "blue": {
+                        "process_id": "array_element",
+                        "arguments": {
+                            "data": {
+                                "from_parameter": "data"
+                            },
+                            "index": 2
+                        }
+                    },
+                    "green": {
+                        "process_id": "array_element",
+                        "arguments": {
+                            "data": {
+                                "from_parameter": "data"
+                            },
+                            "index": 1
+                        }
+                    },
+                    "red": {
+                        "process_id": "array_element",
+                        "arguments": {
+                            "data": {
+                                "from_parameter": "data"
+                            },
+                            "index": 0
+                        }
+                    },
+                    "add2": {
+                        "process_id": "add",
+                        "arguments": {
+                            "x": {
+                                "from_node": "array2"
+                            },
+                            "y": {
+                                "from_node": "green"
+                            }
+                        }
+                    },
+                    "subtract1": {
+                        "process_id": "subtract",
+                        "arguments": {
+                            "x": {
+                                "from_node": "green"
+                            },
+                            "y": {
+                                "from_node": "array2"
+                            }
+                        }
+                    },
+                    "blue_gain": {
+                        "process_id": "multiply",
+                        "arguments": {
+                            "x": {
+                                "from_node": "blue"
+                            },
+                            "y": 2.5
+                        }
+                    },
+                    "green_gain": {
+                        "process_id": "multiply",
+                        "arguments": {
+                            "x": {
+                                "from_node": "green"
+                            },
+                            "y": 2.5
+                        }
+                    },
+                    "red_gain": {
+                        "process_id": "multiply",
+                        "arguments": {
+                            "x": {
+                                "from_node": "red"
+                            },
+                            "y": 2.5
+                        }
+                    },
+                    "divide3": {
+                        "process_id": "divide",
+                        "arguments": {
+                            "x": {
+                                "from_node": "subtract1"
+                            },
+                            "y": {
+                                "from_node": "add2"
+                            }
+                        }
+                    },
+                    "gt_snow": {
+                        "process_id": "gt",
+                        "arguments": {
+                            "x": {
+                                "from_node": "divide3"
+                            },
+                            "y": 0.42
+                        }
+                    },
+                    "blue_channel": {
+                        "process_id": "if",
+                        "arguments": {
+                            "value": {
+                                "from_node": "lte1"
+                            },
+                            "accept": {
+                                "from_node": "blue_gain"
+                            },
+                            "reject": 1
+                        }
+                    },
+                    "green_channel": {
+                        "process_id": "if",
+                        "arguments": {
+                            "value": {
+                                "from_node": "lte1"
+                            },
+                            "accept": {
+                                "from_node": "green_gain"
+                            },
+                            "reject": 0.8
+                        }
+                    },
+                    "red_channel": {
+                        "process_id": "if",
+                        "arguments": {
+                            "value": {
+                                "from_node": "lte1"
+                            },
+                            "accept": {
+                                "from_node": "red_gain"
+                            },
+                            "reject": 0
+                        }
+                    },
+                    "arraycreate1": {
+                        "process_id": "array_create",
+                        "arguments": {
+                            "data": [
+                                {
+                                    "from_node": "red_channel"
+                                },
+                                {
+                                    "from_node": "green_channel"
+                                },
+                                {
+                                    "from_node": "blue_channel"
+                                }
+                            ]
+                        },
+                        "result": true
+                    },
+                    "lte1": {
+                        "process_id": "lte",
+                        "arguments": {
+                            "x": {
+                                "from_node": "divide3"
+                            },
+                            "y": 0.42
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "saveresult1": {
+        "process_id": "save_result",
+        "arguments": {
+            "data": {
+                "from_node": "applydimension1"
+            },
+            "format": "webp"
+        },
+        "result": true
+    }
+}

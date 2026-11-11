@@ -1,0 +1,34 @@
+{
+    "load2": {
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "sentinel-2-l2a",
+            "spatial_extent": {},
+            "temporal_extent": null,
+            "bands": ["B12", "B11", "B04"],
+            "upsampling": "BILINEAR",
+            "downsampling": "NEAREST"
+        }
+    },
+    "highlight": {
+        "process_id": "highlight_compression",
+        "arguments": {
+            "data": {
+                "from_node": "load2"
+            },
+            "maxInput": 0.4,
+            "clipInput": 0.8,
+            "maxOutput": 1
+        }
+    },
+    "save5": {
+        "process_id": "save_result",
+        "arguments": {
+            "format": "webp",
+            "data": {
+                "from_node": "highlight"
+            }
+        },
+        "result": true
+    }
+}
