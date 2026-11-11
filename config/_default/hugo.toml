@@ -31,7 +31,9 @@ sectionPagesMenu = 'main'
         compression = 'lossy'
         # most figures are satellite imagery
         hint = 'photo'
-        quality = 80
+        quality = 90
+        method = 3
+        useSharpYuv = true
 
 [params]
     math = true
