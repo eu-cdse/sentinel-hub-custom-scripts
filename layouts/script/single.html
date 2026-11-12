@@ -21,9 +21,8 @@
             {{ end }}
             {{ if isset .Params "process-graphs" }}
                 {{ $processGraphs := index .Params "process-graphs" }}
-                {{ $firstGraph := index $processGraphs 0 }}
                 {{ range $processGraphs }}
-                    <div class="tab-button{{ if eq $firstGraph . }} {{ end }}" id="{{ . }}">{{ . }}</div>
+                    <div class="tab-button" id="{{ . }}">{{ . }}</div>
                 {{ end }}
             {{ end }}
         </div>
@@ -52,9 +51,8 @@
             {{ end }}
             {{ if isset .Params "process-graphs" }}
                 {{ $processGraphs := index .Params "process-graphs" }}
-                {{ $firstGraph := index $processGraphs 0 }}
                 {{ range $processGraphs }}
-                    <div class="tab{{ if eq $firstGraph . }} {{ end }}"
+                    <div class="tab"
                          id="{{ . }}-content">
                         {{ with $.Resources.Get . }}
                             {{ $input := .Content }}
