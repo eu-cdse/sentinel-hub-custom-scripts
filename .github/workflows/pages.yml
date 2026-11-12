@@ -45,8 +45,11 @@ jobs:
               uses: actions/cache@v4
               with:
                   path: resources/_gen
-                  key: hugo-resources-${{ hashFiles('content/**/*.png', 'content/**/*.PNG', 'content/**/*.jpg', 'content/**/*.JPG', 'content/**/*.jpeg', 'content/**/*.gif', 'config/_default/hugo.toml', 'layouts/_markup/render-image.html') }}
-                  restore-keys: hugo-resources-
+                  key: hugo-resources-${{ env.HUGO_VERSION }}-${{ hashFiles('content/**/*.png', 'content/**/*.PNG', 'content/**/*.jpg', 'content/**/*.JPG', 'content/**/*.jpeg', 'content/**/*.gif', 'config/_default/hugo.toml', 'layouts/_partials/webp-image.html') }}
+                  # prefer a cache from the same Hugo version, else any older one
+                  restore-keys: |
+                      hugo-resources-${{ env.HUGO_VERSION }}-
+                      hugo-resources-
 
             # build
             - name: Build
