@@ -1,5 +1,14 @@
 {{- $u := urls.Parse .Destination -}}
-<a href="{{ .Destination | safeURL }}"
+{{- $href := .Destination -}}
+{{- if not $u.IsAbs -}}
+    {{- /* links to bundle images point at their WebP version */ -}}
+    {{- with $.PageInner.Resources.Get (strings.TrimPrefix "./" $u.Path) -}}
+        {{- if in (slice "image/jpeg" "image/png" "image/gif") .MediaType.Type -}}
+            {{- $href = (partial "webp-image.html" .).RelPermalink -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+<a href="{{ $href | safeURL }}"
    {{- with .Title }}
    title="{{ . }}"
    {{ end -}}

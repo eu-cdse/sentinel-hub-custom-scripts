@@ -47,4 +47,10 @@
     </div>
     {{ partial "example-links.html" . }}
     {{ .Content }}
+    {{- /* publishResources is off for script pages (content/script/_index.md). */ -}}
+    {{- /* Publish every bundle file: images as WebP, everything else as-is, */ -}}
+    {{- /* including images that no page references. */ -}}
+    {{- range .Resources -}}
+        {{- (partial "webp-image.html" .).Publish -}}
+    {{- end -}}
 {{ end }}
