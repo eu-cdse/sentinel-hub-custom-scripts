@@ -22,11 +22,16 @@ const addCopyEventHandler = (buttonId, textId) => {
         });
     }
 };
+function addCopyEventHandlers() {
+    Array.from(document.getElementsByClassName("copy-button")).forEach(
+        (button) => {
+            const textId = button.id.replace("copy-", "");
+            addCopyEventHandler(button.id, textId);
+        },
+    );
+}
 document.addEventListener("DOMContentLoaded", () => {
-    addCopyEventHandler("copy-script", "script");
-    addCopyEventHandler("copy-url", "script-url");
-    addCopyEventHandler("copy-graph", "graph");
-    addCopyEventHandler("copy-graph-url", "graph-url");
+    add_copy_event_handlers();
 
     const buttons = document.querySelectorAll(".tab-button");
     const tabs = document.querySelectorAll(".tab");
