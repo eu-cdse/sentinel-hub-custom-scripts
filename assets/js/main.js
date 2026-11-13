@@ -118,6 +118,14 @@ const addCopyEventHandler = (buttonId, textId) => {
         );
     });
 };
+const addCopyEventHandlers = () => {
+    Array.from(document.getElementsByClassName("copy-button")).forEach(
+        (button) => {
+            const textId = button.id.replace("copy-", "");
+            addCopyEventHandler(button.id, textId);
+        },
+    );
+};
 const addTabClickEventHandler = () => {
     const buttons = document.querySelectorAll(".tab-button");
     const tabs = document.querySelectorAll(".tab");
@@ -176,15 +184,6 @@ const loadIndex = () => {
             );
     }
 };
-
-function addCopyEventHandlers() {
-    Array.from(document.getElementsByClassName("copy-button")).forEach(
-        (button) => {
-            const textId = button.id.replace("copy-", "");
-            addCopyEventHandler(button.id, textId);
-        },
-    );
-}
 
 const main = () => {
     loadIndex();
