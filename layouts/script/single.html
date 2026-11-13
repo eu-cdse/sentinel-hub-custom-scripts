@@ -33,16 +33,16 @@
                     {{ with $.Resources.Get . }}
                         {{ $input := .Content }}
                         {{ $lang := "js" }}
-                        <div id="script">
+                        <div id="text-{{ . }}" class="code-block">
                             <button type="button"
-                                    id="copy-script"
+                                    id="copy-text-{{ . }}"
                                     class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                             {{ transform.Highlight $input $lang }}
                         </div>
                         Script url:
-                        <div id="script-url">
+                        <div id="url-{{ . }}" class="url-block">
                             <button type="button"
-                                    id="copy-url"
+                                    id="copy-url-{{ . }}"
                                     class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                             {{ transform.Highlight .Permalink "http" }}
                         </div>
@@ -57,16 +57,16 @@
                         {{ with $.Resources.Get . }}
                             {{ $input := .Content }}
                             {{ $lang := "json" }}
-                            <div id="graph">
+                            <div id="text-{{ . }}" class="code-block">
                                 <button type="button"
-                                        id="copy-graph"
+                                        id="copy-text-{{ . }}"
                                         class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                                 {{ transform.Highlight $input $lang }}
                             </div>
                             Process graph url:
-                            <div id="graph-url">
+                            <div id="url-{{ . }}" class="url-block">
                                 <button type="button"
-                                        id="copy-graph-url"
+                                        id="copy-url-{{ . }}"
                                         class="copy-button">{{ partial "icons/copy-icon.html" . }}</button>
                                 {{ transform.Highlight .Permalink "http" }}
                             </div>
