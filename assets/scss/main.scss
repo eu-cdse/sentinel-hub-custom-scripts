@@ -138,9 +138,9 @@ blockquote {
         }
     }
 }
-#script {
+.code-block {
     position: relative;
-    #copy-script {
+    .copy-button {
         position: absolute;
         right: 10px;
         top: 10px;
@@ -161,9 +161,9 @@ pre {
     overflow: auto;
     padding: 5px;
 }
-#script-url {
+.url-block {
     position: relative;
-    #copy-url {
+    .copy-button {
         position: absolute;
         right: 10px;
         top: 10px;

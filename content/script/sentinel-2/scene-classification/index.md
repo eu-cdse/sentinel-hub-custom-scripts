@@ -1,6 +1,7 @@
 ---
 title: Sentinel-2 L2A Scene Classification Map
 evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
 types: ["classification"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]

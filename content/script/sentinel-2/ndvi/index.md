@@ -1,6 +1,7 @@
 ---
 title: Normalized difference vegetation index
 evalscripts: ["script.js", "raw.js"]
+process-graphs: ["process_graph.json"]
 types: ["index"]
 verifications: ["cites literature"]
 domains: ["vegetation", "agriculture"]

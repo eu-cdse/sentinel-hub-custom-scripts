@@ -1,0 +1,39 @@
+{
+    "load2": {
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "sentinel-2-l2a",
+            "spatial_extent": {},
+            "temporal_extent": null,
+            "bands": ["B04", "B03", "B02"],
+            "upsampling": "BILINEAR",
+            "downsampling": "NEAREST"
+        }
+    },
+    "trueColor": {
+        "process_id": "true_color",
+        "arguments": {
+            "data": {
+                "from_node": "load2"
+            },
+            "maxR": 3,
+            "midR": 0.13,
+            "sat": 1.2,
+            "gamma": 1.8,
+            "gOff": 0.01,
+            "red": "B04",
+            "green": "B03",
+            "blue": "B02"
+        }
+    },
+    "save5": {
+        "process_id": "save_result",
+        "arguments": {
+            "format": "webp",
+            "data": {
+                "from_node": "trueColor"
+            }
+        },
+        "result": true
+    }
+}

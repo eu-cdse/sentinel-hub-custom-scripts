@@ -118,6 +118,14 @@ const addCopyEventHandler = (buttonId, textId) => {
         );
     });
 };
+const addCopyEventHandlers = () => {
+    Array.from(document.getElementsByClassName("copy-button")).forEach(
+        (button) => {
+            const textId = button.id.replace("copy-", "");
+            addCopyEventHandler(button.id, textId);
+        },
+    );
+};
 const addTabClickEventHandler = () => {
     const buttons = document.querySelectorAll(".tab-button");
     const tabs = document.querySelectorAll(".tab");
@@ -179,8 +187,7 @@ const loadIndex = () => {
 
 const main = () => {
     loadIndex();
-    addCopyEventHandler("copy-script", "script");
-    addCopyEventHandler("copy-url", "script-url");
+    addCopyEventHandlers();
     addTabClickEventHandler();
     addFiltering();
 };

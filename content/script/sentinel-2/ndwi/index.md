@@ -1,6 +1,7 @@
 ---
 title: NDWI Normalized Difference Water Index
 evalscripts: ["script.js", "raw.js"]
+process-graphs: ["process_graph.json"]
 types: ["index"]
 domains: ["agriculture", "vegetation"]
 data-sources: ["Sentinel-2"]

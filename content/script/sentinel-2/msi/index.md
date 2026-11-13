@@ -1,6 +1,7 @@
 ---
 title: Moisture index
 evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
 types: ["composite"]
 domains: ["forest", "agriculture", "fire", "vegetation"]
 data-sources: ["Sentinel-2"]
