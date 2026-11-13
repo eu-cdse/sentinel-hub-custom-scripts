@@ -1,8 +1,15 @@
 {{- $width := index .Attributes "width" -}}
 {{- $height := index .Attributes "height" -}}
 {{- $align := index .Attributes "align" -}}
-<div class="image {{ with $align}}align-{{.}}{{ end }}">
-    <img src="{{ .Destination | safeURL }}"
+{{- $src := .Destination -}}
+{{- $u := urls.Parse .Destination -}}
+{{- if not $u.IsAbs -}}
+    {{- with $.PageInner.Resources.Get (strings.TrimPrefix "./" $u.Path) -}}
+        {{- $src = (partial "webp-image.html" .).RelPermalink -}}
+    {{- end -}}
+{{- end -}}
+<div class="image {{ with $align }}align-{{ . }}{{ end }}">
+    <img src="{{ $src | safeURL }}"
          alt="{{ .Text }}"
          {{ with $width }}width="{{ . }}"
          {{ end }}

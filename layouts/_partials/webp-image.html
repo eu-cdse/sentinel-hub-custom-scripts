@@ -1,0 +1,11 @@
+{{- /* Returns the web version of a page resource: JPG, PNG and GIF (animated too) */ -}}
+{{- /* become WebP, shrunk to fit 1500x1500. Anything else is returned unchanged. */ -}}
+{{- $img := . -}}
+{{- if in (slice "image/jpeg" "image/png" "image/gif") .MediaType.Type -}}
+    {{- if or (gt .Width 1500) (gt .Height 1500) -}}
+        {{- $img = .Fit "1500x1500 webp" -}}
+    {{- else -}}
+        {{- $img = .Process "webp" -}}
+    {{- end -}}
+{{- end -}}
+{{- return $img -}}

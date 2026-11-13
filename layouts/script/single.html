@@ -2,7 +2,7 @@
     <h2>{{ .Title }}</h2>
     <!--<pre> {{  .Page.Params |  debug.Dump }}</pre> -->
     <div id="taxonomies">
-        {{ range $key, $value := .Site.Taxonomies }}
+        {{ range $key, $value := site.Taxonomies }}
             {{ if isset $.Page.Params $key }}
                 <div class="bullet">
                     <span class="taxonomy">{{ $key }}</span>:
@@ -78,4 +78,10 @@
     </div>
     {{ partial "example-links.html" . }}
     {{ .Content }}
+    {{- /* publishResources is off for script pages (content/script/_index.md). */ -}}
+    {{- /* Publish every bundle file: images as WebP, everything else as-is, */ -}}
+    {{- /* including images that no page references. */ -}}
+    {{- range .Resources -}}
+        {{- (partial "webp-image.html" .).Publish -}}
+    {{- end -}}
 {{ end }}

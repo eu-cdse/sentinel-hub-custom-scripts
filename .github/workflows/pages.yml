@@ -14,7 +14,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            HUGO_VERSION: 0.164.0
+            HUGO_VERSION: 0.169.0
         steps:
             # get the code
             - uses: actions/checkout@v4
@@ -27,10 +27,29 @@ jobs:
                   curl -sL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb" -o hugo.deb
                   sudo dpkg -i hugo.deb
 
+            # install npm dependencies that js.Build bundles (fuse.js)
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 22
+                  cache: npm
+
+            - run: npm ci
+
             # ask GitHub for URL
             - name: Setup Pages
               id: pages
               uses: actions/configure-pages@v5
+
+            # reuse processed images (resized/WebP) from previous builds
+            - name: Cache processed images
+              uses: actions/cache@v4
+              with:
+                  path: resources/_gen
+                  key: hugo-resources-${{ env.HUGO_VERSION }}-${{ hashFiles('content/**/*.png', 'content/**/*.PNG', 'content/**/*.jpg', 'content/**/*.JPG', 'content/**/*.jpeg', 'content/**/*.gif', 'config/_default/hugo.toml', 'layouts/_partials/webp-image.html') }}
+                  # prefer a cache from the same Hugo version, else any older one
+                  restore-keys: |
+                      hugo-resources-${{ env.HUGO_VERSION }}-
+                      hugo-resources-
 
             # build
             - name: Build
