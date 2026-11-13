@@ -31,7 +31,7 @@ function addCopyEventHandlers() {
     );
 }
 document.addEventListener("DOMContentLoaded", () => {
-    add_copy_event_handlers();
+    addCopyEventHandlers();
 
     const buttons = document.querySelectorAll(".tab-button");
     const tabs = document.querySelectorAll(".tab");
