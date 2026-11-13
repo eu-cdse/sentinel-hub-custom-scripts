@@ -17,7 +17,8 @@
         <div class="tab-buttons">
             {{ $firstEval := index .Params.evalscripts 0 }}
             {{ range .Params.evalscripts }}
-                <div class="tab-button{{ if eq $firstEval . }} selected{{ end }}" id="{{ . }}">{{ . }}</div>
+                <div class="tab-button{{ if eq $firstEval . }} selected{{ end }}"
+                     id="{{ . }}">{{ . }}</div>
             {{ end }}
             {{ if isset .Params "process-graphs" }}
                 {{ $processGraphs := index .Params "process-graphs" }}
@@ -52,8 +53,7 @@
             {{ if isset .Params "process-graphs" }}
                 {{ $processGraphs := index .Params "process-graphs" }}
                 {{ range $processGraphs }}
-                    <div class="tab"
-                         id="{{ . }}-content">
+                    <div class="tab" id="{{ . }}-content">
                         {{ with $.Resources.Get . }}
                             {{ $input := .Content }}
                             {{ $lang := "json" }}
