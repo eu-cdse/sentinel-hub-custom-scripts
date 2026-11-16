@@ -172,7 +172,6 @@ Create an `index.md` file inside `content/script/sentinel-2/my_new_script/` and 
 ---
 title: "My Amazing Custom Script"
 evalscripts: ["script.js"]
-process-graphs: ["process_graph.json"]
 domains: ["vegetation", "agriculture"]
 ---
 
@@ -311,7 +310,7 @@ The templates in `layouts/script/single.html` contain robust logic designed to a
 When Hugo builds a script page it will:
 
 1.  Read the `evalscripts` list in your frontmatter.
-2.  Read the `process-graphs` list in your frontmatter (optional).
+2.  Read the `process-graphs` list in your frontmatter.
 3.  Grab the `.js` and `.json` files from the same folder.
 4.  Generate selection tabs for them automatically.
 5.  Apply server-side syntax highlighting (`transform.Highlight`) - JavaScript for `.js` files, JSON for `.json` files.
