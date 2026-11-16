@@ -190,10 +190,13 @@ Example 1:
 ```
 
 #### Step 4.5: Create a Pull Request
+
 Once your new bundle folder is ready, you can open a new Pull Request in https://github.com/eu-cdse/sentinel-hub-custom-scripts/pulls for review.
 
 ### How to Add an openEO Process Graph
+
 If you wish to add an openEO process graph instead of a Sentinel Hub custom script, the steps are very similar. Instead of adding your JavaScript file to the bundle folder, add your process graph in JSON. Then, you can reference it in the `index.md` frontmatter with the `process-graphs` key as:
+
 ```markdown
 ---
 title: "My Amazing openEO process graph"
@@ -201,7 +204,9 @@ process-graphs: ["process\_graph.json"]
 domains: ["vegetation", "agriculture"]
 ---
 ```
+
 Note that, only the following collections support openEO process graphs in the Copernicus Browser:
+
 - S2L1C
 - S2L2A
 - S2 Annual Mosaic
