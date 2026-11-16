@@ -227,7 +227,8 @@ Prettier also covers SCSS, YAML and JSON.
 
 ##### Installing additional tools for site development
 
-Everything except djlint is installed with npm, so if you haven't installed Node.js and npm yet, check [Step 6](#step-6-format-and-lint-your-changes).
+Everything except djlint is installed with npm, so if you haven't installed Node.js and npm yet, check [Installing the required tools
+](#installing-the-required-tools).
 
 djlint is a Python tool. It is run through [uv](https://docs.astral.sh/uv/), which downloads it on first use, so there is nothing else to install:
 
