@@ -4,35 +4,11 @@
 
 This repository contains a collection of custom scripts for the [Copernicus Browser](https://browser.dataspace.copernicus.eu/) and the [Sentinel Hub APIs](https://dataspace.copernicus.eu/analyse/apis/sentinel-hub) on the [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/).
 
-Custom scripts are a piece of Javascript code, used to visualize satellite imagery and to control what values the Sentinel Hub services will return. Any visualization of any constellation (e.g. Sentinel-2 satellite), even a simple true color composite, is dictated by a custom script.
+Custom scripts (or evalscripts) are a piece of Javascript code, used to visualize satellite imagery and to control what values the Sentinel Hub services will return. Any visualization of any constellation (e.g. Sentinel-2 satellite), even a simple true color composite, is dictated by a custom script.
 
-See [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript/V3.html) for more information on how to write your own evalscript.
+See [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html) for an introduction to evalscripts and [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript/Functions.html) for more details on how to write and structure your own evalscript. You can also find a guide on how to contribute and add a new custom script to this repository in [Section 4](#4-how-to-add-a-new-custom-script).
 
-## Contribute to Custom Scripts
-
-Have a look at the [template](./contribute/example) for an example of how a script folder can be structured.
-
-You can also have a look at other scripts to see how they are structured.
-
-For instructions on how custom scripts are structured have a look at this [YouTube tutorial](https://www.youtube.com/watch?v=0OySOAL9lY4), or at the [official documentation](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html).
-
-## How to publish your own product
-
-- Fork the repository to get your own copy of the custom-scripts repository
-
-- Create a new directory entry for your custom script  
-  _Copy the `example` directory to proper directory, based on which datasource (satellite) you are publishing the product for, to something that describes what the product is about, say `my_algorithm`._  
-  _Preferably use ["snake_case"](https://simple.wikipedia.org/wiki/Snake_case) (underscores instead of spaces) if more than one word is used._
-- Fill in the details about the project in the `README.md` file.  
-  _Have a look around at other `README.md` files to see how to include images, format the text and generally use the GitHub [markdown](https://help.github.com/categories/writing-on-github/)._
-- Implement the product in the `script.js` file located in a `scripts` folder.
-  _The most work is of course the JavaScript implementation of the product. The `example` folder includes a basic custom script to help you build your own custom script._
-
-- If you want to include images in your `README.md` file, add them to the `figs` folder.
-
-- Create a pull request.
-
-Publishing your product should be easy, nevertheless, any feedback and ideas how to improve or make the process simpler is very appreciated.
+The repository also hosts [openEO process graphs](https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html), that can as well be used for visualisation in the Copernicus Browser. For details on how to contribute by adding a new process graph to this repository, see [How to Add an openEO Process Graph](#how-to-add-an-openeo-process-graph).
 
 # Development
 
@@ -160,7 +136,7 @@ Here is how the repository is organized:
 
 ## 4. How to Add a New Custom Script
 
-Custom scripts in this project are managed as **Hugo Leaf Bundles** (directories containing an `index.md` and related local assets). This isolates script codes, preview images, and markup descriptions.
+Custom scripts in this project are managed as **Hugo Leaf Bundles** (directories containing an `index.md` and related local assets; for details see the [official documentation](https://gohugo.io/content-management/organization/)). This isolates script codes, preview images, and markup descriptions.
 
 ### Step-by-Step Instructions
 
@@ -212,6 +188,26 @@ Explain what is depicted in the figures.
 Example 1:
 ![Visualisation using My Custom Script](fig/example_output.png)
 ```
+
+#### Step 4.5: Create a Pull Request
+Once your new bundle folder is ready, you can open a new Pull Request in https://github.com/eu-cdse/sentinel-hub-custom-scripts/pulls for review.
+
+### How to Add an openEO Process Graph
+If you wish to add an openEO process graph instead of a Sentinel Hub custom script, the steps are very similar. Instead of adding your JavaScript file to the bundle folder, add your process graph in JSON. Then, you can reference it in the `index.md` frontmatter with the `process-graphs` key as:
+```markdown
+---
+title: "My Amazing openEO process graph"
+process-graphs: ["process\_graph.json"]
+domains: ["vegetation", "agriculture"]
+---
+```
+Note that, only the following collections support openEO process graphs in the Copernicus Browser:
+- S2L1C
+- S2L2A
+- S2 Annual Mosaic
+- S2 Quarterly Mosaic
+- S1 GRD Monthly Mosaic DH
+- S1 GRD Monthly Mosaic IW
 
 ---
 
