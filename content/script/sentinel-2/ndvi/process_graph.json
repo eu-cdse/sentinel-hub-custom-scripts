@@ -1,0 +1,59 @@
+{
+    "loadcollection": {
+        "process_id": "load_collection",
+        "arguments": {
+            "id": "sentinel-2-l2a",
+            "spatial_extent": {},
+            "temporal_extent": ["2022-03-26T00:00:00Z", "2022-03-26T23:59:59Z"],
+            "bands": ["B04", "B08"],
+            "upsampling": "NEAREST",
+            "downsampling": "BILINEAR"
+        }
+    },
+    "save": {
+        "process_id": "save_result",
+        "arguments": {
+            "data": {
+                "from_node": "colorRamp"
+            },
+            "format": "webp"
+        },
+        "result": true
+    },
+    "ndvi4": {
+        "process_id": "ndvi",
+        "arguments": {
+            "data": {
+                "from_node": "loadcollection"
+            },
+            "target_band": "NDVI",
+            "nir": "B08",
+            "red": "B04"
+        }
+    },
+    "colorRamp": {
+        "process_id": "color_ramp",
+        "arguments": {
+            "data": {
+                "from_node": "ndvi4"
+            },
+            "minValue": -1,
+            "maxValue": 1,
+            "colorRamps": [
+                [-1, "0x0c0c0c"],
+                [-0.5, "0xbfbfbf"],
+                [0, "0xeaeaea"],
+                [0.025, "0xfffacc"],
+                [0.05, "0xfffefa"],
+                [0.075, "0xbcb76b"],
+                [0.1, "0xccc782"],
+                [0.125, "0xbdb86b"],
+                [0.175, "0xa3cc59"],
+                [0.2, "0x91bf51"],
+                [0.25, "0x81b347"],
+                [0.4, "0x81b347"],
+                [1, "0x004500"]
+            ]
+        }
+    }
+}
