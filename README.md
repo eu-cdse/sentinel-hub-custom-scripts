@@ -4,143 +4,22 @@
 
 This repository contains a collection of custom scripts for the [Copernicus Browser](https://browser.dataspace.copernicus.eu/) and the [Sentinel Hub APIs](https://dataspace.copernicus.eu/analyse/apis/sentinel-hub) on the [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/).
 
-Custom scripts (or evalscripts) are a piece of Javascript code, used to visualize satellite imagery and to control what values the Sentinel Hub services will return. Any visualization of any constellation (e.g. Sentinel-2 satellite), even a simple true color composite, is dictated by a custom script.
+Custom scripts (or evalscripts) are a piece of Javascript code, used to visualize satellite imagery and to control what values the Sentinel Hub services will return. Any visualization of any constellation (e.g. Sentinel-2 satellite), even a simple true color composite, is dictated by a custom script. You can find an introduction to evalscripts [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html) and more details on how to write and structure your own evalscript [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript/Functions.html).
 
-See [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript.html) for an introduction to evalscripts and [here](https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Evalscript/Functions.html) for more details on how to write and structure your own evalscript. You can also find a guide on how to contribute and add a new custom script to this repository in [Section 4](#4-how-to-add-a-new-custom-script).
-
-The repository also hosts [openEO process graphs](https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html), that can as well be used for visualisation in the Copernicus Browser. For details on how to contribute by adding a new process graph to this repository, see [How to Add an openEO Process Graph](#how-to-add-an-openeo-process-graph).
-
-# Development
-
-## 1. Technology Stack
-
-- **SSG:** Hugo (extended version recommended for Sass processing).
-- **Styling:** SCSS (preprocessed using Hugo Pipes).
-- **Interactivity:** Vanilla JavaScript for search, sidebars, and tab selectors.
+If you would like to contribute and add a new custom script to this repository, please see [Section 1](#1-how-to-add-a-new-custom-script) and [Section 2](#2-working-with-taxonomies-and-metadata). Section 3 and onwards are only relevant for site development. The repository also hosts [openEO process graphs](https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html), that can be used for visualisation in the Copernicus Browser. For details on how to contribute by adding a new process graph to this repository, see [How to Add an openEO Process Graph](#how-to-add-an-openeo-process-graph).
 
 ---
 
-## 2. Local Development Setup
+## 1. How to Add a New Custom Script
 
-To run this project locally, you need to [install](https://gohugo.io/installation/) the latest version of Hugo, then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
-
-_**Warning:**_ If you are using Ubuntu or Debian, apt version of Hugo is considerably older. Install with snap.
-
-### Prerequisites
-
-#### Linux (Debian/Ubuntu)
-
-We recommend installing the **extended** version of Hugo for Sass/SCSS compiling:
-
-```bash
-sudo apt install hugo
-```
-
-#### macOS (Homebrew)
-
-```bash
-brew install hugo
-```
-
-#### Windows (Chocolatey)
-
-```bash
-choco install hugo-extended -confirm
-```
-
-### Running the Site
-
-1. Clone this repository and open the project directory.
-2. Spin up the development server:
-    ```bash
-    hugo server
-    ```
-3. Open your browser and go to `http://localhost:1313`.
-
-The local server supports hot-reloading: changes to your Markdown content, JS, or SCSS files will instantly refresh the page in the browser.
-
-### Formatting and Linting
-
-| Files          | Formatter | Linter       |
-| -------------- | --------- | ------------ |
-| Markdown       | Prettier  | markdownlint |
-| JavaScript     | Prettier  | ESLint       |
-| Hugo templates | djlint    | djlint       |
-
-Prettier also covers SCSS, YAML and JSON.
-
-#### Installing the tools
-
-Everything except djlint is installed with npm, so you need [Node.js](https://nodejs.org/):
-
-```bash
-npm install
-```
-
-djlint is a Python tool. It is run through [uv](https://docs.astral.sh/uv/), which downloads it on first use, so there is nothing else to install:
-
-```bash
-brew install uv                                   # macOS
-curl -LsSf https://astral.sh/uv/install.sh | sh   # Linux
-choco install uv -confirm                         # Windows
-```
-
-#### Running them
-
-```bash
-npm run format                   # Markdown, JS, SCSS, YAML, JSON
-npm run format:check             # report only, does not write
-
-npm run format:templates         # Hugo templates
-npm run format:templates:check   # report only, does not write
-
-npm run lint                     # ESLint and markdownlint
-npm run lint:templates           # djlint
-```
-
-`npm run lint` needs Node only, so you can check a content change without installing the Python tooling. The two `:templates` commands need uv.
-
----
-
-## 3. Project Structure
-
-Here is how the repository is organized:
-
-```text
-/sentinel-hub-custom-scripts/
-├── config/                  # Environment-based site configurations
-│   ├── _default/            # Global/default configuration
-│   │   └── hugo.toml        # Defines site title, taxonomies, syntax highlighting
-│   ├── development/
-│   └── production/
-├── content/                 # Site pages & script documentation
-│   ├── _index.md            # Home page configuration and introduction
-│   └── script/              # Script directories grouped by sensor
-│       └── sentinel-5/
-├── layouts/                 # HTML Templates & Partials
-│   ├── baseof.html          # Shell layout (HTML wrapper, grid, head, footer)
-│   ├── home.html            # Main landing page template
-│   ├── _partials/           # Shared components (headers, footers, icons)
-│   └── script/              # Templates specifically for the script pages
-│       ├── list.html        # Sensor/listing page template
-│       └── single.html      # Individual script page template (with interactive tabs)
-├── assets/                  # Assets compiled & processed by Hugo Pipes
-│   ├── js/
-│   │   └── main.js          # Client-side logic (tab selection, copying, sidebar)
-│   └── scss/
-│       └── main.scss        # Site styling
-└── static/                  # Static assets copied directly to build output
-```
-
----
-
-## 4. How to Add a New Custom Script
-
-Custom scripts in this project are managed as **Hugo Leaf Bundles** (directories containing an `index.md` and related local assets; for details see the [official documentation](https://gohugo.io/content-management/organization/)). This isolates script codes, preview images, and markup descriptions.
+The technology used in this project to generate custom script pages is [Hugo](https://gohugo.io/). Custom scripts are managed as **Hugo Leaf Bundles** (directories containing an `index.md` and related local assets; for details see the [official documentation](https://gohugo.io/content-management/organization/)). This isolates script codes, preview images, and markup descriptions.
 
 ### Step-by-Step Instructions
 
-#### Step 4.1: Create a Leaf Bundle Folder
+#### Step 1: Fork and clone this repository
+Before you can start creating your custom script contribution, make sure to [fork this repository](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo) to your GitHub account, and [clone it](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to create a local copy on your computer.
+
+#### Step 2: Create a Leaf Bundle Folder
 
 Navigate to the directory of the respective satellite sensor (inside `content/script/<sensor>/`) and create a new directory for your script:
 
@@ -150,7 +29,7 @@ mkdir -p content/script/sentinel-2/my_new_script/fig
 
 _Preferably use ["snake_case"](https://simple.wikipedia.org/wiki/Snake_case) (underscores instead of spaces) if more than one word is used._
 
-#### Step 4.2: Add the Source Code File
+#### Step 3: Add the Source Code File
 
 Place the raw Sentinel Hub JavaScript file into your new directory:
 
@@ -158,13 +37,13 @@ Place the raw Sentinel Hub JavaScript file into your new directory:
 
 _Note: You can include multiple JS files if your script has variations (e.g., `script_v1.js`, `script_v2.js`). You will reference these in the metadata._
 
-#### Step 4.3: Add Preview Figures
+#### Step 4: Add Preview Figures
 
 Save representative screenshots (e.g., comparison images showing the visual outputs or specific highlights) inside your `fig/` folder:
 
 - `content/script/sentinel-2/my_new_script/fig/example_output.png`
 
-#### Step 4.4: Create the `index.md` and Configure Frontmatter
+#### Step 5: Create the `index.md` and Configure Frontmatter
 
 Create an `index.md` file inside `content/script/sentinel-2/my_new_script/` and configure the metadata at the top (frontmatter):
 
@@ -191,22 +70,34 @@ Example 1:
 ![Visualisation using My Custom Script](fig/example_output.png)
 ```
 
-#### Step 4.5: Format and Lint Your Changes
+#### Step 6: Format and Lint Your Changes
 
 Before opening a Pull Request, ensure your contribution passes formatting and linting checks. These checks are enforced in CI and your PR will fail if they don't pass.
 
-First, install the required tools if you haven't already (see [Installing the tools](#installing-the-tools) in Section 2 for details). Then, run formatting and linting (see [Running them](#running-them) in Section 2 for all available commands):
+##### Installing the required tools
+
+The required linting and formatting tools in this project are ran with [Node.js](https://nodejs.org/). First, download and install Node.js by following the steps indicated [here](https://nodejs.org/en/download) for your OS.
+
+Then, from your local repository clone, open a terminal and use `npm` (Node Package Manager) in the repo root to install the required Node.js tools:
 
 ```bash
-npm run format
-npm run lint
+npm install # One-time setup: installs Prettier, ESLint, markdownlint
 ```
 
-If the remote PR check fails with `npm run format:check`, run `npm run format` locally to fix formatting issues.
+##### Running the tools
 
-#### Step 4.6: Create a Pull Request
+Once the tools are successfully installed, you can run them as follows before committing:
+
+```bash
+npm run format # Markdown, JS, SCSS, YAML, JSON
+npm run lint   # ESLint and markdownlint
+```
+
+#### Step 7: Create a Pull Request
 
 Once your new bundle folder is ready and passes all checks, you can open a new Pull Request in https://github.com/eu-cdse/sentinel-hub-custom-scripts/pulls for review.
+
+---
 
 ### How to Add an openEO Process Graph
 
@@ -220,7 +111,7 @@ domains: ["vegetation", "agriculture"]
 ---
 ```
 
-Note that, only the following collections support openEO process graphs in the Copernicus Browser:
+Note that only the following collections support openEO process graphs in the Copernicus Browser:
 
 - S2L1C
 - S2L2A
@@ -231,7 +122,7 @@ Note that, only the following collections support openEO process graphs in the C
 
 ---
 
-## 5. Working with Taxonomies & Metadata
+## 2. Working with Taxonomies and Metadata
 
 Taxonomies are configured globally in `config/_default/hugo.toml`. They enable filtering, tags, and robust categorization across the site.
 
@@ -316,7 +207,127 @@ The easiest way to get the values is to set up the view in [Copernicus Browser](
 
 ---
 
-## 6. How Templates Render Scripts and Process Graphs Automatically
+## 3. Local Development Setup
+
+### Technology Stack
+
+- **SSG:** Hugo (extended version recommended for Sass processing).
+- **Styling:** SCSS (preprocessed using Hugo Pipes).
+- **Interactivity:** Vanilla JavaScript for search, sidebars, and tab selectors.
+
+### Formatting and Linting
+
+| Files          | Formatter | Linter       |
+| -------------- | --------- | ------------ |
+| Markdown       | Prettier  | markdownlint |
+| JavaScript     | Prettier  | ESLint       |
+| Hugo templates | djlint    | djlint       |
+
+Prettier also covers SCSS, YAML and JSON.
+
+##### Installing additional tools for site development
+
+Everything except djlint is installed with npm, so if you haven't installed Node.js and npm yet, check [Step 6](#step-6-format-and-lint-your-changes).
+
+djlint is a Python tool. It is run through [uv](https://docs.astral.sh/uv/), which downloads it on first use, so there is nothing else to install:
+
+```bash
+brew install uv                                   # macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh   # Linux
+choco install uv -confirm                         # Windows
+```
+
+##### Running the additional tools
+
+```bash
+npm run format                   # Markdown, JS, SCSS, YAML, JSON
+npm run format:check             # report only, does not write
+
+npm run format:templates         # Hugo templates
+npm run format:templates:check   # report only, does not write
+
+npm run lint                     # ESLint and markdownlint
+npm run lint:templates           # djlint
+```
+
+`npm run lint` needs Node only, so you can check a content change without installing the Python tooling. The two `:templates` commands need uv.
+
+---
+
+### Running the project locally
+
+To run this project locally, you need to [install](https://gohugo.io/installation/) the latest version of Hugo, then see the [documentation](https://gohugo.io/about/introduction/) about how hugo works.
+
+_**Warning:**_ If you are using Ubuntu or Debian, apt version of Hugo is considerably older. Install with snap.
+
+#### Prerequisites
+
+##### Linux (Debian/Ubuntu)
+
+We recommend installing the **extended** version of Hugo for Sass/SCSS compiling:
+
+```bash
+sudo apt install hugo
+```
+
+##### macOS (Homebrew)
+
+```bash
+brew install hugo
+```
+
+##### Windows (Chocolatey)
+
+```bash
+choco install hugo-extended -confirm
+```
+
+#### Running the Site
+
+1. Clone this repository and open the project directory.
+2. Spin up the development server:
+    ```bash
+    hugo server
+    ```
+3. Open your browser and go to `http://localhost:1313`.
+
+The local server supports hot-reloading: changes to your Markdown content, JS, or SCSS files will instantly refresh the page in the browser.
+
+---
+
+## 4. Project Structure
+
+Here is how the repository is organized:
+
+```text
+/sentinel-hub-custom-scripts/
+├── config/                  # Environment-based site configurations
+│   ├── _default/            # Global/default configuration
+│   │   └── hugo.toml        # Defines site title, taxonomies, syntax highlighting
+│   ├── development/
+│   └── production/
+├── content/                 # Site pages & script documentation
+│   ├── _index.md            # Home page configuration and introduction
+│   └── script/              # Script directories grouped by sensor
+│       └── sentinel-5/
+├── layouts/                 # HTML Templates & Partials
+│   ├── baseof.html          # Shell layout (HTML wrapper, grid, head, footer)
+│   ├── home.html            # Main landing page template
+│   ├── _partials/           # Shared components (headers, footers, icons)
+│   └── script/              # Templates specifically for the script pages
+│       ├── list.html        # Sensor/listing page template
+│       └── single.html      # Individual script page template (with interactive tabs)
+├── assets/                  # Assets compiled & processed by Hugo Pipes
+│   ├── js/
+│   │   └── main.js          # Client-side logic (tab selection, copying, sidebar)
+│   └── scss/
+│       └── main.scss        # Site styling
+└── static/                  # Static assets copied directly to build output
+```
+
+---
+
+## 5. How Templates Render Scripts and Process Graphs Automatically
 
 The templates in `layouts/script/single.html` contain robust logic designed to automate rendering.
 
