@@ -145,14 +145,16 @@ Custom scripts in this project are managed as **Hugo Leaf Bundles** (directories
 Navigate to the directory of the respective satellite sensor (inside `content/script/<sensor>/`) and create a new directory for your script:
 
 ```bash
-mkdir -p content/script/sentinel-2/my-new-script/fig
+mkdir -p content/script/sentinel-2/my_new_script/fig
 ```
+
+_Preferably use ["snake_case"](https://simple.wikipedia.org/wiki/Snake_case) (underscores instead of spaces) if more than one word is used._
 
 #### Step 4.2: Add the Source Code File
 
 Place the raw Sentinel Hub JavaScript file into your new directory:
 
-- `content/script/sentinel-2/my-new-script/script.js`
+- `content/script/sentinel-2/my_new_script/script.js`
 
 _Note: You can include multiple JS files if your script has variations (e.g., `script_v1.js`, `script_v2.js`). You will reference these in the metadata._
 
@@ -160,11 +162,11 @@ _Note: You can include multiple JS files if your script has variations (e.g., `s
 
 Save representative screenshots (e.g., comparison images showing the visual outputs or specific highlights) inside your `fig/` folder:
 
-- `content/script/sentinel-2/my-new-script/fig/example_output.png`
+- `content/script/sentinel-2/my_new_script/fig/example_output.png`
 
 #### Step 4.4: Create the `index.md` and Configure Frontmatter
 
-Create an `index.md` file inside `content/script/sentinel-2/my-new-script/` and configure the metadata at the top (frontmatter):
+Create an `index.md` file inside `content/script/sentinel-2/my_new_script/` and configure the metadata at the top (frontmatter):
 
 ```markdown
 ---
