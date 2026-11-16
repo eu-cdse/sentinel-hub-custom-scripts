@@ -1,6 +1,7 @@
 ---
 title: Highlight Optimized Natural Color Script
 evalscripts: ["script.js"]
+process-graphs: ["process_graph.json"]
 types: ["composite"]
 domains: ["preprocessing"]
 data-sources: ["Sentinel-2"]
