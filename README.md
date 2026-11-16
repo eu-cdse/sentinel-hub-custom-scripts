@@ -197,7 +197,7 @@ Once your new bundle folder is ready, you can open a new Pull Request in https:/
 
 ### How to Add an openEO Process Graph
 
-If you wish to add an openEO process graph instead of a Sentinel Hub custom script, the steps are very similar. Instead of adding your JavaScript file to the bundle folder, add your process graph in JSON. Then, you can reference it in the `index.md` frontmatter with the `process-graphs` key as:
+If you wish to add an openEO process graph, the steps are very similar. Instead of adding a JavaScript file to the bundle folder, add your process graph as a JSON file. Then, you can reference it in the `index.md` frontmatter with the `process-graphs` key as:
 
 ```markdown
 ---
@@ -318,14 +318,3 @@ When Hugo builds a script page it will:
 7.  Build the **Open in Copernicus Browser** button from `examples`, if the frontmatter has any (see [Adding an Example Link](#adding-an-example-link)).
 
 This means you never need to copy-paste your code blocks into the markdown file manually! Simply keep the `.js` and `.json` files in your bundle folder.
-
-### OpenEO Process Graphs
-
-If your script has an OpenEO process graph equivalent, add it as a JSON file to your bundle folder and reference it in the frontmatter:
-
-```yaml
-evalscripts: ["script.js"]
-process-graphs: ["process_graph.json"]
-```
-
-The template will create separate tabs for the evalscript and the process graph, with proper JSON syntax highlighting for the process graph.
