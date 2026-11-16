@@ -191,9 +191,22 @@ Example 1:
 ![Visualisation using My Custom Script](fig/example_output.png)
 ```
 
-#### Step 4.5: Create a Pull Request
+#### Step 4.5: Format and Lint Your Changes
 
-Once your new bundle folder is ready, you can open a new Pull Request in https://github.com/eu-cdse/sentinel-hub-custom-scripts/pulls for review.
+Before opening a Pull Request, ensure your contribution passes formatting and linting checks. These checks are enforced in CI and your PR will fail if they don't pass.
+
+First, install the required tools if you haven't already (see [Installing the tools](#installing-the-tools) in Section 2 for details). Then, run formatting and linting (see [Running them](#running-them) in Section 2 for all available commands):
+
+```bash
+npm run format
+npm run lint
+```
+
+If the remote PR check fails with `npm run format:check`, run `npm run format` locally to fix formatting issues.
+
+#### Step 4.6: Create a Pull Request
+
+Once your new bundle folder is ready and passes all checks, you can open a new Pull Request in https://github.com/eu-cdse/sentinel-hub-custom-scripts/pulls for review.
 
 ### How to Add an openEO Process Graph
 
