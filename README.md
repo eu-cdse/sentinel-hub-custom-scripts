@@ -17,6 +17,7 @@ The technology used in this project to generate custom script pages is [Hugo](ht
 ### Step-by-Step Instructions
 
 #### Step 1: Fork and clone this repository
+
 Before you can start creating your custom script contribution, make sure to [fork this repository](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo) to your GitHub account, and [clone it](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to create a local copy on your computer.
 
 #### Step 2: Create a Leaf Bundle Folder
