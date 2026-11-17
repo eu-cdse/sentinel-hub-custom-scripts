@@ -1,6 +1,6 @@
 # Copernicus Data Space Ecosystem Sentinel Hub Custom Scripts Repository
 
-![Examples of visualizations](./assets/images/custom-scripts-examples.jpg)
+![Examples of visualizations](./content/custom-scripts-examples.jpg)
 
 This repository contains a collection of custom scripts for the [Copernicus Browser](https://browser.dataspace.copernicus.eu/) and the [Sentinel Hub APIs](https://dataspace.copernicus.eu/analyse/apis/sentinel-hub) on the [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/).
 
