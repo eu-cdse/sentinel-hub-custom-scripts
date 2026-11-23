@@ -176,7 +176,7 @@ function evaluatePixel(samples) {
 licence comments go after it.
 
 Two scripts in this repo get this wrong today and are worth looking at as counter-examples:
-`content/script/sentinel-2/aesthetic-neon/script.js` (line 4) and
+`content/script/sentinel-2/aesthetic_neon/script.js` (line 4) and
 `content/script/sentinel-1/seldom_and_regular_water_surface_detection/script.js` (line 31).
 Also watch for `//VERSION 3` without the `=` — upstream has several
 (`custom-scripts/sentinel-2/ndwi/script.js`, `.../kndvi/*.js`). Neither form is the documented
@@ -223,7 +223,7 @@ This is the step most often done wrong. In a V1 statement-form script:
   colour ramps, tuning parameters, and visualizer instances. Top-level code runs once, before
   `evaluatePixel`, so constructing a `ColorRampVisualizer` there is the correct pattern.
 
-`content/script/sentinel-1/sar-ice/script.js` shows the split cleanly — `overlay`, `stretch` and
+`content/script/sentinel-1/sar_ice/script.js` shows the split cleanly — `overlay`, `stretch` and
 `gamma` stayed where they were; only the six `var` lines that touch `HH`/`HV` moved:
 
 ```javascript
@@ -274,7 +274,7 @@ function evaluatePixel(samples) {
 ```
 
 (`content/script/sentinel-1/sar_false_color_visualization/script.js`, commit `06f99c67`; same
-technique in `content/script/sentinel-3/enhanced_true_color-2/script.js`.) This is the safest
+technique in `content/script/sentinel-3/enhanced_true_color_2/script.js`.) This is the safest
 option when the goal is a provably identical visual result.
 
 **c. Bracket access** — required when the band name is not a valid JS identifier or is held in
@@ -288,7 +288,7 @@ function evaluatePixel(samples) {
 }
 ```
 
-(`content/script/sentinel-5/aerosol-concentrations/script.js`.)
+(`content/script/sentinel-5/aer_ai_340_380/script.js`.)
 
 Also convert V1's `samples[0].B03` → `samples.B03` when the script is single-scene. Keep the
 index only under `ORBIT`/`TILE` mosaicking (§8).
@@ -432,10 +432,10 @@ Other useful pairs to read side by side:
 | Case                                                | Before (upstream `custom-scripts`)                 | After (this repo `content/script`) |
 | --------------------------------------------------- | -------------------------------------------------- | ---------------------------------- |
 | Boolean band expression, `dataMask` as a V1 global  | `sentinel-1/urban_areas/script.js`                 | `sentinel-1/urban_areas/script.js` |
-| Top-level helpers preserved                         | `sentinel-1/sar-ice/script.js`                     | `sentinel-1/sar-ice/script.js`     |
+| Top-level helpers preserved                         | `sentinel-1/sar_ice/script.js`                     | `sentinel-1/sar_ice/script.js`     |
 | `colorBlend` + early returns, four return paths     | `sentinel-3/vegetation_monitoring_masks/script.js` | same path                          |
 | `colorBlend` → `ColorRampVisualizer` + multi-output | `sentinel-3/otci/script.js`                        | same path                          |
-| Local aliases, mutable top-level state              | `sentinel-3/enhanced_true_color-2/script.js`       | same path                          |
+| Local aliases, mutable top-level state              | `sentinel-3/enhanced_true_color_2/script.js`       | same path                          |
 
 ---
 
@@ -449,7 +449,7 @@ Top-level code runs **once**; `evaluatePixel` runs **per pixel**. A V1 statement
 one execution per pixel for everything, so it could freely reassign its own top-level variables.
 After the wrapper is added, the same line accumulates across the whole image.
 
-`enhanced_true_color-2` hit this. V1 had:
+`enhanced_true_color_2` hit this. V1 had:
 
 ```javascript
 var saturation = 0.0;
@@ -574,7 +574,7 @@ Consequences when converting:
   `sample.dataMask * 255` under `UINT8`, `* 65535` under `UINT16`.
 - Both `sampleType: "UINT16"` and `sampleType: SampleType.UINT16` work in V3; the string form is
   the repo default and the enum form survives in older files
-  (`content/script/sentinel-3/land_surface_temperature/script.js`). Don't convert one to the
+  (`content/script/sentinel-2/interpolated_time_series/script.js`). Don't convert one to the
   other for its own sake.
 - `nodataValue` is TIFF-only — it sets the GDAL nodata metadata tag.
 - Under OGC, the bit depth in `FORMAT` is ignored; `sampleType` decides it.
@@ -612,7 +612,7 @@ use `browserStats` and one — `content/script/sentinel-3/GIFAPAR_color/script.j
 `eobrowserStats`; upstream is the other way round, with ~46 on the old name. Use `browserStats`
 in anything you write or convert; don't rename a working script just to update it.
 
-Reference implementations to copy: `content/script/dem/dem-color/script.js` and
+Reference implementations to copy: `content/script/dem/dem_color/script.js` and
 `content/script/sentinel-3/otci/script.js`.
 
 Do **not** split a script into `script.js` + `raw.js` + `eob.js`. Upstream has many such
