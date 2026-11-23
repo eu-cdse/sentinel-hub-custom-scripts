@@ -7,7 +7,7 @@ catalogue of evalscripts for the [Copernicus Browser](https://browser.dataspace.
 and the Sentinel Hub APIs, published as a Hugo static site.
 
 - Scripts live under `content/script/<data-source>/<script_name>/` (e.g.
-  `content/script/sentinel-3/GIFAPAR_color/`).
+  `content/script/sentinel-3/gifapar_color/`).
 - Each script folder holds `script.js`, an `index.md` with Hugo front matter, and a `fig/`
   folder for the example images the `index.md` references.
 - Directory names use `snake_case` or `kebab-case`; both appear in the tree.

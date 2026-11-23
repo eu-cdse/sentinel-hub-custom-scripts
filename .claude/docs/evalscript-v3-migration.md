@@ -608,7 +608,7 @@ Once `output` is an array, `evaluatePixel` must return an **object keyed by outp
 
 **Name the stats output `browserStats`.** The older `eobrowserStats` dates from EO Browser,
 which has been discontinued in favour of Copernicus Browser. Both work. In this repo 14 scripts
-use `browserStats` and one — `content/script/sentinel-3/GIFAPAR_color/script.js` — still uses
+use `browserStats` and one — `content/script/sentinel-3/gifapar_color/script.js` — still uses
 `eobrowserStats`; upstream is the other way round, with ~46 on the old name. Use `browserStats`
 in anything you write or convert; don't rename a working script just to update it.
 
